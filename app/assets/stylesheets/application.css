@@ -14,8 +14,10 @@
  *= require_self
  */
 
- body {
-     background-color: rgb(36, 36, 36);
-     color: white;
-     font-family: "Open Sans", sans-serif;
+body {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    font-family: "Open Sans", sans-serif;
  }
+
+ @import "modal.css"
