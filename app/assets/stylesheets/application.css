@@ -14,10 +14,12 @@
  *= require_self
  */
 
+@import "reset.css";
+
 body {
     background-color: rgb(30, 30, 30);
     color: white;
-    font-family: "Open Sans", sans-serif;
+    font-family: Open Sans,sans-serif;
  }
 
- @import "modal.css"
+ @import "modal.css";

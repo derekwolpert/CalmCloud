@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,17 +27,18 @@ class SessionForm extends React.Component {
         this.props.processForm(user).then(this.props.closeModal);
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
+    renderErrors() {
+        return (
+            <ul className="session-modal-form-errors">
+                {this.props.errors.map((err, idx) => {
+                    return (
+                        <li className="session-modal-form-error" key={`error-${idx}`}>{err}</li>
+                    )
+                })}
+            </ul>
+        );
+    };
+
 
     header() {
         if (this.props.formType === 'login') {
@@ -46,15 +46,15 @@ class SessionForm extends React.Component {
                 <header>
                     <ul className="session-form-tabs">
                         <li className="session-modal-active">
-                            <a>Login</a>
+                            <a className="session-modal-link-active">Login</a>
                         </li>
                         <li className="session-modal-inactive">
                             {this.props.otherForm}
                         </li>
-                        <li onClick={this.props.closeModal} className="session-modal-close-x">
-                            <FontAwesomeIcon icon={faTimes} />
-                        </li>
                     </ul>
+                    <a onClick={this.props.closeModal} className="session-modal-close-x">
+                        <FontAwesomeIcon icon={faTimes} />
+                    </a>
                 </header>
             )
         }
@@ -67,27 +67,43 @@ class SessionForm extends React.Component {
                             {this.props.otherForm}
                         </li>
                         <li className="session-modal-inactive">
-                            <a>Sign Up</a>
-                        </li>
-                        <li onClick={this.props.closeModal} className="session-modal-close-x">
-                            <FontAwesomeIcon icon={faTimes} />
-                        </li>
+                            <a className="session-modal-link-active">Sign Up</a>
+                        </li>  
                     </ul>
+                    <a onClick={this.props.closeModal} className="session-modal-close-x">
+                        <FontAwesomeIcon icon={faTimes} />
+                    </a>
                 </header>
             )
+        }
+    }
+
+    footer() {
+        if (this.props.formType === 'login') {
+            return (
+                <footer>
+                    New to CalmCloud? You can {this.props.otherFormFooter}.
+                </footer>
+            );
+        }
+
+        if (this.props.formType === 'signup') {
+            return (
+                <footer>
+                    Already using CalmCloud? {this.props.otherFormFooter}.
+                </footer>
+            );
         }
     }
 
     render() {
 
         if (this.props.formType === 'login') {
-
             return (
                 <div className="session-form-container">
                     {this.header()}
-                    <br />
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        
+                        {this.renderErrors()}
                         <div className="session-form">
                             <input type="text"
                                 value={this.state.login}
@@ -100,26 +116,23 @@ class SessionForm extends React.Component {
                                 value={this.state.password}
                                 placeholder={"Enter your password"}
                                 onChange={this.update('password')}
-                                className="login-input"
+                                className="session-input"
                             />
                             <br />
                             <input className="session-submit" type="submit" value="Log In" />
                         </div>
+                        {this.footer()}
                     </form>
                 </div>
             );
         }
         
-
-
         if (this.props.formType === 'signup') {
-
             return (
                 <div className="session-form-container">
                     {this.header()}
-                    <br />
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-
+                        {this.renderErrors()}
                         <div className="session-form">
                             <input type="text"
                                 value={this.state.email}
@@ -128,14 +141,12 @@ class SessionForm extends React.Component {
                                 className="session-input"
                             />
                             <br />
-
                             <input type="text"
                                 value={this.state.username}
                                 placeholder={"Enter username"}
                                 onChange={this.update('username')}
                                 className="session-input"
                             />
-
                             <br />
                             <input type="password"
                                 value={this.state.password}
@@ -146,14 +157,11 @@ class SessionForm extends React.Component {
                             <br />
                             <input className="session-submit" type="submit" value="Sign Up" />
                         </div>
+                        {this.footer()}
                     </form>
                 </div>
             );
         }
-
-
-
-
     }
 }
 

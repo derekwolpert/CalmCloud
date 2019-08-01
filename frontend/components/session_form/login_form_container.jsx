@@ -1,7 +1,6 @@
 
 import { connect } from 'react-redux';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { login } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import SessionForm from './session_form';
@@ -17,9 +16,14 @@ const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
         otherForm: (
-            <button onClick={() => dispatch(openModal('signup'))}>
+            <a onClick={() => dispatch(openModal('signup'))} className="session-modal-link-inactive">
                 Sign Up
-            </button>
+            </a>
+        ),
+        otherFormFooter: (
+            <a onClick={() => dispatch(openModal('signup'))} className="session-modal-link-inactive">
+                sign up here
+            </a>
         ),
         closeModal: () => dispatch(closeModal()),
     };
