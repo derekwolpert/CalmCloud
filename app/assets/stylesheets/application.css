@@ -20,6 +20,10 @@ body {
     background-color: rgb(30, 30, 30);
     color: white;
     font-family: Open Sans,sans-serif;
- }
+    width: 100%;
+    position: absolute;
+}
 
- @import "modal.css";
+@import ".header.css";
+@import "modal.css";
+@import "splash.css";

@@ -1,0 +1,59 @@
+.greeting-header {
+    position: relative;
+    min-height: 52px;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.greeting-header > * {
+    display: inline-block;
+}
+
+.header-icon-logo {
+    padding-top: 15px;
+    transition: .2s;
+}
+.header-icon-logo:hover {
+    opacity: .85;
+    cursor: pointer;
+}
+
+.header-icon-logo > * {
+    display: inline-block;
+}
+
+.header-icon-logo > svg {
+    padding-right: 5px;
+}
+
+.header-guest-session-buttons {
+    float: right;
+    margin: 11px 0 0 30px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.header-guest-session-buttons > span {
+    color: hsla(0,0%,100%,.5);
+    font-style: normal;
+    margin: 0 10px;
+}
+
+.header-signup {
+    padding: 8px 14px;
+    line-height: 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    background-color: #4fa6d3;
+    transition: .2s;
+    font-size: 12px;
+
+}
+
+.header-signup:hover {
+    background-color: #308ebf;
+}
+   

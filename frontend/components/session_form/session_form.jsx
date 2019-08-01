@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { removeSessionErrors } from '../../actions/session_actions'
+import { renderLoginErrors, renderEmailErrors, renderUsernameErrors, renderPasswordErrors } from './render_session_errors';
 
 
 class SessionForm extends React.Component {
@@ -10,7 +12,7 @@ class SessionForm extends React.Component {
             email: '',
             username: '',
             login: '',
-            password: ''
+            password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -27,18 +29,9 @@ class SessionForm extends React.Component {
         this.props.processForm(user).then(this.props.closeModal);
     }
 
-    renderErrors() {
-        return (
-            <ul className="session-modal-form-errors">
-                {this.props.errors.map((err, idx) => {
-                    return (
-                        <li className="session-modal-form-error" key={`error-${idx}`}>{err}</li>
-                    )
-                })}
-            </ul>
-        );
-    };
-
+    componentWillUnmount() {
+        dispatch(removeSessionErrors());
+    }
 
     header() {
         if (this.props.formType === 'login') {
@@ -103,22 +96,23 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     {this.header()}
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        {this.renderErrors()}
+                        <input className="session-demo-login" type="submit" value="Log In as a Demo User" />
+                        <div className="session-form-divider">or</div>
                         <div className="session-form">
+                            {renderLoginErrors(this.props.errors)}
                             <input type="text"
                                 value={this.state.login}
                                 placeholder={"Enter your email or username"}
                                 onChange={this.update('login')}
                                 className="session-input"
                             />
-                            <br />
+                            {renderPasswordErrors(this.props.errors)}
                             <input type="password"
                                 value={this.state.password}
                                 placeholder={"Enter your password"}
                                 onChange={this.update('password')}
                                 className="session-input"
                             />
-                            <br />
                             <input className="session-submit" type="submit" value="Log In" />
                         </div>
                         {this.footer()}
@@ -132,29 +126,30 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     {this.header()}
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        {this.renderErrors()}
+                        <input className="session-demo-login" type="submit" value="Log In as a Demo User" />
+                        <div className="session-form-divider">or</div>
                         <div className="session-form">
+                            {renderEmailErrors(this.props.errors)}
                             <input type="text"
                                 value={this.state.email}
                                 placeholder={"Enter email"}
                                 onChange={this.update('email')}
                                 className="session-input"
                             />
-                            <br />
+                            {renderUsernameErrors(this.props.errors)}
                             <input type="text"
                                 value={this.state.username}
                                 placeholder={"Enter username"}
                                 onChange={this.update('username')}
                                 className="session-input"
                             />
-                            <br />
+                            {renderPasswordErrors(this.props.errors)}
                             <input type="password"
                                 value={this.state.password}
                                 placeholder={"Enter your password"}
                                 onChange={this.update('password')}
                                 className="session-input"
                             />
-                            <br />
                             <input className="session-submit" type="submit" value="Sign Up" />
                         </div>
                         {this.footer()}
