@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudMoon } from '@fortawesome/free-solid-svg-icons';
+import { faCloudMoon, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
 
@@ -12,14 +12,23 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     </nav>
   );
 
-
-
   const personalGreeting = () => (
     <hgroup className="header-group">
-      <h2 className="header-name">{currentUser.display_name}</h2>
-      <button className="header-button" onClick={logout}>Log Out</button>
+      <span className="header-name">{currentUser.display_name}</span>
+      <div className="header-dropdown">
+        <FontAwesomeIcon className="header-dropdown-icon" icon={faChevronDown} />
+        <ul className="header-dropdown-content">
+          <li>Your profile</li>
+          <li>Settings</li>
+          <li>Stats</li>
+          <li>Switch account</li>
+          <li><a className="header-dropdown-link" onClick={logout}>Log out</a></li>
+        </ul>
+      </div>
     </hgroup>
   );
+
+  
 
   const logo = () => {
     return (
