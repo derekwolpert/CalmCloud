@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     update(field) {
@@ -28,6 +29,14 @@ class SessionForm extends React.Component {
         const user = Object.assign({}, this.state);
         this.props.processForm(user).then(this.props.closeModal);
     }
+
+    handleDemo(e) {
+        e.preventDefault();
+        const demoUser = ({ login: "demo_user", email: "email@email.com", username: "demo_user", password: "password" });
+        this.props.processForm(demoUser).then(this.props.closeModal);
+    }
+
+
 
     componentWillUnmount() {
         dispatch(removeSessionErrors());
@@ -96,7 +105,7 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     {this.header()}
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <a className="session-demo-login">Log In as a Demo User</a>
+                        <a className="session-demo-login" onClick={this.handleDemo} >Log In as a Demo User</a>
                         <div className="session-form-divider">or</div>
                         <div className="session-form">
                             {renderLoginErrors(this.props.errors)}
@@ -113,7 +122,7 @@ class SessionForm extends React.Component {
                                 onChange={this.update('password')}
                                 className="session-input"
                             />
-                            <input className="session-submit" type="submit" value="Log In" />
+                            <input className="session-submit" type="submit" value="Log In" disabled={!this.state.login || !this.state.password} />
                         </div>
                         {this.footer()}
                     </form>
@@ -126,7 +135,7 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     {this.header()}
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <a className="session-demo-login">Log In as a Demo User</a>
+                        <a className="session-demo-login" onClick={this.handleDemo} >Log In as a Demo User</a>
                         <div className="session-form-divider">or</div>
                         <div className="session-form">
                             {renderEmailErrors(this.props.errors)}
@@ -150,7 +159,7 @@ class SessionForm extends React.Component {
                                 onChange={this.update('password')}
                                 className="session-input"
                             />
-                            <input className="session-submit" type="submit" value="Sign Up" />
+                            <input className="session-submit" type="submit" value="Sign Up" disabled={!this.state.email || !this.state.username || !this.state.password} />
                         </div>
                         {this.footer()}
                     </form>

@@ -30,7 +30,7 @@
     color: #fff;
     text-shadow: 0 2px 4px rgba(52,73,94,.2);
     box-sizing: border-box;
-    background-image: -webkit-linear-gradient(0deg, rgb(255, 255, 255), rgb(192, 192, 192));
+    background-image: -webkit-linear-gradient(0deg, rgb(255, 255, 255), rgb(156, 156, 156));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -93,7 +93,7 @@
 }
 
 .splash-signup {
-    margin: 0 0 30px;
+    margin: 0 0 20px;
     display: block;
     text-align: center;
     padding-bottom: 70px;
@@ -105,15 +105,14 @@
 
 .splash-reasons {
     position: relative;
-    /* padding-bottom: 60px; */
-
+    padding-bottom: 60px;
     margin-left: 37px;
     margin-right: 37px;
 }
 
 .splash-inner-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -123,6 +122,7 @@
     display: block;
     text-align: center;
     flex: 1 1 0;
+    max-width: 360px;
 }
 
 .splash-reason-icon {

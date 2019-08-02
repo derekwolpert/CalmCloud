@@ -13,7 +13,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
   );
 
   const personalGreeting = () => (
-    <hgroup className="header-group">
+    <div className="header-group">
       <span className="header-name">{currentUser.display_name}</span>
       <div className="header-dropdown">
         <FontAwesomeIcon className="header-dropdown-icon" icon={faChevronDown} />
@@ -25,7 +25,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
           <li><a className="header-dropdown-link" onClick={logout}>Log out</a></li>
         </ul>
       </div>
-    </hgroup>
+    </div>
   );
 
   

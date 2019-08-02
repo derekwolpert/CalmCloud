@@ -18,7 +18,7 @@ export const renderEmailErrors = (errors) => {
     return (
         <ul className="session-modal-form-errors">
             {errors.map((err, idx) => {
-                if (err.toLowerCase().includes("username")) {
+                if (err.toLowerCase().includes("email")) {
                     return (
                         <li className="session-modal-form-error" key={`error-${idx}`}>{err}</li>
                     )

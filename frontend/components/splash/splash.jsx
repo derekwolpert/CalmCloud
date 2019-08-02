@@ -14,19 +14,16 @@ class Splash extends React.Component {
             <>
                 <img className="splash-background-image" src={window.background1URL} />
                 <div className="splash-text">
-                    <h1 className="splash-title">The online destination for relaxation audio</h1>
-                    <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
+                    <h1 className="splash-title">The online destination for relaxation audio</h1>                   <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
                 </div>
                 <div className="splash-buttons">
-                    <button className="splash-login" onClick={() => dispatch(openModal('login'))}>Sign in</button>
+                    <button className="splash-login" onClick={() => dispatch(openModal('login'))}>Demo User Sign in</button>
                     <a className="splash-music-direct">Start Listening</a>
                 </div>
                 <div className="splash-signup">
                     <button className="splash-signup-link" onClick={() => dispatch(openModal('signup'))}>Sign up with email</button>                </div>
                 <div className="splash-reasons">
                     <div className="splash-inner-container">
-
-
 
                         <div className="splash-sub-reason">
                             <div className="splash-reason-icon">
