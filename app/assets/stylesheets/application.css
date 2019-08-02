@@ -17,11 +17,21 @@
 @import "reset.css";
 
 body {
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(32, 32, 32);
     color: white;
-    font-family: Open Sans,sans-serif;
+    font-family: "Open Sans",sans-serif;
     width: 100%;
     position: absolute;
+    box-sizing: border-box;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 13px;
+    line-height: 20px;
 }
 
 @import ".header.css";

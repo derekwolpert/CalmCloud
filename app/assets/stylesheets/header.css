@@ -4,8 +4,8 @@
     background-color: transparent;
     width: 100%;
     box-sizing: border-box;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 90px;
+    padding-right: 90px;
 }
 
 .greeting-header > * {
@@ -23,10 +23,15 @@
 
 .header-icon-logo > * {
     display: inline-block;
+    font-size: 14.5px;
 }
 
 .header-icon-logo > svg {
     padding-right: 5px;
+}
+
+.header-site-name {
+    font-size: 14.5px;
 }
 
 .header-guest-session-buttons {
