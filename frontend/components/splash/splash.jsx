@@ -14,6 +14,9 @@ class Splash extends React.Component {
                     <h1 className="splash-title">The online destination for relaxation audio</h1>
                     <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
                 </div>
+                <div className="splash-buttons">
+
+                </div>
             </>
         );
     }
