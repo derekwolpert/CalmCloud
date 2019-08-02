@@ -12,12 +12,14 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     </nav>
   );
 
-  // const personalGreeting = () => (
-  //   <hgroup className="header-group">
-  //     <h2 className="header-name">Hi, {currentUser.username}!</h2>
-  //     <button className="header-button" onClick={logout}>Log Out</button>
-  //   </hgroup>
-  // );
+
+
+  const personalGreeting = () => (
+    <hgroup className="header-group">
+      <h2 className="header-name">{currentUser.display_name}</h2>
+      <button className="header-button" onClick={logout}>Log Out</button>
+    </hgroup>
+  );
 
   const logo = () => {
     return (
@@ -29,12 +31,15 @@ const Greeting = ({ currentUser, logout, openModal }) => {
   }
 
   return (
-    // currentUser ?
-    // personalGreeting(currentUser, logout) :
-    <header className="greeting-header">
-      {logo()}
-      {sessionLinks()}
-    </header>
+    currentUser ?
+      <header className="greeting-header">
+        {logo()}
+        {personalGreeting(currentUser, logout)}
+      </header> :
+      <header className="greeting-header">
+        {logo()}
+        {sessionLinks()}
+      </header>
   );
 };
 

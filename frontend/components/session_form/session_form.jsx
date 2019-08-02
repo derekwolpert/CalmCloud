@@ -96,7 +96,7 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     {this.header()}
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <input className="session-demo-login" type="submit" value="Log In as a Demo User" />
+                        <a className="session-demo-login">Log In as a Demo User</a>
                         <div className="session-form-divider">or</div>
                         <div className="session-form">
                             {renderLoginErrors(this.props.errors)}
@@ -126,7 +126,7 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     {this.header()}
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <input className="session-demo-login" type="submit" value="Log In as a Demo User" />
+                        <a className="session-demo-login">Log In as a Demo User</a>
                         <div className="session-form-divider">or</div>
                         <div className="session-form">
                             {renderEmailErrors(this.props.errors)}

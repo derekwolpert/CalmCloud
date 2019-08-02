@@ -41,3 +41,115 @@
     padding: 10px 100px 35px;
     opacity: .7;
 }
+
+.splash-buttons {
+    margin: 0 0 30px;
+    display: block;
+    text-align: center;
+}
+
+.splash-login {
+    padding: 18px 24px;
+    font-size: 15px;
+    line-height: 1;
+    border-radius: 7px;
+    color: #fff;
+    background-color: #3b5998;
+    transition-duration: 0.2s, 0.2s;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.splash-login:hover  {
+    background-color: #2d4373;
+}
+
+.splash-music-direct {
+    margin-left: 10px;
+    padding: 18px 24px;
+    font-size: 15px;
+    line-height: 1;
+    border-radius: 7px;
+    color: #fff;
+    background-color: #4fa6d3;
+    transition-duration: 0.2s, 0.2s;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.splash-music-direct:hover {
+    background-color: #308ebf;
+}
+
+.splash-signup-link {
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    opacity: .7;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+}
+
+.splash-signup {
+    margin: 0 0 30px;
+    display: block;
+    text-align: center;
+    padding-bottom: 70px;
+}
+
+.splash-signup-link:hover {
+    opacity: 1;
+}
+
+.splash-reasons {
+    position: relative;
+    /* padding-bottom: 60px; */
+
+    margin-left: 37px;
+    margin-right: 37px;
+}
+
+.splash-inner-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.splash-sub-reason {
+    display: block;
+    text-align: center;
+    flex: 1 1 0;
+}
+
+.splash-reason-icon {
+    text-align: center;
+
+}
+
+.splash-reason-icon > svg {
+    font-size: 140px;
+}
+
+.splash-reason-title {
+    padding: 0 20px;
+    margin: 30px 0 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+
+}
+
+.splash-reason-subtitle {
+    text-align: center;
+    font-size: 15px;
+    line-height: 26px;
+    opacity: .7;
+    padding: 0 30px;
+}
