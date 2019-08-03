@@ -8,10 +8,22 @@
 
 User.destroy_all
 
-demo_user = User.create!({
-    email: "demo@email.com",
-    username: "demo_user",
-    password_digest: "$2a$12$uXt3LFmjVty53C85eDyZWOV/iu4FCVfdkL8nEpPgkI5btSWRbfIey",
-    session_token: "wyiSd_-RUbsSDo5nEUonug",
-    display_name: "Demo User"
+demo1 = User.create!({
+    email: "demo1@email.com",
+    username: "demo_user_1",
+    password_digest: "$2a$12$78PLmmtQZE0mcB2tEGQMceugvnd79N4gtZTQT5br/AbE0YqpAyUOu",
+    session_token: "T-LA4ckXdJJvxJnm9kG4xA",
+    display_name: "John Doe"
 })
+
+# password: password1
+
+demo2 = User.create!({
+    email: "demo2@email.com",
+    username: "demo_user_2",
+    password_digest: "$2a$12$0kMSrVub9Nln35XXrQrdl.8uMNSmcJBZyGRLqoXJBorT00K4AA6YC",
+    session_token: "C9s2fz9YtyUT-OUnGp7jOw",
+    display_name: "Jane Doe"
+})
+
+# password: password2

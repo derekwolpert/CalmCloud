@@ -21,14 +21,12 @@ const Greeting = ({ currentUser, logout, openModal }) => {
           <li>Your profile</li>
           <li>Settings</li>
           <li>Stats</li>
-          <li>Switch account</li>
+          <li><a onClick={() => openModal('login')}>Switch account</a></li>
           <li><a className="header-dropdown-link" onClick={logout}>Log out</a></li>
         </ul>
       </div>
     </div>
   );
-
-  
 
   const logo = () => {
     return (

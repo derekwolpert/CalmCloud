@@ -6,8 +6,13 @@
     left: 0;
     background: radial-gradient(rgba(52, 52, 52, 0.75), rgba(32, 32, 32, 0.75));
     z-index: 10;
-    animation-name: animatetop;
-    animation-duration: .2s;
+    animation-name: animateModalBackground;
+    animation-duration: 0.2s;
+}
+
+@keyframes animateModalBackground {
+    from {opacity: 0}
+    to {opacity: 1}
 }
 
 .modal-child {
@@ -22,13 +27,13 @@
     box-shadow: 0 3px 8px rgba(0,0,0,.3);
     font-size: 13px;
     min-width: 300px;
-    min-height: 180px;
+    min-height: 384px;
     max-height: 90%;
-    animation-name: animateIn;
-    animation-duration: .2s;
+    animation-name: animateModalChild;
+    animation-duration: 0.2s;
 }
 
-@keyframes animateIn {
+@keyframes animateModalChild {
     from {opacity: 0}
     to {opacity: 1}
 }
@@ -61,6 +66,7 @@
     vertical-align: middle;
     font-weight: 500;
     text-align: center;
+    cursor: pointer;
 }
 
 .session-demo-login:hover {

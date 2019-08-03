@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
         end
 
         if @user.save
+            login!(@user)
             render :show
         else
             render json: errs, status: 401

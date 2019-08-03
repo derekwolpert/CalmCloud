@@ -1,9 +1,9 @@
 
 import { connect } from 'react-redux';
 import React from 'react';
-import { login } from '../../actions/session_actions';
+import { login, removeSessionErrors } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import SessionForm from './session_form';
+import LoginForm from  './login_form';
 
 const mapStateToProps = ({ errors }) => {
     return {
@@ -15,18 +15,10 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(login(user)),
-        otherForm: (
-            <a onClick={() => dispatch(openModal('signup'))} className="session-modal-link-inactive">
-                Sign Up
-            </a>
-        ),
-        otherFormFooter: (
-            <a onClick={() => dispatch(openModal('signup'))} className="session-modal-link-inactive">
-                sign up here
-            </a>
-        ),
+        otherForm: () => dispatch(openModal('signup')),
         closeModal: () => dispatch(closeModal()),
+        removeSessionErrors: () => dispatch(removeSessionErrors()),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
