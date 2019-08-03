@@ -7,7 +7,7 @@
     background: radial-gradient(rgba(52, 52, 52, 0.75), rgba(32, 32, 32, 0.75));
     z-index: 10;
     animation-name: animateModalBackground;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
 }
 
 @keyframes animateModalBackground {
@@ -30,7 +30,7 @@
     min-height: 384px;
     max-height: 90%;
     animation-name: animateModalChild;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
 }
 
 @keyframes animateModalChild {
