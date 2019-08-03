@@ -30,7 +30,7 @@
     color: #fff;
     text-shadow: 0 2px 4px rgba(52,73,94,.2);
     box-sizing: border-box;
-    background-image: -webkit-linear-gradient(0deg, rgb(255, 255, 255), rgb(208, 169, 167));
+    background-image: -webkit-linear-gradient(0deg, rgb(255, 255, 255), rgb(220, 165, 155));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

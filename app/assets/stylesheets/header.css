@@ -4,8 +4,10 @@
     background-color: transparent;
     width: 100%;
     box-sizing: border-box;
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: auto;
+    max-width: 1400px;
 }
 
 .greeting-header > * {
