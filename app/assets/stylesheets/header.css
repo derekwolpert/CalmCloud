@@ -4,8 +4,8 @@
     background-color: transparent;
     width: 100%;
     box-sizing: border-box;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .greeting-header > * {
@@ -23,7 +23,7 @@
 
 .header-icon-logo > * {
     display: inline-block;
-    font-size: 14.5px;
+    font-size: 20px;
 }
 
 .header-icon-logo > svg {
@@ -31,13 +31,14 @@
 }
 
 .header-site-name {
-    font-size: 14.5px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .header-guest-session-buttons {
     float: right;
     margin: 11px 0 0 30px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
 }
 
@@ -54,7 +55,7 @@
     font-weight: 600;
     background-color: #4fa6d3;
     transition: .2s;
-    font-size: 12px;
+    font-size: 13px;
 
 }
 

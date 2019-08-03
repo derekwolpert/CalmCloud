@@ -21,7 +21,7 @@ class Splash extends React.Component {
                     <a className="splash-music-direct">Start Listening</a>
                 </div>
                 <div className="splash-signup">
-                    <button className="splash-signup-link" onClick={() => dispatch(openModal('signup'))}>Sign up with email</button>                </div>
+                    <button className="splash-signup-link" onClick={() => dispatch(openModal('signup'))}><b>Sign up</b> with email</button>                </div>
                 <div className="splash-reasons">
                     <div className="splash-inner-container">
 

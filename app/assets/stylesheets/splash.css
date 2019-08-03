@@ -6,7 +6,7 @@
     width: 100%;
     height: 1024px;
     object-fit: cover;
-    opacity: 0.6;
+    opacity: 0.65;
     z-index: -10;
 }
 
@@ -30,7 +30,7 @@
     color: #fff;
     text-shadow: 0 2px 4px rgba(52,73,94,.2);
     box-sizing: border-box;
-    background-image: -webkit-linear-gradient(0deg, rgb(255, 255, 255), rgb(192, 192, 192));
+    background-image: -webkit-linear-gradient(0deg, rgb(255, 255, 255), rgb(208, 169, 167));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -92,6 +92,10 @@
     transition-duration: 0.2s;
 }
 
+.splash-signup-link > b {
+    font-weight: 600;
+}
+
 .splash-signup {
     margin: 0 0 20px;
     display: block;
@@ -126,9 +130,10 @@
 }
 
 .splash-reason-icon {
+    color: rgb(247, 243, 233);
     text-align: center;
-
 }
+
 
 .splash-reason-icon > svg {
     font-size: 140px;
