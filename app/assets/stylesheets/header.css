@@ -89,7 +89,7 @@
     background-color: white;
     text-align: left;
     border-radius: 4px;
-    box-shadow: 0 0 0 1px rgba(10,30,44,.08), 0 2px 8px rgba(10,30,44,.07), 0 10px 20px rgba(0,0,0,.05);
+    box-shadow: 0 0 0 1px rgba(28,28,28,.08), 0 2px 8px rgba(28,28,28,.07), 0 10px 20px rgba(0,0,0,.05);
     transform-origin: top center;
     top: 100%;
     z-index: 9999999;
