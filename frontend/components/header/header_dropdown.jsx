@@ -33,8 +33,8 @@ class HeaderDropdown extends React.Component {
                         <li>Your profile</li>
                         <li>Settings</li>
                         <li>Stats</li>
-                        <li><a onClick={() => dispatch(openModal('login'))}>Switch account</a></li>
-                        <li><a onClick={() => dispatch(logout())}>Log out</a></li>
+                        <li onClick={() => dispatch(openModal('login'))}>Switch account</li>
+                        <li onClick={() => dispatch(logout())}>Log out</li>
                     </ul>
                 </>) 
                 : 
