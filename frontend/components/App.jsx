@@ -3,14 +3,20 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Modal from './modal/modal';
 import HeaderContainer from './header/header_container';
 import Splash from './splash/splash';
-import HeaderDropdown from './header/header_dropdown'
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+
 
 const App = () => (
     <div>
-        <Modal />
-        <HeaderContainer />
-        <Splash />
+       <header>
+            <Modal />
+            <HeaderContainer />
+        </header> 
+        <Switch>
+            <AuthRoute exact path="/" component={Splash} />
+        </Switch>
     </div>
+
 );
 
 export default App;

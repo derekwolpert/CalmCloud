@@ -25,7 +25,7 @@
 
 .header-icon-logo > * {
     display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .header-icon-logo > svg {
@@ -33,7 +33,7 @@
 }
 
 .header-site-name {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -71,7 +71,7 @@
     position: relative;
     margin-top: 11px;
     font-size: 14px;
-    line-height: 30px;
+    line-height: 35px;
 }
 
 .header-group > * {
@@ -82,10 +82,14 @@
     padding-right: 9px;
 }
 
+.header-dropdown-icon {
+    padding-right: 17px;
+}
+
 .header-dropdown-content {
     margin-top: 10px;
     min-width: 130px;
-    right: -13px;
+    right: 5px;
     display: inline-block;
     background-color: white;
     text-align: left;
@@ -126,10 +130,6 @@
     top: -4px;
     display: inline-block;
 }
-
-
-
-
 
 @keyframes animateDropdown {
     from {opacity: 0}
