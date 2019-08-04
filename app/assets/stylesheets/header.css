@@ -1,4 +1,4 @@
-.greeting-header {
+.header-container {
     position: relative;
     min-height: 52px;
     background-color: transparent;
@@ -10,7 +10,7 @@
     max-width: 1400px;
 }
 
-.greeting-header > * {
+.header-container > * {
     display: inline-block;
 }
 
@@ -58,10 +58,59 @@
     background-color: #4fa6d3;
     transition: .2s;
     font-size: 13px;
-
 }
 
 .header-signup:hover {
     background-color: #308ebf;
 }
-   
+
+.header-group {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    position: relative;
+    margin-top: 11px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.header-group > * {
+    display: inline-block;
+}
+
+.header-name {
+    padding-right: 9px;
+}
+
+.header-dropdown-content {
+    min-width: 130px;
+    right: -5px;
+    display: inline-block;
+    background-color: white;
+    text-align: left;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(10,30,44,.08), 0 2px 8px rgba(10,30,44,.07), 0 10px 20px rgba(0,0,0,.05);
+    transform-origin: top center;
+    top: 100%;
+    z-index: 9999999;
+    position: absolute;
+    animation-name: animateDropdown;
+    animation-duration: 0.2s;
+}
+
+@keyframes animateDropdown {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.header-dropdown-content > li {
+    cursor: pointer;
+    display: block;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    white-space: nowrap;
+    color: #49596a;
+    box-shadow: inset 0 -1px 0 rgba(73,89,106,.1);
+}
