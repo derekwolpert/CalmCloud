@@ -26,9 +26,14 @@ class User < ApplicationRecord
     has_one_attached :profile_pic
     has_one_attached :profile_cover
 
+    after_initialize :ensure_session_token, :ensure_display_name
+
     attr_reader :password
 
-    after_initialize :ensure_session_token, :ensure_display_name
+    has_many :tracks,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Track
 
     def self.find_by_username(username, password)
         user = User.find_by(username: username)

@@ -1,3 +1,11 @@
+.header-logged-in {
+    background-color: rgb(72, 72, 72)
+}
+
+.header-logged-out {
+    background-color: transparent;
+}
+
 .header-container {
     position: relative;
     min-height: 52px;
@@ -71,7 +79,7 @@
     position: relative;
     margin-top: 11px;
     font-size: 14px;
-    line-height: 35px;
+    line-height: 32px;
 }
 
 .header-group > * {
@@ -89,7 +97,7 @@
 .header-dropdown-content {
     margin-top: 10px;
     min-width: 130px;
-    right: 5px;
+    right: 4px;
     display: inline-block;
     background-color: white;
     text-align: left;

@@ -38,13 +38,17 @@ class Header extends React.Component {
 	render() {
 		return (
 			this.props.currentUser ?
-				<header className="header-container">
-					{this.logo()}
-					{this.personalGreeting(this.props.currentUser, this.props.logout)}
+				<header className="header-logged-in">
+					<header className="header-container">
+						{this.logo()}
+						{this.personalGreeting()}
+					</header>
 				</header> :
-				<header className="header-container">
-					{this.logo()}
-					{this.sessionLinks()}
+				<header className="header-logged-out">
+					<header className="header-container">
+						{this.logo()}
+						{this.sessionLinks()}
+					</header>
 				</header>
 		);
 	}

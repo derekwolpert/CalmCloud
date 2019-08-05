@@ -7,15 +7,15 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 const App = () => (
-    <div>
-       <header>
+    <>
+        <header>
             <Modal />
             <HeaderContainer />
         </header> 
         <Switch>
             <AuthRoute exact path="/" component={Splash} />
         </Switch>
-    </div>
+    </>
 
 );
 
