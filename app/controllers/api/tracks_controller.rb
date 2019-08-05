@@ -1,33 +1,33 @@
 class Api::TracksController < ApplicationController
 
-    def create
+    # def create
 
-    end
+    # end
 
-    def update
+    # def update
 
-    end
+    # end
 
-    def index
+    # def index
 
-    end
+    # end
 
-    def show
+    # def show
 
-    end
+    # end
 
-    def destroy
+    # def destroy
 
-    end
+    # end
 
-    private
+    # private
 
-    def selected_track
-        Track.find_by(params[:id])
-    end
+    # def selected_track
+    #     Track.find_by(params[:id])
+    # end
 
-    def track_params
+    # def track_params
   
-    end
+    # end
 
 end
