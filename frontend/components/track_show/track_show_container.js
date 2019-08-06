@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
     fetchTrack: id => dispatch(fetchTrack(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrackShow);
+export default connect(mapStateToProps, mapDispatchToProps)(TrackShow); 

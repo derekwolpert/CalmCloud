@@ -28,8 +28,8 @@ export const receiveSessionErrors = (errors) => {
 export const removeSessionErrors = () => {
     return ({
         type: REMOVE_SESSION_ERRORS
-    })
-}
+    });
+};
 
 export const login = (user) => dispatch => {
     return (SessionApiUtil.login(user)

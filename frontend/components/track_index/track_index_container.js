@@ -1,15 +1,15 @@
-// import { connect } from 'react-redux';
-// import { fetchAllTracks } from '../../actions/track_actions';
-// import TrackIndex from './track_index';
+import { connect } from 'react-redux';
+import { fetchAllTracks } from '../../actions/track_actions';
+import TrackIndex from './track_index';
 
-// const mapStateToProps = (state) => {
-//     return {
-//         tracks: Object.values(state.entities.tracks),
-//     };
-// };
+const mapStateToProps = (state) => {
+    return {
+        tracks: Object.values(state.entities.tracks),
+    };
+};
 
-// const mapDispatchToProps = dispatch => ({
-//     fetchAllTracks: () => dispatch(fetchAllTracks()),
-// });
+const mapDispatchToProps = dispatch => ({
+    fetchAllTracks: () => dispatch(fetchAllTracks()),
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(TrackIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(TrackIndex);

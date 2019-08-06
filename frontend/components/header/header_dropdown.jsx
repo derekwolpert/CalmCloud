@@ -1,8 +1,7 @@
 import React from 'react';
-import { logout } from '../../actions/session_actions';
-import { openModal } from '../../actions/modal_actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 class HeaderDropdown extends React.Component {
     constructor(props) {
@@ -33,8 +32,8 @@ class HeaderDropdown extends React.Component {
                         <li>Your profile</li>
                         <li>Settings</li>
                         <li>Stats</li>
-                        <li onClick={() => dispatch(openModal('login'))}>Switch account</li>
-                        <li onClick={() => dispatch(logout())}>Log out</li>
+                        <li onClick={this.props.openModal}>Switch account</li>
+                        <li onClick={this.props.logout}>Log out</li>
                     </ul>
                 </>) 
                 : 

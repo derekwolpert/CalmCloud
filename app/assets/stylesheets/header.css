@@ -1,8 +1,8 @@
-.header-logged-in {
+.header-main {
     background-color: rgb(72, 72, 72)
 }
 
-.header-logged-out {
+.header-splash {
     background-color: transparent;
 }
 

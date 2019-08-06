@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { removeSessionErrors } from '../../actions/session_actions'
 import { renderLoginErrors, renderPasswordErrors } from './render_session_errors';
 
 
@@ -35,7 +34,7 @@ class LoginForm extends React.Component {
     }
 
     componentWillUnmount() {
-        dispatch(this.props.removeSessionErrors);
+        this.props.removeSessionErrors;
     }
 
     header() {

@@ -29,22 +29,29 @@ class Header extends React.Component {
 		return (
 			<div className="header-group">
 				<div className="header-dropdown">
-					<HeaderDropdown username={this.props.currentUser.display_name}/>
+					<HeaderDropdown
+					username={this.props.currentUser.display_name}
+					logout={this.props.logout}
+					openModal={this.props.openModal}
+					/>
 				</div>
 			</div>
 		);
 	}
 
 	render() {
+		
+		const headerClass = this.props.location.pathname === "/" && !this.props.currentUser ? "header-splash" : "header-main";
+
 		return (
 			this.props.currentUser ?
-				<header className="header-logged-in">
+				<header className={headerClass}>
 					<header className="header-container">
 						{this.logo()}
 						{this.personalGreeting()}
 					</header>
 				</header> :
-				<header className="header-logged-out">
+				<header className={headerClass}>
 					<header className="header-container">
 						{this.logo()}
 						{this.sessionLinks()}

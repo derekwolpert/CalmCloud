@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesAlt, faMicrophoneAlt, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import { openModal } from "../../actions/modal_actions";
+import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
 
@@ -14,7 +15,8 @@ class Splash extends React.Component {
             <>
                 <img className="splash-background-image" src={window.background1URL} />
                 <div className="splash-text">
-                    <h1 className="splash-title">The online destination for relaxation audio</h1>                   <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
+                    <h1 className="splash-title">The online destination for relaxation audio</h1>
+                    <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
                 </div>
                 <div className="splash-buttons">
                     <button className="splash-login" onClick={() => dispatch(openModal('login'))}>Demo User Sign in</button>
