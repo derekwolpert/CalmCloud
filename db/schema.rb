@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_04_221127) do
+ActiveRecord::Schema.define(version: 2019_08_05_150641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,8 +55,6 @@ ActiveRecord::Schema.define(version: 2019_08_04_221127) do
     t.string "session_token", null: false
     t.string "display_name", null: false
     t.text "biography"
-    t.integer "age"
-    t.string "gender"
     t.string "country"
     t.string "city"
     t.datetime "created_at", null: false

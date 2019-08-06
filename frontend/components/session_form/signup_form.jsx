@@ -31,7 +31,7 @@ class SignUpForm extends React.Component {
 
     handleDemo(e) {
         e.preventDefault();
-        const demoUser = ({ email: "demo1@email.com", username: "demo_user_1", password: "password1" });
+        const demoUser = ({ login: "demo_user_1", password: "password1" });
         this.props.processDemo(demoUser).then(this.props.closeModal);
     }
 

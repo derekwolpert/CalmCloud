@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Track.destroy_all
 
-demo1 = User.create!({
+demo_user_1 = User.create!({
     email: "demo1@email.com",
     username: "demo_user_1",
     password_digest: "$2a$12$78PLmmtQZE0mcB2tEGQMceugvnd79N4gtZTQT5br/AbE0YqpAyUOu",
@@ -18,7 +19,7 @@ demo1 = User.create!({
 
 # password: password1
 
-demo2 = User.create!({
+demo_user_2 = User.create!({
     email: "demo2@email.com",
     username: "demo_user_2",
     password_digest: "$2a$12$0kMSrVub9Nln35XXrQrdl.8uMNSmcJBZyGRLqoXJBorT00K4AA6YC",
@@ -27,3 +28,20 @@ demo2 = User.create!({
 })
 
 # password: password2
+
+
+demo_track_1 = Track.create!({
+    user_id: demo_user_1.id,
+    title: "Demo Track 1",
+    track_length: 120,
+    play_count: 52,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare eros eu nibh faucibus, at feugiat odio imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
+})
+
+demo_track_2 = Track.create!({
+    user_id: demo_user_2.id,
+    title: "Demo Track 2",
+    track_length: 240,
+    play_count: 73,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare eros eu nibh faucibus, at feugiat odio imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
+})

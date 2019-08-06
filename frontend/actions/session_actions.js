@@ -1,9 +1,9 @@
-import * as SessionAPIUtil from '../util/session_api_util';
+import * as SessionApiUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
-export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS'
+export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 
 export const receiveCurrentUser = (currentUser) => {
     return ({
@@ -32,21 +32,21 @@ export const removeSessionErrors = () => {
 }
 
 export const login = (user) => dispatch => {
-    return (SessionAPIUtil.login(user)
+    return (SessionApiUtil.login(user)
         .then(user => dispatch(receiveCurrentUser(user)))
         .fail(errors => dispatch(receiveSessionErrors(errors)))
     );
 };
 
 export const signup = (user) => dispatch => {
-    return (SessionAPIUtil.signup(user)
+    return (SessionApiUtil.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .fail(errors => dispatch(receiveSessionErrors(errors)))
     );
 };
 
 export const logout = () => dispatch => {
-    return (SessionAPIUtil.logout()
+    return (SessionApiUtil.logout()
     .then(() => dispatch(logoutCurrentUser()))
     .fail(errors => dispatch(receiveSessionErrors(errors)))
     );
