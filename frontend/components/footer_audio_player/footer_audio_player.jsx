@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faCommentAlt } from '@fortawesome/free-regular-svg-icons';
 
 class FooterAudioPlayer extends React.Component {
@@ -21,7 +21,7 @@ class FooterAudioPlayer extends React.Component {
             time: this.formatTime(this._audio.currentTime),
             left: `-${this.formatTime(this._audio.duration - this._audio.currentTime)}`,
             percentage: ((this._audio.currentTime / this._audio.duration)*100),
-            }), 10);
+            }), 100);
     }
 
     formatTime(time) {
@@ -31,7 +31,7 @@ class FooterAudioPlayer extends React.Component {
         const minutes = Math.floor((roundedTime - (hours * 3600)) / 60);
         const seconds = roundedTime - (hours * 3600) - (minutes * 60);
 
-        return (hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
+        return ((this._audio.duration >= 3600 ? (hours + ":") : "") + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
     }
 
     playPauseAudio() {
