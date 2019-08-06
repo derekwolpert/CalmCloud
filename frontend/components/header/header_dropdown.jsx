@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class HeaderDropdown extends React.Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class HeaderDropdown extends React.Component {
                         <li>Settings</li>
                         <li>Stats</li>
                         <li onClick={this.props.openModal}>Switch account</li>
-                        <li onClick={this.props.logout}>Log out</li>
+                            <li onClick={() => this.props.logout().then(() => this.props.history.push('/'))}>Log out</li>
                     </ul>
                 </>) 
                 : 
@@ -47,4 +47,4 @@ class HeaderDropdown extends React.Component {
     }
 }
 
-export default HeaderDropdown;
+export default withRouter(HeaderDropdown);
