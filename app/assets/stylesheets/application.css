@@ -37,16 +37,15 @@ body {
 .cf-body {
     box-sizing: border-box;
     display: block;
-
-    /* z-index: -100000000000000000; */
+    clear: both;
 }
 
-.cf-body:after, .cf:before {
+.cf-body:after, .cf-body:before {
     content: " ";
     display: table;
 }
 
-.cf-body {
+.cf-body:after {
     clear: both;
 }
 
@@ -58,12 +57,6 @@ body {
     box-sizing: border-box;
     display: block;
     background-color: rgb(46, 46, 46);
-    /* top: -52px;
-    padding-top: 52px; */
-    
-    /* height: 1000px; */
-    /* background-color: transparent; */
-    /* z-index: -1000; */
 }
 
 .body-container:after, .body-container:before {
@@ -74,8 +67,3 @@ body {
 .body-container:after {
     clear: both;
 }
-
-/* @import ".header.css"; */
-/* @import "modal.css"; */
-/* @import "splash.css"; */
-/* @import "footer_audio_player.css"; */

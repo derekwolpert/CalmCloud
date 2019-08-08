@@ -1,0 +1,36 @@
+.track-index-inner-container {
+
+    max-width: 1300px;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.track-index-inner-container:after, .track-index-inner-container:before {
+    content: " ";
+    display: table;
+}
+
+.track-index-inner-container:after {
+    clear: both;
+}
+
+.track-index-track-container {
+    position: relative;
+    width: 740px;
+    float: left;
+    padding-bottom: 60px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-index-track-container > h1 {
+    padding-bottom: 12px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    color: rgb(212, 212, 212);
+    border-bottom: 2px solid rgb(192, 192, 192);
+}

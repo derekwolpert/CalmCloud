@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import Modal from './modal/modal';
 import HeaderContainer from './header/header_container';
-import FooterAudioPlayer from './footer_audio_player/footer_audio_player';
-import BodyContainer from './body_container'
-import Splash from './splash/splash';
+import FooterAudioPlayerContainer from './footer_audio_player/footer_audio_player_container';
+import BodyContainer from './body_container';
+import SplashContainer from './splash/splash_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -14,13 +14,11 @@ const App = () => (
             <HeaderContainer />
         </header>
         <div className="cf-body">
-            {/* <Switch> */}
-                <AuthRoute exact path="/" component={Splash} />
-                <BodyContainer />
-            {/* </Switch> */}
+            <AuthRoute exact path="/" component={SplashContainer} />
+            <BodyContainer />
         </div>
         <footer>
-            <FooterAudioPlayer />
+            <FooterAudioPlayerContainer />
         </footer>
     </>
 );

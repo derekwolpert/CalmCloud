@@ -31,6 +31,7 @@ class Header extends React.Component {
 				<div className="header-dropdown">
 					<HeaderDropdown
 					username={this.props.currentUser.display_name}
+					profilePic={this.props.currentUser.userPictureUrl}
 					logout={this.props.logout}
 					openModal={this.props.openModal}
 					/>

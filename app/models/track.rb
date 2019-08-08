@@ -32,7 +32,7 @@ class Track < ApplicationRecord
     end
 
     def ensure_play_count
-        self.track_length ||= 60
+        self.track_length ||= 0
     end
 
     def ensure_audio_track

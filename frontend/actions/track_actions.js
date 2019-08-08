@@ -6,7 +6,8 @@ export const REMOVE_TRACK = "REMOVE_TRACK";
 
 const receiveAllTracks = tracks => ({
     type: RECEIVE_ALL_TRACKS,
-    tracks
+    tracks: tracks.tracks,
+    users: tracks.users,
 });
 
 const receiveTrack = track => ({

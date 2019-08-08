@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesAlt, faMicrophoneAlt, faUserFriends } from '@fortawesome/free-solid-svg-icons';
-import { openModal } from "../../actions/modal_actions";
 import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
@@ -19,11 +18,11 @@ class Splash extends React.Component {
                     <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
                 </div>
                 <div className="splash-buttons">
-                    <button className="splash-login" onClick={() => dispatch(openModal('login'))}>Demo User Sign in</button>
+                    <button className="splash-login" onClick={() => this.props.openModal('login')}>Demo User Sign in</button>
                     <a className="splash-music-direct">Start Listening</a>
                 </div>
                 <div className="splash-signup">
-                    <button className="splash-signup-link" onClick={() => dispatch(openModal('signup'))}><b>Sign up</b> with email</button>                </div>
+                    <button className="splash-signup-link" onClick={() => this.props.openModal('signup')}><b>Sign up</b> with email</button>                </div>
                 <div className="splash-reasons">
                     <div className="splash-inner-container">
 

@@ -1,9 +1,9 @@
 import React from 'react';
+import TrackIndexItem from './track_index_item';
 
 class TrackIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.formatIndex = this.formatIndex.bind(this);
     }
 
 
@@ -11,36 +11,29 @@ class TrackIndex extends React.Component {
         this.props.fetchAllTracks();
     }
 
-    formatIndex() {
-        // return (
-        //     <div className="index-container">
-        //         {this.props.tracks.map((track) => {
-        //             return (
-        //                 <div className={`track_index_container-${track.id}`}>
-        //                     <div>ID: {track.id}</div>
-        //                     <div>USER_ID: {track.user_id}</div>
-        //                     <div>TITLE: {track.title}</div>
-        //                     <div>DESC: {track.description}</div>
-        //                     <div>LENGTH: {track.track_length}</div>
-        //                     <div>PLAY_COUNT: {track.play_count}</div>
-        //                     {/* <div>{track.background_color}</div> */}
-        //                     <div>CREATED_AT: {(new Date(track.created_at)).toTimeString()}</div>
-        //                     {/* <audio controls src={track.audioTrackUrl} id="track_showpage_audio_player" /> */}
-        //                 </div>
-        //                 )
-        //             }
-        //         )}
-        //     </div>
-        // )
-    }
 
     render() {
+        const indexItems = this.props.tracks.reverse().map( track =>  (
+            <TrackIndexItem
+                key={track.id}
+                track={track}
+                user={this.props.users[track.user_id]}
+                changeTrack={this.props.changeTrack}
+                currentTrack={this.props.currentTrack}
+                pauseTrack={this.props.pauseTrack}
+                playing={this.props.playing}
+                />) );
 
-        // if (this.props.tracks) {
-        //     debugger
-        //     return (<div>{this.formatIndex}</div>)
-        // }
-        return null
+        return (
+            <section className="track-index-inner-container">
+
+                <section className="track-index-track-container">
+                    <h1>Feed</h1>
+                    {indexItems}
+                </section>
+            </section>
+        );
+
     }
 }
 

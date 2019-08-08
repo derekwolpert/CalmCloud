@@ -19,11 +19,13 @@ class HeaderDropdown extends React.Component {
     }
 
     render() {
-
         return (
             <div onClick={this.showDropdown}>
                 {this.state.showDropdown ?
                 (<>
+                    <div className="header-profile-pic">
+                            <img src={this.props.profilePic} />
+                    </div>
                     <span className="header-name">{this.props.username}</span>
                     <button className="header-dropdown-icon">
                         <FontAwesomeIcon icon={faChevronUp} />
@@ -32,16 +34,20 @@ class HeaderDropdown extends React.Component {
                         <li>Your profile</li>
                         <li>Settings</li>
                         <li>Stats</li>
-                        <li onClick={this.props.openModal}>Switch account</li>
-                            <li onClick={() => this.props.logout().then(() => this.props.history.push('/'))}>Log out</li>
+                        <li onClick={() => this.props.openModal("login")}>Switch account</li>
+                        <li onClick={() => this.props.logout().then(() => this.props.history.push('/'))}>Log out</li>
                     </ul>
                 </>) 
                 : 
                 (<>
-                <span className="header-name">{this.props.username}</span>
-                <button className="header-dropdown-icon">
-                        <FontAwesomeIcon icon={faChevronDown} />
-                </button></>)}
+                    <div className="header-profile-pic">
+                        <img src={this.props.profilePic} />
+                    </div>
+                    <span className="header-name">{this.props.username}</span>
+                    <button className="header-dropdown-icon">
+                            <FontAwesomeIcon icon={faChevronDown} />
+                    </button>
+                </>)}
             </div>
         );
     }
