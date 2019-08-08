@@ -50,20 +50,15 @@ artwork1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+M
 demo_track_1.audio_track.attach(io: track1, filename: 'demo_track_1.mp3')
 demo_track_1.track_artwork.attach(io: artwork1, filename: 'demo_track_1.jpg')
 
-
-demo_track_2 = Track.create!({
-    user_id: demo_user_1.id,
-    title: "DJ Spinn - Them Changes",
-    track_length: 204,
-    play_count: 73,
+demo_track_5 = Track.create!({
+    user_id: demo_user_2.id,
+    title: "Janet Jackson - If (KAYTRANADA Remix)",
+    track_length: 237,
+    play_count: 52,
 })
 
-track2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/30+Them+Changes.mp3")
-artwork2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/Teklife+VIP+2019.jpg")
-
-demo_track_2.audio_track.attach(io: track2, filename: 'demo_track_2.mp3')
-demo_track_2.track_artwork.attach(io: artwork2, filename: 'demo_track_2.jpg')
-
+track5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).mp3")
+artwork5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).jpg")
 
 demo_track_3 = Track.create!({
     user_id: demo_user_1.id,
@@ -92,16 +87,6 @@ artwork4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+M
 demo_track_4.audio_track.attach(io: track4, filename: 'demo_track_4.mp3')
 demo_track_4.track_artwork.attach(io: artwork4, filename: 'demo_track_4.jpg')
 
-
-demo_track_5 = Track.create!({
-    user_id: demo_user_2.id,
-    title: "Janet Jackson - If (KAYTRANADA Remix)",
-    track_length: 237,
-    play_count: 52,
-})
-
-track5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).mp3")
-artwork5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).jpg")
 
 demo_track_5.audio_track.attach(io: track5, filename: 'demo_track_5.mp3')
 demo_track_5.track_artwork.attach(io: artwork5, filename: 'demo_track_5.jpg')
@@ -134,15 +119,15 @@ artwork7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+M
 demo_track_7.audio_track.attach(io: track7, filename: 'demo_track_7.mp3')
 demo_track_7.track_artwork.attach(io: artwork7, filename: 'demo_track_7.jpg')
 
-demo_track_8 = Track.create!({
-    user_id: demo_user_2.id,
-    title: "Jai Paul - Jasmine (Demo)",
-    track_length: 253,
+demo_track_2 = Track.create!({
+    user_id: demo_user_1.id,
+    title: "DJ Spinn - Them Changes",
+    track_length: 204,
     play_count: 73,
 })
 
-track8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack8/09+Jasmine+(Demo).mp3")
-artwork8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack8/Leak+04-13+(Bait+Ones).jpg")
+track2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/30+Them+Changes.mp3")
+artwork2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/Teklife+VIP+2019.jpg")
 
-demo_track_8.audio_track.attach(io: track8, filename: 'demo_track_8.mp3')
-demo_track_8.track_artwork.attach(io: artwork8, filename: 'demo_track_8.jpg')
+demo_track_2.audio_track.attach(io: track2, filename: 'demo_track_2.mp3')
+demo_track_2.track_artwork.attach(io: artwork2, filename: 'demo_track_2.jpg')
