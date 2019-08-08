@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle } from '@fortawesome/free-regular-svg-icons';
+import { faPlayCircle, faPauseCircle, faHeart, faShareSquare } from '@fortawesome/free-regular-svg-icons';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 class TrackIndexItem extends React.Component {
 
     constructor(props) {
         super(props);
         this.playPause = this.playPause.bind(this);
+        this.formateDate = this.formatDate(this);
     }
 
     formatTime(time) {
@@ -16,6 +18,30 @@ class TrackIndexItem extends React.Component {
         const minutes = Math.floor((roundedTime - (hours * 3600)) / 60);
         const seconds = roundedTime - (hours * 3600) - (minutes * 60);
         return ((time >= 3600 ? (hours + ":") : "") + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
+    }
+
+    formatDate()  {
+        const uploadDate = new Date(this.props.track.created_at);
+        const nowDate = new Date();
+        const secondsSince = ((nowDate - uploadDate)/1000);
+
+        if (secondsSince === 1) return `1 second ago`;
+        if (secondsSince < 60) return `${Math.floor(secondsSince)} seconds ago`;
+
+        if (secondsSince === 60) return `1 minute ago`;
+        if (secondsSince < 3600) return `${Math.floor(secondsSince / 60)} minutes ago`;
+
+        if (secondsSince === 3600) return `1 hour ago`;
+        if (secondsSince < 86400) return `${Math.floor(secondsSince / 3600)} hours ago`;
+
+        if (secondsSince === 86400) return `1 day ago`;
+        if (secondsSince < 2592000) return `${Math.floor(secondsSince / 86400)} days ago`;
+
+        if (secondsSince === 2592000) return `1 month ago`;
+        if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} months ago`;
+
+        if (secondsSince === 31104000) return `1 year ago`;
+        if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
     }
 
     componentDidUpdate(prevProps) {
@@ -49,6 +75,17 @@ class TrackIndexItem extends React.Component {
                     <div className="track-index-item-display-name">
                         <a>{this.props.user.display_name}</a> <span>uploaded</span>
                     </div>
+                    
+                    <div className="track-index-item-cloud-icon">
+                        <FontAwesomeIcon icon={faCloudUploadAlt} />
+                    </div>
+
+                    <div className="track-index-item-time">
+                        {this.formatDate()}
+                    </div>
+
+
+
                 </header>
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl} />

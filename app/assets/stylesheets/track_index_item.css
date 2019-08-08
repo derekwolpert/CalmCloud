@@ -54,6 +54,24 @@
     display: inline-block;
 }
 
+.track-index-item-display-name > span {
+    color: rgb(149, 149, 149);
+}
+
+.track-index-item-cloud-icon {
+    float: right;
+    font-size: 17px;
+    color: rgb(149, 149, 149);
+}
+
+
+.track-index-item-time {
+    margin-right: 8px;
+    float: right;
+    color: rgb(149, 149, 149);
+}
+
+
 .track-index-item-artwork {
     position: relative;
     clear: both;
@@ -82,7 +100,7 @@
     bottom: 0;
     z-index: 2;
     pointer-events: none;
-    box-shadow: inset 0 0 0 1px rgba(28,28,28,.05);
+    box-shadow: inset 0 0 0 1px rgba(149,149,149,.5);
 }
 
 .track-index-item-info {
