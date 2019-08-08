@@ -64,7 +64,6 @@
     color: rgb(149, 149, 149);
 }
 
-
 .track-index-item-time {
     margin-right: 8px;
     float: right;
@@ -111,7 +110,7 @@
     box-sizing: border-box;
 }
 
-.track-index-item-player-button {
+.track-index-item-player-button-pause {
     position: absolute;
     left: 180px;
     display: block;
@@ -123,7 +122,34 @@
     line-height: 56px;
     box-sizing: border-box;
     font-size: 56px;
+    transition: .2s;
+    color: rgb(79, 166, 211);
 }
+
+.track-index-item-player-button-pause:hover {
+    color: rgb(79, 166, 211);
+}
+
+.track-index-item-player-button-play {
+    position: absolute;
+    left: 180px;
+    display: block;
+    width: 56px;
+    height: 56px;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 56px;
+    box-sizing: border-box;
+    font-size: 56px;
+    transition: .2s;
+}
+
+.track-index-item-player-button-play:hover {
+    color: rgb(120,187,221);
+}
+
+
 
 
 .track-index-item-progress {
@@ -148,7 +174,6 @@
     color: rgb(120,187,221);
 }
 
-
 .track-index-item-sub-user {
     padding-right: 174px;
     margin-bottom: 12px;
@@ -160,13 +185,14 @@
 }
 
 .track-index-item-sub-user > span {
-    color: #4fa6d3;
+    color: rgb(120,187,221);
     cursor: pointer;
     transition: .2s
 }
 
 .track-index-item-sub-user > span:hover {
-    color: rgb(120,187,221);
+    color: rgb(79, 166, 211);
+
 }
 
 .track-index-item-waveform {

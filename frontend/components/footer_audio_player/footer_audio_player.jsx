@@ -99,7 +99,7 @@ class FooterAudioPlayer extends React.Component {
                             <img src={this.props.currentTrack.trackArtworkUrl} />
                         </div>
 
-                        <div onClick={() => this.playPauseAudio()} className="footer-player-controls">
+                        <div onClick={() => this.playPauseAudio()} className={`footer-player-controls-${this.props.playing ? "pause" : "play"}`}>
                             <FontAwesomeIcon icon={this.props.playing ? faPause : faPlay} />
                         </div>
 

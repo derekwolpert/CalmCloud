@@ -66,7 +66,7 @@
     height: 52;
 } */
 
-.footer-player-controls {
+.footer-player-controls-play {
     width: 52px;
     height: 52px;
     cursor: pointer;
@@ -82,11 +82,32 @@
     transition: .2s;
 }
 
-.footer-player-controls:hover  {
-    opacity: .8;
+.footer-player-controls-play:hover  {
+    color: rgb(120,187,221);
 }
 
-.footer-player-controls > svg {
+.footer-player-controls-pause {
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    position: absolute;
+    left: 52px;
+    top: 0;
+    z-index: 2;
+    text-align: center;
+    box-sizing: content-box;
+    font-size: 21px;
+    line-height: 52px;
+    display: block;
+    color: rgb(79, 166, 211);
+    transition: .2s;
+}
+
+.footer-player-controls-pause:hover  {
+    color: rgb(79, 166, 211);
+}
+
+.footer-player-controls-pause > svg, .footer-player-controls-play > svg {
     display: inline-block;
     box-sizing: content-box;
     margin-left: 3px;
