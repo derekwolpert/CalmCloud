@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackIndexItem from './track_index_item';
+import TrackIndexSidebar from './track_index_sidebar';
 
 class TrackIndex extends React.Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class TrackIndex extends React.Component {
 
 
     render() {
-        const indexItems = this.props.tracks.reverse().map( track =>  (
+        const indexItems = this.props.tracks.map( track =>  (
             <TrackIndexItem
                 key={track.id}
                 track={track}
@@ -26,11 +27,15 @@ class TrackIndex extends React.Component {
 
         return (
             <section className="track-index-inner-container">
-
+                <TrackIndexSidebar
+                    currentUser={this.props.currentUser}
+                    path={this.props.match.path}
+                />
                 <section className="track-index-track-container">
                     <h1>Feed</h1>
                     {indexItems}
                 </section>
+
             </section>
         );
 

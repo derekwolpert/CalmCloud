@@ -16,6 +16,7 @@ class Api::UsersController < ApplicationController
         if User.find_by(username: params[:user][:username])
             errs.push("This username is already taken")
         end
+
         if @user.save
             login!(@user)
             render :show

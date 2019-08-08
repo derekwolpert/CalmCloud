@@ -12,7 +12,9 @@ end
     json.users do
         json.set! track.user.id do
             json.extract! track.user, :id, :display_name
-            json.userPictureUrl url_for(track.user.profile_pic)
+            if track.user.profile_pic.attached?
+                json.userPictureUrl url_for(track.user.profile_pic)
+            end
         end
     end
 end

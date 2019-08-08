@@ -1,0 +1,113 @@
+.track-index-sidebar-container  {
+    float: left;
+    padding-top: 30px;
+    margin-top:  -30px;
+    width: 180px;
+    margin-right: 40px;
+    box-sizing: border-box;
+    display: block;
+
+}
+
+.track-index-sidebar-profile-border {
+    display: block;
+    min-height: 44px;
+    padding-left:  42px;
+    position: relative;
+    line-height: 15px;
+    border-bottom: 2px solid rgb(212, 212, 212);
+    box-sizing: border-box
+}
+
+.track-index-profile-pic {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 3px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    line-height: 15px;
+
+}
+
+.track-index-profile-pic  > img {
+    display: block;
+    vertical-align: top;
+}
+
+.track-index-sidebar-profile-link {
+    font-size: 11px;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-index-sidebar-profile-link > div {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.track-index-sidebar-container > nav {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-index-sidebar-nav-group {
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.track-index-sidebar-nav-active, .track-index-sidebar-nav-inactive {
+    padding: 10px 10px 10px 42px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: .2s;
+}
+
+.track-index-sidebar-nav-active {
+    color: #4fa6d3;
+}
+
+.track-index-sidebar-nav-inactive {
+    color: rgb(149, 149, 149);
+}
+
+.track-index-sidebar-nav-inactive:hover {
+    color: rgb(200, 200, 200);
+}
+
+.track-index-sidebar-nav-icon {
+    position: absolute;
+    left: 0;
+    width: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.track-index-sidebar-nav-icon > div {
+    text-align: center;
+}
+
+.track-index-sidebar-nav-bar {
+    color: rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212, 212)
+}

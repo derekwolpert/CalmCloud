@@ -122,14 +122,33 @@
     line-height: 23px;
     font-weight: 400;
     line-height: 23px;
+    transition: .2s;
+    cursor: pointer;
 }
+
+.track-index-item-title:hover {
+    color: rgb(120,187,221);
+}
+
 
 .track-index-item-sub-user {
     padding-right: 174px;
     margin-bottom: 12px;
-    font: 14px/18px Open Sans,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(149, 149, 149);
     box-sizing: border-box;
     display: block;
+}
+
+.track-index-item-sub-user > span {
+    color: #4fa6d3;
+    cursor: pointer;
+    transition: .2s
+}
+
+.track-index-item-sub-user > span:hover {
+    color: rgb(120,187,221);
 }
 
 .track-index-item-waveform {
