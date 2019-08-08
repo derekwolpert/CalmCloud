@@ -23,7 +23,7 @@ class HeaderDropdown extends React.Component {
             <div onClick={this.showDropdown}>
                 {this.state.showDropdown ?
                 (<>
-                    <div className="track-index-profile-pic">
+                    <div className="header-profile-pic">
                         <img src={this.props.profilePic} />
                     </div>
                     <span className="header-name">{this.props.username}</span>

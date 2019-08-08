@@ -224,7 +224,7 @@
     pointer-events: none;
     white-space: nowrap;
     border-radius: 3px;
-    box-shadow: 0 2px 3px rgba(28,28,28,.1);
+    box-shadow: 0 2px 3px rgba(149,149,149,.1);
 }
 
 .track-index-item-length:after {

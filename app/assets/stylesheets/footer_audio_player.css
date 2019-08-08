@@ -236,7 +236,7 @@
 .footer-player-volume:hover {
     z-index: 1;
     background-color: rgb(28, 28, 28);
-    box-shadow: inset -1px 0 0 rgb(28, 28, 28), -1px 0 0 hsla(0,0%,100%,.04);
+    box-shadow: inset -1px 0 0 rgb(149, 149, 149), -1px 0 0 hsla(0,0%,100%,.04);
 }
 
 .footer-player-volume-image {
@@ -297,7 +297,7 @@
     height: 8px;
     padding: 0;
     margin: 27px 0 0;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,.1), inset 0 -1px 1px rgba(0,0,0,.1), 0 1px 0 hsla(0,0%,100%,.05);
+    box-shadow: inset 0 1px 0 rgba(149,149,149,.1), inset 0 -1px 1px rgba(149,149,149,.1), 0 1px 0 hsla(0,0%,100%,.05);
     position: relative;
     font-weight: 600;
     background: rgb(28, 28, 28);
@@ -342,7 +342,7 @@
     width: 100%;
     height: 8px;
     position: relative;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,.1), inset 0 -1px 1px rgba(0,0,0,.1), 0 1px 0 hsla(0,0%,100%,.05);
+    box-shadow: inset 0 1px 0 rgba(149,149,149,.1), inset 0 -1px 1px rgba(149,149,149,.1), 0 1px 0 hsla(0,0%,100%,.05);
     border-radius: 5px;
     display: block;
     font-weight: 600;
@@ -356,7 +356,7 @@
     min-width: 6px;
     height: 6px;
     background: rgb(79, 166, 211);;
-    box-shadow: 0 1px 0 rgba(0,0,0,.3), 0 -1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 0 rgba(149,149,149,.3), 0 -1px 0 rgba(149,149,149,.1);
     position: relative;
     top: 1px;
     left: 1px;
@@ -368,7 +368,7 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
-    box-shadow: 0 0 2px rgba(0,0,0,.6), inset 0 -1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 2px rgba(149,149,149,.6), inset 0 -1px 0 rgba(149,149,149,.1);
     position: absolute;
     right: -8px;
     top: -5px;
@@ -395,5 +395,5 @@
 
 .footer-scrubber-point:hover:after {
     background: rgb(149, 149, 149);
-    box-shadow: inset 0 0 4px rgba(0,0,0,.1);
+    box-shadow: inset 0 0 4px rgba(149,149,149,.1);
 }

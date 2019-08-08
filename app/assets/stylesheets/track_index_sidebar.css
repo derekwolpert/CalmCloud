@@ -53,6 +53,10 @@
     font-weight: 600;
 }
 
+.track-index-sidebar-profile-link > span  {
+    color: rgb(149, 149, 149);
+}
+
 .track-index-sidebar-container > nav {
     position: relative;
     display: block;
