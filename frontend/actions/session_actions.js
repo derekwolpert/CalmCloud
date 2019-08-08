@@ -39,7 +39,6 @@ export const login = (user) => dispatch => {
 };
 
 export const signup = (user) => dispatch => {
-    debugger
     return (SessionApiUtil.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)))
     .fail(errors => dispatch(receiveSessionErrors(errors)))

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faCommentAlt } from '@fortawesome/free-regular-svg-icons';
 
 class FooterAudioPlayer extends React.Component {
@@ -21,7 +21,7 @@ class FooterAudioPlayer extends React.Component {
             left: `-${this.formatTime(this._audio.duration - this._audio.currentTime)}`,
             percentage: ((this._audio.currentTime / this._audio.duration)*100),
             }), 100);
-    }
+    } 
 
     formatTime(time) {
         const roundedTime = Math.floor(time);
@@ -71,6 +71,24 @@ class FooterAudioPlayer extends React.Component {
             }
         }
     }
+
+    handleProgress(e) {
+        const bounds = e.currentTarget.getBoundingClientRect();
+        const percent = ((e.clientX - (bounds.left)) / bounds.width)
+        this._audio.currentTime = (percent * this._audio.duration);
+    }
+
+    handleVolume(e) {
+        const bounds = e.currentTarget.getBoundingClientRect();
+        const percent = ((bounds.bottom -  e.clientY) / bounds.height);
+        this._audio.volume = (percent);
+    }
+
+    volumeImage() {
+        if (this._audio.volume > .5) return (<FontAwesomeIcon icon={faVolumeUp} />);
+        if (this._audio.volume > 0) return (<FontAwesomeIcon icon={faVolumeDown} />);
+        return (<FontAwesomeIcon icon={faVolumeDown} />);
+    }
     
     render() {
         if (this.props.currentTrack) {
@@ -110,7 +128,7 @@ class FooterAudioPlayer extends React.Component {
                                     <div className="footer-player-time">{this.state.time}</div>
                                     <div className="footer-player-time-left">{this.state.left}</div>
 
-                                    <div className="footer-sub-scrubber">
+                                    <div className="footer-sub-scrubber" onClick={(e) => this.handleProgress(e)}>
 
                                         <div className="footer-scrubber-postion" style={{ width: `${this.state.percentage}%` }}>
 
@@ -122,9 +140,21 @@ class FooterAudioPlayer extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="footer-player-volume">
-                            <FontAwesomeIcon icon={faVolumeUp} />
+                        <div className="footer-player-volume" >
+                            <div className="footer-player-volume-image">
+                                {this.volumeImage()}
+                            </div>
+
+                            <div className="footer-player-volume-popup">
+                                <div className="footer-player-volume-scrubber" onClick={(e) => this.handleVolume(e)}>
+                                    <div className="footer-player-volume-percent" style={{ height: `${this._audio.volume * 100}%`}}>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
                     <audio
                         ref={(a) => this._audio = a}

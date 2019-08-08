@@ -96,7 +96,7 @@ demo_track_4.track_artwork.attach(io: artwork4, filename: 'demo_track_4.jpg')
 demo_track_5 = Track.create!({
     user_id: demo_user_2.id,
     title: "Janet Jackson - If (KAYTRANADA Remix)",
-    track_length: 172,
+    track_length: 237,
     play_count: 52,
 })
 
