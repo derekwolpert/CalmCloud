@@ -54,8 +54,10 @@ class TrackShow extends React.Component {
 
     handleProgress(e) {
         const bounds = e.currentTarget.getBoundingClientRect();
-        const percent = ((e.clientX - (bounds.left)) / bounds.width)
-        this.props.currentPercent((percent * 100))
+        const percent = ((e.clientX - (bounds.left)) / bounds.width);
+        if (this.props.currentTrack === this.props.track.id) {
+            this.props.currentPercent((percent * 100));
+        }
     }
 
     formatTime(time) {
