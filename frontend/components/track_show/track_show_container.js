@@ -1,15 +1,29 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import { fetchTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
+import { changeTrack, pauseTrack, currentPercent } from "../../actions/footer_player_actions";
 
 const mapStateToProps = (state, ownProps) => {
+    const track = state.entities.tracks[ownProps.match.params.trackId];
+    const user =  track ? state.entities.users[track.user_id] : null;
     return {
-        track: state.entities.tracks[ownProps.match.params.trackId],
+        track: track,
+        user: user,
+        currentUser: state.entities.users[state.session.currentUser.id],
+        currentTrack: state.ui.currentTrack,
+        playing: state.ui.playing,
+        percent: state.ui.percent
+
     };
+
 };
 
 const mapDispatchToProps = dispatch => ({
     fetchTrack: id => dispatch(fetchTrack(id)),
+    changeTrack: (trackId) => dispatch(changeTrack(trackId)),
+    pauseTrack: () => dispatch(pauseTrack()),
+    currentPercent: (percent) => dispatch(currentPercent(percent))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TrackShow); 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow)); 

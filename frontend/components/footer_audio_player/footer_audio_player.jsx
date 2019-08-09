@@ -24,7 +24,7 @@ class FooterAudioPlayer extends React.Component {
             time: this.formatTime(this._audio.currentTime),
             left: `-${this.formatTime(this._audio.duration - this._audio.currentTime)}`,
             percentage: ((this._audio.currentTime / this._audio.duration)*100),
-            }), 100);
+            }), 200);
     } 
 
     formatTime(time) {
@@ -80,7 +80,17 @@ class FooterAudioPlayer extends React.Component {
                 this.props.pauseTrack();
             }
         }
+        if (this.props.playing) {
+            this.props.currentPercent(this.state.percentage);
+        }
 
+        if (this.props.percent) {
+            if (this.props.currentTrackId && this._audio.duration) {
+                if ((Math.abs(this.props.percent - this.state.percentage) > 1) && (this.props.percent !== prevProps.percent)) {
+                    this._audio.currentTime = ((this.props.percent * this._audio.duration) / 100);
+                }
+            }
+        }
     }
 
     handleProgress(e) {

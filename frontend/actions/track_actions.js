@@ -12,7 +12,8 @@ const receiveAllTracks = tracks => ({
 
 const receiveTrack = track => ({
     type: RECEIVE_TRACK,
-    track
+    track: track.track,
+    user: track.user,
 });
 
 const removeTrack = trackId => ({

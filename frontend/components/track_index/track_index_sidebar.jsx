@@ -50,7 +50,7 @@ class TrackIndexSidebar extends React.Component {
                                             <FontAwesomeIcon icon={faHeart} />
                                         </div>
                                     </div>
-                                    Favorities
+                                    Favorites
                                 </div>        
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>

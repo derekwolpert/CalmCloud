@@ -1,6 +1,6 @@
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
-import { RECEIVE_ALL_TRACKS } from '../actions/track_actions'
+import { RECEIVE_ALL_TRACKS, RECEIVE_TRACK } from '../actions/track_actions'
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
@@ -10,6 +10,9 @@ export default (state = {}, action) => {
             return merge({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_ALL_TRACKS:
             return merge({}, state, action.users )
+
+        case RECEIVE_TRACK:
+            return merge({}, state, { [action.user.id]: action.user })
         default:
             return state;
     }

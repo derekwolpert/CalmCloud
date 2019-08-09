@@ -30,13 +30,11 @@ class Api::TracksController < ApplicationController
     end
 
     def index
-        @tracks = Track.all
-        # track.inlcudes( user  ...  )
-        # look up active records .includes methods
+        @tracks = Track.includes(:user)
     end
 
     def show
-        @track = selected_track
+        @track = Track.includes(:user).find(params[:id])
     end
 
     def destroy
