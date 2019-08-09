@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faCommentAlt } from '@fortawesome/free-regular-svg-icons';
 
+// mouseDrag
+// onDrag
+
+
 class FooterAudioPlayer extends React.Component {
     constructor(props) {
         super(props);
@@ -70,6 +74,13 @@ class FooterAudioPlayer extends React.Component {
                 }
             }
         }
+
+        if (this.props.playing) {
+            if (this._audio.currentTime === this._audio.duration) {
+                this.props.pauseTrack();
+            }
+        }
+
     }
 
     handleProgress(e) {

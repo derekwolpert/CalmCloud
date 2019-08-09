@@ -6,7 +6,8 @@
     margin-right: 40px;
     box-sizing: border-box;
     display: block;
-
+    position: sticky;
+    top: 0;
 }
 
 .track-index-sidebar-profile-border {

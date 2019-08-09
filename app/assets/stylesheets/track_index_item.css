@@ -54,6 +54,14 @@
     display: inline-block;
 }
 
+.track-index-item-display-name > a {
+    transition: 0.2s;
+}
+
+.track-index-item-display-name > a:hover {
+    color: rgb(120,187,221);
+}
+
 .track-index-item-display-name > span {
     color: rgb(149, 149, 149);
 }
@@ -222,8 +230,9 @@
     right: 3px;
     font-size: 11px;
     z-index: 1;
-    color: rgb(212, 212, 212);
-    text-shadow: -1px -1px 0 rgb(48,48,48), 1px -1px 0 rgb(48,48,48), -1px 1px 0 rgb(48,48,48), 1px 1px 0 rgb(48,48,48);
+    color: rgb(191, 191, 191);
+    text-shadow: -1px -1px 0 rgb(56,56,56), 1px -1px 0 rgb(56,56,56), -1px 1px 0 rgb(56,56,56), 1px 1px 0 rgb(56,56,56);
+    font-weight: 600;
 }
 
 .track-index-item-length:before {
@@ -275,4 +284,85 @@
     height: 100%;
     visibility: visible;
     vertical-align: top;
+}
+
+.track-index-item-actions-container {
+    position: relative;
+    z-index: 2;
+    padding: 10px 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-index-item-actions {
+    float: left;
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-index-item-action {
+    padding: 8px 12px;
+    height: 32px;
+    margin-right: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    background: rgb(54, 54, 54);;
+    font-size: 13px;
+    border-radius: 4px;
+    color: rgb(192, 192, 192);
+    box-shadow: inset 0 0 0 1px rgb(108, 108, 108);
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    transition: .2s;
+}
+
+.track-index-item-action:hover {
+    box-shadow: inset 0 0 0 1px rgb(149, 149, 149);
+}
+
+.track-index-item-stats {
+    float: right;
+    opacity: .8;
+    line-height: 31px;
+    box-sizing: border-box;
+    color: rgb(149, 149, 149);
+}
+
+.track-index-item-new-icon {
+    font-size: 14px;
+    position: relative;
+    top: -1px;
+    margin-right: 4px;
+    margin-left: 12px;
+    display: inline-block;
+    line-height: 31px;
+}
+
+.track-index-item-new-stats {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    /* margin-inline-start: 40px; */
+    line-height: 31px;
+}
+
+.track-index-item-new-badge {
+    top: -1px;
+    margin-left: 12px;
+    display: inline-block;
+    padding: 2px 4px;
+    position: relative;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-style: normal;
+    line-height: 1;
+    background: #e79e35;
+    color: #fff;
+    border-radius: 3px;
+    box-sizing: border-box;
 }

@@ -1,4 +1,4 @@
-import { CHANGE_TRACK, PAUSE_TRACK, REMOVE_TRACK } from '../actions/footer_player_actions';
+import { CHANGE_TRACK, PAUSE_TRACK, REMOVE_CURRENT_TRACK } from '../actions/footer_player_actions';
 
 export default (state = null, action) => {
     Object.freeze(state);
@@ -7,7 +7,7 @@ export default (state = null, action) => {
             return true;
         case PAUSE_TRACK:
             return false;
-        case REMOVE_TRACK:
+        case REMOVE_CURRENT_TRACK:
             return null;
         default:
             return state;

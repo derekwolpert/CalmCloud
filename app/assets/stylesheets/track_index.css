@@ -35,3 +35,30 @@
     color: rgb(212, 212, 212);
     border-bottom: 2px solid rgb(192, 192, 192);
 }
+
+.track-index-play-all {
+    float: right;
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #FFF;
+    background-color: #50b348;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    border: none;
+    text-align: center;
+    transition: .2s;
+    box-sizing: border-box;
+    display: block;
+}
+
+.track-index-play-all > svg {
+    margin-right: 3px;
+}
+
+.track-index-play-all:hover {
+    background-color: #408f39;
+}

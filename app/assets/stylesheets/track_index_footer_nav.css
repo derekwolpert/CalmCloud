@@ -1,0 +1,38 @@
+.track-index-right-sidebar {
+    float: right;
+    width: 300px;
+    padding-bottom: 60px;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 42px;
+    border-top: 2px solid rgb(212, 212, 212);
+    position: sticky;
+    top: 72px;
+}
+
+.track-index-footer-nav {
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.track-index-footer-nav > div {
+    color: rgb(149, 149, 149);
+    font-size: 12px;
+    line-height: 20px;
+    text-align:justify;
+    overflow-wrap: break-word;
+}
+
+.track-index-footer-nav > div > span  {
+    color: rgb(192, 192, 192);
+    font-weight: 600;
+}
+
+.track-index-footer-nav > div > span > a {
+    color: rgb(120,187,221);
+    transition: .2s;
+}
+
+.track-index-footer-nav > div > span > a:hover {
+    color: rgb(79, 166, 211);
+}

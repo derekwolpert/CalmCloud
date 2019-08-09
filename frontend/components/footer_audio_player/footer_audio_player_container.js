@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Link, Redirect, withRouter } from 'react-router-dom';
-import { changeTrack, pauseTrack } from '../../actions/footer_player_actions'
+import { changeTrack, pauseTrack, removeCurrentTrack } from '../../actions/footer_player_actions'
 import FooterAudioPlayer from './footer_audio_player';
 
 const mapStateToProps = ({ ui, entities }) => ({
@@ -14,6 +14,7 @@ const mapStateToProps = ({ ui, entities }) => ({
 const mapDispatchToProps = dispatch => ({
     changeTrack: (trackId) => dispatch(changeTrack(trackId)),
     pauseTrack: () => dispatch(pauseTrack()),
+    removeCurrentTrack: () => dispatch(removeCurrentTrack())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FooterAudioPlayer));

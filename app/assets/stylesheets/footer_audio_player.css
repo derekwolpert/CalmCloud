@@ -60,11 +60,11 @@
     box-sizing: content-box;
 }
 
-/* .footer-player-artwork-container > img {
+.footer-player-artwork-container > img {
     display: block;
     width: 52;
     height: 52;
-} */
+}
 
 .footer-player-controls-play {
     width: 52px;

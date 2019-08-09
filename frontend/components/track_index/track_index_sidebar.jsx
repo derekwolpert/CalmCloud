@@ -42,7 +42,7 @@ class TrackIndexSidebar extends React.Component {
                                     New Shows
                                 </div>
                             </div>
-                            <div className="track-index-sidebar-nav-bar"></div>
+                            <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
                                 <div className="track-index-sidebar-nav-inactive">
                                     <div className="track-index-sidebar-nav-icon">
@@ -53,7 +53,7 @@ class TrackIndexSidebar extends React.Component {
                                     Favorities
                                 </div>        
                             </div>
-                            <div className="track-index-sidebar-nav-bar"></div>
+                            <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
 
                                 <div className="track-index-sidebar-nav-inactive">
@@ -66,15 +66,7 @@ class TrackIndexSidebar extends React.Component {
                                 </div>
 
                             </div>
-
-                            
-
-
-
                         </nav>
-
-
-
                     </div>
                 </section>
             </div>

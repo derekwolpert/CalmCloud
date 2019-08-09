@@ -1,6 +1,6 @@
 export const CHANGE_TRACK = 'CHANGE_TRACK';
 export const PAUSE_TRACK = 'PAUSE_TRACK'
-export const REMOVE_TRACK = 'REMOVE_TRACK'
+export const REMOVE_CURRENT_TRACK = 'REMOVE_CURRENT_TRACK';
 
 export const changeTrack = trackId => {
     return {
@@ -15,7 +15,7 @@ export const pauseTrack = () => {
     };
 };
 
-export const removeTrack = () => {
+export const removeCurrentTrack = () => {
     return {
         type: REMOVE_TRACK,
     };

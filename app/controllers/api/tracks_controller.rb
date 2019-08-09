@@ -31,6 +31,8 @@ class Api::TracksController < ApplicationController
 
     def index
         @tracks = Track.all
+        # track.inlcudes( user  ...  )
+        # look up active records .includes methods
     end
 
     def show

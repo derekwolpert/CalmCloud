@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle, faHeart, faShareSquare } from '@fortawesome/free-regular-svg-icons';
+import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 class TrackIndexItem extends React.Component {
@@ -9,7 +9,8 @@ class TrackIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.playPause = this.playPause.bind(this);
-        this.formateDate = this.formatDate(this);
+        this.formateDate = this.formatDate.bind(this);
+        this.confirmNew = this.confirmNew.bind(this);
     }
 
     formatTime(time) {
@@ -42,6 +43,17 @@ class TrackIndexItem extends React.Component {
 
         if (secondsSince === 31104000) return `1 year ago`;
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
+    }
+
+    confirmNew() {
+        const uploadDate = new Date(this.props.track.created_at);
+        const nowDate = new Date();
+        const secondsSince = ((nowDate - uploadDate) / 1000);
+
+        if (secondsSince < 86400) {
+            return true;
+        }
+        return false;
     }
 
     componentDidUpdate(prevProps) {
@@ -88,8 +100,6 @@ class TrackIndexItem extends React.Component {
                         {this.formatDate()}
                     </div>
 
-
-
                 </header>
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl} />
@@ -111,7 +121,44 @@ class TrackIndexItem extends React.Component {
                     </div>
                     <img src={window.defaultWaveformIndex} />
                 </div>
+            
+                <section className="track-index-item-actions-container">
+                    <div>
+                        <div className="track-index-item-actions">
 
+                            <div className="track-index-item-action">
+                                <FontAwesomeIcon icon={faHeart} />
+                            </div>
+
+                            <div className="track-index-item-action">
+                                <FontAwesomeIcon icon={faShareSquare} />
+                            </div>
+
+                        </div>
+
+                        <div className="track-index-item-stats">
+                            { this.confirmNew() ? (
+                                <>
+                                    <div className="track-index-item-new-icon">
+                                        <FontAwesomeIcon icon={faCalendarAlt} />
+                                    </div>
+                                    <div className="track-index-item-new-stats">
+                                        {`${this.formateDate().split(" ")[0]}${this.formateDate().split(" ")[1][0]} ${this.formateDate().split(" ")[2]}`   }
+                                        <div className="track-index-item-new-badge">New</div>
+                                    </div>
+                                </>
+                                ) : (
+                                null
+                            )}
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </section>
 
 
 
