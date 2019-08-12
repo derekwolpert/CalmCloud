@@ -17,11 +17,18 @@ class Api::UsersController < ApplicationController
             errs.push("This username is already taken")
         end
 
-        if @user.save
+        if (params[:user][:password]).length < 6
+            errs.push("Enter a valid password, at least 6 characters.")
+        end
+
+
+        if errs.length > 0
+            render json: errs, status: 401
+        elsif @user.save
             login!(@user)
             render :show
         else
-            render json: errs, status: 401
+            render json: @user.errors.full_messages, status: 401
         end
     end
 
