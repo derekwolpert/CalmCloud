@@ -9,7 +9,6 @@ const BodyContainer = () => (
     <div className="body-container" >
         <ProtectedRoute exact path="/" component={TrackIndexContainer} />
         <Route exact path="/tracks/:trackId" component={TrackShowContainer} />
-        {/* <Route exact path="/upload" component={TrackUploadFormContainer} /> */}
     </div>
 );
 
