@@ -16,7 +16,7 @@
     padding-left:  42px;
     position: relative;
     line-height: 15px;
-    border-bottom: 2px solid rgb(212, 212, 212);
+    border-bottom: 2px solid rgb(128, 128, 128);
     box-sizing: border-box
 }
 
@@ -113,6 +113,6 @@
 }
 
 .track-index-sidebar-nav-bar {
-    color: rgb(212, 212, 212);
-    border-bottom: 1px solid rgb(212, 212, 212)
+    color: rgb(128, 128, 128);
+    border-bottom: 1px solid rgb(128, 128, 128)
 }

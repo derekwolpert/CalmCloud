@@ -24,7 +24,7 @@ class FooterAudioPlayer extends React.Component {
             time: this.formatTime(this._audio.currentTime),
             left: `-${this.formatTime(this._audio.duration - this._audio.currentTime)}`,
             percentage: ((this._audio.currentTime / this._audio.duration)*100),
-            }), 200);
+            }), 350);
     } 
 
     formatTime(time) {
@@ -86,7 +86,7 @@ class FooterAudioPlayer extends React.Component {
 
         if (this.props.percent) {
             if (this.props.currentTrackId && this._audio.duration) {
-                if ((Math.abs(this.props.percent - this.state.percentage) > 1) && (this.props.percent !== prevProps.percent)) {
+                if ((Math.abs(this.props.percent - this.state.percentage) > 0.5) && (this.props.percent !== prevProps.percent)) {
                     this._audio.currentTime = ((this.props.percent * this._audio.duration) / 100);
                 }
             }
@@ -102,7 +102,7 @@ class FooterAudioPlayer extends React.Component {
     handleVolume(e) {
         const bounds = e.currentTarget.getBoundingClientRect();
         const percent = ((bounds.bottom -  e.clientY) / bounds.height);
-        this._audio.volume = (percent);
+        this._audio.volume = percent;
     }
 
     volumeImage() {

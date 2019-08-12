@@ -4,7 +4,7 @@
     position: relative;
     z-index: 2;
     padding: 12px 0;
-    border-bottom: 1px solid rgb(239, 239, 239);
+    border-bottom: 1px solid rgb(128, 128, 128);
     display: block;
     box-sizing: border-box;
 }

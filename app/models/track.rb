@@ -2,15 +2,15 @@
 #
 # Table name: tracks
 #
-#  id               :bigint           not null, primary key
-#  user_id          :integer          not null
-#  title            :string           not null
-#  track_length     :integer          not null
-#  play_count       :integer          not null
-#  description      :text
-#  background_color :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id           :bigint           not null, primary key
+#  user_id      :integer          not null
+#  title        :string           not null
+#  track_length :integer          not null
+#  play_count   :integer          not null
+#  description  :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  tag_id       :integer
 #
 
 class Track < ApplicationRecord

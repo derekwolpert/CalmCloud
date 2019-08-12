@@ -26,14 +26,14 @@
     top: 0;
     z-index: -1;
     height: 104px;
-    background: rgba(72, 72, 72, .5);
+    background: rgba(56, 56, 56, .5);
 }
 
 .footer-player {
     width: 100%;
     height: 52px;
     padding: 0 60px 0 52px;
-    background: rgb(72, 72, 72);
+    background: rgb(56, 56, 56);
     position: relative;
     color: #fff;
     line-height: 52px;

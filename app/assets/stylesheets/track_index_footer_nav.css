@@ -5,7 +5,7 @@
     display: block;
     box-sizing: border-box;
     margin-top: 42px;
-    border-top: 2px solid rgb(212, 212, 212);
+    border-top: 2px solid rgb(128, 128, 128);
     position: sticky;
     top: 72px;
 }

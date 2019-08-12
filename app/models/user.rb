@@ -9,8 +9,6 @@
 #  session_token   :string           not null
 #  display_name    :string           not null
 #  biography       :text
-#  age             :integer
-#  gender          :string
 #  country         :string
 #  city            :string
 #  created_at      :datetime         not null
@@ -20,7 +18,7 @@
 class User < ApplicationRecord
     validates :email, :username, :session_token, uniqueness: true, presence: true
     validates :password, length: {minimum: 6}, allow_nil: true
-    validates :password, length: {maximum: 1000}, allow_nil: true
+    validates :password, length: {maximum: 100}, allow_nil: true
     validates :display_name, :password_digest, presence: true
 
     has_one_attached :profile_pic
