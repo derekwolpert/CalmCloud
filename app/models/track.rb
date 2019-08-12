@@ -29,7 +29,7 @@ class Track < ApplicationRecord
     
     belongs_to :tag
 
-    has_many :comments
+    # has_many :comments
 
     def ensure_play_count
         self.play_count ||= 0

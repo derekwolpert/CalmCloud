@@ -10,8 +10,8 @@
 
 class Tag < ApplicationRecord
 
-    validates :tag_name, uniqueness: true, presence: true
+    # validates :tag_name, uniqueness: true, presence: true
 
-    has_many :tracks
+    # has_many :tracks
 
 end
