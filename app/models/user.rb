@@ -18,7 +18,7 @@
 class User < ApplicationRecord
     validates :email, :username, :session_token, uniqueness: true, presence: true
     validates :password, length: {minimum: 6}, allow_nil: true
-    validates :password, length: {maximum: 100}, allow_nil: true
+    validates :biography, length: {maximum: 1000}, allow_nil: true
     validates :display_name, :password_digest, presence: true
 
     has_one_attached :profile_pic
@@ -32,6 +32,8 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :Track
+
+    has_many :comments
 
     def self.find_by_username(username, password)
         user = User.find_by(username: username)

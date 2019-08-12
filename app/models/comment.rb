@@ -6,11 +6,28 @@
 #  track_id          :integer          not null
 #  user_id           :integer          not null
 #  parent_comment_id :integer
-#  bpdy              :text             not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  body              :text             not null
 #
 
 class Comment < ApplicationRecord
 
+    validates :track_id, :user_id, :body, presence: true
+    validates :body, length: {maximum: 1000}
+    validates :parent_comment_id, allow_nil: true
+
+    belongs_to :user
+
+    belongs_to :track
+
+    belongs_to :parent_comment,
+        primary_key: :id,
+        foreign_key: :parent_comment_id,
+        class_name: :Comment
+
+    has_many :child_comments,
+        primary_key: :id,
+        foreign_key: :parent_comment_id,
+        class_name: :Comment
 end

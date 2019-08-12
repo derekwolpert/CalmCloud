@@ -26,6 +26,10 @@ class Track < ApplicationRecord
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :User
+    
+    belongs_to :tag
+
+    has_many :comments
 
     def ensure_play_count
         self.play_count ||= 0
