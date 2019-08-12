@@ -248,3 +248,32 @@
     margin: -5px -10px -10px -5px;
 }
 
+.track-show-actions-container {
+    height: 75px;
+    background-color: rgb(36, 36, 36);
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-show-actions-inner-container {
+    height: 100%;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+    width: 1080px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.track-show-actions {
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-show-indiviual-actions {
+    display: inline;
+    box-sizing: border-box;
+}
