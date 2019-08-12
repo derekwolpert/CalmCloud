@@ -77,7 +77,7 @@
     vertical-align: middle;
     text-align: center;
     box-sizing: border-box;
-    transition: .2s
+    transition: .2s;
 }
 
 .track-show-action-button:hover {
