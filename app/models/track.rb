@@ -27,7 +27,7 @@ class Track < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
     
-    belongs_to :tag
+    # belongs_to :tag
 
     # has_many :comments
 
