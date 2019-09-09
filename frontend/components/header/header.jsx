@@ -17,7 +17,7 @@ class Header extends React.Component {
 
 	upload() {
 		return (
-			<Link to="/upload" className="header-upload">
+			<Link to="/upload" className={this.props.location.pathname === "/upload" ? "header-upload-active" : "header-upload"}>
 				<FontAwesomeIcon className="header-upload-icon" icon={faCloudUploadAlt} />
 				<h1 className="header-upload-text">Upload</h1>
 			</Link>
@@ -52,7 +52,6 @@ class Header extends React.Component {
 	render() {
 		
 		const headerClass = this.props.location.pathname === "/" && !this.props.currentUser ? "header-splash" : "header-main";
-
 		return (
 			this.props.currentUser ?
 				<header className={headerClass}>

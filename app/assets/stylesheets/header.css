@@ -57,20 +57,33 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     color: rgb(192, 192, 192);
-    transition: 0.2s
+    transition: 0.2s;
 }
 
 .header-upload:hover {
     color: rgb(236, 236, 236);
 }
 
-.header-upload > * {
+.header-upload-active {
+    display: inline-block;
+    position: relative;
+    left: 30%;
+    top: 17px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.2s;
+    color: #4fa6d3;
+}
+
+.header-upload-active > *, .header-upload > * {
     display: inline-block;
 }
 
 .header-upload-icon {
     font-size: 18px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .header-upload-text {
