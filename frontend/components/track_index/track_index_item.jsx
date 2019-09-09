@@ -107,7 +107,7 @@ class TrackIndexItem extends React.Component {
                 <section className="track-index-item-info">
                     {this.playPause()}
                     <h1 className="track-index-item-title">
-                        <Link to={`/tracks/${this.props.track.id}`}>{this.props.track.title}</Link>
+                        <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
                     </h1>
 
                     <h2 className="track-index-item-sub-user">

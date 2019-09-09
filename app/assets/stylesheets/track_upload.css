@@ -1,0 +1,88 @@
+.track-upload-container {
+    width: 1080px;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    padding: 30px 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-upload-container:after, .track-upload-container:before {
+    content: " ";
+    display: table;
+}
+
+.track-upload-container:after {
+    clear: both;
+}
+
+.track-upload-container > h1 {
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    color: rgb(212, 212, 212);
+    border-bottom: 2px solid rgb(128, 128, 128);
+}
+
+.track-upload-inner-container {
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.track-upload-reasons {
+    width: 100%;
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.upload-reason-1, .upload-reason-2, .upload-reason-3 {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(52, 52, 52);
+    border-radius: 4px;
+}
+
+.upload-reason-2 {
+    margin: 0 20px;
+}
+
+.upload-reason-icon-1, .upload-reason-icon-2, .upload-reason-icon-3 {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: rgb(52, 52, 52);
+    background-color: rgb(128, 128, 128);
+    font-size: 24px;
+}
+
+.upload-reason-icon-1 > * {
+    margin-top:  8px;
+}
+
+.upload-reason-icon-2 > * {
+    margin-top: 7px;
+    margin-left: 3px; 
+}
+
+.upload-reason-icon-3 > * {
+    margin-top: 8px;
+    margin-right: 2px;
+}
+
+.upload-reason-title {
+    margin: 0;
+    padding: 15px 0 0;
+    color: rgb(128, 128, 128);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

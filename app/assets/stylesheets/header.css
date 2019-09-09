@@ -23,12 +23,14 @@
 }
 
 .header-icon-logo {
-    padding-top: 15px;
     transition: .2s;
+    position: relative;
+    cursor: pointer;
+    top: 17px;
+
 }
 .header-icon-logo:hover {
     opacity: .8;
-    cursor: pointer;
 }
 
 .header-icon-logo > * {
@@ -37,13 +39,47 @@
 }
 
 .header-icon-logo > svg {
-    padding-right: 5px;
+    margin-right: 5px;
 }
 
 .header-site-name {
     font-size: 18px;
     text-align: center;
 }
+
+.header-upload {
+    display: inline-block;
+    position: relative;
+    left: 30%;
+    top: 17px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(192, 192, 192);
+    transition: 0.2s
+}
+
+.header-upload:hover {
+    color: rgb(236, 236, 236);
+}
+
+.header-upload > * {
+    display: inline-block;
+}
+
+.header-upload-icon {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.header-upload-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    vertical-align: top;
+}
+
+
 
 .header-guest-session-buttons {
     float: right;

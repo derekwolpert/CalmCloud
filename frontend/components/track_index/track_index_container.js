@@ -6,7 +6,7 @@ import TrackIndex from './track_index';
 
 const mapStateToProps = (state) => {
     return {
-        tracks: Object.values(state.entities.tracks).reverse(),
+        tracks: Object.values(state.entities.tracks),
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,
         playing: state.ui.playing,

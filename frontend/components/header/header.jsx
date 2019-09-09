@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faCloud, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import HeaderDropdown from './header_dropdown';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,15 @@ class Header extends React.Component {
 			<Link to="/" className="header-icon-logo">
 				<FontAwesomeIcon className="header-logo" icon={faCloud} />
 				<h1 className="header-site-name">CalmCloud</h1>
+			</Link>
+		)
+	}
+
+	upload() {
+		return (
+			<Link to="/upload" className="header-upload">
+				<FontAwesomeIcon className="header-upload-icon" icon={faCloudUploadAlt} />
+				<h1 className="header-upload-text">Upload</h1>
 			</Link>
 		)
 	}
@@ -49,12 +58,14 @@ class Header extends React.Component {
 				<header className={headerClass}>
 					<header className="header-container">
 						{this.logo()}
+						{this.upload()}
 						{this.personalGreeting()}
 					</header>
 				</header> :
 				<header className={headerClass}>
 					<header className="header-container">
 						{this.logo()}
+						{this.upload()}
 						{this.sessionLinks()}
 					</header>
 				</header>

@@ -17,9 +17,8 @@ class TrackIndex extends React.Component {
         this.props.fetchAllTracks();
     }
 
-
     render() {
-        const indexItems = this.props.tracks.map( track =>  (
+        const indexItems = this.props.tracks.slice().reverse().map( track =>  (
             <TrackIndexItem
                 key={track.id}
                 track={track}
