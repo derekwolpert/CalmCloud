@@ -20,7 +20,7 @@ class Track < ApplicationRecord
     has_one_attached :audio_track
     has_one_attached :track_artwork
 
-    after_initialize :ensure_play_count, :ensure_play_count
+    after_initialize :ensure_play_count
 
     belongs_to :user,
         primary_key: :id,
@@ -35,7 +35,7 @@ class Track < ApplicationRecord
         self.play_count ||= 0
     end
 
-    def ensure_play_count
+    def ensure_track_length
         self.track_length ||= 0
     end
 

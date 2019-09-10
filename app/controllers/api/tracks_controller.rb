@@ -1,7 +1,7 @@
 class Api::TracksController < ApplicationController
 
     def create
-        @track = User.new(track_params)
+        @track = Track.new(track_params)
         @track.user_id = current_user.id
 
         errs = ["placeholder error"];
@@ -51,7 +51,7 @@ class Api::TracksController < ApplicationController
     end
 
     def track_params
-        params.require(:track).permit(:title, :audio_track, :description)
+        params.require(:track).permit(:title, :audio_track, :track_artwork, :description)
     end
 
 end

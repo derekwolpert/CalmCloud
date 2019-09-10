@@ -24,7 +24,7 @@
     line-height: 30px;
     font-weight: 400;
     color: rgb(212, 212, 212);
-    border-bottom: 2px solid rgb(128, 128, 128);
+    border-bottom: 2px solid rgb(96, 96, 96);
 }
 
 .track-upload-inner-container {
@@ -36,7 +36,7 @@
 .track-upload-reasons {
     width: 100%;
     display: flex;
-    margin-bottom: 40px;
+    margin-bottom: 44px;
 }
 
 .upload-reason-1, .upload-reason-2, .upload-reason-3 {
@@ -85,4 +85,169 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.track-upload-form {
+    width: 1080px;
+    text-align: center;
+}
+
+.audio-file-input-container {
+    width: 120px;
+    height: 40px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    line-height: 57px;
+    text-align: center;
+    background: #4fa6d3;
+    border-radius: 4px;
+}
+
+.audio-file-input {
+    width: 120px;
+    height: 40px;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    color: #586573;
+    background-color: #fff;
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+}
+
+.audio-file-input-container:after {
+    display: block;
+    content: "Choose File";
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 13px;
+    line-height: 40px;
+    transition: 0.2s linear;
+}
+
+.audio-file-input-container:hover {
+    background: #308ebf;
+}
+
+.audio-file-input-name {
+    color: rgb(79, 166, 211);
+    height: 17px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.audio-file-input-rules {
+    text-align: center;
+    font-size: 12px;
+    margin: 0px 0px 20px;
+    color: rgb(156, 156, 156); 
+}
+
+.track-title-input-container{
+    width: 80%;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.track-title-input {
+    width: 100%;
+    padding-right: 115px;
+    display: block;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(192, 192, 192);
+    background-color: rgb(56, 56, 56);
+    box-shadow: inset 0 2px 2px rgba(128,128,128,.6), inset 255 255 255 1px rgba(24,24,24,.5);
+    box-sizing: border-box;
+    transition: 0.2s;
+    text-align: start;
+}
+
+.track-title-input:focus {
+    outline: none;
+    color: rgb(192, 192, 192);
+    background-color: rgb(72, 72, 72);
+}
+
+.track-upload-next-stage-disabled {
+    cursor: not-allowed;
+    opacity: .6;
+    padding: 14px 22px;
+    font-size: 13px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #50b348;
+    transition: 0.2s;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.track-upload-next-stage-disabled:hover {
+    background-color: #408f39;
+}
+
+.track-upload-next-stage {
+    cursor: pointer;
+    padding: 14px 22px;
+    font-size: 13px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #50b348;
+    transition: 0.2s;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.track-upload-next-stage:hover {
+    background-color: #408f39;
+}
+
+.track-upload-name-stage-two {
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+    font-size: 12px;
+}
+
+.track-upload-name-stage-two-left {
+    float: left;
+    color: rgb(156, 156, 156);
+}
+
+.track-upload-name-stage-two-left > a {
+    margin-left: 20px;
+    color:#308ebf;
+    transition: 0.2s;
+}
+
+.track-upload-name-stage-two-left > a:hover {
+    color: #4fa6d3;
+}
+
+.track-upload-name-stage-two-right {
+    float: right;
+    color:#308ebf;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.track-upload-name-stage-two-right:hover {
+    color: #4fa6d3;
 }

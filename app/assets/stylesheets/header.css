@@ -1,5 +1,7 @@
 .header-main {
-    background-color: rgb(56, 56, 56)
+    background-color: rgb(56, 56, 56);
+    min-width: 1300px;
+
 }
 
 .header-splash {
@@ -7,7 +9,7 @@
 }
 
 .header-container {
-    position: relative;
+    position: static;
     min-height: 52px;
     background-color: transparent;
     width: 100%;
@@ -15,7 +17,8 @@
     padding-left: 5%;
     padding-right: 5%;
     margin: auto;
-    max-width: 1400px;
+    max-width: 1460px;
+    min-width: 1300px;
 }
 
 .header-container > * {
@@ -50,7 +53,7 @@
 .header-upload {
     display: inline-block;
     position: relative;
-    left: 30%;
+    left: 32%;
     top: 17px;
     font-size: 12px;
     font-weight: 700;
@@ -67,7 +70,7 @@
 .header-upload-active {
     display: inline-block;
     position: relative;
-    left: 30%;
+    left: 32%;
     top: 17px;
     font-size: 12px;
     font-weight: 700;
@@ -91,8 +94,6 @@
     text-transform: uppercase;
     vertical-align: top;
 }
-
-
 
 .header-guest-session-buttons {
     float: right;
