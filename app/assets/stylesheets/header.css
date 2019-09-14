@@ -31,7 +31,8 @@
     position: relative;
     cursor: pointer;
     top: 17px;
-    height: 18px;
+    height: 24px;
+    flex: 1;
 }
 .header-icon-logo:hover {
     opacity: .8;
@@ -61,7 +62,9 @@
     letter-spacing: 1px;
     color: rgb(192, 192, 192);
     transition: 0.2s;
-    height: 18px;
+    height: 24px;
+    flex: 1;
+    text-align: center;
 }
 
 .header-upload:hover {
@@ -78,7 +81,9 @@
     letter-spacing: 1px;
     transition: 0.2s;
     color: #4fa6d3;
-    height: 18px;
+    height: 24px;
+    flex: 1;
+    text-align: center;
 }
 
 .header-upload-active > *, .header-upload > * {
@@ -97,10 +102,11 @@
 }
 
 .header-guest-session-buttons {
-    float: right;
     margin: 11px 0 0 30px;
     font-size: 14px;
     line-height: 20px;
+    flex: 1;
+    text-align: right;
 }
 
 .header-guest-session-buttons > span {
@@ -126,11 +132,12 @@
 .header-group {
     cursor: pointer;
     display: inline-block;
-    float: right;
     position: relative;
     margin-top: 11px;
     font-size: 14px;
     line-height: 32px;
+    flex: 1;
+    text-align: right;
 }
 
 .header-group > * {
@@ -158,13 +165,13 @@
 }
 
 .header-dropdown-icon {
-    padding-right: 17px;
+    padding-right: 13px;
 }
 
 .header-dropdown-content {
-    margin-top: 10px;
+    margin-top: 8px;
     min-width: 130px;
-    right: 4px;
+    right: 0;
     display: inline-block;
     background-color: white;
     text-align: left;

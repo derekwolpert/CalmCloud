@@ -35,10 +35,6 @@ class Track < ApplicationRecord
         self.play_count ||= 0
     end
 
-    def ensure_track_length
-        self.track_length ||= 0
-    end
-
     def ensure_audio_track
         unless self.audio_track.attached?
             errors[:audio_track] << "Must be attached"
