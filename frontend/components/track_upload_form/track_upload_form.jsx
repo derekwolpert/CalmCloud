@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfinity, faEdit, faMusic } from '@fortawesome/free-solid-svg-icons';
+import { faInfinity, faEdit, faMusic, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import TrackUploadGuestContainer from "./track_upload_guest_container";
 
 
 class TrackUploadForm extends React.Component {
@@ -14,6 +15,9 @@ class TrackUploadForm extends React.Component {
             audioFile: null,
             audioUrl: null,
             title: "",
+            description: "",
+            imageFile: null,
+            imageUrl: null,
             nextStage: false,
         };
         this.stageOne = this.stageOne.bind(this);
@@ -28,7 +32,7 @@ class TrackUploadForm extends React.Component {
 
         fileReader.onloadend = () => {
             this.setState({
-                audioFileName: `${file.name}, ${(Math.ceil(file.size / ( (1024 * 1024) / 10 )))/10}MB`,
+                audioFileName: `${file.name} (${(Math.ceil(file.size / ( (1024 * 1024) / 10 )))/10}MB)`,
                 audioFile: file,
                 audioUrl: fileReader.result,
             });
@@ -38,8 +42,28 @@ class TrackUploadForm extends React.Component {
         }
     }
 
+    handleImageFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({
+                imageFile: file,
+                imageUrl: fileReader.result,
+            });
+        };
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+
+    }
+
     handleTitle(e) {
         this.setState({ title: e.currentTarget.value });
+    }
+
+    handleDescription(e) {
+        this.setState({ description: e.currentTarget.value });
     }
 
     handleNextStage() {
@@ -84,13 +108,11 @@ class TrackUploadForm extends React.Component {
 
                 <div className={this.state.audioFile && this.state.title ? "track-upload-next-stage" : "track-upload-next-stage-disabled"}
                     onClick={this.state.audioFile && this.state.title ? () => this.handleNextStage() : null}>
-                    Continue Upload
+                    Continue to Edit Information
                 </div>
             </>
         )
     }
-
-
 
 
     stageTwo() {
@@ -110,6 +132,61 @@ class TrackUploadForm extends React.Component {
 
                 </div>
 
+                <div className="track-upload-cf">
+
+                    <section className="track-upload-image-container">
+                        {this.state.imageUrl ?
+                            <>
+                                <div className="track-upload-image-preview">
+                                    <img src={this.state.imageUrl} />
+                                </div>
+                                <div className="track-upload-change-image-container">
+
+                                    <div className="track-upload-change-image-wrapper">
+                                        <input type="file" accept=".jpeg, .jpg, .png, .gif" onChange={this.handleImageFile.bind(this)} />
+                                    </div>
+                                </div>
+                            </>
+
+                            :
+                            <>
+                                <div className="track-upload-cloud-icon">
+                                    <FontAwesomeIcon icon={faCloudUploadAlt} />
+                                </div>
+                                <div className="track-upload-image-input-container">
+
+                                        <div className="track-upload-image-input-wrapper">
+                                            <input className="image-file-input" type="file" accept=".jpeg, .jpg, .png, .gif" onChange={this.handleImageFile.bind(this)} />
+                                        </div>
+                                </div>
+                            </>
+                        }
+                        <section className="track-upload-stage-two-form-fields">
+                            <div className="track-upload-stage-two-form-title-container">
+                                <input type="text"
+                                    className="track-title-input"
+                                    value={this.state.title}
+                                    onChange={this.handleTitle.bind(this)}
+                                    placeholder="Title"
+                                    maxLength="100" />
+                            </div>
+
+                            <div className="track-upload-stage-two-form-description-container">
+                                <textarea
+                                    className="track-description-input"
+                                    value={this.state.description}
+                                    onChange={this.handleDescription.bind(this)}
+                                    placeholder="Description"
+                                    style={{height: `${this.state.description.length > 0 ? "79px" : ""}`}}
+                                    />
+                            </div>
+                        </section>
+                    </section>
+                </div>
+
+                <section>
+                    
+                </section>
 
             </>
         )
@@ -117,50 +194,52 @@ class TrackUploadForm extends React.Component {
 
     render() {
         return (
-            <section className="track-upload-container">
-                <h1> {this.state.nextStage ? `Upload ${this.state.title}` : "Upload"}</h1>
+            this.props.currentUser ? (
+                <section className="track-upload-container">
+                    <h1> {this.state.nextStage ? `Upload ${this.state.title}` : "Upload"}</h1>
 
-                <div className="track-upload-inner-container">
-                    {this.state.nextStage ? null : (
+                    <div className="track-upload-inner-container">
+                        {this.state.nextStage ? null : (
 
-                        <section className="track-upload-reasons">
-                            <div className="upload-reason-1">
-                                <div className="upload-reason-icon-1">
-                                    <FontAwesomeIcon icon={faInfinity} />
+                            <section className="track-upload-reasons">
+                                <div className="upload-reason-1">
+                                    <div className="upload-reason-icon-1">
+                                        <FontAwesomeIcon icon={faInfinity} />
+                                    </div>
+                                    <h3 className="upload-reason-title">
+                                        Unlimited Uploads
+                                    </h3>
                                 </div>
-                                <h3 className="upload-reason-title">
-                                    Unlimited Uploads
-                                </h3>
-                            </div>
 
-                            <div className="upload-reason-2">
-                                <div className="upload-reason-icon-2">
-                                    <FontAwesomeIcon icon={faEdit} />
+                                <div className="upload-reason-2">
+                                    <div className="upload-reason-icon-2">
+                                        <FontAwesomeIcon icon={faEdit} />
+                                    </div>
+                                    <h3 className="upload-reason-title">
+                                        Customize Track Information
+                                    </h3>
                                 </div>
-                                <h3 className="upload-reason-title">
-                                    Customize Track Information
-                                </h3>
-                            </div>
 
-                            <div className="upload-reason-3">
-                                <div className="upload-reason-icon-3">
-                                    <FontAwesomeIcon icon={faMusic} />
+                                <div className="upload-reason-3">
+                                    <div className="upload-reason-icon-3">
+                                        <FontAwesomeIcon icon={faMusic} />
+                                    </div>
+                                    <h3 className="upload-reason-title">
+                                        Share with CalmCloud Community
+                                    </h3>
                                 </div>
-                                <h3 className="upload-reason-title">
-                                    Share with CalmCloud Community
-                                </h3>
-                            </div>
 
-                        </section>
-                    )}
+                            </section>
+                        )}
 
-                    <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)}>
-                        {this.state.nextStage === true ? this.stageTwo() : this.stageOne()}
-                    </form>
+                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)}>
+                            {this.state.nextStage === true ? this.stageTwo() : this.stageOne()}
+                        </form>
 
-                </div>
+                    </div>
 
-          </section>
+            </section>
+            ) : <TrackUploadGuestContainer />
         );
     }
 }

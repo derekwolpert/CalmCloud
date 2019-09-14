@@ -330,11 +330,12 @@
 
 .footer-player-time {
     box-sizing: content-box;
-    width: 45px;
+    width: 60px;
     height: 14px;
     line-height: 12px;
+    left: -30px;
+    transform: translatex(-10px);
     position: absolute;
-    left: -45px;
     top: -2px;
     color: rgb(240, 240, 240);
     display: block;
@@ -345,12 +346,12 @@
 
 .footer-player-time-left {
     box-sizing: content-box;
-    width: 45px;
+    width: 60px;
     height: 14px;
     line-height: 12px;
     position: absolute;
-    left: auto;
-    right: -50px;
+    transform: translatex(45px);
+    right: -30px;
     top: -2px;
     color: rgb(240, 240, 240);
     display: block;

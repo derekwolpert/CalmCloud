@@ -7,6 +7,8 @@
     padding: 30px 0;
     display: block;
     box-sizing: border-box;
+    min-height: calc(100vh - 52px);
+
 }
 
 .track-index-inner-container:after, .track-index-inner-container:before {

@@ -1,7 +1,6 @@
 .header-main {
     background-color: rgb(56, 56, 56);
     min-width: 1300px;
-
 }
 
 .header-splash {
@@ -10,6 +9,8 @@
 
 .header-container {
     position: static;
+    display: flex;
+    justify-content: space-between;
     min-height: 52px;
     background-color: transparent;
     width: 100%;
@@ -53,7 +54,6 @@
 .header-upload {
     display: inline-block;
     position: relative;
-    left: 32%;
     top: 17px;
     font-size: 12px;
     font-weight: 700;
@@ -70,7 +70,6 @@
 .header-upload-active {
     display: inline-block;
     position: relative;
-    left: 32%;
     top: 17px;
     font-size: 12px;
     font-weight: 700;

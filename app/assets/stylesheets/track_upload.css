@@ -6,6 +6,8 @@
     padding: 30px 0;
     display: block;
     box-sizing: border-box;
+    min-height: calc(100vh - 52px);
+
 }
 
 .track-upload-container:after, .track-upload-container:before {
@@ -126,7 +128,7 @@
 
 .audio-file-input-container:after {
     display: block;
-    content: "Choose File";
+    content: "Choose Audio";
     width: 120px;
     height: 40px;
     position: absolute;
@@ -136,10 +138,44 @@
     color: #fff;
     font-size: 13px;
     line-height: 40px;
-    transition: 0.2s linear;
+    transition: 0.2s;
 }
 
 .audio-file-input-container:hover {
+    background: #308ebf;
+}
+
+.audio-file-input-container-disabled {
+    width: 120px;
+    height: 40px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    line-height: 57px;
+    text-align: center;
+    background-color: #4fa6d3;
+    border-radius: 4px;
+    opacity: .6;
+    box-shadow: none;
+}
+
+.audio-file-input-container-disabled:after {
+    display: block;
+    content: "Choose Audio";
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: not-allowed;
+    color: #fff;
+    font-size: 13px;
+    line-height: 40px;
+    transition: 0.2s;
+}
+
+.audio-file-input-container-disabled:hover {
     background: #308ebf;
 }
 
@@ -235,6 +271,7 @@
     margin-left: 20px;
     color:#308ebf;
     transition: 0.2s;
+    font-weight: 600;
 }
 
 .track-upload-name-stage-two-left > a:hover {
@@ -246,8 +283,209 @@
     color:#308ebf;
     transition: 0.2s;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .track-upload-name-stage-two-right:hover {
     color: #4fa6d3;
+}
+
+.track-upload-cf:before {
+    content: " ";
+    display: table;
+}
+
+.track-upload-cf:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+.track-upload-image-container {
+    width: 300px;
+    height: 300px;
+    margin: 0 20px 30px 0;
+    position: relative;
+    background: rgb(52, 52, 52);
+    box-sizing: content-box;
+    border: 1px solid rgb(36, 36, 36);
+}
+
+.track-upload-cloud-icon {
+    position: absolute;
+    color: rgb(128, 128, 128);
+    margin: -55px 0 0;
+    box-sizing: border-box;
+    font-size: 64px;
+    top: 50%;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.track-upload-image-input-container {
+    bottom: 90px;
+    transition: 0.2s;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.track-upload-image-input-wrapper {
+    width: 120px;
+    height: 40px;
+    left: 50%;
+    transform: translatex(-50%);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    line-height: 57px;
+    text-align: center;
+    background-color: #586573;
+    border: none;
+    border-radius: 4px;
+}
+
+.image-file-input {
+    width: 120px;
+    height: 40px;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+}
+
+.track-upload-image-input-wrapper:after {
+    display: block;
+    content: "Choose Image";
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    color: rgb(192, 192, 192);
+    font-size: 13px;
+    line-height: 40px;
+    transition: 0.2s;
+}
+
+
+.track-upload-image-preview > img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    position: absolute;
+    background-color: white;
+}
+
+
+.track-upload-change-image-container {
+    bottom: 20px;
+    transition: 0.2s;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.track-upload-change-image-wrapper {
+    width: 120px;
+    height: 30px;
+    left: 50%;
+    transform: translatex(-50%);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    line-height: 57px;
+    text-align: center;
+    background-color: rgb(192, 192, 192);
+    border: none;
+    border-radius: 4px;
+}
+
+.track-upload-change-image-wrapper > input {
+    width: 120px;
+    height: 30px;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+}
+
+.track-upload-change-image-wrapper:after {
+    display: block;
+    content: "Change Image";
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    color: #46515C;
+    font-size: 13px;
+    line-height: 30px;
+    transition: 0.2s;
+}
+
+.track-upload-stage-two-form-fields {
+    width: 760px;
+    padding-left: 320px;
+    position: relative;
+}
+
+.track-upload-stage-two-form-title-container {
+    position: relative;
+}
+
+.track-upload-stage-two-form-title-container > .track-title-input {
+    margin-bottom: 20px;
+}
+
+.track-upload-stage-two-form-description-container {
+    position: relative;
+}
+
+.track-description-input {
+    width: 100%;
+    height: 38px;
+    min-height: 38px;
+    max-height: 400px;
+    margin-bottom: 20px;
+    display: block;
+    resize: none;
+    transition: height .2s linear;
+    box-sizing: border-box;
+    text-align: start;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(192, 192, 192);
+    background-color: rgb(56, 56, 56);
+    box-shadow: inset 0 2px 2px rgba(128,128,128,.6), inset 255 255 255 1px rgba(24,24,24,.5);
+}
+
+
+.track-description-input:focus {
+    outline: none;
+    color: rgb(192, 192, 192);
+    background-color: rgb(72, 72, 72);
 }
