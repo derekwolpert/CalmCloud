@@ -448,7 +448,8 @@
 
 .track-upload-stage-two-form-fields {
     width: 760px;
-    padding-left: 320px;
+    height: 300px;
+    left: 320px;
     position: relative;
 }
 
@@ -488,4 +489,48 @@
     outline: none;
     color: rgb(192, 192, 192);
     background-color: rgb(72, 72, 72);
+}
+
+.track-upload-submission {
+    margin-top: 30px;
+}
+
+.track-upload-save-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.track-upload-cancel {
+    font-size: 15px;
+    line-height: 38px;
+    padding: 0 30px 0 0;
+    color: rgb(212, 212, 212);
+}
+
+.track-upload-button {
+    font-size: 15px;
+    line-height: 38px;
+    padding: 0 20px;
+    min-width: 100px;
+    height: 40px;
+    line-height: 38px;
+    font-size: 18px;
+    border-radius: 4px;
+    color: white;
+    background-color: #50b348;
+    transition: 0.2s;
+}
+
+.track-upload-button:hover {
+    background-color: #408f39;
+}
+
+.track-upload-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.track-upload-button:disabled:hover {
+    background-color: #50b348;
 }

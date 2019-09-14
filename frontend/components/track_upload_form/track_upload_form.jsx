@@ -14,6 +14,7 @@ class TrackUploadForm extends React.Component {
             audioFileName: null,
             audioFile: null,
             audioUrl: null,
+            audioDuration: null,
             title: "",
             description: "",
             imageFile: null,
@@ -24,6 +25,8 @@ class TrackUploadForm extends React.Component {
         this.handleNextStage = this.handleNextStage.bind(this);
         this.stageTwo = this.stageTwo.bind(this);
         this.handlePrevStage = this.handlePrevStage.bind(this);
+
+        this._audio = React.createRef();
     }
 
     handleAudioFile(e) {
@@ -31,11 +34,15 @@ class TrackUploadForm extends React.Component {
         const fileReader = new FileReader();
 
         fileReader.onloadend = () => {
+            this._audio.src = fileReader.result;
+            this._audio.load();
+
             this.setState({
                 audioFileName: `${file.name} (${(Math.ceil(file.size / ( (1024 * 1024) / 10 )))/10}MB)`,
                 audioFile: file,
                 audioUrl: fileReader.result,
             });
+
         };
         if (file) {
             fileReader.readAsDataURL(file);
@@ -52,6 +59,7 @@ class TrackUploadForm extends React.Component {
                 imageUrl: fileReader.result,
             });
         };
+
         if (file) {
             fileReader.readAsDataURL(file);
         }
@@ -63,11 +71,17 @@ class TrackUploadForm extends React.Component {
     }
 
     handleDescription(e) {
-        this.setState({ description: e.currentTarget.value });
+        this.setState({
+            description: e.currentTarget.value,
+        });
     }
 
     handleNextStage() {
-        this.setState({ nextStage: true });
+
+        this.setState({
+            nextStage: true,
+            audioDuration: this.formatTime(this._audio.duration)
+        });
     }
 
     handlePrevStage() {
@@ -76,7 +90,15 @@ class TrackUploadForm extends React.Component {
 
 
     handleSubmit(e) {
+        console.log(this.state);
+    }
 
+    formatTime(time) {
+        const roundedTime = Math.floor(time);
+        const hours = Math.floor(roundedTime / 3600);
+        const minutes = Math.floor((roundedTime - (hours * 3600)) / 60);
+        const seconds = roundedTime - (hours * 3600) - (minutes * 60);
+        return ((this._audio.duration >= 3600 ? (hours + ":") : "") + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
     }
 
     stageOne() {
@@ -180,13 +202,15 @@ class TrackUploadForm extends React.Component {
                                     style={{height: `${this.state.description.length > 0 ? "79px" : ""}`}}
                                     />
                             </div>
+                            <section className="track-upload-submission">
+                                <div className="track-upload-save-container">
+                                    <Link to="/" className="track-upload-cancel">Cancel</Link>
+                                    <button className="track-upload-button" disabled={!this.state.audioUrl || !(this.state.title.length > 0)}>Upload and Publish</button>
+                                </div>
+                            </section>
                         </section>
                     </section>
                 </div>
-
-                <section>
-                    
-                </section>
 
             </>
         )
@@ -237,7 +261,7 @@ class TrackUploadForm extends React.Component {
                         </form>
 
                     </div>
-
+                    <audio ref={(a) => this._audio = a} src="" />
             </section>
             ) : <TrackUploadGuestContainer />
         );

@@ -31,7 +31,7 @@
     position: relative;
     cursor: pointer;
     top: 17px;
-
+    height: 18px;
 }
 .header-icon-logo:hover {
     opacity: .8;
@@ -61,6 +61,7 @@
     letter-spacing: 1px;
     color: rgb(192, 192, 192);
     transition: 0.2s;
+    height: 18px;
 }
 
 .header-upload:hover {
@@ -77,6 +78,7 @@
     letter-spacing: 1px;
     transition: 0.2s;
     color: #4fa6d3;
+    height: 18px;
 }
 
 .header-upload-active > *, .header-upload > * {
