@@ -92,6 +92,7 @@
 .track-upload-form {
     width: 1080px;
     text-align: center;
+    margin-bottom: 52px;
 }
 
 .audio-file-input-container {

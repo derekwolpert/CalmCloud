@@ -1,13 +1,12 @@
 class Api::TracksController < ApplicationController
 
     def create
+
         @track = Track.new(track_params)
         @track.user_id = current_user.id
 
         errs = ["placeholder error"];
-
         if @track.save
-            login!(@track)
             render :show
         else
             render json: @user.errors.full_messages, status: 401
@@ -51,7 +50,7 @@ class Api::TracksController < ApplicationController
     end
 
     def track_params
-        params.require(:track).permit(:title, :audio_track, :track_artwork, :description)
+        params.require(:track).permit(:title, :audio_track, :track_artwork, :track_length, :description)
     end
 
 end

@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => {
         currentTrack: state.ui.currentTrack,
         playing: state.ui.playing,
         percent: state.ui.percent
-
     };
 
 };

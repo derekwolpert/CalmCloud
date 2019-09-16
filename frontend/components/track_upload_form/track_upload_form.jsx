@@ -77,10 +77,9 @@ class TrackUploadForm extends React.Component {
     }
 
     handleNextStage() {
-
         this.setState({
             nextStage: true,
-            audioDuration: this.formatTime(this._audio.duration)
+            audioDuration: this._audio.duration
         });
     }
 
@@ -90,15 +89,22 @@ class TrackUploadForm extends React.Component {
 
 
     handleSubmit(e) {
-        console.log(this.state);
-    }
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('track[title]', this.state.title);
+        formData.append('track[audio_track]', this.state.audioFile);
+        formData.append('track[track_length]', this.state.audioDuration);
 
-    formatTime(time) {
-        const roundedTime = Math.floor(time);
-        const hours = Math.floor(roundedTime / 3600);
-        const minutes = Math.floor((roundedTime - (hours * 3600)) / 60);
-        const seconds = roundedTime - (hours * 3600) - (minutes * 60);
-        return ((this._audio.duration >= 3600 ? (hours + ":") : "") + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
+        if (this.state.description.length > 0) {
+            formData.append('track[description]', this.state.description);
+        }
+
+        if (this.state.imageFile) {
+            formData.append('track[track_artwork]', this.state.imageFile);
+        }
+        this.props.createTrack(formData).then(({ track }) => {
+            this.props.history.push(`/track/${track.id}`);
+        });
     }
 
     stageOne() {
@@ -256,7 +262,7 @@ class TrackUploadForm extends React.Component {
                             </section>
                         )}
 
-                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)}>
+                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
                             {this.state.nextStage === true ? this.stageTwo() : this.stageOne()}
                         </form>
 

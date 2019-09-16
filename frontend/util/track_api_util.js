@@ -12,11 +12,13 @@ export const fetchTrack = id => (
     })
 );
 
-export const createTrack = track => (
+export const createTrack = formData => (
     $.ajax({
         url: 'api/tracks',
         method: 'POST',
-        data: { track }
+        data: formData,
+        contentType: false,
+        processData: false
     })
 );
 

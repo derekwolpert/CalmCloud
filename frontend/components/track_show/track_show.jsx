@@ -94,6 +94,10 @@ class TrackShow extends React.Component {
     }
 
     render() {
+        if (!this.props.track) {
+            this.props.fetchTrack(this.props.match.params.trackId);
+        }
+
         if (this.props.track) {
             return (
                 <div>
@@ -137,7 +141,7 @@ class TrackShow extends React.Component {
 
                             <div className="track-show-sidebar">
                                 <div className="track-show-artwork">
-                                    <img src={this.props.track.trackArtworkUrl} />
+                                    <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                                 </div>
 
                             </div>
@@ -180,7 +184,7 @@ class TrackShow extends React.Component {
 
                         <div className="track-show-blur-container">
                             <div className="track-show-blur-background"
-                                style={{ backgroundImage: `url(${this.props.track.trackArtworkUrl})` }}
+                                style={{ backgroundImage: `url(${this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork})` }}
                             />   
                         </div>
 
@@ -189,8 +193,9 @@ class TrackShow extends React.Component {
 
                 </div>
             )
+        } else {
+            return null;
         }
-        return null
     }
 }
 
