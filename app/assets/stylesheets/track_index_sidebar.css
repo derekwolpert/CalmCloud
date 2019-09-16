@@ -38,6 +38,10 @@
 .track-index-profile-pic  > img {
     display: block;
     vertical-align: top;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    background-color: white;
 }
 
 .track-index-sidebar-profile-link {

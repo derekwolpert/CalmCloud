@@ -43,10 +43,12 @@
 
 .track-index-item-avatar > img {
     display: block;
-    min-width: 16px;
+    width: 25px;
+    height: 25px;
     vertical-align: top;
     box-sizing: border-box;
-    line-height: 25px;
+    object-fit: cover;
+    background-color: white;
 }
 
 .track-index-item-display-name {
@@ -95,7 +97,9 @@
     height: 160px;
     width: 160px;
     box-sizing: border-box;
+    object-fit: cover;
     display: block;
+    background-color: white;
 }
 
 .track-index-item-artwork:before {

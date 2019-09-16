@@ -175,10 +175,6 @@
     transition: 0.2s;
 }
 
-.audio-file-input-container-disabled:hover {
-    background: #308ebf;
-}
-
 .audio-file-input-name {
     color: rgb(79, 166, 211);
     height: 17px;
@@ -232,10 +228,6 @@
     transition: 0.2s;
     display: inline-block;
     vertical-align: middle;
-}
-
-.track-upload-next-stage-disabled:hover {
-    background-color: #408f39;
 }
 
 .track-upload-next-stage {
@@ -473,7 +465,7 @@
     margin-bottom: 20px;
     display: block;
     resize: none;
-    transition: height .2s linear;
+    transition: .2s;
     box-sizing: border-box;
     text-align: start;
     padding: 9px 16px;
