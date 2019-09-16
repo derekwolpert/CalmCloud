@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faCommentAlt } from '@fortawesome/free-regular-svg-icons';
@@ -20,10 +19,11 @@ class FooterAudioPlayer extends React.Component {
             time: this.formatTime(this._audio.currentTime),
             left: `-${this.formatTime(this._audio.duration - this._audio.currentTime)}`,
             percentage: ((this._audio.currentTime / this._audio.duration)*100),
-            }), 350);
+            }), 200);
     } 
 
     formatTime(time) {
+        if (isNaN(time)) time = 0;
         const roundedTime = Math.floor(time);
         const hours = Math.floor(roundedTime / 3600);
         const minutes = Math.floor((roundedTime - (hours * 3600)) / 60);
@@ -101,10 +101,19 @@ class FooterAudioPlayer extends React.Component {
         this._audio.volume = percent;
     }
 
+    handleVolumeClick(e) {
+        if (this._audio.volume > 0) {
+            this._audio.volume = 0;
+        } else {
+            this._audio.volume = 1;
+        }
+
+    }
+
     volumeImage() {
         if (this._audio.volume > .5) return (<FontAwesomeIcon icon={faVolumeUp} />);
         if (this._audio.volume > 0) return (<FontAwesomeIcon icon={faVolumeDown} />);
-        return (<FontAwesomeIcon icon={faVolumeDown} />);
+        return (<FontAwesomeIcon icon={faVolumeMute} />);
     }
     
     render() {
@@ -158,7 +167,7 @@ class FooterAudioPlayer extends React.Component {
                             </div>
                         </div>
                         <div className="footer-player-volume" >
-                            <div className="footer-player-volume-image">
+                            <div className="footer-player-volume-image" onClick={(e) => this.handleVolumeClick(e)}>
                                 {this.volumeImage()}
                             </div>
 
