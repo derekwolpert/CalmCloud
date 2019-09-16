@@ -229,9 +229,6 @@ demo_track_15.audio_track.attach(io: track15, filename: 'demo_track_15.mp3')
 demo_track_15.track_artwork.attach(io: artwork15, filename: 'demo_track_15.jpg')
 
 
-
-
-
 demo_track_16 = Track.create!({
     user_id: demo_user_2.id,
     title: "Moses Sumney - Plastic (Live)",

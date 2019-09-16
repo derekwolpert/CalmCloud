@@ -16,7 +16,7 @@
 class Track < ApplicationRecord
 
     validates :user_id, :title, :track_length, :play_count, presence: true
-    validate :ensure_audio_track
+    # validate :ensure_audio_track
 
     has_one_attached :audio_track
     has_one_attached :track_artwork
