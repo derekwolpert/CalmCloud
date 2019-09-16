@@ -24,7 +24,7 @@ class HeaderDropdown extends React.Component {
                 {this.state.showDropdown ?
                 (<>
                     <div className="header-profile-pic">
-                        <img src={this.props.profilePic} />
+                        <img src={this.props.profilePic ? this.props.profilePic : window.defaultAvatar} />
                     </div>
                     <span className="header-name">{this.props.username}</span>
                     <button className="header-dropdown-icon">
@@ -41,7 +41,7 @@ class HeaderDropdown extends React.Component {
                 : 
                 (<>
                     <div className="header-profile-pic">
-                        <img src={this.props.profilePic} />
+                        <img src={this.props.profilePic ? this.props.profilePic : window.defaultAvatar} />
                     </div>
                     <span className="header-name">{this.props.username}</span>
                     <button className="header-dropdown-icon">

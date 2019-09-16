@@ -15,7 +15,7 @@ class TrackIndexSidebar extends React.Component {
                     <div className="track-index-sidebar-inner-container">
                         <div className="track-index-sidebar-profile-border">
                             <div className="track-index-profile-pic">
-                                <img src={this.props.currentUser.userPictureUrl} />
+                                <img src={this.props.currentUser.userPictureUrl ? this.props.currentUser.userPictureUrl : window.defaultAvatar} />
                             </div>
                             <span className="track-index-sidebar-profile-link">
                                 <div>{this.props.currentUser.display_name}</div>

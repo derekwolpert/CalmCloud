@@ -86,7 +86,7 @@ class TrackIndexItem extends React.Component {
             <section className="track-index-item">
                 <header className="track-index-item-user">
                     <div className="track-index-item-avatar">
-                        <img src={this.props.user.userPictureUrl} />
+                        <img src={this.props.user.userPictureUrl ? this.props.user.userPictureUrl : window.defaultAvatar} />
                     </div>
                     <div className="track-index-item-display-name">
                         <a>{this.props.user.display_name}</a> <span>uploaded</span>
@@ -102,7 +102,7 @@ class TrackIndexItem extends React.Component {
 
                 </header>
                 <div className="track-index-item-artwork">
-                    <img src={this.props.track.trackArtworkUrl} />
+                    <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
                 <section className="track-index-item-info">
                     {this.playPause()}
