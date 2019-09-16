@@ -7,7 +7,6 @@
     display: block;
     box-sizing: border-box;
     min-height: calc(100vh - 52px);
-
 }
 
 .track-upload-container:after, .track-upload-container:before {
@@ -526,4 +525,66 @@
 
 .track-upload-button:disabled:hover {
     background-color: #50b348;
+}
+
+
+
+
+
+
+
+.track-upload-spinner-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: radial-gradient(rgba(52, 52, 52, 0.75), rgba(32, 32, 32, 0.75));
+    z-index: 20;
+    animation-name: animateUploadBackground;
+    animation-duration: 0.2s;
+}
+
+@keyframes animateUploadBackground {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.track-upload-spinner {
+    display: inline-block;
+    position: relative;
+    width: 128px;
+    height: 128px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.track-upload-spinner div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 102px;
+    height: 102px;
+    margin: 12px;
+    border: 12px solid #fff;
+    border-radius: 50%;
+    animation: track-upload-spinner 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+.track-upload-spinner div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.track-upload-spinner div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.track-upload-spinner div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes track-upload-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

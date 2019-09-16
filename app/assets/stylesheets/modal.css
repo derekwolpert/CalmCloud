@@ -5,7 +5,7 @@
     right: 0;
     left: 0;
     background: radial-gradient(rgba(52, 52, 52, 0.75), rgba(32, 32, 32, 0.75));
-    z-index: 10;
+    z-index: 20;
     animation-name: animateModalBackground;
     animation-duration: 0.2s;
 }

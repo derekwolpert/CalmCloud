@@ -27,6 +27,7 @@ class TrackUploadForm extends React.Component {
         this.handlePrevStage = this.handlePrevStage.bind(this);
 
         this._audio = React.createRef();
+        this._loading = React.createRef();
     }
 
     handleAudioFile(e) {
@@ -211,7 +212,9 @@ class TrackUploadForm extends React.Component {
                             <section className="track-upload-submission">
                                 <div className="track-upload-save-container">
                                     <Link to="/" className="track-upload-cancel">Cancel</Link>
-                                    <button className="track-upload-button" disabled={!this.state.audioUrl || !(this.state.title.length > 0)}>Upload and Publish</button>
+                                    <button className="track-upload-button"
+                                        disabled={!this.state.audioUrl || !(this.state.title.length > 0)}
+                                        onClick={() => this._loading.style.display = ""}>Upload and Publish</button>
                                 </div>
                             </section>
                         </section>
@@ -268,8 +271,10 @@ class TrackUploadForm extends React.Component {
 
                     </div>
                     <audio ref={(a) => this._audio = a} src="" />
+                    <div ref={(l) => this._loading = l} className="track-upload-spinner-background" style={{ display: "none" }}><div className="track-upload-spinner"><div></div><div></div><div></div><div></div></div></div>
             </section>
             ) : <TrackUploadGuestContainer />
+            
         );
     }
 }
