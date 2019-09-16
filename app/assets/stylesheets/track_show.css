@@ -3,7 +3,9 @@
     overflow: visible;
     position: relative;
     z-index: 5;
-    width: 1460px;
+    width: 100vw;
+    max-width: 1460px;
+    min-width: 1300px;
     margin-bottom: -52px;
     display: block;
     box-sizing: border-box;
@@ -220,10 +222,8 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* opacity: .5; */
     background-color: black;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
     background-size: cover;
     display: block;
     box-sizing: border-box;
@@ -236,18 +236,16 @@
     top: 0;
     bottom: 0;
     z-index: -1000;
-    width: 100%;
-    height: 100%;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
     overflow: hidden;
-    opacity: .65;
-    background-color: black;
+    opacity: 0.6;
     background-position: 50% 50%;
-    background-repeat: no-repeat;
     background-size: cover;
     display: block;
     box-sizing: border-box;
-    filter: blur(40px);
-    margin: -5px -10px -10px -5px;
+    filter: blur(42px);
+    margin: -5px -5px -5px -5px;
 }
 
 .track-show-actions-container {
