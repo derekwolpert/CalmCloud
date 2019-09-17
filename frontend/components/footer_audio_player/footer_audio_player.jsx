@@ -91,7 +91,7 @@ class FooterAudioPlayer extends React.Component {
 
     handleProgress(e) {
         const bounds = e.currentTarget.getBoundingClientRect();
-        const percent = ((e.clientX - (bounds.left)) / bounds.width)
+        const percent = ((e.clientX - (bounds.left)) / bounds.width);
         this._audio.currentTime = (percent * this._audio.duration);
     }
 
@@ -111,9 +111,9 @@ class FooterAudioPlayer extends React.Component {
     }
 
     volumeImage() {
-        if (this._audio.volume > .5) return (<FontAwesomeIcon icon={faVolumeUp} />);
-        if (this._audio.volume > 0) return (<FontAwesomeIcon icon={faVolumeDown} />);
-        return (<FontAwesomeIcon icon={faVolumeMute} />);
+        if (this._audio.volume > 0.5) return faVolumeUp;
+        if (this._audio.volume > 0) return faVolumeDown;
+        return faVolumeMute;
     }
     
     render() {
@@ -168,7 +168,7 @@ class FooterAudioPlayer extends React.Component {
                         </div>
                         <div className="footer-player-volume" >
                             <div className="footer-player-volume-image" onClick={(e) => this.handleVolumeClick(e)}>
-                                {this.volumeImage()}
+                                <FontAwesomeIcon icon={this.volumeImage()} />
                             </div>
 
                             <div className="footer-player-volume-popup">

@@ -205,7 +205,6 @@
 
 .track-show-artwork > img {
     display: block;
-    vertical-align: top;
     height: 300px;
     width: 300px;
     object-fit: cover;

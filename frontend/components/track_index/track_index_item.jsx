@@ -60,10 +60,10 @@ class TrackIndexItem extends React.Component {
         if (this.props.currentTrack !== prevProps.currentTrack) {
             if (this.props.track.id === this.props.currentTrack) {
                 if (this.props.playing) {
-                    this.props.changeTrack(this.props.track.id)
+                    this.props.changeTrack(this.props.track.id);
                 } 
                 if (!this.props.playing) {
-                    this.props.changeTrack(this.props.track.id)
+                    this.props.changeTrack(this.props.track.id);
                 }
             }
         }   
@@ -72,12 +72,12 @@ class TrackIndexItem extends React.Component {
     playPause() {
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
             return (<div className="track-index-item-player-button-pause" >
-                <FontAwesomeIcon onClick={() => this.props.pauseTrack()} icon={faPauseCircle} />
-            </div>);
+                        <FontAwesomeIcon onClick={() => this.props.pauseTrack()} icon={faPauseCircle} />
+                    </div>);
         }
         return (<div className="track-index-item-player-button-play" >
-                <FontAwesomeIcon onClick={() => this.props.changeTrack(this.props.track.id)} icon={faPlayCircle} />
-            </div >);
+                    <FontAwesomeIcon onClick={() => this.props.changeTrack(this.props.track.id)} icon={faPlayCircle} />
+                </div >);
     }
 
 

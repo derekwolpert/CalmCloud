@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Link, Redirect, withRouter } from 'react-router-dom';
-import { changeTrack, pauseTrack, removeCurrentTrack, currentPercent } from '../../actions/footer_player_actions'
+import { changeTrack, pauseTrack, removeCurrentTrack, currentPercent } from '../../actions/footer_player_actions';
 import FooterAudioPlayer from './footer_audio_player';
 
 const mapStateToProps = ({ ui, entities }) => {

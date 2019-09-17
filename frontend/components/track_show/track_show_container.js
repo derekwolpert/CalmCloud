@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { fetchTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
 import { changeTrack, pauseTrack, currentPercent } from "../../actions/footer_player_actions";
