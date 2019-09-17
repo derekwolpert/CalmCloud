@@ -9,9 +9,15 @@ class TrackShow extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            deleteConfirmation: false,
+        };
+
         this.playPause = this.playPause.bind(this);
         this.formatListened = this.formatListened.bind(this);
-        this.formateDate = this.formatDate.bind(this);
+        this.formatDate = this.formatDate.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -58,6 +64,12 @@ class TrackShow extends React.Component {
         if (this.props.currentTrack === this.props.track.id) {
             this.props.currentPercent((percent * 100));
         }
+    }
+
+    handleDelete() {
+        this.props.deleteTrack(this.props.track.id).then(() => {
+            this.props.history.push("/");
+        });
     }
 
     formatTime(time) {
@@ -153,7 +165,7 @@ class TrackShow extends React.Component {
                                 <footer className="track-show-actions">
 
                                     <div className="track-show-indiviual-actions">
-                                        <button className="track-show-action-button" style={{ margin: "0" }}>
+                                        <button className="track-show-action-button" >
                                             <FontAwesomeIcon icon={faHeart} />
                                             Favorite
                                         </button>
@@ -162,6 +174,29 @@ class TrackShow extends React.Component {
                                             <FontAwesomeIcon icon={faShareSquare} />
                                             Share
                                         </button>
+
+                                        { this.props.track.user_id === this.props.currentUser.id ? 
+                                            <>
+                                                <button className="track-show-action-button-edit" >
+                                                    <FontAwesomeIcon icon={faEdit} />
+                                                    Edit
+                                                </button>
+                                                <div className="track-show-delete-container">
+                                                    <button className="track-show-action-button-delete" style={{ color: `${this.state.deleteConfirmation ? "#e2584e" : "" }`, border: `${this.state.deleteConfirmation ? "1px solid rgba(226,88,78,.8)" : "" }` }}
+                                                        onClick={() => this.setState({deleteConfirmation: true}) }>
+                                                        <FontAwesomeIcon icon={faTrashAlt} />
+                                                        Delete
+                                                    </button>
+                                                    {this.state.deleteConfirmation ?
+                                                        <div className="track-show-delete-confirmation">
+                                                            <div className="track-show-confirm-delete" onClick={() => this.handleDelete()}>Confirm deletion</div>
+                                                            <div className="track-show-cancel-delete" onClick={() => this.setState({ deleteConfirmation: false })}>Cancel</div>
+                                                        </div> : null
+                                                    }
+                                                </div>
+                                            </> : null
+
+                                        }
 
                                     </div>
 
@@ -176,7 +211,7 @@ class TrackShow extends React.Component {
 
                                     <li>
                                         <FontAwesomeIcon icon={faCalendarAlt} />
-                                        {this.formateDate()}
+                                        {this.formatDate()}
                                     </li>
 
                                 </ul>

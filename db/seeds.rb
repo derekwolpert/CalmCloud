@@ -61,8 +61,7 @@ demo_track_1 = Track.create!({
     user_id: demo_user_2.id,
     title: "Oneohtrix Point Never - Topline Demo 1 (Usher)",
     track_length: 196,
-    play_count: 5287,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack1/Topline+Demo+1+(Usher).mp3")
 artwork1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack1/Topline+Demo+1+(Usher).jpg")
@@ -73,8 +72,7 @@ demo_track_5 = Track.create!({
     user_id: demo_user_3.id,
     title: "Janet Jackson - If (KAYTRANADA Remix)",
     track_length: 237,
-    play_count: 152,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).mp3")
 artwork5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).jpg")
@@ -85,8 +83,7 @@ demo_track_3 = Track.create!({
     user_id: demo_user_4.id,
     title: "Jamie Woon - Blue Truth",
     track_length: 243,
-    play_count: 290,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack7/Blue+Truth.mp3")
 artwork3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack7/Blue+Truth.png")
@@ -97,8 +94,7 @@ demo_track_4 = Track.create!({
     user_id: demo_user_3.id,
     title: "Asmara - Anything (feat. Alexandria)",
     track_length: 202,
-    play_count: 53,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack4/04+Anything+(feat.+Alexandria).mp3")
 artwork4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack4/Let+Ting+Go.jpg")
@@ -109,8 +105,7 @@ demo_track_2 = Track.create!({
     user_id: demo_user_3.id,
     title: "DJ Spinn - Them Changes",
     track_length: 204,
-    play_count: 12,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/30+Them+Changes.mp3")
 artwork2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/Teklife+VIP+2019.jpg")
@@ -121,8 +116,7 @@ demo_track_7 = Track.create!({
     user_id: demo_user_2.id,
     title: "Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink]",
     track_length: 202,
-    play_count: 926,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack3/Rewind+(Louie+Lastic+Remix)+%5Bfeat.+Goldlink%5D.mp3")
 artwork7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack3/Rewind+(Louie+Lastic+Remix)+%5Bfeat.+Goldlink%5D.jpg")
@@ -133,8 +127,7 @@ demo_track_9 = Track.create!({
     user_id: demo_user_3.id,
     title: "DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones",
     track_length: 260,
-    play_count: 421,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/05+Love+Jones.mp3")
 artwork9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/LuckyMe_+Advent+Calendar+14+_+15.jpg")
@@ -145,8 +138,7 @@ demo_track_6 = Track.create!({
     user_id: demo_user_5.id,
     title: "Kilo Kish - Navy",
     track_length: 193,
-    play_count: 73,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack6/02+Navy.mp3")
 artwork6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack6/HomeSchool.jpg")
@@ -154,14 +146,11 @@ demo_track_6.audio_track.attach(io: track6, filename: 'demo_track_6.mp3')
 demo_track_6.track_artwork.attach(io: artwork6, filename: 'demo_track_6.jpg')
 
 
-
-
 demo_track_11 = Track.create!({
     user_id: demo_user_5.id,
     title: "DJ Paypal - Dose (feat. DJ Earl & DJ Taye)",
     track_length: 273,
-    play_count: 8383,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track11 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/01+Dose+(feat.+DJ+Earl+%26+DJ+Taye).mp3")
 artwork11 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Adult+Swim_+Singles+2016.jpg")
@@ -174,8 +163,7 @@ demo_track_12 = Track.create!({
     user_id: demo_user_2.id,
     title: "Machinedrum - Want Me",
     track_length: 208,
-    play_count: 5,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/02+Want+Me.mp3")
 artwork12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Adult+Swim_+Singles+2014.jpg")
@@ -188,8 +176,7 @@ demo_track_13 = Track.create!({
     user_id: demo_user_4.id,
     title: "DJ Chap - Float",
     track_length: 192,
-    play_count: 285,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/04+Float.mp3")
 artwork13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Teklife+VIP.jpg")
@@ -204,24 +191,18 @@ demo_track_14 = Track.create!({
     user_id: demo_user_5.id,
     title: "Cassie - All My Love (Kingdom Edit)",
     track_length: 218,
-    play_count: 927,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/All+My+Love+(Kingdom+Edit).mp3")
 artwork14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/All+My+Love+(Kingdom+Edit).png")
 demo_track_14.audio_track.attach(io: track14, filename: 'demo_track_14.mp3')
 demo_track_14.track_artwork.attach(io: artwork14, filename: 'demo_track_14.png')
 
-
-
-
-
 demo_track_15 = Track.create!({
     user_id: demo_user_3.id,
     title: "Spinee - Hell Hound",
     track_length: 138,
-    play_count: 236,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Hell+Hound.mp3")
 artwork15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Hell+Hound.jpg")
@@ -233,8 +214,7 @@ demo_track_16 = Track.create!({
     user_id: demo_user_2.id,
     title: "Moses Sumney - Plastic (Live)",
     track_length: 172,
-    play_count: 1973,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track16 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Plastic+(Live).mp3")
 artwork16 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Plastic+(Live).jpg")
@@ -249,8 +229,7 @@ demo_track_17 = Track.create!({
     user_id: demo_user_4.id,
     title: "Syd - Treading Water",
     track_length: 180,
-    play_count: 623,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque, tellus mattis auctor sagittis, nunc lectus varius ex, a efficitur quam libero eu sem. Nullam feugiat lectus eleifend elementum consectetur. Vivamus volutpat, leo vitae mollis molestie, purus quam hendrerit mi, quis congue ipsum magna non erat. Fusce ligula nulla, ultrices ut imperdiet id, consequat ac velit. Nunc diam massa, bibendum."
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lacinia elit. Nullam lectus tortor, malesuada non tortor cursus, consectetur elementum risus. Duis posuere volutpat arcu, eu cursus lorem aliquet eu. Nunc elementum vehicula erat ut pretium. Pellentesque sed vestibulum diam, at blandit risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas rhoncus lobortis dui. Ut luctus neque porta varius porta. Suspendisse fringilla sit amet nisi vitae rhoncus. Vivamus vel justo a elit sollicitudin dignissim. Donec auctor scelerisque rutrum. Vestibulum egestas vulputate odio, et faucibus velit fermentum a. Phasellus vitae euismod nisi. Donec hendrerit."
 })
 track17 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Treading+Water.mp3")
 artwork17 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Treading+Water.jpg")

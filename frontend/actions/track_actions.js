@@ -43,5 +43,5 @@ export const updateTrack = track => dispatch => (
 
 export const deleteTrack = trackId => dispatch => (
     TrackApiUtil.deleteTrack(trackId)
-        .then(track => dispatch(removeTrack(track.id)))
+        .then(trackId => dispatch(removeTrack(trackId)))
 );

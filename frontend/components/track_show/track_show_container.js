@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchTrack } from '../../actions/track_actions';
+import { fetchTrack, deleteTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
 import { changeTrack, pauseTrack, currentPercent } from "../../actions/footer_player_actions";
 
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
     fetchTrack: id => dispatch(fetchTrack(id)),
     changeTrack: (trackId) => dispatch(changeTrack(trackId)),
     pauseTrack: () => dispatch(pauseTrack()),
-    currentPercent: (percent) => dispatch(currentPercent(percent))
+    currentPercent: (percent) => dispatch(currentPercent(percent)),
+    deleteTrack: trackId => dispatch(deleteTrack(trackId)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow)); 
