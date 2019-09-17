@@ -18,7 +18,7 @@ class Api::TracksController < ApplicationController
     end
 
     def update
-        @track = selected_track
+        @track = Track.find(params[:id])
         if @track && @track.update_attributes(track_params)
             render :show
         elsif !@track
@@ -45,12 +45,8 @@ class Api::TracksController < ApplicationController
 
     private
 
-    def selected_track
-        Track.find(params[:id])
-    end
-
     def track_params
-        params.require(:track).permit(:title, :audio_track, :track_artwork, :track_length, :description)
+        params.require(:track).permit(:title, :audio_track, :track_artwork, :track_length, :description, :play_count)
     end
 
 end

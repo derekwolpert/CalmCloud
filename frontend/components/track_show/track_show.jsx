@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faCloudUploadAlt, faHeadphonesAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 class TrackShow extends React.Component {
@@ -168,6 +168,11 @@ class TrackShow extends React.Component {
                                 </footer>
 
                                 <ul className="track-show-stats">
+
+                                    <li>
+                                        <FontAwesomeIcon icon={faHeadphonesAlt} />
+                                        {this.props.track.play_count}
+                                    </li>
 
                                     <li>
                                         <FontAwesomeIcon icon={faCalendarAlt} />

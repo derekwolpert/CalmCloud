@@ -18,7 +18,6 @@ class TrackIndex extends React.Component {
     }
 
     render() {
-
         if(!this.props.tracks) {
             this.props.fetchAllTracks();
         }
@@ -32,6 +31,7 @@ class TrackIndex extends React.Component {
                 currentTrack={this.props.currentTrack}
                 pauseTrack={this.props.pauseTrack}
                 playing={this.props.playing}
+                trackIndexItemHeader={this.props.match.path === "/"}
                 />) );
 
         return (

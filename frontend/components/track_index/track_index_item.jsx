@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCloudUploadAlt, faHeadphonesAlt } from '@fortawesome/free-solid-svg-icons';
 
 class TrackIndexItem extends React.Component {
 
@@ -84,6 +84,7 @@ class TrackIndexItem extends React.Component {
     render() {
         return (
             <section className="track-index-item">
+                {this.props.trackIndexItemHeader ?
                 <header className="track-index-item-user">
                     <div className="track-index-item-avatar">
                         <img src={this.props.user.userPictureUrl ? this.props.user.userPictureUrl : window.defaultAvatar} />
@@ -100,7 +101,8 @@ class TrackIndexItem extends React.Component {
                         {this.formatDate()}
                     </div>
 
-                </header>
+                </header> : null
+                }
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
@@ -137,6 +139,12 @@ class TrackIndexItem extends React.Component {
                         </div>
 
                         <div className="track-index-item-stats">
+                            <div className="track-index-item-new-icon">
+                                <FontAwesomeIcon icon={faHeadphonesAlt} />
+                            </div>
+                            <div className="track-index-item-new-stats">
+                                {this.props.track.play_count}
+                            </div>
                             { this.confirmNew() ? (
                                 <>
                                     <div className="track-index-item-new-icon">
@@ -150,24 +158,12 @@ class TrackIndexItem extends React.Component {
                                 ) : (
                                 null
                             )}
-
-
                         </div>
-
-
-
                     </div>
-
                 </section>
-
-
-
             </section>
         )
-
     }
-
-
 }
 
 
