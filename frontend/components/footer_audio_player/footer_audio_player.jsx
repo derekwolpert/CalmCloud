@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faCommentAlt } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 
 class FooterAudioPlayer extends React.Component {
     constructor(props) {
@@ -131,7 +132,7 @@ class FooterAudioPlayer extends React.Component {
 
                         <div className="footer-player-details">
 
-                            <h6 className="footer-player-title">{this.props.currentTrack.title}</h6>
+                            <h6 className="footer-player-title"><Link to={`/track/${this.props.currentTrack.id}`}>{this.props.currentTrack.title}</Link></h6>
                             <h6 className="footer-player-user">by <span>{this.props.displayName}</span></h6>
 
 

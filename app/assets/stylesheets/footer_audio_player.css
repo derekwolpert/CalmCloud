@@ -147,6 +147,11 @@
     max-width: 208px;
 }
 
+.footer-player-title > a:hover {
+    transition: 0.2s;
+    opacity: 0.8;
+}
+
 .footer-player-user {
     height: 20px;
     margin: 0 0 9px;
@@ -372,6 +377,7 @@
     display: block;
     font-weight: 600;
     line-height: 52px;
+    cursor: pointer;
 }
 
 .footer-scrubber-postion {

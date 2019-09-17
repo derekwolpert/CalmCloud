@@ -8,19 +8,24 @@ class Header extends React.Component {
 
 	logo() {
 		return (
-			<Link to="/" className="header-icon-logo">
-				<FontAwesomeIcon className="header-logo" icon={faCloud} />
-				<h1 className="header-site-name">CalmCloud</h1>
-			</Link>
+			<div className="header-icon-logo">
+				<Link to="/">
+					<FontAwesomeIcon className="header-logo" icon={faCloud} />
+					<h1 className="header-site-name">CalmCloud</h1>
+				</Link>
+			</div>
+			
 		)
 	}
 
 	upload() {
 		return (
-			<Link to="/upload" className={this.props.location.pathname === "/upload" ? "header-upload-active" : "header-upload"}>
-				<FontAwesomeIcon className="header-upload-icon" icon={faCloudUploadAlt} />
-				<h1 className="header-upload-text">Upload</h1>
-			</Link>
+			<div className={this.props.location.pathname === "/upload" ? "header-upload-active" : "header-upload"}>
+				<Link to="/upload">
+					<FontAwesomeIcon className="header-upload-icon" icon={faCloudUploadAlt} />
+					<h1 className="header-upload-text">Upload</h1>
+				</Link>
+			</div>
 		)
 	}
 

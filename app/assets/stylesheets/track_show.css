@@ -64,10 +64,11 @@
     margin-right: 30px;
     font-size: 90px;
     transition: .2s;
+    color: rgba(255, 255, 255, 0.8)
 }
 
 .track-show-play-container:hover {
-    color: rgb(120,187,221);
+    color: rgba(120,187,221, 0.8);
 }
 
 .track-show-pause-container {
@@ -78,12 +79,12 @@
     height: 90px;
     margin-right: 30px;
     font-size: 90px;
-    color: rgb(79, 166, 211);
+    color: rgba(79, 166, 211, 0.8);
     transition: .2s;
 }
 
 .track-show-pause-container:hover {
-    color: rgb(79, 166, 211);
+    color: rgba(79, 166, 211, 0.8);
 }
 
 .track-show-play-container > svg, .track-show-pause-container > svg {
@@ -109,11 +110,6 @@
     font-size: 28px;
     line-height: 34px;
     font-weight: 300;
-    transition: .2s
-}
-
-.track-show-inner-title > h1:hover {
-    color: rgb(120,187,221);
 }
 
 .track-show-inner-title > div > span {
@@ -177,8 +173,8 @@
 .track-show-length {
     right: 7px;
     padding-left: 7px;
-    color: hsla(0,0%,100%,.5);
-    text-shadow: none;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 1px 1px rgba(0,0,0, 0.4);
     position: absolute;
     bottom: 4px;
     display: inline-block;
@@ -235,8 +231,8 @@
     top: 0;
     bottom: 0;
     z-index: -1000;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
     overflow: hidden;
     opacity: 0.6;
     background-position: 50% 50%;
@@ -244,7 +240,7 @@
     display: block;
     box-sizing: border-box;
     filter: blur(42px);
-    margin: -5px -5px -5px -5px;
+    margin: -10px -10px -10px -10px;
 }
 
 .track-show-actions-container {

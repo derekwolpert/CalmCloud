@@ -18,7 +18,6 @@ class TrackShow extends React.Component {
         this.props.fetchTrack(this.props.match.params.trackId);
     }
 
-
     componentDidUpdate(prevProps) {
         if (this.props.currentTrack !== prevProps.currentTrack) {
             if (this.props.track.id === this.props.currentTrack) {
@@ -127,10 +126,10 @@ class TrackShow extends React.Component {
 
                                     <div className="track-show-listened-waveform" style={{ width: `${this.formatListened()}%`}} >
                                         <div className="track-show-listened-wrap">
-                                            <img src={window.defaultWaveformShowLight} />
+                                            <img src={window.defaultWaveformShowLight} style={{ cursor: `${(this.props.track.id === this.props.currentTrack) ? "pointer" : ""}`}}/>
                                         </div>
                                     </div>
-                                    <img src={window.defaultWaveformShowDark} />
+                                    <img src={window.defaultWaveformShowDark} style={{ cursor: `${(this.props.track.id === this.props.currentTrack) ? "pointer" : ""}` }}/>
                                     <span className="track-show-length">{this.formatTime(this.props.track.track_length)}</span>
 
                                 </div>
