@@ -504,7 +504,7 @@
     font-size: 15px;
     line-height: 38px;
     padding: 0 20px;
-    min-width: 100px;
+    min-width: 60px;
     height: 40px;
     line-height: 38px;
     font-size: 18px;
@@ -588,4 +588,18 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.track-edit-header-back {
+    margin-left: 10px;
+    font-size: 16px;
+    position: relative;
+    top: 2px;
+    float: right;
+    color: #4fa6d3;
+    transition: 0.2s;
+}
+
+.track-edit-header-back:hover {
+    color: #2b7fab;
 }

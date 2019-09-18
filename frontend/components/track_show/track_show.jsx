@@ -37,8 +37,6 @@ class TrackShow extends React.Component {
         }
     }
 
-
-
     playPause() {
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
             return (<div className="track-show-pause-container">
@@ -177,10 +175,10 @@ class TrackShow extends React.Component {
 
                                         { this.props.track.user_id === this.props.currentUser.id ? 
                                             <>
-                                                <button className="track-show-action-button-edit" >
+                                                <Link to={`/track/${this.props.track.id}/edit`}><div className="track-show-action-button-edit" >
                                                     <FontAwesomeIcon icon={faEdit} />
                                                     Edit
-                                                </button>
+                                                </div></Link>
                                                 <div className="track-show-delete-container">
                                                     <button className="track-show-action-button-delete" style={{ color: `${this.state.deleteConfirmation ? "#e2584e" : "" }`, border: `${this.state.deleteConfirmation ? "1px solid rgba(226,88,78,.8)" : "" }` }}
                                                         onClick={() => this.setState({deleteConfirmation: true}) }>
@@ -226,7 +224,6 @@ class TrackShow extends React.Component {
                                 style={{ backgroundImage: `url(${this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork})` }}
                             />   
                         </div>
-
 
                     </section>
 
