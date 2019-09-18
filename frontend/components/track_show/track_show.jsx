@@ -175,12 +175,14 @@ class TrackShow extends React.Component {
                                             Share
                                         </button>
 
-                                        { this.props.track.user_id === this.props.currentUser.id ? 
+                                        { this.props.track.user_id === this.props.currentUser ? 
                                             <>
-                                                <Link to={`/track/${this.props.track.id}/edit`}><div className="track-show-action-button-edit" >
-                                                    <FontAwesomeIcon icon={faEdit} />
-                                                    Edit
-                                                </div></Link>
+                                                <Link to={`/track/${this.props.track.id}/edit`}>
+                                                    <div className="track-show-action-button-edit" >
+                                                        <FontAwesomeIcon icon={faEdit} />
+                                                        Edit
+                                                    </div>
+                                                </Link>
                                                 <div className="track-show-delete-container">
                                                     <button className="track-show-action-button-delete" style={{ color: `${this.state.deleteConfirmation ? "#e2584e" : "" }`, border: `${this.state.deleteConfirmation ? "1px solid rgba(226,88,78,.8)" : "" }` }}
                                                         onClick={() => this.setState({deleteConfirmation: true}) }>
