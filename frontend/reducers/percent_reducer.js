@@ -1,4 +1,4 @@
-import { CURRENT_PERCENT, CHANGE_TRACK } from '../actions/footer_player_actions';
+import { CURRENT_PERCENT, CHANGE_TRACK, REMOVE_CURRENT_TRACK } from '../actions/footer_player_actions';
 
 export default (state = 0, action) => {
     Object.freeze(state);
@@ -6,6 +6,8 @@ export default (state = 0, action) => {
         case CURRENT_PERCENT:
             return action.percent;
         case CHANGE_TRACK:
+            return 0;
+        case REMOVE_CURRENT_TRACK:
             return 0;
         default:
             return state;

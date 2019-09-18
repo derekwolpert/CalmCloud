@@ -32,10 +32,21 @@ class TrackEditForm extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.currentUser !== this.props.track.user_id) {
+        if (!this.props.track) {
+            this.props.fetchTrack(this.props.match.params.trackId);
+        } else if (this.props.currentUser !== this.props.track.user_id) {
             this.props.history.push(`/track/${this.props.track.id}`);
         }
     }
+
+    componentDidUpdate() {
+        if (!this.props.track) {
+            this.props.fetchTrack(this.props.match.params.trackId);
+        } else if (this.props.currentUser !== this.props.track.user_id) {
+            this.props.history.push(`/track/${this.props.track.id}`);
+        }
+    }
+
 
     handleImageFile(e) {
         const file = e.currentTarget.files[0];
