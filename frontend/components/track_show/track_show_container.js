@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchTrack, deleteTrack } from '../../actions/track_actions';
 import TrackShow from './track_show';
-import { changeTrack, pauseTrack, currentPercent } from "../../actions/footer_player_actions";
+import { changeTrack, pauseTrack, currentPercent, removeCurrentTrack } from "../../actions/footer_player_actions";
 
 const mapStateToProps = (state, ownProps) => {
     const track = state.entities.tracks[ownProps.match.params.trackId];
@@ -24,6 +24,7 @@ const mapDispatchToProps = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     currentPercent: (percent) => dispatch(currentPercent(percent)),
     deleteTrack: trackId => dispatch(deleteTrack(trackId)),
+    removeCurrentTrack: () => dispatch(removeCurrentTrack())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow)); 

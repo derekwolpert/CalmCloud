@@ -18,7 +18,7 @@ export const pauseTrack = () => {
 
 export const removeCurrentTrack = () => {
     return {
-        type: REMOVE_TRACK,
+        type: REMOVE_CURRENT_TRACK,
     };
 };
 

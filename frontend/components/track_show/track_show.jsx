@@ -65,9 +65,11 @@ class TrackShow extends React.Component {
     }
 
     handleDelete() {
-        this.props.deleteTrack(this.props.track.id).then(() => {
-            this.props.history.push("/");
-        });
+        if (this.props.track.id === this.props.currentTrack) {
+            this.props.removeCurrentTrack();
+        }
+        this.props.deleteTrack(this.props.track.id);
+        this.props.history.push("/");
     }
 
     formatTime(time) {

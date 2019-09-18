@@ -4,40 +4,36 @@ import { faInfinity, faEdit, faMusic, faCloudUploadAlt } from '@fortawesome/free
 import { Link } from 'react-router-dom';
 
 class TrackEditForm extends React.Component {
+
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.track && !state.stateIsSet) {
+            return {
+                title: props.track.title,
+                description: props.track.description === null ? "" : props.track.description,
+                trackArtworkUrl: props.track.trackArtworkUrl === undefined ? window.defaultArtwork : props.track.trackArtworkUrl,
+                stateIsSet: true,
+            };
+        }
+        return null;
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.track.title,
-            description: this.props.track.description,
-            trackArtworkUrl: this.props.track.trackArtworkUrl,
+            title: "",
+            description: "",
+            trackArtworkUrl: window.defaultArtwork,
             imageFile: null,
             imageUrl: null,
+            stateIsSet: false,
         };
-
         this._loading = React.createRef();
     }
 
-    // componentDidMount() {
-    //     this.props.fetchTrack(this.props.match.params.trackId);
-    // }
-
-    // componentDidUpdate() {
-    //     if (!this.props.track) {
-    //         this.props.fetchTrack(this.props.match.params.trackId);
-    //     } else if ((typeof this.state.track === "string") && (typeof this.props.track === "object")) {
-    //         this.setState({
-    //             track: this.props.track
-    //         });
-    //     }
-    // }
-
     componentDidMount() {
-        this.props.fetchTrack(this.props.match.params.trackId);
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.track.id != this.props.match.params.trackId) {
-            this.props.fetchTrack(this.props.match.params.trackId);
+        if (this.props.currentUser !== this.props.track.user_id) {
+            this.props.history.push(`/track/${this.props.track.id}`);
         }
     }
 
@@ -59,9 +55,9 @@ class TrackEditForm extends React.Component {
     }
 
     handleTitle(e) {
-        this.setState({ track: {
+        this.setState({
             title: e.currentTarget.value 
-        }});
+        });
     }
 
     handleDescription(e) {
@@ -72,21 +68,22 @@ class TrackEditForm extends React.Component {
 
 
     handleSubmit(e) {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('track[title]', this.state.title);
-        formData.append('track[track_length]', this.state.audioDuration);
+        console.log(this.state);
+        // e.preventDefault();
+        // const formData = new FormData();
+        // formData.append('track[title]', this.state.title);
+        // formData.append('track[track_length]', this.state.audioDuration);
 
-        if (this.state.description.length > 0) {
-            formData.append('track[description]', this.state.description);
-        }
+        // if (this.state.description.length > 0) {
+        //     formData.append('track[description]', this.state.description);
+        // }
 
-        if (this.state.imageFile) {
-            formData.append('track[track_artwork]', this.state.imageFile);
-        }
-        this.props.createTrack(formData).then(({ track }) => {
-            this.props.history.push(`/track/${track.id}`);
-        });
+        // if (this.state.imageFile) {
+        //     formData.append('track[track_artwork]', this.state.imageFile);
+        // }
+        // this.props.createTrack(formData).then(({ track }) => {
+        //     this.props.history.push(`/track/${track.id}`);
+        // });
     }
 
     render() {
@@ -95,10 +92,10 @@ class TrackEditForm extends React.Component {
             this.props.fetchTrack(this.props.match.params.trackId);
         }
 
-        return (
-             this.props.track ?
+        if (this.props.track) {
+            return (
                 <section className="track-upload-container">
-                    <h1>{`Editing ${this.state.title}`}
+                    <h1>{`Editing ${this.props.track.title}`}
                         <Link className="track-edit-header-back" to={`/track/${this.props.track.id}`}>Back</Link>
                     </h1>
                     <div className="track-upload-inner-container">
@@ -115,7 +112,7 @@ class TrackEditForm extends React.Component {
                                             <input type="file" accept=".jpeg, .jpg, .png, .gif" onChange={(e) => this.handleImageFile(e)} />
                                         </div>
                                     </div>
-                            
+
                                     <section className="track-upload-stage-two-form-fields">
                                         <div className="track-upload-stage-two-form-title-container">
                                             <input type="text"
@@ -135,24 +132,32 @@ class TrackEditForm extends React.Component {
                                                 style={{ height: `${this.state.description.length > 0 ? "79px" : ""}` }}
                                             />
                                         </div>
-                                        <section className="track-upload-submission">
-                                            <div className="track-upload-save-container">
-                                                <Link to="/" className="track-upload-cancel">Cancel</Link>
-                                                <button className="track-upload-button"
-                                                    disabled={false}
-                                                    onClick={() => this._loading.style.display = ""}>Save</button>
-                                            </div>
-                                        </section>
                                     </section>
+                                </section>
+                                <section className="track-upload-submission">
+                                    <div className="track-edit-delete-container">
+                                        <div className="track-edit-delete-button">
+                                            Delete this upload
+                                        </div>
+                                    </div>
+
+                                    <div className="track-upload-save-container">
+                                        <Link to="/" className="track-upload-cancel">Cancel</Link>
+                                        <button className="track-upload-button"
+                                            disabled={false}
+                                            onClick={() => this._loading.style.display = ""}>Save</button>
+                                    </div>
                                 </section>
                             </div>
                         </form>
 
                     </div>
                     <div ref={(l) => this._loading = l} className="track-upload-spinner-background" style={{ display: "none" }}><div className="track-upload-spinner"><div></div><div></div><div></div><div></div></div></div>
-                </section> : null
-    
-        );
+                </section>
+            )
+        } else {
+            return null;
+        }
     }
 }
 

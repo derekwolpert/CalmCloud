@@ -15,13 +15,6 @@ class FooterAudioPlayer extends React.Component {
         this._audio = React.createRef();
     }
 
-    componentDidMount() {
-        setInterval(() => this.setState({ 
-            time: this.formatTime(this._audio.currentTime),
-            left: `-${this.formatTime(this._audio.duration - this._audio.currentTime)}`,
-            percentage: ((this._audio.currentTime / this._audio.duration)*100),
-            }), 200);
-    } 
 
     formatTime(time) {
         if (isNaN(time)) time = 0;
@@ -36,29 +29,43 @@ class FooterAudioPlayer extends React.Component {
         if (this.props.playing === false) {
             this._audio.play();
             this.props.changeTrack(this.props.currentTrack.id);
+
         } else if (this.props.playing === true) {
             this._audio.pause();
             this.props.pauseTrack();
         }
     }
 
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({
+                time: this._audio ? this.formatTime(this._audio.currentTime) : "",
+                left: this._audio ? `-${this.formatTime(this._audio.duration - this._audio.currentTime)}` : "",
+                percentage: this._audio ? ((this._audio.currentTime / this._audio.duration) * 100) : 0,
+            });
+            console.log("hi");
+        }, 200);
+    }
+
     componentDidUpdate(prevProps) {
 
         if (this.props.currentTrackId !== prevProps.currentTrackId) {
-            if (this.props.currentTrack.id === this.props.currentTrackId) {
-                if (this.props.playing !== prevProps.playing) {
-                    if (this.props.playing) {
+            if (this.props.currentTrack !== undefined) {
+                if (this.props.currentTrack.id === this.props.currentTrackId) {
+                    if (this.props.playing !== prevProps.playing) {
+                        if (this.props.playing) {
+                            this.props.updatePlayCount(this.props.currentTrack);
+                            this._audio.load();
+                            this._audio.play();
+                        }
+                        if (!this.props.playing) {
+                            this._audio.pause();
+                        }
+                    } else {
                         this.props.updatePlayCount(this.props.currentTrack);
                         this._audio.load();
                         this._audio.play();
                     }
-                    if (!this.props.playing) {
-                        this._audio.pause();
-                    }
-                } else {
-                    this.props.updatePlayCount(this.props.currentTrack);
-                    this._audio.load();
-                    this._audio.play();
                 }
             }
             
@@ -90,6 +97,7 @@ class FooterAudioPlayer extends React.Component {
                 }
             }
         }
+        
     }
 
     handleProgress(e) {
@@ -114,9 +122,11 @@ class FooterAudioPlayer extends React.Component {
     }
 
     volumeImage() {
-        if (this._audio.volume > 0.5) return faVolumeUp;
-        if (this._audio.volume > 0) return faVolumeDown;
-        return faVolumeMute;
+        if (this._audio) {
+            if (this._audio.volume > 0.5) return faVolumeUp;
+            if (this._audio.volume > 0) return faVolumeDown;
+            return faVolumeMute;
+        };
     }
     
     render() {
@@ -176,7 +186,7 @@ class FooterAudioPlayer extends React.Component {
 
                             <div className="footer-player-volume-popup">
                                 <div className="footer-player-volume-scrubber" onClick={(e) => this.handleVolume(e)}>
-                                    <div className="footer-player-volume-percent" style={{ height: `${this._audio.volume * 100}%`}}>
+                                    <div className="footer-player-volume-percent" style={{ height: `${this._audio ? this._audio.volume * 100 : 0}%`}}>
 
                                     </div>
                                 </div>
@@ -193,7 +203,6 @@ class FooterAudioPlayer extends React.Component {
             )
         }
         return null;
-        
     }
 
 }

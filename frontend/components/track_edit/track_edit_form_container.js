@@ -5,8 +5,7 @@ import TrackEditForm from './track_edit_form';
 import { removeCurrentTrack } from "../../actions/footer_player_actions";
 
 const mapStateToProps = (state, ownProps) => {
-    const defaultTrack = {title: "", description: "", trackArtworkUrl: ""};
-    const track = state.entities.tracks[ownProps.match.params.trackId] || defaultTrack;
+    const track = state.entities.tracks[ownProps.match.params.trackId];
     return {
         track: track,
         currentUser: state.session.currentUser.id,

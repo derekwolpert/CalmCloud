@@ -209,15 +209,16 @@ class TrackUploadForm extends React.Component {
                                     style={{height: `${this.state.description.length > 0 ? "79px" : ""}`}}
                                     />
                             </div>
-                            <section className="track-upload-submission">
-                                <div className="track-upload-save-container">
-                                    <Link to="/" className="track-upload-cancel">Cancel</Link>
-                                    <button className="track-upload-button"
-                                        disabled={!this.state.audioUrl || !(this.state.title.length > 0)}
-                                        onClick={() => this._loading.style.display = ""}>Upload and Publish</button>
-                                </div>
-                            </section>
+                            
                         </section>
+                    </section>
+                    <section className="track-upload-submission">
+                        <div className="track-upload-save-container">
+                            <Link to="/" className="track-upload-cancel">Cancel</Link>
+                            <button className="track-upload-button"
+                                disabled={!this.state.audioUrl || !(this.state.title.length > 0)}
+                                onClick={() => this._loading.style.display = ""}>Upload and Publish</button>
+                        </div>
                     </section>
                 </div>
 

@@ -488,16 +488,14 @@
 }
 
 .track-upload-save-container {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    float: right;
 }
 
 .track-upload-cancel {
     font-size: 15px;
     line-height: 38px;
     padding: 0 30px 0 0;
-    color: rgb(212, 212, 212);
+    color: rgb(192, 192, 192);
 }
 
 .track-upload-button {
@@ -526,12 +524,6 @@
 .track-upload-button:disabled:hover {
     background-color: #50b348;
 }
-
-
-
-
-
-
 
 .track-upload-spinner-background {
     position: fixed;
@@ -602,4 +594,14 @@
 
 .track-edit-header-back:hover {
     color: #2b7fab;
+}
+
+.track-edit-delete-container {
+    float: left;
+}
+
+.track-edit-delete-button {
+    font-size: 15px;
+    line-height: 38px;
+    color: rgb(192, 192, 192);
 }
