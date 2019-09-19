@@ -7,7 +7,7 @@
 #  title        :string           not null
 #  track_length :integer          not null
 #  play_count   :integer          not null
-#  description  :text
+#  description  :text             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  tag_id       :integer
@@ -16,7 +16,6 @@
 class Track < ApplicationRecord
 
     validates :user_id, :title, :track_length, :play_count, presence: true
-    # validate :ensure_audio_track
 
     has_one_attached :audio_track
     has_one_attached :track_artwork
@@ -34,12 +33,6 @@ class Track < ApplicationRecord
 
     def ensure_play_count
         self.play_count ||= 0
-    end
-
-    def ensure_audio_track
-        unless self.audio_track.attached?
-            errors[:audio_track] << "Must be attached"
-        end
     end
 
 end

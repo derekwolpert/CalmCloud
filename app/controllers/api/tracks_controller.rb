@@ -6,10 +6,11 @@ class Api::TracksController < ApplicationController
         @track.user_id = current_user.id
 
         errs = ["placeholder error"];
+
         if @track.save
             render :show
         else
-            render json: @user.errors.full_messages, status: 401
+            render json: @track.errors.full_messages, status: 401
         end
 
         # Please choose an audio file (MP3, AAC, M4A, MP4 audio or OGG file types are supported) and make sure it is under 500MB.

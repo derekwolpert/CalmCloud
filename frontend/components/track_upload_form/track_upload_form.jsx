@@ -95,10 +95,7 @@ class TrackUploadForm extends React.Component {
         formData.append('track[title]', this.state.title);
         formData.append('track[audio_track]', this.state.audioFile);
         formData.append('track[track_length]', this.state.audioDuration);
-
-        if (this.state.description.length > 0) {
-            formData.append('track[description]', this.state.description);
-        }
+        formData.append('track[description]', this.state.description);
 
         if (this.state.imageFile) {
             formData.append('track[track_artwork]', this.state.imageFile);

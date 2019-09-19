@@ -43,12 +43,10 @@ class FooterAudioPlayer extends React.Component {
                 left: this._audio ? `-${this.formatTime(this._audio.duration - this._audio.currentTime)}` : "",
                 percentage: this._audio ? ((this._audio.currentTime / this._audio.duration) * 100) : 0,
             });
-            console.log("hi");
         }, 200);
     }
 
     componentDidUpdate(prevProps) {
-
         if (this.props.currentTrackId !== prevProps.currentTrackId) {
             if (this.props.currentTrack !== undefined) {
                 if (this.props.currentTrack.id === this.props.currentTrackId) {
@@ -82,12 +80,11 @@ class FooterAudioPlayer extends React.Component {
         }
 
         if (this.props.playing) {
+            this.props.currentPercent(this.state.percentage);
             if (this._audio.currentTime === this._audio.duration) {
                 this.props.pauseTrack();
             }
-        }
-        if (this.props.playing) {
-            this.props.currentPercent(this.state.percentage);
+
         }
 
         if (this.props.percent) {
@@ -97,7 +94,6 @@ class FooterAudioPlayer extends React.Component {
                 }
             }
         }
-        
     }
 
     handleProgress(e) {
@@ -126,7 +122,7 @@ class FooterAudioPlayer extends React.Component {
             if (this._audio.volume > 0.5) return faVolumeUp;
             if (this._audio.volume > 0) return faVolumeDown;
             return faVolumeMute;
-        };
+        }
     }
     
     render() {

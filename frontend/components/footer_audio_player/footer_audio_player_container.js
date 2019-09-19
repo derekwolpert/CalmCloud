@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { changeTrack, pauseTrack, removeCurrentTrack, currentPercent } from '../../actions/footer_player_actions';
-import { updateTrack } from '../../actions/track_actions';
+import { updatePlaycount } from '../../actions/track_actions';
 import FooterAudioPlayer from './footer_audio_player';
 
 const mapStateToProps = ({ ui, entities }) => {
@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     removeCurrentTrack: () => dispatch(removeCurrentTrack()),
     currentPercent: (percent) => dispatch(currentPercent(percent)),
-    updatePlayCount: (track) => dispatch(updateTrack({ id: track.id, play_count: track.play_count + 1 }))
+    updatePlayCount: (track) => dispatch(updatePlaycount({ id: track.id, play_count: track.play_count + 1 }))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FooterAudioPlayer));

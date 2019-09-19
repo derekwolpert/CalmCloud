@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
         track: track,
         user: user,
         currentUser: state.entities.users[state.session.currentUser.id],
+        currentUserId: state.session.currentUser.id,
         currentTrack: state.ui.currentTrack,
         playing: state.ui.playing,
         percent: state.ui.percent

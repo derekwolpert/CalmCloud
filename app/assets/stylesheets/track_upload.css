@@ -510,6 +510,7 @@
     color: white;
     background-color: #50b348;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .track-upload-button:hover {
@@ -582,6 +583,53 @@
     }
 }
 
+.track-edit-change-image-wrapper {
+    width: 120px;
+    height: 30px;
+    left: 50%;
+    transform: translatex(-50%);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    line-height: 57px;
+    text-align: center;
+    background-color: rgb(192, 192, 192);
+    border: none;
+    border-radius: 4px;
+}
+
+.track-edit-change-image-wrapper > input {
+    width: 120px;
+    height: 30px;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+}
+
+.track-edit-change-image-wrapper:after {
+    display: block;
+    content: "Replace Image";
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    color: #46515C;
+    font-size: 13px;
+    line-height: 30px;
+    transition: 0.2s;
+}
+
 .track-edit-header-back {
     margin-left: 10px;
     font-size: 16px;
@@ -604,4 +652,27 @@
     font-size: 15px;
     line-height: 38px;
     color: rgb(192, 192, 192);
+    cursor: pointer;
+}
+
+.track-edit-delete-comformation {
+    float: left;
+}
+
+.track-edit-delete-comformation > * {
+    display: inline-block;
+    background-color: #e2584e;
+
+}
+.track-edit-delete-comformation > *:hover {
+    background-color: #d93024;
+}
+
+.track-edit-delete-comformation > *:first-child {
+    background-color: #4fa6d3;
+    margin-right: 20px;
+}
+
+.track-edit-delete-comformation > *:first-child:hover {
+    background-color: #308ebf;;
 }

@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => ({
     removeCurrentTrack: () => dispatch(removeCurrentTrack())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackEditForm)); 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackEditForm));

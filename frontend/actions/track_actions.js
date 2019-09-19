@@ -41,6 +41,11 @@ export const updateTrack = track => dispatch => (
         .then(track => dispatch(receiveTrack(track)))
 );
 
+export const updatePlaycount = track => dispatch => (
+    TrackApiUtil.updatePlaycount(track)
+        .then(track => dispatch(receiveTrack(track)))
+);
+
 export const deleteTrack = trackId => dispatch => (
     TrackApiUtil.deleteTrack(trackId)
         .then(trackId => dispatch(removeTrack(trackId)))

@@ -175,7 +175,7 @@ class TrackShow extends React.Component {
                                             Share
                                         </button>
 
-                                        { this.props.track.user_id === this.props.currentUser ? 
+                                        { this.props.track.user_id === this.props.currentUserId ? 
                                             <>
                                                 <Link to={`/track/${this.props.track.id}/edit`}>
                                                     <div className="track-show-action-button-edit" >

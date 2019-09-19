@@ -27,8 +27,10 @@ class TrackEditForm extends React.Component {
             imageFile: null,
             imageUrl: null,
             stateIsSet: false,
+            deleteConfirmation: false,
         };
         this._loading = React.createRef();
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -77,24 +79,33 @@ class TrackEditForm extends React.Component {
         });
     }
 
+    handleDelete() {
+        if (this.props.track.id === this.props.currentTrack) {
+            this.props.removeCurrentTrack();
+        }
+        this.props.deleteTrack(this.props.track.id);
+        this.props.history.push("/");
+    }
 
     handleSubmit(e) {
-        console.log(this.state);
-        // e.preventDefault();
-        // const formData = new FormData();
-        // formData.append('track[title]', this.state.title);
-        // formData.append('track[track_length]', this.state.audioDuration);
+        e.preventDefault();
+        const formData = new FormData();
 
-        // if (this.state.description.length > 0) {
-        //     formData.append('track[description]', this.state.description);
-        // }
+        if (this.props.track.title !== this.state.title) {
+            formData.append('track[title]', this.state.title);
+        }
 
-        // if (this.state.imageFile) {
-        //     formData.append('track[track_artwork]', this.state.imageFile);
-        // }
-        // this.props.createTrack(formData).then(({ track }) => {
-        //     this.props.history.push(`/track/${track.id}`);
-        // });
+        if (this.props.track.description !== this.state.description) {
+            formData.append('track[description]', this.state.description);
+        }
+
+        if (this.state.imageFile) {
+            formData.append('track[track_artwork]', this.state.imageFile);
+        }
+
+        this.props.updateTrack({id: this.props.track.id, formData: formData}).then(({ track }) => {
+            this.props.history.push(`/track/${track.id}`);
+        });
     }
 
     render() {
@@ -119,7 +130,7 @@ class TrackEditForm extends React.Component {
                                         <img src={this.state.imageUrl ? this.state.imageUrl : this.state.trackArtworkUrl} />
                                     </div>
                                     <div className="track-upload-change-image-container">
-                                        <div className="track-upload-change-image-wrapper">
+                                        <div className="track-edit-change-image-wrapper">
                                             <input type="file" accept=".jpeg, .jpg, .png, .gif" onChange={(e) => this.handleImageFile(e)} />
                                         </div>
                                     </div>
@@ -147,15 +158,25 @@ class TrackEditForm extends React.Component {
                                 </section>
                                 <section className="track-upload-submission">
                                     <div className="track-edit-delete-container">
-                                        <div className="track-edit-delete-button">
-                                            Delete this upload
-                                        </div>
+                                        { this.state.deleteConfirmation ?
+                                            <div className="track-edit-delete-comformation">
+                                                <div className="track-upload-button" onClick={() => this.setState({ deleteConfirmation: false })}>
+                                                    Cancel
+                                                </div>
+                                                <div className="track-upload-button">
+                                                    Confirm Deletion
+                                                </div>
+                                            </div>
+                                            :
+                                            <div className="track-edit-delete-button" onClick={() => this.setState({ deleteConfirmation: true })}>
+                                                Delete this upload
+                                            </div>
+                                        }
                                     </div>
-
                                     <div className="track-upload-save-container">
                                         <Link to="/" className="track-upload-cancel">Cancel</Link>
                                         <button className="track-upload-button"
-                                            disabled={false}
+                                            disabled={!(this.state.title.length > 0)}
                                             onClick={() => this._loading.style.display = ""}>Save</button>
                                     </div>
                                 </section>
