@@ -10,7 +10,7 @@ class TrackEditForm extends React.Component {
         if (props.track && !state.stateIsSet) {
             return {
                 title: props.track.title,
-                description: props.track.description === null ? "" : props.track.description,
+                description: props.track.description,
                 trackArtworkUrl: props.track.trackArtworkUrl === undefined ? window.defaultArtwork : props.track.trackArtworkUrl,
                 stateIsSet: true,
             };
@@ -30,7 +30,7 @@ class TrackEditForm extends React.Component {
             deleteConfirmation: false,
         };
         this._loading = React.createRef();
-        this.handleDelete = this.handleDelete.bind(this);
+        this.handleEditButton = this.handleEditButton.bind(this);
     }
 
     componentDidMount() {
@@ -85,6 +85,19 @@ class TrackEditForm extends React.Component {
         }
         this.props.deleteTrack(this.props.track.id);
         this.props.history.push("/");
+    }
+
+    handleEditButton() {
+        if (this.props.track.title !== this.state.title) {
+            return false;
+        }
+        if (this.props.track.description !== this.state.description) {
+            return false;
+        }
+        if (this.state.imageFile) {
+            return false;
+        }
+        return true;
     }
 
     handleSubmit(e) {
@@ -163,7 +176,7 @@ class TrackEditForm extends React.Component {
                                                 <div className="track-upload-button" onClick={() => this.setState({ deleteConfirmation: false })}>
                                                     Cancel
                                                 </div>
-                                                <div className="track-upload-button">
+                                                <div className="track-upload-button" onClick={() => this.handleDelete()}>
                                                     Confirm Deletion
                                                 </div>
                                             </div>
@@ -176,7 +189,7 @@ class TrackEditForm extends React.Component {
                                     <div className="track-upload-save-container">
                                         <Link to="/" className="track-upload-cancel">Cancel</Link>
                                         <button className="track-upload-button"
-                                            disabled={!(this.state.title.length > 0)}
+                                            disabled={this.handleEditButton()}
                                             onClick={() => this._loading.style.display = ""}>Save</button>
                                     </div>
                                 </section>

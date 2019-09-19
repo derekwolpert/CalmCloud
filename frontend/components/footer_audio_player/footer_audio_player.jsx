@@ -123,6 +123,7 @@ class FooterAudioPlayer extends React.Component {
             if (this._audio.volume > 0) return faVolumeDown;
             return faVolumeMute;
         }
+        return faVolumeMute;
     }
     
     render() {

@@ -264,7 +264,7 @@
 .footer-player-volume:hover {
     z-index: 1;
     background-color: rgb(28, 28, 28);
-    box-shadow: inset -1px 0 0 rgb(149, 149, 149), -1px 0 0 hsla(0,0%,100%,.04);
+    box-shadow: inset -1px 0 0 rgb(28, 28, 28), -1px 0 0 hsla(0,0%,100%,.04);
 }
 
 .footer-player-volume-image {
@@ -275,7 +275,7 @@
 
 .footer-player-volume-popup {
     box-sizing: content-box;
-    width: 61px;
+    width: 60px;
     height: 0;
     background-color: rgb(28, 28, 28);
     position: absolute;
