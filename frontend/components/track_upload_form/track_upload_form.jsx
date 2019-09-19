@@ -204,6 +204,7 @@ class TrackUploadForm extends React.Component {
                                     onChange={this.handleDescription.bind(this)}
                                     placeholder="Description"
                                     style={{height: `${this.state.description.length > 0 ? "79px" : ""}`}}
+                                    maxLength="1000"
                                     />
                             </div>
                             
@@ -263,7 +264,13 @@ class TrackUploadForm extends React.Component {
                             </section>
                         )}
 
-                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
+                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                            if (e.target.className === "track-description-input") {
+                                
+                                return;
+                            }
+                            (e.key === 'Enter') && e.preventDefault(); 
+                            }}>
                             {this.state.nextStage === true ? this.stageTwo() : this.stageOne()}
                         </form>
 

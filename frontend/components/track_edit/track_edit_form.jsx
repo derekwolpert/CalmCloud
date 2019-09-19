@@ -135,7 +135,12 @@ class TrackEditForm extends React.Component {
                     </h1>
                     <div className="track-upload-inner-container">
 
-                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
+                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                            if (e.target.className === "track-description-input") {
+                                return;
+                            }
+                            (e.key === 'Enter') && e.preventDefault();
+                        }}>
                             <div className="track-upload-cf">
 
                                 <section className="track-upload-image-container">
@@ -165,6 +170,7 @@ class TrackEditForm extends React.Component {
                                                 onChange={(e) => this.handleDescription(e)}
                                                 placeholder="Description"
                                                 style={{ height: `${this.state.description.length > 0 ? "79px" : ""}` }}
+                                                maxLength="1000"
                                             />
                                         </div>
                                     </section>

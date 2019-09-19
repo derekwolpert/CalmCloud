@@ -111,7 +111,7 @@ class TrackShow extends React.Component {
 
         if (this.props.track) {
             return (
-                <div>
+                <>
                     <section className="track-show-header">
 
                         <div className="track-show-header-inner-container">
@@ -231,7 +231,30 @@ class TrackShow extends React.Component {
 
                     </section>
 
-                </div>
+                    <section className="track-show-container">
+                        
+                        <section className="track-show-inner-container">
+                            <div className="track-show-description">
+                                {this.props.track.description}
+                            </div>
+
+                            <section className="track-show-comments">
+                                <h1>
+                                    Comments
+                                </h1>
+                            </section>
+                            
+                        </section>
+
+                        <section className="track-show-sidebar">
+                            <h1>
+                                More from {this.props.user.display_name}
+                            </h1>
+                        </section>
+                        
+                    </section>
+
+                </>
             )
         } else {
             return null;

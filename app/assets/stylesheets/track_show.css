@@ -6,7 +6,7 @@
     width: 100vw;
     max-width: 1460px;
     min-width: 1300px;
-    margin-bottom: -52px;
+    padding-bottom: -52px;
     display: block;
     box-sizing: border-box;
 }
@@ -278,6 +278,7 @@
     padding: 8px 15px;
     margin-left: 10px;
     border: 1px solid rgba(156,156,156,0.5);
+    color: rgb(212,212,212);
     position: relative;
     z-index: 10;
     font-size: 13px;
@@ -407,4 +408,59 @@
 
 .track-show-cancel-delete:hover {
     background-color: #308ebf;
+}
+
+.track-show-container {
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+    display: block;
+    padding: 30px 0 82px;
+    display: block;
+    box-sizing: border-box;
+    min-height: calc(100vh - 467px);
+    height: 100%;
+}
+
+.track-show-container:after, .track-show-container:before {
+    content: " ";
+    display: table;
+}
+
+.track-show-container:after {
+    clear: both;
+}
+
+.track-show-inner-container {
+    width: 740px;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+}
+
+.track-show-description {
+    color: rgb(192,192,192);
+    padding: 0 0 32px;
+    word-break: break-word;
+    white-space: pre-line;
+}
+
+.track-show-comments {
+
+}
+
+.track-show-comments > h1, .track-show-sidebar > h1 {
+    padding-bottom: 12px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    color: rgb(212, 212, 212);
+    border-bottom: 2px solid rgb(96, 96, 96);
+}
+
+.track-show-sidebar {
+    float: right;
+    width: 300px;
+    display: block;
+    box-sizing: border-box;
 }
