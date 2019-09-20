@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfinity, faEdit, faMusic, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 class TrackEditForm extends React.Component {
@@ -10,9 +8,10 @@ class TrackEditForm extends React.Component {
         if (props.track && !state.stateIsSet) {
             return {
                 title: props.track.title,
-                description: props.track.description,
                 trackArtworkUrl: props.track.trackArtworkUrl === undefined ? window.defaultArtwork : props.track.trackArtworkUrl,
+                description: props.track.description ? props.track.description : "",
                 stateIsSet: true,
+                descriptionIsSet: !!props.track.description,
             };
         }
         return null;
@@ -27,6 +26,7 @@ class TrackEditForm extends React.Component {
             imageFile: null,
             imageUrl: null,
             stateIsSet: false,
+            descriptionIsSet: false,
             deleteConfirmation: false,
         };
         this._loading = React.createRef();
@@ -38,6 +38,8 @@ class TrackEditForm extends React.Component {
             this.props.fetchTrack(this.props.match.params.trackId);
         } else if (this.props.currentUser !== this.props.track.user_id) {
             this.props.history.push(`/track/${this.props.track.id}`);
+        } else {
+            this.props.fetchTrack(this.props.track.id);
         }
     }
 
@@ -46,6 +48,13 @@ class TrackEditForm extends React.Component {
             this.props.fetchTrack(this.props.match.params.trackId);
         } else if (this.props.currentUser !== this.props.track.user_id) {
             this.props.history.push(`/track/${this.props.track.id}`);
+        } else if (this.props.track.description === undefined) {
+            this.props.fetchTrack(this.props.track.id);
+        } else if (!this.state.descriptionIsSet) {
+            this.setState({
+                description: this.props.track.description,
+                descriptionIsSet: true,
+            });
         }
     }
 
@@ -101,6 +110,7 @@ class TrackEditForm extends React.Component {
     }
 
     handleSubmit(e) {
+
         e.preventDefault();
         const formData = new FormData();
 
@@ -122,12 +132,12 @@ class TrackEditForm extends React.Component {
     }
 
     render() {
-
-        if (!this.props.track) {
-            this.props.fetchTrack(this.props.match.params.trackId);
-        }
-
         if (this.props.track) {
+
+            if (this.props.track.description === undefined) {
+                return null;
+            }
+
             return (
                 <section className="track-upload-container">
                     <h1>{`Editing ${this.props.track.title}`}

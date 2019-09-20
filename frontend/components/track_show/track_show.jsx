@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TrackShowSidebar from "./track_show_sidebar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCloudUploadAlt, faHeadphonesAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCloudUploadAlt, faHeadphonesAlt, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 
 class TrackShow extends React.Component {
@@ -16,25 +17,30 @@ class TrackShow extends React.Component {
 
         this.playPause = this.playPause.bind(this);
         this.formatListened = this.formatListened.bind(this);
-        this.formatDate = this.formatDate.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchTrack(this.props.match.params.trackId);
+        this.props.fetchAllTracks().then(() => this.props.fetchTrack(this.props.match.params.trackId));
     }
 
     componentDidUpdate(prevProps) {
+
         if (this.props.currentTrack !== prevProps.currentTrack) {
             if (this.props.track.id === this.props.currentTrack) {
                 if (this.props.playing) {
                     this.props.changeTrack(this.props.track.id);
                 }
-                if (!this.props.playing) {
+                if (!this.props.playing) { 
                     this.props.changeTrack(this.props.track.id);
                 }
             }
         }
+
+        if (this.props.track.description === undefined) {
+            this.props.fetchTrack(this.props.match.params.trackId);
+        }
+
     }
 
     playPause() {
@@ -80,8 +86,8 @@ class TrackShow extends React.Component {
         return ((time >= 3600 ? (hours + ":") : "") + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
     }
 
-    formatDate() {
-        const uploadDate = new Date(this.props.track.created_at);
+    formatDate(date) {
+        const uploadDate = new Date(date);
         const nowDate = new Date();
         const secondsSince = ((nowDate - uploadDate) / 1000);
 
@@ -104,10 +110,43 @@ class TrackShow extends React.Component {
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
     }
 
+    isUrl(word) {
+        const urlChecker = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+        return word.match(urlChecker);
+        
+        // if (word.match(urlChecker)) {
+        //     try {
+        //         new URL(word);
+        //         return true;
+        //     } catch {
+        //         return false;
+        //     }
+
+        // } else {
+        //     return false;
+        // }
+    }
+
+    formatHref(word) {
+        if ((word.includes("https://") || word.includes("http://"))) return word;
+        return `https://${word}`;
+    }
+
+    formatUrlsInDescription(para) {
+        return (
+            <>
+                { para.split(" ").map((word, key) => (
+                    this.isUrl(word) ? 
+                        <a href={this.formatHref(word)} key={key}>{key !== 0 ? ` ${word}` : word}</a> 
+                            : 
+                        key !== 0 ?` ${word}` : word)
+                    )
+                }
+            </>
+        )
+    }
+
     render() {
-        if (!this.props.track) {
-            this.props.fetchTrack(this.props.match.params.trackId);
-        }
 
         if (this.props.track) {
             return (
@@ -213,7 +252,7 @@ class TrackShow extends React.Component {
 
                                     <li>
                                         <FontAwesomeIcon icon={faCalendarAlt} />
-                                        {this.formatDate()}
+                                        {this.formatDate(this.props.track.created_at)}
                                     </li>
 
                                 </ul>
@@ -235,7 +274,10 @@ class TrackShow extends React.Component {
                         
                         <section className="track-show-inner-container">
                             <div className="track-show-description">
-                                {this.props.track.description}
+                                {this.props.track.description ? this.props.track.description.split("\n").filter(Boolean).map((el, key) => (
+                                    <p key={key}>{this.formatUrlsInDescription(el)}</p>)
+                                    ) : null
+                                }
                             </div>
 
                             <section className="track-show-comments">
@@ -246,12 +288,36 @@ class TrackShow extends React.Component {
                             
                         </section>
 
+
+
                         <section className="track-show-sidebar">
-                            <h1>
-                                More from {this.props.user.display_name}
-                            </h1>
+                            
+                            { this.props.tracks.length > 0 ?
+                                <>
+                                    <h1>
+                                        More from {this.props.user.display_name}
+                                    </h1>
+
+                                    <ul>
+                                        {this.props.tracks.map(subTrack => (
+
+                                            <TrackShowSidebar
+                                                key={subTrack.id}
+                                                track={subTrack}
+                                                date={this.formatDate(subTrack.created_at)}
+                                            />
+
+                                        ))}
+
+
+
+                                    </ul> 
+                                </> : null
+
+                            }
+                            
                         </section>
-                        
+                
                     </section>
 
                 </>
