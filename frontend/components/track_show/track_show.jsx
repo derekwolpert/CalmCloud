@@ -47,9 +47,9 @@ class TrackShow extends React.Component {
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
             return (<div className="track-show-pause-container">
                 <FontAwesomeIcon onClick={() => this.props.pauseTrack()} icon={faPauseCircle} />
-            </div>);
+            </div >);
         }
-        return (<div className="track-show-play-container" >
+        return (<div className="track-show-play-container">
             <FontAwesomeIcon onClick={() => this.props.changeTrack(this.props.track.id)} icon={faPlayCircle} />
         </div >);
     }
@@ -111,6 +111,7 @@ class TrackShow extends React.Component {
     }
 
     isUrl(word) {
+        
         const urlChecker = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
         return word.match(urlChecker);
         
@@ -137,7 +138,7 @@ class TrackShow extends React.Component {
             <>
                 { para.split(" ").map((word, key) => (
                     this.isUrl(word) ? 
-                        <a href={this.formatHref(word)} key={key}>{key !== 0 ? ` ${word}` : word}</a> 
+                        <a href={this.formatHref(word)} key={key} target="_blank">{key !== 0 ? ` ${word}` : word} </a> 
                             : 
                         key !== 0 ?` ${word}` : word)
                     )
