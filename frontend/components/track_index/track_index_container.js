@@ -9,8 +9,10 @@ const mapStateToProps = (state) => {
         tracks: Object.values(state.entities.tracks),
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,
+        percent: state.ui.percent,
         playing: state.ui.playing,
         currentUser: state.entities.users[state.session.currentUser.id]
+
     };
 };
 

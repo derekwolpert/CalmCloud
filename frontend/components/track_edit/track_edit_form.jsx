@@ -34,6 +34,7 @@ class TrackEditForm extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         if (!this.props.track) {
             this.props.fetchTrack(this.props.match.params.trackId);
         } else if (this.props.currentUser !== this.props.track.user_id) {

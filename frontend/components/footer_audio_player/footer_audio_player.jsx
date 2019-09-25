@@ -28,8 +28,7 @@ class FooterAudioPlayer extends React.Component {
     playPauseAudio() {
         if (this.props.playing === false) {
             this._audio.play();
-            this.props.changeTrack(this.props.currentTrack.id);
-
+            this.props.changeTrack(this.props.currentTrackId);
         } else if (this.props.playing === true) {
             this._audio.pause();
             this.props.pauseTrack();
@@ -84,8 +83,16 @@ class FooterAudioPlayer extends React.Component {
             if (this._audio.currentTime === this._audio.duration) {
                 this.props.pauseTrack();
             }
-
         }
+
+        if (this.props.currentTrackId !== null) {
+            if (this._audio.paused && this.props.playing) {
+                this.props.pauseTrack();
+            } else if (!this._audio.paused && !this.props.playing) {
+                this.props.changeTrack(this.props.currentTrackId);
+            }
+        }
+
 
         if (this.props.percent) {
             if (this.props.currentTrackId && this._audio.duration) {
@@ -141,7 +148,7 @@ class FooterAudioPlayer extends React.Component {
 
                         <div className="footer-player-details">
 
-                            <h6 className="footer-player-title"><Link to={`/track/${this.props.currentTrack.id}`}>{this.props.currentTrack.title}</Link></h6>
+                            <h6 className="footer-player-title"><Link to={`/track/${this.props.currentTrackId}`}>{this.props.currentTrack.title}</Link></h6>
                             <h6 className="footer-player-user">by <span>{this.props.displayName}</span></h6>
 
 

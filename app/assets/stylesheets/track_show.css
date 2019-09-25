@@ -89,6 +89,8 @@
 }
 
 .track-show-progress-svg {
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     cursor: pointer;
 }
@@ -120,14 +122,16 @@
     top: 50%;
     left: calc(50% + 2px);
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .track-show-pause-icon {
-    font-size: 34px;
+    font-size: 32px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .track-show-inner-title {
@@ -174,8 +178,10 @@
     position: absolute;
     top: 0;
     height: 100px;
+    width: 0px;
     display: block;
     box-sizing: border-box;
+    transition: 0.2s;
 }
 
 .track-show-listened-wrap {

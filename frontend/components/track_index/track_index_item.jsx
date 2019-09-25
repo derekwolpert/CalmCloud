@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCloudUploadAlt, faHeadphonesAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShareSquare, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+import { faCloudUploadAlt, faHeadphonesAlt, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 class TrackIndexItem extends React.Component {
 
@@ -70,13 +70,32 @@ class TrackIndexItem extends React.Component {
     }
 
     playPause() {
+        const circumference = 27 * 2 * Math.PI;
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
-            return (<div className="track-index-item-player-button-pause" >
-                        <FontAwesomeIcon onClick={() => this.props.pauseTrack()} icon={faPauseCircle} />
+            return (<div className="track-index-item-player-button-pause" onClick={() => this.props.pauseTrack()}>
+                        <svg className="track-index-item-progress-svg">
+                            <circle className="track-index-item-progress-background" />
+                            <circle className="track-index-item-progress-circle"
+                                style={{
+                                    strokeDasharray: `${circumference} ${circumference}`,
+                                    strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
+                                }} />
+                        </svg>
+                    <FontAwesomeIcon icon={faPause} className="track-index-item-pause-icon"/>
                     </div>);
         }
-        return (<div className="track-index-item-player-button-play" >
-                    <FontAwesomeIcon onClick={() => this.props.changeTrack(this.props.track.id)} icon={faPlayCircle} />
+        return (<div className="track-index-item-player-button-play" onClick={() => this.props.changeTrack(this.props.track.id)}>
+                    <svg className="track-index-item-progress-svg">
+                        <circle className="track-index-item-progress-background" />
+                        { this.props.track.id === this.props.currentTrack ? 
+                            <circle className="track-index-item-progress-circle"
+                                style={{
+                                    strokeDasharray: `${circumference} ${circumference}`,
+                                    strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
+                                }} /> : null
+                        }
+                    </svg>
+                    <FontAwesomeIcon icon={faPlay} className="track-index-item-play-icon"/>
                 </div >);
     }
 
@@ -107,7 +126,9 @@ class TrackIndexItem extends React.Component {
                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
                 <section className="track-index-item-info">
-                    {this.playPause()}
+                    <div className="track-index-item-play-pause">
+                        {this.playPause()}
+                    </div>
                     <h1 className="track-index-item-title">
                         <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
                     </h1>

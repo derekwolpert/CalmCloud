@@ -30,6 +30,10 @@ class TrackUploadForm extends React.Component {
         this._loading = React.createRef();
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleAudioFile(e) {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
@@ -78,6 +82,7 @@ class TrackUploadForm extends React.Component {
     }
 
     handleNextStage() {
+        window.scrollTo(0, 0);
         this.setState({
             nextStage: true,
             audioDuration: this._audio.duration

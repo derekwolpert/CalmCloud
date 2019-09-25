@@ -14,6 +14,7 @@ class TrackIndex extends React.Component {
 
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.fetchAllTracks();
     }
 
@@ -31,6 +32,7 @@ class TrackIndex extends React.Component {
                 currentTrack={this.props.currentTrack}
                 pauseTrack={this.props.pauseTrack}
                 playing={this.props.playing}
+                percent={this.props.percent}
                 trackIndexItemHeader={this.props.match.path === "/"}
                 />) );
 

@@ -21,20 +21,13 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.fetchAllTracks().then(() => this.props.fetchTrack(this.props.match.params.trackId));
     }
 
     componentDidUpdate(prevProps) {
-
-        if (this.props.currentTrack !== prevProps.currentTrack) {
-            if (this.props.track.id === this.props.currentTrack) {
-                if (this.props.playing) {
-                    this.props.changeTrack(this.props.track.id);
-                }
-                if (!this.props.playing) { 
-                    this.props.changeTrack(this.props.track.id);
-                }
-            }
+        if (this.props.match.params.trackId !== prevProps.match.params.trackId) {
+            window.scrollTo(0, 0);
         }
 
         if (this.props.track.description === undefined) {
@@ -48,21 +41,27 @@ class TrackShow extends React.Component {
         const circumference = 43 * 2 * Math.PI;
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
             return (<div className="track-show-pause-container" onClick={() => this.props.pauseTrack()}>
-                <svg class="track-show-progress-svg" width="90" height="90">
+                <svg className="track-show-progress-svg">
                     <circle className="track-show-progress-background"/>
                     <circle className="track-show-progress-circle"
                         style={{ 
                             strokeDasharray: `${circumference} ${circumference}`,
                             strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
-                        }}
-                        />
+                        }} />
                 </svg>
                 <FontAwesomeIcon icon={faPause} className="track-show-pause-icon" />
             </div >);
         }
         return (<div className="track-show-play-container" onClick={() => this.props.changeTrack(this.props.track.id)}>
-            <svg class="track-show-progress-svg" width="90" height="90">
+            <svg className="track-show-progress-svg">
                 <circle className="track-show-progress-background"/>
+                {this.props.track.id === this.props.currentTrack ?
+                    <circle className="track-show-progress-circle"
+                        style={{
+                            strokeDasharray: `${circumference} ${circumference}`,
+                            strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
+                        }} /> : null
+                }
             </svg>
             <FontAwesomeIcon icon={faPlay} className="track-show-play-icon"/>
         </div >);
