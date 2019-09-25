@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackShowSidebar from "./track_show_sidebar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlayCircle, faPauseCircle, faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCloudUploadAlt, faHeadphonesAlt, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faHeadphonesAlt, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 
 class TrackShow extends React.Component {
@@ -44,13 +44,27 @@ class TrackShow extends React.Component {
     }
 
     playPause() {
+
+        const circumference = 43 * 2 * Math.PI;
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
-            return (<div className="track-show-pause-container">
-                <FontAwesomeIcon onClick={() => this.props.pauseTrack()} icon={faPauseCircle} />
+            return (<div className="track-show-pause-container" onClick={() => this.props.pauseTrack()}>
+                <svg class="track-show-progress-svg" width="90" height="90">
+                    <circle className="track-show-progress-background"/>
+                    <circle className="track-show-progress-circle"
+                        style={{ 
+                            strokeDasharray: `${circumference} ${circumference}`,
+                            strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
+                        }}
+                        />
+                </svg>
+                <FontAwesomeIcon icon={faPause} className="track-show-pause-icon" />
             </div >);
         }
-        return (<div className="track-show-play-container">
-            <FontAwesomeIcon onClick={() => this.props.changeTrack(this.props.track.id)} icon={faPlayCircle} />
+        return (<div className="track-show-play-container" onClick={() => this.props.changeTrack(this.props.track.id)}>
+            <svg class="track-show-progress-svg" width="90" height="90">
+                <circle className="track-show-progress-background"/>
+            </svg>
+            <FontAwesomeIcon icon={faPlay} className="track-show-play-icon"/>
         </div >);
     }
 
@@ -158,9 +172,10 @@ class TrackShow extends React.Component {
 
                             <div className="track-show-content-container">
 
-                                <div className="track-show-title-container">
-
-                                    {this.playPause()}
+                                <section className="track-show-title-container">
+                                    <div className="track-show-play-pause">
+                                        {this.playPause()}
+                                    </div>
 
                                     <div className="track-show-inner-title">
                                         <h1>
@@ -173,7 +188,7 @@ class TrackShow extends React.Component {
 
                                     </div>
 
-                                </div>
+                                </section>
                                 <div onClick={(e) => this.handleProgress(e)} className="track-show-waveform-container">
 
                                     <div className="track-show-listened-waveform" style={{ width: `${this.formatListened()}%`}} >

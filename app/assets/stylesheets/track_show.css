@@ -53,7 +53,7 @@
     display: flex;
 }
 
-.track-show-play-container {
+.track-show-play-pause {
     position: relative;
     display: block;
     float: left;
@@ -62,6 +62,13 @@
     margin-right: 30px;
     font-size: 90px;
     transition: .2s;
+}
+
+.track-show-play-container {
+    width: 90px;
+    height: 90px;
+    transition: .2s;
+    border-radius: 50%;
     color: rgba(255, 255, 255, 0.8)
 }
 
@@ -70,27 +77,58 @@
 }
 
 .track-show-pause-container {
-    position: relative;
-    display: block;
-    float: left;
     width: 90px;
     height: 90px;
-    margin-right: 30px;
-    font-size: 90px;
-    color: rgba(79, 166, 211, 0.8);
     transition: .2s;
+    border-radius: 50%;
+    color: rgba(79, 166, 211, 0.8);
 }
 
 .track-show-pause-container:hover {
     color: rgba(79, 166, 211, 0.8);
 }
 
-.track-show-play-container > svg, .track-show-pause-container > svg {
+.track-show-progress-svg {
     border-radius: 50%;
-    background-color: rgba(0,0,0,.25);
     cursor: pointer;
 }
 
+.track-show-progress-background, .track-show-progress-circle {
+    stroke-width: 4;
+    r: 43;
+    cx: 45;
+    cy: 45;
+}
+
+.track-show-progress-background {
+    stroke: rgba(255, 255, 255, 0.8);
+    fill: rgba(0,0,0,.25);
+}
+
+.track-show-progress-circle {
+    transition: 0.2s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    fill: transparent;
+    stroke: rgba(79, 166, 211, 0.8);
+    stroke-dashoffset: 270.1769682087;
+}
+
+.track-show-play-icon {
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 2px);
+    transform: translate(-50%, -50%);
+}
+
+.track-show-pause-icon {
+    font-size: 34px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .track-show-inner-title {
     color: hsla(0,0%,100%,.8);
