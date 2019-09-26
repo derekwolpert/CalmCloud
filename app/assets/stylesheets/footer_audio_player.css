@@ -26,16 +26,16 @@
     top: 0;
     z-index: -1;
     height: 104px;
-    background: rgba(56, 56, 56, .5);
+    background-color: rgba(56, 56, 56, .5);
 }
 
 .footer-player {
     width: 100%;
     height: 52px;
     padding: 0 60px 0 52px;
-    background: rgb(56, 56, 56);
+    background-color: rgb(56, 56, 56);
     position: relative;
-    color: #fff;
+    color: white;
     line-height: 52px;
     box-sizing: border-box;
     display: block;
@@ -122,6 +122,7 @@
     padding: 0 102px 0 52px;
     display: block;
     box-sizing: content-box;
+    color: rgba(255, 255, 255, 0.8);
     width: 208px;
     height: 52px;
     line-height: 52px;
@@ -129,10 +130,10 @@
     position: relative;
     border-right: 1px solid black;
     box-shadow: 1px 0 0 hsla(0,0%,100%,.04);
-    user-select: none;
 }
 
 .footer-player-title {
+    color: white;
     height: 20px;
     margin: 5px 0 2px;
     line-height: 22px;
@@ -143,20 +144,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    user-select: none;
     max-width: 208px;
 }
 
-.footer-player-title > a:hover {
+.footer-player-title:hover {
     transition: 0.2s;
-    opacity: 0.8;
+    color: rgba(120,187,221, 1);
 }
 
 .footer-player-user {
     height: 20px;
     margin: 0 0 9px;
     cursor: default;
-    color: #fff;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
@@ -164,8 +163,19 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    user-select: none;
     max-width: 208px;
+}
+
+.footer-player-user > span {
+    color: rgb(120,187,221);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.footer-player-user > span:hover {
+    color: rgb(79, 166, 211);
+    cursor: pointer;
+    transition: .2s;
 }
 
 .footer-player-icons {
@@ -250,7 +260,7 @@
     height: 52px;
     padding-left: 19px;
     cursor: default;
-    box-shadow: -1px 0 0 hsla(0,0%,100%,.04);
+    box-shadow: -1px 0 0 hsla(0,0%,100%,0.04);
     border-left: 1px solid rgb(28, 28, 28);
     position: absolute;
     bottom: 0;
@@ -286,9 +296,8 @@
     user-select: none;
     border-radius: 5px 5px 0 0;
     transition: height .2s ease-in-out;
-    color: #fff;
+    color: white;
     line-height: 52px;
-    transition: height .12s ease-in-out;
     display: block;
 }
 
@@ -302,7 +311,7 @@
     width: 10px;
     margin: 20px 0 0 26px;
     position: relative;
-    background: #fff;
+    background-color:white;
     cursor: pointer;
     overflow: hidden;
     border-radius: 5px;
@@ -312,11 +321,11 @@
     box-sizing: content-box;
     width: 10px;
     height: 100%;
-    background: rgb(79, 166, 211);
+    background-color: rgb(79, 166, 211);
     position: absolute;
     bottom: 0;
     display: block;
-    color: #fff;
+    color: white;
     line-height: 52px;
 }
 
@@ -329,7 +338,7 @@
     box-shadow: inset 0 1px 0 rgba(149,149,149,.1), inset 0 -1px 1px rgba(149,149,149,.1), 0 1px 0 hsla(0,0%,100%,.05);
     position: relative;
     font-weight: 600;
-    background: rgb(28, 28, 28);
+    background-color: rgb(28, 28, 28);
     user-select: none;
     border-radius: 4px;
     display: block;
@@ -386,7 +395,7 @@
     z-index: 10;
     min-width: 6px;
     height: 6px;
-    background: rgb(79, 166, 211);;
+    background-color: rgb(79, 166, 211);;
     box-shadow: 0 1px 0 rgba(149,149,149,.3), 0 -1px 0 rgba(149,149,149,.1);
     position: relative;
     top: 1px;
@@ -404,7 +413,7 @@
     position: absolute;
     right: -8px;
     top: -5px;
-    background: linear-gradient(180deg,#fff 0,rgb(237, 237, 237));
+    background: linear-gradient(180deg,white 0,rgb(237, 237, 237));
     border-radius: 8px;
     display: block;
     font-weight: 600;
@@ -415,7 +424,7 @@
 .footer-scrubber-point:after {
     width: 6px;
     height: 6px;
-    background: transparent;
+    background-color: transparent;
     box-shadow: inset 0 0 4px transparent;
     position: absolute;
     left: 5px;
@@ -426,6 +435,6 @@
 }
 
 .footer-scrubber-point:hover:after {
-    background: rgb(149, 149, 149);
+    background-color: rgb(149, 149, 149);
     box-shadow: inset 0 0 4px rgba(149,149,149,.1);
 }

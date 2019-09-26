@@ -35,6 +35,7 @@ class Api::TracksController < ApplicationController
 
     def show
         @track = Track.includes(:user).find(params[:id])
+        @tracks = Track.order(created_at: :DESC).where(["user_id = ? and id != ?", "#{@track.user_id}", "#{@track.id}"]).take(3)
     end
 
     def destroy

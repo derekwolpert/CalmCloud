@@ -66,7 +66,7 @@ class FooterAudioPlayer extends React.Component {
                 }
             }
             
-        } else if (this.props.currentTrackId === this.props.currentTrackId) {
+        } else if (this.props.currentTrackId === prevProps.currentTrackId) {
             
             if (this.props.playing !== prevProps.playing) {
                 if (this.props.playing) {
@@ -149,7 +149,7 @@ class FooterAudioPlayer extends React.Component {
                         <div className="footer-player-details">
 
                             <h6 className="footer-player-title"><Link to={`/track/${this.props.currentTrackId}`}>{this.props.currentTrack.title}</Link></h6>
-                            <h6 className="footer-player-user">by <span>{this.props.displayName}</span></h6>
+                            <h6 className="footer-player-user">uploaded by <span>{this.props.displayName}</span></h6>
 
 
                             <div className="footer-player-icons">

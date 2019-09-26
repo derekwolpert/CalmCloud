@@ -57,16 +57,7 @@ class TrackIndexItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.currentTrack !== prevProps.currentTrack) {
-            if (this.props.track.id === this.props.currentTrack) {
-                if (this.props.playing) {
-                    this.props.changeTrack(this.props.track.id);
-                } 
-                if (!this.props.playing) {
-                    this.props.changeTrack(this.props.track.id);
-                }
-            }
-        }   
+
     }
 
     playPause() {
@@ -134,7 +125,7 @@ class TrackIndexItem extends React.Component {
                     </h1>
 
                     <h2 className="track-index-item-sub-user">
-                        by <span>{this.props.user.display_name}</span>
+                        uploaded by <span>{this.props.user.display_name}</span>
                     </h2>
                 </section>
 

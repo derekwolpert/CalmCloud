@@ -22,18 +22,16 @@ class TrackShow extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.fetchAllTracks().then(() => this.props.fetchTrack(this.props.match.params.trackId));
+        this.props.fetchTrack(this.props.match.params.trackId);
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.trackId !== prevProps.match.params.trackId) {
             window.scrollTo(0, 0);
         }
-
         if (this.props.track.description === undefined) {
             this.props.fetchTrack(this.props.match.params.trackId);
         }
-
     }
 
     playPause() {
@@ -181,9 +179,7 @@ class TrackShow extends React.Component {
                                             <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
                                         </h1>
 
-                                        <div>
-                                            by <span>{this.props.user.display_name}</span>
-                                        </div>
+                                        <div>uploaded by <span>{this.props.user.display_name}</span></div>
 
                                     </div>
 

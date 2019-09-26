@@ -10,7 +10,6 @@ export default (state = {}, action) => {
             return merge({}, state, { [action.currentUser.id]: action.currentUser });
         case RECEIVE_ALL_TRACKS:
             return merge({}, state, action.users );
-
         case RECEIVE_TRACK:
             return merge({}, state, { [action.user.id]: action.user });
         default:

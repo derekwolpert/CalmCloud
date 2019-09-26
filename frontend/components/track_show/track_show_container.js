@@ -26,7 +26,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchTrack: id => dispatch(fetchTrack(id)),
-    fetchAllTracks: () => dispatch(fetchAllTracks()),
     changeTrack: (trackId) => dispatch(changeTrack(trackId)),
     pauseTrack: () => dispatch(pauseTrack()),
     currentPercent: (percent) => dispatch(currentPercent(percent)),
@@ -34,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
     removeCurrentTrack: () => dispatch(removeCurrentTrack())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow)); 
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow));

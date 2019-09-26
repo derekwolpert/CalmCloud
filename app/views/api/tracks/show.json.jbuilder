@@ -12,3 +12,12 @@ json.user do
         json.userPictureUrl url_for(@track.user.profile_pic)
     end
 end
+
+json.tracks do
+    if @tracks
+        @tracks.each do |track|
+            json.partial! "api/tracks/track", track: track
+        end
+    end
+end
+
