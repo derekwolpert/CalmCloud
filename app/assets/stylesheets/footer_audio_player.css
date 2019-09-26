@@ -147,7 +147,7 @@
     max-width: 208px;
 }
 
-.footer-player-title:hover {
+.footer-player-title > a:hover {
     transition: 0.2s;
     color: rgba(120,187,221, 1);
 }
