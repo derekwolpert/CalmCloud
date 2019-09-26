@@ -50,10 +50,10 @@ class TrackIndex extends React.Component {
                         <div className="track-index-sidebar-small-nav-group">
                             <div className={`track-index-sidebar-small-nav-${this.props.match.path === "/" ? "active" : "inactive"}`} >
                                 Feed
-                                        </div>
+                            </div>
                             <div className="track-index-sidebar-small-nav-inactive">
                                 New Shows
-                                        </div>
+                            </div>
                         </div>
 
                         <div className="track-index-sidebar-small-nav-bar" />
@@ -61,7 +61,7 @@ class TrackIndex extends React.Component {
                         <div className="track-index-sidebar-small-nav-group">
                             <div className="track-index-sidebar-small-nav-inactive">
                                 Favorites
-                                        </div>
+                            </div>
                         </div>
 
                         <div className="track-index-sidebar-small-nav-bar" />
@@ -69,7 +69,7 @@ class TrackIndex extends React.Component {
                         <div className="track-index-sidebar-small-nav-group">
                             <div className="track-index-sidebar-small-nav-inactive">
                                 Trending
-                                        </div>
+                            </div>
                         </div>
 
                     </nav>
@@ -107,7 +107,7 @@ class TrackIndex extends React.Component {
                     /> : null }
                     <section className="track-index-track-container">
                         <h1>Feed
-                            <button onClick={(() => this.props.changeTrack(this.props.tracks[0].id))} className="track-index-play-all">
+                            <button onClick={(() => this.props.changeTrack(this.props.tracks[this.props.tracks.length - 1].id))} className="track-index-play-all">
                                 <FontAwesomeIcon icon={faPlay} />
                                 Play all
                             </button>
