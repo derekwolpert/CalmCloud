@@ -24,7 +24,6 @@ class TrackIndexSidebar extends React.Component {
                         </div>
                         <nav>
                             <div className="track-index-sidebar-nav-group">
-                                
                                 <div className={`track-index-sidebar-nav-${this.props.path === "/" ? "active" : "inactive" }`} >
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>

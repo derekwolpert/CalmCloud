@@ -1,6 +1,4 @@
 .track-index-inner-container {
-
-    width: 1300px;
     position: relative;
     margin: 0 auto;
     display: block;
@@ -8,7 +6,6 @@
     display: block;
     box-sizing: border-box;
     min-height: 100vh;
-
 }
 
 .track-index-inner-container:after, .track-index-inner-container:before {

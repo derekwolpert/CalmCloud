@@ -42,7 +42,7 @@
     box-sizing: border-box;
     padding: 0px 30px 0px 30px;
     border-bottom: 2px solid rgba(164, 164, 164, .5);
-    background: #fff;
+    background: white;
     box-shadow: inset 0 -2px 0 #ebf0f2;
     border-radius: 4px 4px 0 0;
     font-size: 13px;
@@ -60,7 +60,7 @@
     font-size: 13px;
     line-height: 1;
     border-radius: 4px;
-    color: #fff;
+    color: white;
     background-color: #3b5998;
     display: inline-block;
     vertical-align: middle;
@@ -193,7 +193,7 @@
     margin-bottom: 12px;
     border-radius: 4px;
     color: #586573;
-    background-color: #fff;
+    background-color: white;
     vertical-align: middle;
     font-weight: normal;
     font-stretch: normal;

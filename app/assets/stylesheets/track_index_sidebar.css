@@ -35,7 +35,7 @@
 
 }
 
-.track-index-profile-pic  > img {
+.track-index-profile-pic > img {
     display: block;
     vertical-align: top;
     height: 30px;
@@ -77,7 +77,6 @@
 
 .track-index-sidebar-nav-active, .track-index-sidebar-nav-inactive {
     padding: 10px 10px 10px 42px;
-    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -120,4 +119,78 @@
 .track-index-sidebar-nav-bar {
     color: rgb(128, 128, 128);
     border-bottom: 1px solid rgb(96, 96, 96);
+}
+
+
+
+
+
+
+
+
+.track-index-sidebar-small {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(46, 46, 46);
+}
+
+.track-index-sidebar-small-container {
+    width: 1080px;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+    overflow: auto;
+    position: relative;
+}
+
+.track-index-sidebar-small-container > nav {
+    position: absolute;
+    display: inline-block;
+    height: 40px;
+}
+
+.track-index-sidebar-small-nav-group {
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.track-index-sidebar-small-nav-group:first-child {
+    padding-left: 0;
+}
+
+.track-index-sidebar-small-nav-active, .track-index-sidebar-small-nav-inactive {
+    padding-right: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s;
+    font-size: 12px;
+    top: 50%;
+    transform: translateY(50%);
+}
+
+.track-index-sidebar-small-nav-active {
+    color: #4fa6d3;
+}
+
+.track-index-sidebar-small-nav-inactive {
+    color: rgb(149, 149, 149);
+}
+
+.track-index-sidebar-small-nav-inactive:hover {
+    color: rgb(212, 212, 212);
+}
+
+.track-index-sidebar-small-nav-bar {
+    display: inline-block;
+    height: 14px;
+    width: 1px;
+    background-color: rgb(96, 96, 96);
+    position: absolute;
+    top: calc(50%);
+    transform: translateY(-50%);
 }

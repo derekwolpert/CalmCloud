@@ -6,6 +6,38 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			large: null,
+		};
+		this.handleHeaderSize = this.handleHeaderSize.bind(this);
+	}
+
+	componentDidMount() {
+		this.setState({
+			large: window.innerWidth >= 1320,
+		});
+		window.addEventListener('resize', this.handleHeaderSize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.handleHeaderSize);
+	}
+
+	handleHeaderSize() {
+		if ((window.innerWidth < 1320) && this.state.large) {
+			this.setState({
+				large: false,
+			});
+		} else if ((window.innerWidth >= 1320) && !this.state.large) {
+			this.setState({
+				large: true,
+			});
+		}
+	}
+
 	logo() {
 		return (
 			<div className="header-icon-logo">
@@ -60,14 +92,14 @@ class Header extends React.Component {
 		return (
 			this.props.currentUser ?
 				<header className={headerClass}>
-					<header className="header-container">
+					<header className="header-container" style={{width: this.state.large ? "1320px" : "1100px"}}>
 						{this.logo()}
 						{this.upload()}
 						{this.personalGreeting()}
 					</header>
 				</header> :
 				<header className={headerClass}>
-					<header className="header-container">
+					<header className="header-container" style={ this.props.location.pathname === "/" && !this.props.currentUser ? {} : {width: this.state.large ? "1320px" : "1100px"}}>
 						{this.logo()}
 						{this.upload()}
 						{this.sessionLinks()}
