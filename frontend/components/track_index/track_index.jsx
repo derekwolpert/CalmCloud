@@ -107,9 +107,9 @@ class TrackIndex extends React.Component {
                     /> : null }
                     <section className="track-index-track-container">
                         <h1>Feed
-                            <button onClick={(() => this.props.changeTrack(this.props.tracks[this.props.tracks.length - 1].id))} className="track-index-play-all">
+                            <button onClick={(() => this.props.playing ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[this.props.tracks.length - 1].id))} className="track-index-play-all">
                                 <FontAwesomeIcon icon={faPlay} />
-                                Play all
+                                Play
                             </button>
                         </h1>
                         {indexItems}
