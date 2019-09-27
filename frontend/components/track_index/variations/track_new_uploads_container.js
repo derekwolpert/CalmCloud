@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchAllTracks } from '../../actions/track_actions';
-import { changeTrack, pauseTrack } from '../../actions/footer_player_actions';
+import { fetchAllTracks } from '../../../actions/track_actions';
+import { changeTrack, pauseTrack } from '../../../actions/footer_player_actions';
 import { withRouter } from 'react-router-dom';
-import TrackIndex from './track_index';
+import TrackIndex from '../track_index';
+
 
 const mapStateToProps = (state) => {
     return {

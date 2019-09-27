@@ -402,3 +402,57 @@
     border-radius: 3px;
     box-sizing: border-box;
 }
+
+
+.track-trending-postion-container {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.track-trending-position-background, .track-trending-position-background-first {
+    position: absolute;
+    top: -72px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 72px solid transparent;
+    border-bottom: 72px solid transparent;
+}
+
+.track-trending-position-background {
+    border-left: 72px solid rgb(212, 212, 212);
+}
+
+.track-trending-position-background-first {
+    border-left: 72px solid rgb(238,232,170);
+}
+
+.track-trending-position, .track-trending-position-first {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-weight: 600;
+}
+
+.track-trending-position {
+    color: rgb(72, 72, 72);
+}
+
+.track-trending-position-first {
+    color: rgb(139,69,19);
+}
+
+
+.track-trending-position > span, .track-trending-position-first > span {
+    top: -11px;
+    font-size: 40%;
+}

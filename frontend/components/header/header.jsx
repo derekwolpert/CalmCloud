@@ -99,7 +99,7 @@ class Header extends React.Component {
 					</header>
 				</header> :
 				<header className={headerClass}>
-					<header className="header-container" style={ this.props.location.pathname === "/" && !this.props.currentUser ? {} : {width: this.state.large ? "1320px" : "1100px"}}>
+					<header className="header-container" style={{ width: this.state.large ? "1320px" : "1100px" }}>
 						{this.logo()}
 						{this.upload()}
 						{this.sessionLinks()}

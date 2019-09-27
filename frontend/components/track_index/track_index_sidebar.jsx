@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLayerGroup, faArrowAltCircleUp, faHeart, faFire } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,22 +25,21 @@ class TrackIndexSidebar extends React.Component {
                         </div>
                         <nav>
                             <div className="track-index-sidebar-nav-group">
-                                <div className={`track-index-sidebar-nav-${this.props.path === "/" ? "active" : "inactive" }`} >
+                                <Link to="/" className={`track-index-sidebar-nav-${this.props.path === "/" ? "active" : "inactive" }`} >
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faLayerGroup} />
                                         </div>
                                     </div>
                                     Feed
-                                </div>
-                                <div className="track-index-sidebar-nav-inactive">
-                                    <div className="track-index-sidebar-nav-icon">
+                                </Link>
+                                <Link to="/new-uploads" className={`track-index-sidebar-nav-${this.props.path === "/new-uploads" ? "active" : "inactive"}`} >                                    <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faArrowAltCircleUp} />
                                         </div>
                                     </div>
                                     New Shows
-                                </div>
+                                </Link>
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
@@ -54,16 +54,14 @@ class TrackIndexSidebar extends React.Component {
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
-
-                                <div className="track-index-sidebar-nav-inactive">
+                                <Link to="/trending" className={`track-index-sidebar-nav-${this.props.path === "/trending" ? "active" : "inactive"}`}>
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faFire} />
                                         </div>
                                     </div>
                                     Trending
-                                </div>
-
+                                </Link>
                             </div>
                         </nav>
                     </div>

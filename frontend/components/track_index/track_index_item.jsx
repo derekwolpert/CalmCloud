@@ -90,11 +90,27 @@ class TrackIndexItem extends React.Component {
                 </div >);
     }
 
+    numberSuffix(number) {
+        const numStr = number.toString();
+
+        if (number > 3 && number < 21) {
+            return "th";
+        } else if (numStr[numStr.length - 1] === "1") {
+            return "st";
+        } else if (numStr[numStr.length - 1] === "2") {
+            return "nd";
+        } else if (numStr[numStr.length - 1] === "3") {
+            return "rd";
+        }  else {
+            return "th";
+        }
+
+    }
 
     render() {
         return (
             <section className="track-index-item">
-                {this.props.trackIndexItemHeader ?
+                {this.props.path === "/" ?
                 <header className="track-index-item-user">
                     <div className="track-index-item-avatar">
                         <img src={this.props.user.userPictureUrl ? this.props.user.userPictureUrl : window.defaultAvatar} />
@@ -116,6 +132,14 @@ class TrackIndexItem extends React.Component {
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
+                {this.props.path === "/trending" ?
+                    <div className="track-trending-postion-container">
+                        <div className={`track-trending-position-background${this.props.position === 1 ? "-first" : ""}`} />
+                        <div className={`track-trending-position${this.props.position === 1 ? "-first" : ""}`}>
+                            {this.props.position}<span>{this.numberSuffix(this.props.position)}</span>
+                        </div>
+                    </div> : null
+                }
                 <section className="track-index-item-info">
                     <div className="track-index-item-play-pause">
                         {this.playPause()}
