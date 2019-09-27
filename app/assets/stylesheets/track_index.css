@@ -24,6 +24,13 @@
     padding-bottom: 60px;
     display: block;
     box-sizing: border-box;
+    animation-name: animateTracks;
+    animation-duration: 0.2s;
+}
+
+@keyframes animateTracks {
+    from {opacity: 0}
+    to {opacity: 1}
 }
 
 .track-index-track-container > h1 {

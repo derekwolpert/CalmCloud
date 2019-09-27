@@ -1,13 +1,45 @@
 .track-index-right-sidebar {
     float: right;
     width: 300px;
-    padding-bottom: 60px;
     display: block;
     box-sizing: border-box;
-    margin-top: 42px;
-    border-top: 2px solid rgb(96, 96, 96);
-    position: sticky;
-    top: 72px;
+    padding-top: 30px;
+    margin-top: -30px;
+}
+
+.track-index-stats {
+    clear: both;
+    padding-bottom: 40px;
+}
+
+.track-index-right-sidebar > h1, .track-index-stats > h1 {
+    padding-bottom: 12px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    color: rgb(212, 212, 212);
+    border-bottom: 2px solid rgb(96, 96, 96);
+}
+
+.track-index-stats > dl {
+    margin: 0;
+}
+
+.track-index-stats dt {
+    padding: 0 12px;
+    color: rgb(149, 149, 149);
+    border-bottom: 1px solid rgb(96, 96, 96);
+    line-height: 40px;
+}
+
+.track-index-stats dd {
+    position: absolute;
+    margin: -41px 0 0;
+    padding-left: 128px;
+    font-weight: 600;
+    text-align: right;
+    color: rgb(212, 212, 212);
+    line-height: 40px;
 }
 
 .track-index-footer-nav {

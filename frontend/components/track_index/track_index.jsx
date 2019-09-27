@@ -128,7 +128,7 @@ class TrackIndex extends React.Component {
                         {indexItems}
                     </section>
 
-                    <TrackIndexNav />
+                    <TrackIndexNav tracks={this.props.tracks} currentUserId={this.props.currentUser.id} />
                 </section>
             </>
         );

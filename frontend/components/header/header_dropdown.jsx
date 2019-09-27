@@ -33,7 +33,6 @@ class HeaderDropdown extends React.Component {
                     <ul className="header-dropdown-content">
                         <li>Your profile</li>
                         <li>Settings</li>
-                        <li>Stats</li>
                         <li onClick={() => this.props.openModal("login")}>Switch account</li>
                         <li onClick={() => this.props.logout().then(() => this.props.history.push('/'))}>Log out</li>
                     </ul>
