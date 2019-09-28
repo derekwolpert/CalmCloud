@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
-import { faHeart, faCommentAlt } from '@fortawesome/free-regular-svg-icons';
+import { faHeart, faShareSquare, faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 
 class FooterAudioPlayer extends React.Component {
@@ -153,12 +153,16 @@ class FooterAudioPlayer extends React.Component {
 
 
                             <div className="footer-player-icons">
-                                <div className="footer-player-favorite">
+                                <div className="footer-player-favorite-icon">
                                     <FontAwesomeIcon icon={faHeart} />
                                 </div>
 
-                                <div className="footer-player-comment">
-                                    <FontAwesomeIcon icon={faCommentAlt} />
+                                <div className="footer-player-share-icon">
+                                    <FontAwesomeIcon icon={faShareSquare} />
+                                </div>
+
+                                <div className="footer-player-user-icon">
+                                    <FontAwesomeIcon icon={faUser} />
                                 </div>
                             </div>
 

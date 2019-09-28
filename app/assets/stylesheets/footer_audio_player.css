@@ -119,11 +119,11 @@
 }
 
 .footer-player-details {
-    padding: 0 102px 0 52px;
+    padding: 0 131px 0 52px;
     display: block;
     box-sizing: content-box;
     color: rgba(255, 255, 255, 0.8);
-    width: 208px;
+    max-width: 320px;
     height: 52px;
     line-height: 52px;
     float: left;
@@ -144,7 +144,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 208px;
+    max-width: 320px;
 }
 
 .footer-player-title > a:hover {
@@ -163,7 +163,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 208px;
+    max-width: 320px;
 }
 
 .footer-player-user > span {
@@ -179,10 +179,10 @@
 }
 
 .footer-player-icons {
-    width: 45px;
+    width: 75px;
     height: 52px;
     box-sizing: content-box;
-    padding: 0 20px 0 21px;
+    padding: 0 20px 0 20px;
     border-left: 1px solid black;
     box-shadow: inset 1px 0 0 hsla(0,0%,100%,.04);
     position: absolute;
@@ -191,7 +191,7 @@
     display: block;
 }
 
-.footer-player-favorite {
+.footer-player-favorite-icon {
     box-sizing: content-box;
     position: relative;
     z-index: 10;
@@ -207,32 +207,42 @@
     transition: .2s;
 }
 
-.footer-player-favorite:hover {
+.footer-player-favorite-icon:hover {
     opacity: .8;
 }
 
-.footer-player-comment {
+.footer-player-share-icon {
     box-sizing: content-box;
     position: relative;
     z-index: 10;
     cursor: pointer;
     line-height: 20px;
-    margin-top: 16px;
+    margin: 16px 11px 0 0;
     display: block;
     float: left;
-    font-size: 16px;
+    font-size: 17px;
     transition: .2s;
 }
 
-.footer-player-comment:hover {
+.footer-player-share-icon:hover {
     opacity: .8;
 }
 
-.footer-playbar-favoritie > svg {
-    display: inline-block;
-    vertical-align: middle;
-    fill: currentColor;
-    transition: none;
+.footer-player-user-icon {
+    box-sizing: content-box;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    line-height: 20px;
+    margin: 16px 0 0 0;
+    display: block;
+    float: left;
+    font-size: 18px;
+    transition: .2s;
+}
+
+.footer-player-user-icon:hover {
+    opacity: .8;
 }
 
 .footer-player-mid-container {
