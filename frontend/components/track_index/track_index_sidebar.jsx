@@ -33,28 +33,29 @@ class TrackIndexSidebar extends React.Component {
                                     </div>
                                     Feed
                                 </Link>
-                                <Link to="/new-uploads" className={`track-index-sidebar-nav-${this.props.path === "/new-uploads" ? "active" : "inactive"}`} >                                    <div className="track-index-sidebar-nav-icon">
+                                <Link to="/tracks/new-uploads" className={`track-index-sidebar-nav-${this.props.path === "/tracks/new-uploads" ? "active" : "inactive"}`} >
+                                    <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faArrowAltCircleUp} />
                                         </div>
                                     </div>
-                                    New Shows
+                                    New Uploads
                                 </Link>
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
-                                <div className="track-index-sidebar-nav-inactive">
+                                <Link to="/tracks/favorites" className={`track-index-sidebar-nav-${this.props.path === "/tracks/favorites" ? "active" : "inactive"}`} >
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faHeart} />
                                         </div>
                                     </div>
                                     Favorites
-                                </div>        
+                                </Link>        
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
-                                <Link to="/trending" className={`track-index-sidebar-nav-${this.props.path === "/trending" ? "active" : "inactive"}`}>
+                                <Link to="/tracks/trending" className={`track-index-sidebar-nav-${this.props.path === "/tracks/trending" ? "active" : "inactive"}`}>
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faFire} />

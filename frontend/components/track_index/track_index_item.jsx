@@ -132,7 +132,7 @@ class TrackIndexItem extends React.Component {
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
-                {this.props.path === "/trending" ?
+                {this.props.path === "/tracks/trending" ?
                     <div className="track-trending-postion-container">
                         <div className={`track-trending-position-background${this.props.position === 1 ? "-first" : ""}`} />
                         <div className={`track-trending-position${this.props.position === 1 ? "-first" : ""}`}>

@@ -30,12 +30,12 @@ class Api::TracksController < ApplicationController
     end
 
     def index
-        @tracks = Track.includes(:user)
+        @tracks = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: { profile_pic_attachment: :blob })
     end
 
     def show
-        @track = Track.includes(:user).find(params[:id])
-        @tracks = Track.order(created_at: :DESC).where(["user_id = ? and id != ?", "#{@track.user_id}", "#{@track.id}"]).take(3)
+        @track = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: { profile_pic_attachment: :blob }).find(params[:id])
+        @tracks = Track.with_attached_audio_track.with_attached_track_artwork.order(created_at: :DESC).where(["user_id = ? and id != ?", "#{@track.user_id}", "#{@track.id}"]).take(3)
     end
 
     def destroy

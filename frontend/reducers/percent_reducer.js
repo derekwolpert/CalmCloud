@@ -4,7 +4,7 @@ export default (state = 0, action) => {
     Object.freeze(state);
     switch (action.type) {
         case CURRENT_PERCENT:
-            return action.percent;
+            return Number.isNaN(action.percent) ? 0 : action.percent;
         case CHANGE_TRACK:
             return 0;
         case REMOVE_CURRENT_TRACK:

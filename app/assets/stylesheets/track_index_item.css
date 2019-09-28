@@ -381,7 +381,6 @@
     position: relative;
     z-index: 10;
     box-sizing: border-box;
-    /* margin-inline-start: 40px; */
     line-height: 31px;
 }
 
@@ -444,7 +443,7 @@
 }
 
 .track-trending-position {
-    color: rgb(56, 56, 56);
+    color: rgb(72, 72, 72);
 }
 
 .track-trending-position-first {

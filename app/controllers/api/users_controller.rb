@@ -21,7 +21,6 @@ class Api::UsersController < ApplicationController
             errs.push("Enter a valid password, at least 6 characters.")
         end
 
-
         if errs.length > 0
             render json: errs, status: 401
         elsif @user.save
@@ -33,7 +32,8 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user = selected_user
+        debugger
+        @user = User.find(params[:id])
         if @user && @user.update_attributes(user_params)
             render :show
         elsif !@user
@@ -44,11 +44,11 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = selected_user
+        @user = User.with_attached_profile_pic.find(params[:id])
     end
 
     def destroy
-        @user = selected_user
+        @user = User.find(params[:id])
 
         if @user
             @user.destroy
@@ -59,10 +59,6 @@ class Api::UsersController < ApplicationController
     end
 
     private
-
-    def selected_user
-        User.find(params[:id])
-    end
 
     def user_params
         params.require(:user).permit(:email, :username, :password)

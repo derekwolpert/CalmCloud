@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     currentPercent: (percent) => dispatch(currentPercent(percent)),
     deleteTrack: trackId => dispatch(deleteTrack(trackId)),
-    removeCurrentTrack: () => dispatch(removeCurrentTrack())
+    removeCurrentTrack: () => dispatch(removeCurrentTrack()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow));

@@ -20,7 +20,6 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6}, allow_nil: true
     validates :biography, length: {maximum: 1000}, allow_nil: true
     validates :display_name, :password_digest, presence: true
-
     has_one_attached :profile_pic
     has_one_attached :profile_cover
 

@@ -215,7 +215,7 @@ class TrackShow extends React.Component {
                                 <footer className="track-show-actions">
 
                                     <div className="track-show-indiviual-actions">
-                                        <button className="track-show-action-button" >
+                                        <button className="track-show-action-button">
                                             <FontAwesomeIcon icon={faHeart} />
                                             Favorite
                                         </button>
