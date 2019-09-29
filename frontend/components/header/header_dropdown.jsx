@@ -20,10 +20,10 @@ class HeaderDropdown extends React.Component {
     }
 
     handleLogout() {
-        this.props.logout();
         if (this.props.currentTrack) {
             this.props.removeCurrentTrack();
         }
+        this.props.logout();
     }
 
     render() {
