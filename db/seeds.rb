@@ -10,6 +10,7 @@ require 'open-uri'
 
 User.destroy_all
 Track.destroy_all
+Favorite.destroy_all
 
 demo_user_1 = User.create!({
     email: "demo1@email.com",
