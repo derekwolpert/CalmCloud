@@ -4,6 +4,7 @@ import { changeTrack, pauseTrack, removeCurrentTrack, currentPercent } from '../
 import { updatePlaycount } from '../../actions/track_actions';
 import { createFavoriteTrack, deleteFavoriteTrack } from "../../actions/favorite_track_actions";
 import { fetchCurrentUser } from "../../actions/session_actions";
+import { openModal } from '../../actions/modal_actions';
 import FooterAudioPlayer from './footer_audio_player';
 
 const mapStateToProps = ({ ui, entities, session }) => {
@@ -27,6 +28,7 @@ const mapDispatchToProps = dispatch => ({
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
     fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId)),
+    openModal: modal => dispatch(openModal(modal))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FooterAudioPlayer));

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareSquare, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-import { faCloudUploadAlt, faHeadphonesAlt, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import { faCloudUploadAlt, faHeadphonesAlt, faPlay, faPause, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 class TrackIndexItem extends React.Component {
 
@@ -208,6 +208,11 @@ class TrackIndexItem extends React.Component {
                         </div>
                     </div>
                 </section>
+                { this.props.path === "/tracks/favorites" ?  
+                    <span className="track-index-item-remove-favorite" onClick={() => this.handleFavorites()}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </span> : null
+                }
             </section>
         )
     }

@@ -33,10 +33,12 @@ class TrackShow extends React.Component {
         if (this.props.track.description === undefined) {
             this.props.fetchTrack(this.props.match.params.trackId);
         }
+        if (this.props.currentUser === undefined && prevProps.currentUser) {
+            this.props.history.push("/");
+        }
     }
 
     playPause() {
-
         const circumference = 43 * 2 * Math.PI;
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
             return (<div className="track-show-pause-container" onClick={() => this.props.pauseTrack()}>
@@ -170,7 +172,6 @@ class TrackShow extends React.Component {
     }
 
     render() {
-
         if (this.props.track) {
             return (
                 <>
@@ -221,10 +222,10 @@ class TrackShow extends React.Component {
                                 <footer className="track-show-actions">
 
                                     <div className="track-show-indiviual-actions">
-                                        <button className={`track-show-action-button${ this.props.currentUser.favorites.includes(this.props.track.id) ? "-favorited" : "" }`} 
-                                            onClick={() => this.handleFavorites()} >
+                                        <button className={`track-show-action-button${this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "-favorited" : "" ) : ""}`} 
+                                            onClick={() => this.props.currentUser ? this.handleFavorites() : this.props.openModal("login")} >
                                             <FontAwesomeIcon icon={faHeart} />
-                                            {this.props.currentUser.favorites.includes(this.props.track.id) ? "Favorited" : "Favorite"}
+                                            {this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "Favorited" : "Favorite") : "Favorite"}
                                         </button>
 
                                         <button className="track-show-action-button" >
@@ -301,8 +302,6 @@ class TrackShow extends React.Component {
                             </section>
                             
                         </section>
-
-
 
                         <section className="track-show-sidebar">
                             

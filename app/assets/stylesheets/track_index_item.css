@@ -468,3 +468,19 @@
     top: -11px;
     font-size: 40%;
 }
+
+.track-index-item-remove-favorite {
+    position: absolute;
+    right: -10px;
+    top: 2px;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    color: rgb(172,172,172);
+    transition: 0.2s;
+}
+
+.track-index-item-remove-favorite:hover {
+    color: #e2584e;
+}

@@ -11,11 +11,19 @@ class HeaderDropdown extends React.Component {
         };
 
         this.showDropdown = this.showDropdown.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     showDropdown(e) {
         e.preventDefault();
         this.setState({ showDropdown: !this.state.showDropdown });
+    }
+
+    handleLogout() {
+        if (this.props.currentTrack) {
+            this.props.removeCurrentTrack();
+        }
+        this.props.logout();
     }
 
     render() {
@@ -34,7 +42,7 @@ class HeaderDropdown extends React.Component {
                         <li>Your profile</li>
                         <li>Settings</li>
                         <li onClick={() => this.props.openModal("login")}>Switch account</li>
-                        <li onClick={() => this.props.logout()}>Log out</li>
+                        <li onClick={() => this.handleLogout()}>Log out</li>
                     </ul>
                 </>) 
                 : 

@@ -78,8 +78,10 @@ class Header extends React.Component {
 					<HeaderDropdown
 					username={this.props.currentUser.display_name}
 					profilePic={this.props.currentUser.userPictureUrl}
+					currentTrack={this.props.currentTrack}
 					logout={this.props.logout}
 					openModal={this.props.openModal}
+					removeCurrentTrack={this.props.removeCurrentTrack}
 					/>
 				</div>
 			</div>

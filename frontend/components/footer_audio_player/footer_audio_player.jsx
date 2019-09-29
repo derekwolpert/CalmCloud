@@ -164,8 +164,8 @@ class FooterAudioPlayer extends React.Component {
 
 
                             <div className="footer-player-icons">
-                                <div className={`footer-player-favorite-icon${this.props.currentUser.favorites.includes(this.props.currentTrackId) ? "-active" : "" }`}
-                                    onClick={() => this.handleFavorites()}>
+                                <div className={`footer-player-favorite-icon${this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.currentTrackId) ? "-active" : "") : "" }`}
+                                    onClick={() => this.props.currentUser ? this.handleFavorites() : this.props.openModal("login")}>
                                     <FontAwesomeIcon icon={faHeart} />
                                 </div>
 

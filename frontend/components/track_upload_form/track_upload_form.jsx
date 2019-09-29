@@ -34,6 +34,13 @@ class TrackUploadForm extends React.Component {
         window.scrollTo(0, 0);
     }
 
+    componentDidUpdate(prevProps) {
+
+        if (this.props.currentUser === undefined && prevProps.currentUser) {
+            this.props.history.push("/");
+        }
+    }
+
     handleAudioFile(e) {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();

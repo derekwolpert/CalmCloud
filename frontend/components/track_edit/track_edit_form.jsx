@@ -44,7 +44,12 @@ class TrackEditForm extends React.Component {
         }
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
+
+        if (this.props.currentUser === undefined && prevProps.currentUser) {
+            this.props.history.push("/");
+        }
+
         if (!this.props.track) {
             this.props.fetchTrack(this.props.match.params.trackId);
         } else if (this.props.currentUser !== this.props.track.user_id) {
