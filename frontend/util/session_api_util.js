@@ -2,7 +2,7 @@ export const login = user => (
     $.ajax({
         method: 'POST',
         url: "/api/session",
-        data: {  user }
+        data: { user }
     })
 );
 
@@ -18,5 +18,12 @@ export const logout = () => (
     $.ajax({
         method: 'DELETE',
         url: "/api/session"
+    })
+);
+
+export const fetchCurrentUser = id => (
+    $.ajax({
+        method: "GET",
+        url: `/api/users/${id}`
     })
 );

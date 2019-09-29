@@ -11,6 +11,7 @@ class TrackIndexItem extends React.Component {
         this.playPause = this.playPause.bind(this);
         this.formateDate = this.formatDate.bind(this);
         this.confirmNew = this.confirmNew.bind(this);
+        this.handleFavorites = this.handleFavorites.bind(this);
     }
 
     formatTime(time) {
@@ -104,7 +105,16 @@ class TrackIndexItem extends React.Component {
         }  else {
             return "th";
         }
+    }
 
+    handleFavorites() {
+        if (this.props.currentUser.favorites.includes(this.props.track.id)) {
+            this.props.deleteFavoriteTrack(this.props.track.id).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUser.id)));
+        } else {
+            this.props.createFavoriteTrack(this.props.track.id).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUser.id)));
+        }
     }
 
     render() {
@@ -164,7 +174,8 @@ class TrackIndexItem extends React.Component {
                     <div>
                         <div className="track-index-item-actions">
 
-                            <div className="track-index-item-action">
+                            <div className={`track-index-item-action${this.props.currentUser.favorites.includes(this.props.track.id) ? "-active" : ""}`}
+                                onClick={() => this.handleFavorites()} >
                                 <FontAwesomeIcon icon={faHeart} />
                             </div>
 

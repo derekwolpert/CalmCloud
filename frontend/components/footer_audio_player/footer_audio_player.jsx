@@ -13,6 +13,7 @@ class FooterAudioPlayer extends React.Component {
             percentage: 0,
         };
         this._audio = React.createRef();
+        this.handleFavorites = this.handleFavorites.bind(this);
     }
 
 
@@ -132,6 +133,16 @@ class FooterAudioPlayer extends React.Component {
         }
         return faVolumeMute;
     }
+
+    handleFavorites() {
+        if (this.props.currentUser.favorites.includes(this.props.currentTrackId)) {
+            this.props.deleteFavoriteTrack(this.props.currentTrackId).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUser.id)));
+        } else {
+            this.props.createFavoriteTrack(this.props.currentTrackId).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUser.id)));
+        }
+    }
     
     render() {
         if (this.props.currentTrack) {
@@ -153,7 +164,8 @@ class FooterAudioPlayer extends React.Component {
 
 
                             <div className="footer-player-icons">
-                                <div className="footer-player-favorite-icon">
+                                <div className={`footer-player-favorite-icon${this.props.currentUser.favorites.includes(this.props.currentTrackId) ? "-active" : "" }`}
+                                    onClick={() => this.handleFavorites()}>
                                     <FontAwesomeIcon icon={faHeart} />
                                 </div>
 

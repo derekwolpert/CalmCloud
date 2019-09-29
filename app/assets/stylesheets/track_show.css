@@ -320,11 +320,11 @@
     box-sizing: border-box;
 }
 
-.track-show-indiviual-actions > .track-show-action-button:first-child {
+.track-show-indiviual-actions > .track-show-action-button:first-child, .track-show-action-button-favorited:first-child {
     margin: 0
 }
 
-.track-show-action-button, .track-show-action-button-edit, .track-show-action-button-delete {
+.track-show-action-button, .track-show-action-button-edit, .track-show-action-button-favorited, .track-show-action-button-delete {
     padding: 8px 15px;
     margin-left: 10px;
     border: 1px solid rgba(156,156,156,0.5);
@@ -346,18 +346,19 @@
     border: 1px solid rgba(212,212,212,.5);
 }
 
-.track-show-action-button > svg, .track-show-action-button-edit > svg, .track-show-action-button-delete > svg {
+.track-show-action-button > svg, .track-show-action-button-edit > svg, .track-show-action-button-favorited > svg, .track-show-action-button-delete > svg {
     display: inline-block;
     vertical-align: middle;
     margin: -1px 8px 0 -2px;    
 }
 
-.track-show-action-button-edit, .track-show-action-button-delete {
+.track-show-action-button-edit, .track-show-action-button-favorited, .track-show-action-button-delete {
     color: #4fa6d3;
 }
 
-.track-show-action-button-edit:hover {
+.track-show-action-button-edit:hover, .track-show-action-button-favorited:hover {
     border: 1px solid rgba(79,166,211,.8);
+    color: #308ebf;
 }
 
 .track-show-action-button-delete:hover {

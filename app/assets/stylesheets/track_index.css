@@ -68,3 +68,15 @@
 .track-index-play-all:hover {
     background-color: #408f39;
 }
+
+.track-index-no-favorites-message {
+    width: 90%;
+    font-size: 18px;
+    padding: 100px 0 80px;
+    display: block;
+    margin: 40px auto;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.4;
+    color: rgb(172, 172, 172);
+}

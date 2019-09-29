@@ -18,6 +18,7 @@ class TrackShow extends React.Component {
         this.playPause = this.playPause.bind(this);
         this.formatListened = this.formatListened.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleFavorites = this.handleFavorites.bind(this);
     }
 
     componentDidMount() {
@@ -158,6 +159,16 @@ class TrackShow extends React.Component {
         )
     }
 
+    handleFavorites() {
+        if (this.props.currentUser.favorites.includes(this.props.track.id)) {
+            this.props.deleteFavoriteTrack(this.props.track.id).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUserId)));
+        } else {
+            this.props.createFavoriteTrack(this.props.track.id).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUserId)));
+        }
+    }
+
     render() {
 
         if (this.props.track) {
@@ -195,18 +206,13 @@ class TrackShow extends React.Component {
                                     <span className="track-show-length">{this.formatTime(this.props.track.track_length)}</span>
 
                                 </div>
-
-
-
                             </div>
 
                             <div className="track-show-sidebar">
                                 <div className="track-show-artwork">
                                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                                 </div>
-
                             </div>
-
                         </div>
 
                         <div className="track-show-actions-container">
@@ -215,9 +221,10 @@ class TrackShow extends React.Component {
                                 <footer className="track-show-actions">
 
                                     <div className="track-show-indiviual-actions">
-                                        <button className="track-show-action-button">
+                                        <button className={`track-show-action-button${ this.props.currentUser.favorites.includes(this.props.track.id) ? "-favorited" : "" }`} 
+                                            onClick={() => this.handleFavorites()} >
                                             <FontAwesomeIcon icon={faHeart} />
-                                            Favorite
+                                            {this.props.currentUser.favorites.includes(this.props.track.id) ? "Favorited" : "Favorite"}
                                         </button>
 
                                         <button className="track-show-action-button" >
@@ -247,13 +254,9 @@ class TrackShow extends React.Component {
                                                     }
                                                 </div>
                                             </> : null
-
                                         }
-
                                     </div>
-
                                 </footer>
-
                                 <ul className="track-show-stats">
 
                                     <li>
@@ -315,6 +318,7 @@ class TrackShow extends React.Component {
                                             <TrackShowSidebar
                                                 key={subTrack.id}
                                                 track={subTrack}
+                                                user={this.props.user}
                                                 date={this.formatDate(subTrack.created_at)}
                                             />
 

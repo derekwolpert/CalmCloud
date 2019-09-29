@@ -191,7 +191,7 @@
     display: block;
 }
 
-.footer-player-favorite-icon {
+.footer-player-favorite-icon, .footer-player-favorite-icon-active {
     box-sizing: content-box;
     position: relative;
     z-index: 10;
@@ -207,8 +207,12 @@
     transition: .2s;
 }
 
-.footer-player-favorite-icon:hover {
+.footer-player-favorite-icon:hover, .footer-player-favorite-icon-active:hover {
     opacity: .8;
+}
+
+.footer-player-favorite-icon-active {
+    color: rgb(120,187,221);
 }
 
 .footer-player-share-icon {

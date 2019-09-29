@@ -32,6 +32,13 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Track
 
+    has_many :favorites
+    
+    has_many :favorite_tracks, 
+        through: :favorites,
+        source: :favorited,
+        source_type: 'Track'
+
     has_many :comments
 
     def self.find_by_username(username, password)

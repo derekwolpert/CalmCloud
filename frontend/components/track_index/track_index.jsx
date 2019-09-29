@@ -106,10 +106,14 @@ class TrackIndex extends React.Component {
                 user={this.props.users[track.user_id]}
                 changeTrack={this.props.changeTrack}
                 currentTrack={this.props.currentTrack}
+                currentUser={this.props.currentUser}
                 pauseTrack={this.props.pauseTrack}
                 playing={this.props.playing}
                 percent={this.props.percent}
                 path={this.props.match.path}
+                createFavoriteTrack={this.props.createFavoriteTrack}
+                deleteFavoriteTrack={this.props.deleteFavoriteTrack}
+                fetchCurrentUser={this.props.fetchCurrentUser}
                 />) );
         
         return (
@@ -122,16 +126,29 @@ class TrackIndex extends React.Component {
                         path={this.props.match.path}
                     /> : null }
                     <section className="track-index-track-container">
-                        <h1>{this.indexTitle()}
-                            <button onClick={(() => { if (this.props.tracks.length > 0) ((this.props.playing && (this.props.tracks[0].id === this.props.currentTrack)) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id))})} className="track-index-play-all">
-                                <FontAwesomeIcon icon={faPlay} />
-                                Play
-                            </button>
-                        </h1>
-                        {indexItems}
+                        {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/tracks/favorites")) ?
+                            <>
+                                <h1>{this.indexTitle()}</h1> 
+                                <div className="track-index-no-favorites-message">
+                                    When you favorite uploads you can come back and find them here.
+                                </div>
+                            </>
+                            :
+                            <>
+                                <h1>{this.indexTitle()}
+                                    <button onClick={(() => { if (this.props.tracks.length > 0) ((this.props.playing && (this.props.tracks[0].id === this.props.currentTrack)) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id))})} className="track-index-play-all">
+                                        <FontAwesomeIcon icon={faPlay} />
+                                        Play
+                                    </button>
+                                </h1>
+                                {indexItems}
+                            </>}
                     </section>
 
-                    <TrackIndexNav tracks={this.props.tracks} currentUserId={this.props.currentUser.id} />
+                    <TrackIndexNav
+                        currentUser={this.props.currentUser}
+                        totalPlaycounts={this.props.totalPlaycounts}
+                        totalUploads={this.props.totalUploads} />
                 </section>
             </>
         );

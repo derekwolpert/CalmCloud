@@ -336,7 +336,7 @@
     box-sizing: border-box;
 }
 
-.track-index-item-action {
+.track-index-item-action, .track-index-item-action-active {
     padding: 8px 12px;
     height: 32px;
     margin-right: 10px;
@@ -345,8 +345,6 @@
     background: rgb(54, 54, 54);;
     font-size: 13px;
     border-radius: 4px;
-    color: rgb(192, 192, 192);
-    box-shadow: inset 0 0 0 1px rgb(108, 108, 108);
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
@@ -354,9 +352,24 @@
     transition: .2s;
 }
 
+.track-index-item-action {
+    box-shadow: inset 0 0 0 1px rgb(108, 108, 108);
+    color: rgb(192, 192, 192);
+}
+
 .track-index-item-action:hover {
     box-shadow: inset 0 0 0 1px rgb(149, 149, 149);
 }
+
+.track-index-item-action-active {
+    box-shadow: inset 0 0 0 1px rgb(120,187,221);
+    color: rgb(79, 166, 211);
+}
+
+.track-index-item-action-active:hover {
+    color: rgb(120,187,221);
+}
+
 
 .track-index-item-stats {
     float: right;

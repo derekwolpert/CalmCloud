@@ -14,7 +14,7 @@ export const fetchTrack = id => (
 
 export const createTrack = formData => (
     $.ajax({
-        url: 'api/tracks',
+        url: '/api/tracks',
         method: 'POST',
         data: formData,
         contentType: false,
@@ -24,7 +24,7 @@ export const createTrack = formData => (
 
 export const updateTrack = track => (
     $.ajax({
-        url: `api/tracks/${track.id}`,
+        url: `/api/tracks/${track.id}`,
         method: 'PATCH',
         data: track.formData,
         contentType: false,
@@ -34,7 +34,7 @@ export const updateTrack = track => (
 
 export const updatePlaycount = track => (
     $.ajax({
-        url: `api/tracks/${track.id}`,
+        url: `/api/tracks/${track.id}`,
         method: 'PATCH',
         data: { track }
     })
@@ -42,7 +42,7 @@ export const updatePlaycount = track => (
 
 export const deleteTrack = id => (
     $.ajax({
-        url: `api/tracks/${id}`,
+        url: `/api/tracks/${id}`,
         method: 'DELETE'
     })
 );

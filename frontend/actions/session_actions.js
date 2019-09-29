@@ -31,6 +31,13 @@ export const removeSessionErrors = () => {
     });
 };
 
+
+export const fetchCurrentUser = id => dispatch => (
+    SessionApiUtil.fetchCurrentUser(id)
+        .then(user => dispatch(receiveCurrentUser(user)))
+);
+
+
 export const login = (user) => dispatch => {
     return (SessionApiUtil.login(user)
         .then(user => dispatch(receiveCurrentUser(user)))
