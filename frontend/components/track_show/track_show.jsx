@@ -13,6 +13,7 @@ class TrackShow extends React.Component {
 
         this.state = {
             deleteConfirmation: false,
+            loaded: false
         };
 
         this.playPause = this.playPause.bind(this);
@@ -23,7 +24,11 @@ class TrackShow extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.fetchTrack(this.props.match.params.trackId);
+        this.props.fetchTrack(this.props.match.params.trackId).then(() => {
+            this.setState({
+                loaded: true
+            });
+        });
     }
 
     componentDidUpdate(prevProps) {
@@ -172,173 +177,174 @@ class TrackShow extends React.Component {
     }
 
     render() {
-        if (this.props.track) {
-            return (
-                <>
-                    <section className="track-show-header">
 
-                        <div className="track-show-header-inner-container">
+        return (
+            this.state.loaded ?
+            <>
+                <section className="track-show-header">
 
-                            <div className="track-show-content-container">
+                    <div className="track-show-header-inner-container">
 
-                                <section className="track-show-title-container">
-                                    <div className="track-show-play-pause">
-                                        {this.playPause()}
-                                    </div>
+                        <div className="track-show-content-container">
 
-                                    <div className="track-show-inner-title">
-                                        <h1>
-                                            <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
-                                        </h1>
-
-                                        <div>uploaded by <span>{this.props.user.display_name}</span></div>
-
-                                    </div>
-
-                                </section>
-                                <div onClick={(e) => this.handleProgress(e)} className="track-show-waveform-container">
-
-                                    <div className="track-show-listened-waveform" style={{ width: `${this.formatListened()}%`}} >
-                                        <div className="track-show-listened-wrap">
-                                            <img src={window.defaultWaveformShowLight} style={{ cursor: `${(this.props.track.id === this.props.currentTrack) ? "pointer" : ""}`}}/>
-                                        </div>
-                                    </div>
-                                    <img src={window.defaultWaveformShowDark} style={{ cursor: `${(this.props.track.id === this.props.currentTrack) ? "pointer" : ""}` }}/>
-                                    <span className="track-show-length">{this.formatTime(this.props.track.track_length)}</span>
-
+                            <section className="track-show-title-container">
+                                <div className="track-show-play-pause">
+                                    {this.playPause()}
                                 </div>
-                            </div>
 
-                            <div className="track-show-sidebar">
-                                <div className="track-show-artwork">
-                                    <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="track-show-actions-container">
-
-                            <div className="track-show-actions-inner-container">
-                                <footer className="track-show-actions">
-
-                                    <div className="track-show-indiviual-actions">
-                                        <button className={`track-show-action-button${this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "-favorited" : "" ) : ""}`} 
-                                            onClick={() => this.props.currentUser ? this.handleFavorites() : this.props.openModal("login")} >
-                                            <FontAwesomeIcon icon={faHeart} />
-                                            {this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "Favorited" : "Favorite") : "Favorite"}
-                                        </button>
-
-                                        <button className="track-show-action-button" >
-                                            <FontAwesomeIcon icon={faShareSquare} />
-                                            Share
-                                        </button>
-
-                                        { this.props.track.user_id === this.props.currentUserId ? 
-                                            <>
-                                                <Link to={`/track/${this.props.track.id}/edit`}>
-                                                    <div className="track-show-action-button-edit" >
-                                                        <FontAwesomeIcon icon={faEdit} />
-                                                        Edit
-                                                    </div>
-                                                </Link>
-                                                <div className="track-show-delete-container">
-                                                    <button className="track-show-action-button-delete" style={{ color: `${this.state.deleteConfirmation ? "#e2584e" : "" }`, border: `${this.state.deleteConfirmation ? "1px solid rgba(226,88,78,.8)" : "" }` }}
-                                                        onClick={() => this.setState({deleteConfirmation: true}) }>
-                                                        <FontAwesomeIcon icon={faTrashAlt} />
-                                                        Delete
-                                                    </button>
-                                                    {this.state.deleteConfirmation ?
-                                                        <div className="track-show-delete-confirmation">
-                                                            <div className="track-show-confirm-delete" onClick={() => this.handleDelete()}>Confirm deletion</div>
-                                                            <div className="track-show-cancel-delete" onClick={() => this.setState({ deleteConfirmation: false })}>Cancel</div>
-                                                        </div> : null
-                                                    }
-                                                </div>
-                                            </> : null
-                                        }
-                                    </div>
-                                </footer>
-                                <ul className="track-show-stats">
-
-                                    <li>
-                                        <FontAwesomeIcon icon={faHeadphonesAlt} />
-                                        {this.props.track.play_count}
-                                    </li>
-
-                                    <li>
-                                        <FontAwesomeIcon icon={faCalendarAlt} />
-                                        {this.formatDate(this.props.track.created_at)}
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-                        </div>
-
-
-                        <div className="track-show-blur-container">
-                            <div className="track-show-blur-background"
-                                style={{ backgroundImage: `url(${this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork})` }}
-                            />   
-                        </div>
-
-                    </section>
-
-                    <section className="track-show-container">
-                        
-                        <section className="track-show-inner-container">
-                            <div className="track-show-description">
-                                {this.props.track.description ? this.props.track.description.split("\n").filter(Boolean).map((el, key) => (
-                                    <p key={key}>{this.formatUrlsInDescription(el)}</p>)
-                                    ) : null
-                                }
-                            </div>
-
-                            <section className="track-show-comments">
-                                <h1>
-                                    Comments
-                                </h1>
-                            </section>
-                            
-                        </section>
-
-                        <section className="track-show-sidebar">
-                            
-                            { this.props.tracks.length > 0 ?
-                                <>
+                                <div className="track-show-inner-title">
                                     <h1>
-                                        More from {this.props.user.display_name}
+                                        <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
                                     </h1>
 
-                                    <ul>
-                                        {this.props.tracks.map(subTrack => (
+                                    <div>uploaded by <span>{this.props.user.display_name}</span></div>
 
-                                            <TrackShowSidebar
-                                                key={subTrack.id}
-                                                track={subTrack}
-                                                user={this.props.user}
-                                                date={this.formatDate(subTrack.created_at)}
-                                            />
+                                </div>
 
-                                        ))}
+                            </section>
+                            <div onClick={(e) => this.handleProgress(e)} className="track-show-waveform-container">
+
+                                <div className="track-show-listened-waveform" style={{ width: `${this.formatListened()}%`}} >
+                                    <div className="track-show-listened-wrap">
+                                        <img src={window.defaultWaveformShowLight} style={{ cursor: `${(this.props.track.id === this.props.currentTrack) ? "pointer" : ""}`}}/>
+                                    </div>
+                                </div>
+                                <img src={window.defaultWaveformShowDark} style={{ cursor: `${(this.props.track.id === this.props.currentTrack) ? "pointer" : ""}` }}/>
+                                <span className="track-show-length">{this.formatTime(this.props.track.track_length)}</span>
+
+                            </div>
+                        </div>
+
+                        <div className="track-show-sidebar">
+                            <div className="track-show-artwork">
+                                <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="track-show-actions-container">
+
+                        <div className="track-show-actions-inner-container">
+                            <footer className="track-show-actions">
+
+                                <div className="track-show-indiviual-actions">
+                                    <button className={`track-show-action-button${this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "-favorited" : "" ) : ""}`} 
+                                        onClick={() => this.props.currentUser ? this.handleFavorites() : this.props.openModal("login")} >
+                                        <FontAwesomeIcon icon={faHeart} />
+                                        {this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "Favorited" : "Favorite") : "Favorite"}
+                                    </button>
+
+                                    <button className="track-show-action-button" >
+                                        <FontAwesomeIcon icon={faShareSquare} />
+                                        Share
+                                    </button>
+
+                                    { this.props.track.user_id === this.props.currentUserId ? 
+                                        <>
+                                            <Link to={`/track/${this.props.track.id}/edit`}>
+                                                <div className="track-show-action-button-edit" >
+                                                    <FontAwesomeIcon icon={faEdit} />
+                                                    Edit
+                                                </div>
+                                            </Link>
+                                            <div className="track-show-delete-container">
+                                                <button className="track-show-action-button-delete" style={{ color: `${this.state.deleteConfirmation ? "#e2584e" : "" }`, border: `${this.state.deleteConfirmation ? "1px solid rgba(226,88,78,.8)" : "" }` }}
+                                                    onClick={() => this.setState({deleteConfirmation: true}) }>
+                                                    <FontAwesomeIcon icon={faTrashAlt} />
+                                                    Delete
+                                                </button>
+                                                {this.state.deleteConfirmation ?
+                                                    <div className="track-show-delete-confirmation">
+                                                        <div className="track-show-confirm-delete" onClick={() => this.handleDelete()}>Confirm deletion</div>
+                                                        <div className="track-show-cancel-delete" onClick={() => this.setState({ deleteConfirmation: false })}>Cancel</div>
+                                                    </div> : null
+                                                }
+                                            </div>
+                                        </> : null
+                                    }
+                                </div>
+                            </footer>
+                            <ul className="track-show-stats">
+
+                                <li>
+                                    <FontAwesomeIcon icon={faHeadphonesAlt} />
+                                    {this.props.track.play_count}
+                                </li>
+
+                                <li>
+                                    <FontAwesomeIcon icon={faCalendarAlt} />
+                                    {this.formatDate(this.props.track.created_at)}
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
 
 
+                    <div className="track-show-blur-container">
+                        <div className="track-show-blur-background"
+                            style={{ backgroundImage: `url(${this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork})` }}
+                        />   
+                    </div>
 
-                                    </ul> 
-                                </> : null
+                </section>
 
+                <section className="track-show-container">
+                    
+                    <section className="track-show-inner-container">
+                        <div className="track-show-description">
+                            {this.props.track.description ? this.props.track.description.split("\n").filter(Boolean).map((el, key) => (
+                                <p key={key}>{this.formatUrlsInDescription(el)}</p>)
+                                ) : null
                             }
-                            
+                        </div>
+
+                        <section className="track-show-comments">
+                            <h1>
+                                Comments
+                            </h1>
                         </section>
-                
+                        
                     </section>
 
-                </>
-            )
-        } else {
-            return null;
-        }
+                    <section className="track-show-sidebar">
+                        
+                        { this.props.tracks.length > 0 ?
+                            <>
+                                <h1>
+                                    More from {this.props.user.display_name}
+                                </h1>
+
+                                <ul>
+                                    {this.props.tracks.map(subTrack => (
+
+                                        <TrackShowSidebar
+                                            key={subTrack.id}
+                                            track={subTrack}
+                                            user={this.props.user}
+                                            date={this.formatDate(subTrack.created_at)}
+                                        />
+
+                                    ))}
+
+
+
+                                </ul> 
+                            </> : null
+
+                        }
+                        
+                    </section>
+            
+                </section>
+
+            </>
+            :
+            <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+        )
+
     }
 }
 

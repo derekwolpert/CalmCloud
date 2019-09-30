@@ -28,6 +28,7 @@ class TrackEditForm extends React.Component {
             stateIsSet: false,
             descriptionIsSet: false,
             deleteConfirmation: false,
+            loaded: false
         };
         this._loading = React.createRef();
         this.handleEditButton = this.handleEditButton.bind(this);
@@ -36,11 +37,13 @@ class TrackEditForm extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0);
         if (!this.props.track) {
-            this.props.fetchTrack(this.props.match.params.trackId);
+            this.props.fetchTrack(this.props.match.params.trackId).then(() => {
+                this.setState({
+                    loaded: true
+                });
+            });
         } else if (this.props.currentUser !== this.props.track.user_id) {
             this.props.history.push(`/track/${this.props.track.id}`);
-        } else {
-            this.props.fetchTrack(this.props.track.id);
         }
     }
 
@@ -49,7 +52,6 @@ class TrackEditForm extends React.Component {
         if (this.props.currentUser === undefined && prevProps.currentUser) {
             this.props.history.push("/");
         }
-
         if (!this.props.track) {
             this.props.fetchTrack(this.props.match.params.trackId);
         } else if (this.props.currentUser !== this.props.track.user_id) {
@@ -138,13 +140,10 @@ class TrackEditForm extends React.Component {
     }
 
     render() {
-        if (this.props.track) {
 
-            if (this.props.track.description === undefined) {
-                return null;
-            }
 
-            return (
+        return (
+            this.state.loaded ?
                 <section className="track-upload-container">
                     <h1>{`Editing ${this.props.track.title}`}
                         <Link className="track-edit-header-back" to={`/track/${this.props.track.id}`}>Back</Link>
@@ -219,12 +218,11 @@ class TrackEditForm extends React.Component {
                         </form>
 
                     </div>
-                    <div ref={(l) => this._loading = l} className="track-upload-spinner-background" style={{ display: "none" }}><div className="track-upload-spinner"><div></div><div></div><div></div><div></div></div></div>
+                    <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
                 </section>
-            )
-        } else {
-            return null;
-        }
+                :
+                <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+        )
     }
 }
 

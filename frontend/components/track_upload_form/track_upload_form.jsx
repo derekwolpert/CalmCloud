@@ -288,7 +288,7 @@ class TrackUploadForm extends React.Component {
 
                     </div>
                     <audio ref={(a) => this._audio = a} src="" />
-                    <div ref={(l) => this._loading = l} className="track-upload-spinner-background" style={{ display: "none" }}><div className="track-upload-spinner"><div></div><div></div><div></div><div></div></div></div>
+                    <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
             </section>
             ) : <TrackUploadGuestContainer />
             
