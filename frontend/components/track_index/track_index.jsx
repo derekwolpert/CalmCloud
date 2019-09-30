@@ -22,11 +22,12 @@ class TrackIndex extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.fetchAllTracks().then(() => {
-            this.setState({
-                loaded: true
+        this.props.fetchAllTracks()
+            .then(() => {
+                this.setState({
+                    loaded: true
+                });
             });
-        });
         this.setState({
             large: window.innerWidth >= 1320,
         });
@@ -98,7 +99,6 @@ class TrackIndex extends React.Component {
     }
 
     render() {
-
         const indexItems = this.props.tracks.map( (track, idx) => (
             <TrackIndexItem
                 key={track.id}
@@ -138,10 +138,13 @@ class TrackIndex extends React.Component {
                                 :
                                 <>
                                     <h1>{this.indexTitle()}
-                                        <button onClick={(() => { if (this.props.tracks.length > 0) ((this.props.playing && (this.props.tracks[0].id === this.props.currentTrack)) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id))})} className="track-index-play-all">
-                                            <FontAwesomeIcon icon={faPlay} />
-                                            Play
-                                        </button>
+                                        { this.props.tracks.length > 0 ?
+                                            <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
+                                                <FontAwesomeIcon icon={faPlay} />
+                                                Play
+                                            </button>
+                                            : null
+                                        }
                                     </h1>
                                     {indexItems}
                                 </>}

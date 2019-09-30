@@ -1,14 +1,14 @@
 import * as SessionApiUtil from '../util/session_api_util';
-
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 
-export const receiveCurrentUser = (currentUser) => {
+export const receiveCurrentUser = ({ user, tracks }) => {
     return ({
         type: RECEIVE_CURRENT_USER,
-        currentUser
+        user,
+        tracks
     });
 };
 
@@ -31,12 +31,10 @@ export const removeSessionErrors = () => {
     });
 };
 
-
 export const fetchCurrentUser = id => dispatch => (
     SessionApiUtil.fetchCurrentUser(id)
         .then(user => dispatch(receiveCurrentUser(user)))
 );
-
 
 export const login = (user) => dispatch => {
     return (SessionApiUtil.login(user)

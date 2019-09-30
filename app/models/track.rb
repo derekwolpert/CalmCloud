@@ -26,7 +26,20 @@ class Track < ApplicationRecord
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :User
-    
+
+    has_many :favorites,
+        primary_key: :id,
+        foreign_key: :favorited_id,
+        class_name: :Favorite,
+        source_type: 'Track',
+        dependent: :destroy
+
+
+
+    has_many :user_favorites, 
+        through: :favorites,
+        source: :user
+        
     # belongs_to :tag
 
     # has_many :comments

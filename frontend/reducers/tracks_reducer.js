@@ -1,12 +1,18 @@
 import { RECEIVE_ALL_TRACKS, RECEIVE_TRACK, REMOVE_TRACK } from "../actions/track_actions";
 import merge from "lodash/merge";
+import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_USER } from '../actions/user_actions';
 
 const tracksReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState = merge({}, oldState);
     switch (action.type) {
         case RECEIVE_ALL_TRACKS:
-            return merge({}, action.tracks );
+            return merge({}, oldState, action.tracks );
+        case RECEIVE_CURRENT_USER:
+            return merge({}, oldState, action.tracks);
+        case RECEIVE_USER:
+            return merge({}, oldState, action.tracks);
         case RECEIVE_TRACK:
             return merge({}, oldState, { [action.track.id]: action.track }, action.tracks );
         case REMOVE_TRACK:

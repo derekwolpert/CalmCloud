@@ -33,7 +33,6 @@ class TrackIndexNav extends React.Component {
                     <div>developer please visit the links below:</div>
                     <br />
                     <div>(links coming soon...)</div>
-
                 </div>
 
             </section>

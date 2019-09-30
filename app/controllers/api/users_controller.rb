@@ -43,7 +43,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = User.with_attached_profile_pic.find(params[:id])
+        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob}).find(params[:id])
     end
 
     def destroy

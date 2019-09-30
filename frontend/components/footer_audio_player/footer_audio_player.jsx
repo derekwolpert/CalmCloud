@@ -55,6 +55,7 @@ class FooterAudioPlayer extends React.Component {
                             this.props.updatePlayCount(this.props.currentTrack);
                             this._audio.load();
                             this._audio.play();
+                            this.setState({ percentage: 0 });
                         }
                         if (!this.props.playing) {
                             this._audio.pause();
@@ -63,6 +64,7 @@ class FooterAudioPlayer extends React.Component {
                         this.props.updatePlayCount(this.props.currentTrack);
                         this._audio.load();
                         this._audio.play();
+                        this.setState({ percentage: 0 });
                     }
                 }
             }

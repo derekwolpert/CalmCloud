@@ -9,9 +9,9 @@ class TrackEditForm extends React.Component {
             return {
                 title: props.track.title,
                 trackArtworkUrl: props.track.trackArtworkUrl === undefined ? window.defaultArtwork : props.track.trackArtworkUrl,
-                description: props.track.description ? props.track.description : "",
+                description: props.track.description !== undefined ? props.track.description : "",
                 stateIsSet: true,
-                descriptionIsSet: !!props.track.description,
+                descriptionIsSet: props.track.description !== undefined
             };
         }
         return null;
@@ -28,7 +28,6 @@ class TrackEditForm extends React.Component {
             stateIsSet: false,
             descriptionIsSet: false,
             deleteConfirmation: false,
-            loaded: false
         };
         this._loading = React.createRef();
         this.handleEditButton = this.handleEditButton.bind(this);
@@ -37,13 +36,11 @@ class TrackEditForm extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0);
         if (!this.props.track) {
-            this.props.fetchTrack(this.props.match.params.trackId).then(() => {
-                this.setState({
-                    loaded: true
-                });
-            });
+            this.props.fetchTrack(this.props.match.params.trackId);
         } else if (this.props.currentUser !== this.props.track.user_id) {
             this.props.history.push(`/track/${this.props.track.id}`);
+        } else if (this.props.track.description === undefined) {
+            this.props.fetchTrack(this.props.match.params.trackId);
         }
     }
 
@@ -100,8 +97,9 @@ class TrackEditForm extends React.Component {
         if (this.props.track.id === this.props.currentTrack) {
             this.props.removeCurrentTrack();
         }
-        this.props.deleteTrack(this.props.track.id);
-        this.props.history.push("/");
+        this.props.deleteTrack(this.props.track.id)
+            .then(() => this.props.fetchCurrentUser(this.props.currentUser))
+            .then(() => (this.props.history.push("/"))); 
     }
 
     handleEditButton() {
@@ -140,10 +138,8 @@ class TrackEditForm extends React.Component {
     }
 
     render() {
-
-
         return (
-            this.state.loaded ?
+            this.state.descriptionIsSet && this.props.track ?
                 <section className="track-upload-container">
                     <h1>{`Editing ${this.props.track.title}`}
                         <Link className="track-edit-header-back" to={`/track/${this.props.track.id}`}>Back</Link>

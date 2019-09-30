@@ -16,10 +16,12 @@ const receiveTrack = ({ track, tracks, user }) => ({
     user: user,
 });
 
-const removeTrack = trackId => ({
-    type: REMOVE_TRACK,
-    trackId
-});
+const removeTrack = trackId => {
+    return {
+        type: REMOVE_TRACK,
+        trackId
+    };
+};
 
 export const fetchAllTracks = () => dispatch => (
     TrackApiUtil.fetchAllTracks()

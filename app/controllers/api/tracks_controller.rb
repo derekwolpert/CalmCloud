@@ -42,6 +42,7 @@ class Api::TracksController < ApplicationController
         @track = current_user.tracks.find(params[:id])
         if @track
             @track.destroy
+            render json: params[:id]
         end
     end
 

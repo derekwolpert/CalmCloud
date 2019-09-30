@@ -32,14 +32,16 @@ class TrackShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.match.params.trackId !== prevProps.match.params.trackId) {
-            window.scrollTo(0, 0);
-        }
-        if (this.props.track.description === undefined) {
-            this.props.fetchTrack(this.props.match.params.trackId);
-        }
-        if (this.props.currentUser === undefined && prevProps.currentUser) {
-            this.props.history.push("/");
+        if (this.props.tracks) {
+            if (this.props.match.params.trackId !== prevProps.match.params.trackId) {
+                window.scrollTo(0, 0);
+            }
+            if (this.props.track.description === undefined) {
+                this.props.fetchTrack(this.props.match.params.trackId);
+            }
+            if (this.props.currentUser === undefined && prevProps.currentUser) {
+                this.props.history.push("/");
+            }
         }
     }
 
@@ -73,7 +75,6 @@ class TrackShow extends React.Component {
         </div >);
     }
 
-
     formatListened() {
         if (this.props.currentTrack !== null) {
             return (this.props.currentTrack === this.props.track.id ? this.props.percent : 0);
@@ -93,8 +94,9 @@ class TrackShow extends React.Component {
         if (this.props.track.id === this.props.currentTrack) {
             this.props.removeCurrentTrack();
         }
-        this.props.deleteTrack(this.props.track.id);
-        this.props.history.push("/");
+        this.props.deleteTrack(this.props.track.id)
+            .then(() => this.props.fetchCurrentUser(this.props.currentUserId))
+            .then(() => (this.props.history.push("/"))); 
     }
 
     formatTime(time) {
@@ -179,7 +181,7 @@ class TrackShow extends React.Component {
     render() {
 
         return (
-            this.state.loaded ?
+            this.state.loaded && this.props.track ?
             <>
                 <section className="track-show-header">
 
@@ -329,8 +331,6 @@ class TrackShow extends React.Component {
 
                                     ))}
 
-
-
                                 </ul> 
                             </> : null
 
@@ -344,7 +344,6 @@ class TrackShow extends React.Component {
             :
             <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
         )
-
     }
 }
 

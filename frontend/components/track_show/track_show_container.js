@@ -9,10 +9,10 @@ import { changeTrack, pauseTrack, currentPercent, removeCurrentTrack } from "../
 
 const mapStateToProps = (state, ownProps) => {
     const track = state.entities.tracks[ownProps.match.params.trackId];
-    const user =  track ? state.entities.users[track.user_id] : null;
-    const tracks = Object.values(state.entities.tracks).slice().reverse().filter(subTrack => {
+    const user = track ? state.entities.users[track.user_id] : null;
+    const tracks = track ? Object.values(state.entities.tracks).slice().reverse().filter(subTrack => {
         return (subTrack.user_id === track.user_id) && (subTrack.id !== track.id);
-    }).slice(0, 3);
+    }).slice(0, 3) : null;
 
     return {
         track: track,
