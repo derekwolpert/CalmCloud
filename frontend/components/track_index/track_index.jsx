@@ -4,9 +4,7 @@ import TrackIndexItem from './track_index_item';
 import TrackIndexSidebar from './track_index_sidebar';
 import TrackIndexNav from './track_index_footer_nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-
-
+import { faPlay, faCloud } from '@fortawesome/free-solid-svg-icons';
 
 class TrackIndex extends React.Component {
     constructor(props) {
@@ -147,6 +145,7 @@ class TrackIndex extends React.Component {
                                         }
                                     </h1>
                                     {indexItems}
+                                    <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span>
                                 </>}
                         </section>
 

@@ -80,3 +80,15 @@
     line-height: 1.4;
     color: rgb(172, 172, 172);
 }
+
+.track-index-bottom-cloud {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 52px;
+    font-size: 20px;
+    z-index: 100;
+    padding: 0 12px;
+    background: rgb(36, 36, 36);
+    color: rgb(96, 96, 96);
+}
