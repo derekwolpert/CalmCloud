@@ -24,7 +24,6 @@ const mapStateToProps = (state, ownProps) => {
         playing: state.ui.playing,
         percent: state.ui.percent
     };
-
 };
 
 const mapDispatchToProps = dispatch => ({
