@@ -18,8 +18,8 @@ class Splash extends React.Component {
             <>
                 <img className="splash-background-image" src={window.background1URL} />
                 <div className="splash-text">
-                    <h1 className="splash-title">The online destination for relaxation audio</h1>
-                    <h2 className="splash-subtitle">Explore a wide collection of sounds to aid with productivity, meditation and sleep.</h2>
+                    <h1 className="splash-title">The online destination for sharing audio</h1>
+                    <h2 className="splash-subtitle">Explore a wide collection of sounds ranging from music, podcasts, guided meditations and more.</h2>
                 </div>
                 <div className="splash-buttons">
                     <button className="splash-login" onClick={() => this.props.openModal('login')}>Demo User Sign in</button>
@@ -36,7 +36,7 @@ class Splash extends React.Component {
                                 <FontAwesomeIcon icon={faHeadphonesAlt} />
                             </div>
                             <h3 className="splash-reason-title">Listen</h3>
-                            <h4 className="splash-reason-subtitle">Get inspired by audio designed to keep you calm and focused.</h4>
+                            <h4 className="splash-reason-subtitle">Get inspired by audio content uploaded by other users.</h4>
                         </div>
                     
                         <div className="splash-sub-reason">
@@ -44,7 +44,7 @@ class Splash extends React.Component {
                                 <FontAwesomeIcon icon={faMicrophoneAlt} />
                             </div>
                             <h3 className="splash-reason-title">Create</h3>
-                            <h4 className="splash-reason-subtitle">Upload your audio creations to share with the world.</h4>
+                            <h4 className="splash-reason-subtitle">Upload your own audio creations to share with the world.</h4>
                         </div>
 
                         <div className="splash-sub-reason">
