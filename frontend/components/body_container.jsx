@@ -18,8 +18,10 @@ const BodyContainer = () => (
         <ProtectedRoute exact path="/tracks/trending" component={TrackTrendingContainer} />
         <Route exact path="/track/:trackId" component={TrackShowContainer} />
         <Route exact path="/track/:trackId/edit" component={TrackEditFormContainer} />
-        <Route exact path="/upload" component={TrackUploadFormContainer} />
-        <Route exact path="/user/:userId" component={UserShowContainer} />
+        <Switch>
+            <Route exact path="/upload" component={TrackUploadFormContainer} />
+            <Route exact path="/:username" component={UserShowContainer} />
+        </Switch>
     </div>
 );
 

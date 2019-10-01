@@ -9,7 +9,7 @@ export const receiveUser = ({ user, tracks }) => {
     });
 };
 
-export const fetchUser = id => dispatch => (
-    UserApiUtil.fetchUser(id)
+export const fetchUser = username => dispatch => (
+    UserApiUtil.fetchUser(username)
         .then(user => dispatch(receiveUser(user)))
 );

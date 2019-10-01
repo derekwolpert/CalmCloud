@@ -4,7 +4,7 @@ import { Link, Redirect, withRouter } from 'react-router-dom';
 import TrackUploadForm from './track_upload_form';
 
 const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.currentUser.id],
+    currentUser: state.entities.users[state.session.currentUser.username],
 });
 
 const mapDispatchToProps = dispatch => ({

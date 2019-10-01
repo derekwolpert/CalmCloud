@@ -9,17 +9,24 @@ import { changeTrack, pauseTrack, currentPercent, removeCurrentTrack } from "../
 
 const mapStateToProps = (state, ownProps) => {
     const track = state.entities.tracks[ownProps.match.params.trackId];
-    const user = track ? state.entities.users[track.user_id] : null;
     const tracks = track ? Object.values(state.entities.tracks).slice().reverse().filter(subTrack => {
         return (subTrack.user_id === track.user_id) && (subTrack.id !== track.id);
     }).slice(0, 3) : null;
 
+    const findUser = (userId) => {
+        for (let user in state.entities.users) {
+            if (state.entities.users[user].id === userId) {
+                return state.entities.users[user];
+            }
+        }
+    };
+
     return {
         track: track,
         tracks: tracks,
-        user: user,
-        currentUser: state.entities.users[state.session.currentUser.id],
-        currentUserId: state.session.currentUser.id,
+        user: track ? findUser(track.user_id) : null,
+        currentUser: state.session.currentUser.username ? state.entities.users[state.session.currentUser.username] : null,
+        currentUserId: state.session.currentUser.username ? state.entities.users[state.session.currentUser.username].id : null,
         currentTrack: state.ui.currentTrack,
         playing: state.ui.playing,
         percent: state.ui.percent
@@ -35,7 +42,7 @@ const mapDispatchToProps = dispatch => ({
     removeCurrentTrack: () => dispatch(removeCurrentTrack()),
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
-    fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId)),
+    fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
     openModal: modal => dispatch(openModal(modal))
 });
 

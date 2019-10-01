@@ -98,7 +98,7 @@ class TrackEditForm extends React.Component {
             this.props.removeCurrentTrack();
         }
         this.props.deleteTrack(this.props.track.id)
-            .then(() => this.props.fetchCurrentUser(this.props.currentUser))
+            .then(() => this.props.fetchCurrentUser(this.props.currentUser.username))
             .then(() => (this.props.history.push("/"))); 
     }
 

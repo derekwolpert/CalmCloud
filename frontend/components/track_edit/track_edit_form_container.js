@@ -7,9 +7,11 @@ import { removeCurrentTrack } from "../../actions/footer_player_actions";
 
 const mapStateToProps = (state, ownProps) => {
     const track = state.entities.tracks[ownProps.match.params.trackId];
+    const currentUserId = state.session.currentUser.username;
+
     return {
         track: track ? track : null,
-        currentUser: state.session.currentUser.id,
+        currentUser: currentUserId ? state.entities.users[currentUserId] : null,
         currentTrack: state.ui.currentTrack,
     };
 };
@@ -19,7 +21,7 @@ const mapDispatchToProps = dispatch => ({
     deleteTrack: trackId => dispatch(deleteTrack(trackId)),
     updateTrack: track => dispatch(updateTrack(track)),
     removeCurrentTrack: () => dispatch(removeCurrentTrack()),
-    fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId))
+    fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username))
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackEditForm));

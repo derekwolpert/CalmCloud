@@ -8,13 +8,24 @@ import { openModal } from '../../actions/modal_actions';
 import FooterAudioPlayer from './footer_audio_player';
 
 const mapStateToProps = ({ ui, entities, session }) => {
+
+    const currentTrack = entities.tracks[ui.currentTrack];
+
+    const findUser = (userId) => {
+        for (let user in entities.users) {
+            if (entities.users[user].id === userId) {
+                return entities.users[user];
+            }
+        }
+    };
+
     return ({
-    currentTrack: entities.tracks[ui.currentTrack],
-    displayName: ui.currentTrack ? entities.users[entities.tracks[ui.currentTrack].user_id].display_name : null,
-    currentTrackId: ui.currentTrack,
-    playing: ui.playing,
-    percent: ui.percent,
-    currentUser: entities.users[session.currentUser.id]
+        currentTrack: currentTrack,
+        displayName: ui.currentTrack ? findUser(currentTrack.user_id).display_name : null,
+        currentTrackId: ui.currentTrack,
+        playing: ui.playing,
+        percent: ui.percent,
+        currentUser: entities.users[session.currentUser.username]
     });
 };
 
@@ -27,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
     updatePlayCount: (track) => dispatch(updatePlaycount({ id: track.id, play_count: track.play_count + 1 })),
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
-    fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId)),
+    fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
     openModal: modal => dispatch(openModal(modal))
 });
 

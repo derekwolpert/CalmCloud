@@ -41,6 +41,10 @@ class User < ApplicationRecord
 
     has_many :comments
 
+    def to_param
+        username
+    end
+
     def self.find_by_username(username, password)
         user = User.find_by(username: username)
         return nil unless user && user.is_password?(password)

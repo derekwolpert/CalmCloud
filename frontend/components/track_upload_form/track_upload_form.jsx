@@ -131,7 +131,7 @@ class TrackUploadForm extends React.Component {
 
                 <div className="audio-file-input-rules">
                     CalmCloud is intended to host short-form audio content. Please be considerate of size and length of audio file when uploading.
-                        </div>
+                </div>
 
                 <div className="track-title-input-container">
                     <span>

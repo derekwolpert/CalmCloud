@@ -14,7 +14,7 @@ const sortTracksByPlaycount = (tracks) => {
 
 const mapStateToProps = (state) => {
 
-    const currentUser = state.entities.users[state.session.currentUser.id];
+    const currentUser = state.entities.users[state.session.currentUser.username];
 
     const handleTotalPlaycounts = () => {
         let total = 0;
@@ -50,7 +50,7 @@ const mapDispatchToProps = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
-    fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId)),
+    fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackIndex));

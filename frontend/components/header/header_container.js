@@ -6,7 +6,7 @@ import { removeCurrentTrack } from '../../actions/footer_player_actions'
 import Header from './header';
 
 const mapStateToProps = ({ entities, session, ui }) => ({
-  currentUser: entities.users[session.currentUser.id],
+  currentUser: entities.users[session.currentUser.username],
   currentTrack: !!ui.currentTrack
 });
 

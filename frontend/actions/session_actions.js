@@ -31,8 +31,8 @@ export const removeSessionErrors = () => {
     });
 };
 
-export const fetchCurrentUser = id => dispatch => (
-    SessionApiUtil.fetchCurrentUser(id)
+export const fetchCurrentUser = username => dispatch => (
+    SessionApiUtil.fetchCurrentUser(username)
         .then(user => dispatch(receiveCurrentUser(user)))
 );
 

@@ -7,8 +7,8 @@ import { fetchCurrentUser } from "../../actions/session_actions";
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {
-    const currentUser = state.entities.users[state.session.currentUser.id];
-    const user = state.entities.users[ownProps.match.params.userId];
+    const currentUser = state.entities.users[state.session.currentUser.username];
+    const user = state.entities.users[ownProps.match.params.username];
 
     return {
         tracks: Object.values(state.entities.tracks).slice().reverse().filter(track => track.user_id === user.id),
@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
-    fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId)),
+    fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserShow));

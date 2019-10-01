@@ -34,12 +34,12 @@ class HeaderDropdown extends React.Component {
                     <div className="header-profile-pic">
                         <img src={this.props.profilePic ? this.props.profilePic : window.defaultAvatar} />
                     </div>
-                    <span className="header-name">{this.props.username}</span>
+                    <span className="header-name">{this.props.display_name}</span>
                     <button className="header-dropdown-icon">
                         <FontAwesomeIcon icon={faChevronUp} />
                     </button>
                     <ul className="header-dropdown-content">
-                        <Link to={`user/${this.props.userId}`}><li>Your profile</li></Link>
+                        <Link to={`/${this.props.username}`}><li>Your profile</li></Link>
                         <li>Settings</li>
                         <li onClick={() => this.props.openModal("login")}>Switch account</li>
                         <li onClick={() => this.handleLogout()}>Log out</li>
@@ -50,7 +50,7 @@ class HeaderDropdown extends React.Component {
                     <div className="header-profile-pic">
                         <img src={this.props.profilePic ? this.props.profilePic : window.defaultAvatar} />
                     </div>
-                    <span className="header-name">{this.props.username}</span>
+                    <span className="header-name">{this.props.display_name}</span>
                     <button className="header-dropdown-icon">
                             <FontAwesomeIcon icon={faChevronDown} />
                     </button>

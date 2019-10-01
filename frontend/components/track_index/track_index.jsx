@@ -16,6 +16,7 @@ class TrackIndex extends React.Component {
         this.handleIndexSize = this.handleIndexSize.bind(this);
         this.smallSidebar = this.smallSidebar.bind(this);
         this.indexTitle = this.indexTitle.bind(this);
+        this.findUser = this.findUser.bind(this);
     }
 
     componentDidMount() {
@@ -96,13 +97,21 @@ class TrackIndex extends React.Component {
         )
     }
 
+    findUser(userId) {
+        for (let user in this.props.users) {
+            if (this.props.users[user].id === userId) {
+                return this.props.users[user];
+            }
+        }
+    }
+
     render() {
         const indexItems = this.props.tracks.map( (track, idx) => (
             <TrackIndexItem
                 key={track.id}
                 track={track}
                 position={idx + 1}
-                user={this.props.users[track.user_id]}
+                user={this.findUser(track.user_id)}
                 changeTrack={this.props.changeTrack}
                 currentTrack={this.props.currentTrack}
                 currentUser={this.props.currentUser}

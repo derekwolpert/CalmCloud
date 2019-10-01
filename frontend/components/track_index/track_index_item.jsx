@@ -110,10 +110,10 @@ class TrackIndexItem extends React.Component {
     handleFavorites() {
         if (this.props.currentUser.favorites.includes(this.props.track.id)) {
             this.props.deleteFavoriteTrack(this.props.track.id).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.id)));
+                this.props.fetchCurrentUser(this.props.currentUser.username)));
         } else {
             this.props.createFavoriteTrack(this.props.track.id).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.id)));
+                this.props.fetchCurrentUser(this.props.currentUser.username)));
         }
     }
 
@@ -126,7 +126,7 @@ class TrackIndexItem extends React.Component {
                         <img src={this.props.user.userPictureUrl ? this.props.user.userPictureUrl : window.defaultAvatar} />
                     </div>
                     <div className="track-index-item-display-name">
-                        <Link to={`/user/${this.props.user.id}`}>{this.props.user.display_name}</Link> <span>uploaded</span>
+                        <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link> <span>uploaded</span>
                     </div>
                     
                     <div className="track-index-item-cloud-icon">
@@ -159,7 +159,7 @@ class TrackIndexItem extends React.Component {
                     </h1>
 
                     <h2 className="track-index-item-sub-user">
-                        uploaded by <Link to={`/user/${this.props.user.id}`}>{this.props.user.display_name}</Link>
+                        uploaded by <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link>
                     </h2>
                 </section>
 
