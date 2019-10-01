@@ -112,9 +112,9 @@ class TrackUploadForm extends React.Component {
         if (this.state.imageFile) {
             formData.append('track[track_artwork]', this.state.imageFile);
         }
-        this.props.createTrack(formData).then(({ track }) => {
-            this.props.history.push(`/track/${track.id}`);
-        });
+        this.props.createTrack(formData).then(({user, track}) => (
+            this.props.history.push(`/${user.username}/${track.title}`)
+        ));
     }
 
     stageOne() {

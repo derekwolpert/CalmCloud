@@ -15,7 +15,7 @@ class TrackShowSidebar extends React.Component {
 
         return (
             <li>
-                <Link to={`/track/${this.props.track.id}`}>
+                <Link to={`/${this.props.user.username}/${this.props.track.title}`}>
                     <div className="track-show-sidebar-artwork">
                         <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                     </div>

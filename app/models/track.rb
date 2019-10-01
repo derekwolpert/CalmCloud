@@ -34,8 +34,6 @@ class Track < ApplicationRecord
         source_type: 'Track',
         dependent: :destroy
 
-
-
     has_many :user_favorites, 
         through: :favorites,
         source: :user
@@ -43,6 +41,10 @@ class Track < ApplicationRecord
     # belongs_to :tag
 
     # has_many :comments
+
+    def to_param
+        title
+    end
 
     def ensure_play_count
         self.play_count ||= 0

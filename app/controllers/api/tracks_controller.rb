@@ -19,9 +19,11 @@ class Api::TracksController < ApplicationController
     end
 
     def update
-        @track = Track.find(params[:id])
-        if @track && @track.update_attributes(track_params)
-            render :show
+        @track = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: { profile_pic_attachment: :blob }).find_by(title: params[:title])
+        if @track && @track.user.username == params[:user_username]
+            if @track.update_attributes(track_params)
+                render :show
+            end
         elsif !@track
             render json: ['Could not locate track'], status: 400
         else
@@ -34,8 +36,14 @@ class Api::TracksController < ApplicationController
     end
 
     def show
-        @track = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: { profile_pic_attachment: :blob }).find(params[:id])
-        @tracks = Track.with_attached_track_artwork.order(created_at: :DESC).where(["user_id = ? and id != ?", "#{@track.user_id}", "#{params[:id]}"]).take(3)
+        @track = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: { profile_pic_attachment: :blob }).find_by(title: params[:title])
+        if @track && @track.user.username == params[:user_username]
+            @tracks = Track.with_attached_track_artwork.order(created_at: :DESC).where(["user_id = ? and title != ?", "#{@track.user_id}", "#{params[:title]}"])
+        elsif !@track
+            render json: ['Could not locate track'], status: 400
+        else
+            render json: @track.errors.full_messages, status: 401
+        end
     end
 
     def destroy

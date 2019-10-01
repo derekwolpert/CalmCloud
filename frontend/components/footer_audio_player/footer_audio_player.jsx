@@ -52,7 +52,7 @@ class FooterAudioPlayer extends React.Component {
                 if (this.props.currentTrack.id === this.props.currentTrackId) {
                     if (this.props.playing !== prevProps.playing) {
                         if (this.props.playing) {
-                            this.props.updatePlayCount(this.props.currentTrack);
+                            this.props.updatePlayCount(this.props.user.username, this.props.currentTrack);
                             this._audio.load();
                             this._audio.play();
                             this.setState({ percentage: 0 });
@@ -61,7 +61,7 @@ class FooterAudioPlayer extends React.Component {
                             this._audio.pause();
                         }
                     } else {
-                        this.props.updatePlayCount(this.props.currentTrack);
+                        this.props.updatePlayCount(this.props.user.username, this.props.currentTrack);
                         this._audio.load();
                         this._audio.play();
                         this.setState({ percentage: 0 });
@@ -161,8 +161,8 @@ class FooterAudioPlayer extends React.Component {
 
                         <div className="footer-player-details">
 
-                            <h6 className="footer-player-title"><Link to={`/track/${this.props.currentTrackId}`}>{this.props.currentTrack.title}</Link></h6>
-                            <h6 className="footer-player-user">uploaded by <span>{this.props.displayName}</span></h6>
+                            <h6 className="footer-player-title"><Link to={`/${this.props.user.username}/${this.props.currentTrack.title}`}>{this.props.currentTrack.title}</Link></h6>
+                            <h6 className="footer-player-user">uploaded by <span>{this.props.user.display_name}</span></h6>
 
 
                             <div className="footer-player-icons">

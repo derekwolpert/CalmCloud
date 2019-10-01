@@ -24,7 +24,7 @@ class TrackShow extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.fetchTrack(this.props.match.params.trackId).then(() => {
+        this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
             this.setState({
                 loaded: true
             });
@@ -33,11 +33,11 @@ class TrackShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.tracks) {
-            if (this.props.match.params.trackId !== prevProps.match.params.trackId) {
+            if (this.props.match.params.title !== prevProps.match.params.title) {
                 window.scrollTo(0, 0);
             }
             if (this.props.track.description === undefined) {
-                this.props.fetchTrack(this.props.match.params.trackId);
+                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
             }
             if (this.props.currentUser === undefined && prevProps.currentUser) {
                 this.props.history.push("/");
@@ -196,7 +196,7 @@ class TrackShow extends React.Component {
 
                                 <div className="track-show-inner-title">
                                     <h1>
-                                        <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
+                                            <Link to={`/${this.props.user.username}/${this.props.track.title}`}>{this.props.track.title}</Link>
                                     </h1>
 
                                     <div>uploaded by <span>{this.props.user.display_name}</span></div>
@@ -243,7 +243,7 @@ class TrackShow extends React.Component {
 
                                     { this.props.track.user_id === this.props.currentUserId ? 
                                         <>
-                                            <Link to={`/track/${this.props.track.id}/edit`}>
+                                            <Link to={`/${this.props.currentUser.username}/${this.props.track.title}/edit`}>
                                                 <div className="track-show-action-button-edit" >
                                                     <FontAwesomeIcon icon={faEdit} />
                                                     Edit

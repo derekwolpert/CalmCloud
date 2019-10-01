@@ -6,20 +6,29 @@ import TrackEditForm from './track_edit_form';
 import { removeCurrentTrack } from "../../actions/footer_player_actions";
 
 const mapStateToProps = (state, ownProps) => {
-    const track = state.entities.tracks[ownProps.match.params.trackId];
+
+    const track = () => {
+        for (let track in state.entities.tracks) {
+            if (state.entities.tracks[track].title === ownProps.match.params.title) {
+                return state.entities.tracks[track];
+            }
+        }
+        return null;
+    };
+    
     const currentUserId = state.session.currentUser.username;
 
     return {
-        track: track ? track : null,
+        track: track(),
         currentUser: currentUserId ? state.entities.users[currentUserId] : null,
         currentTrack: state.ui.currentTrack,
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchTrack: id => dispatch(fetchTrack(id)),
+    fetchTrack: (username, title) => dispatch(fetchTrack(username, title)),
     deleteTrack: trackId => dispatch(deleteTrack(trackId)),
-    updateTrack: track => dispatch(updateTrack(track)),
+    updateTrack: (username, track) => dispatch(updateTrack(username, track)),
     removeCurrentTrack: () => dispatch(removeCurrentTrack()),
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username))
 });

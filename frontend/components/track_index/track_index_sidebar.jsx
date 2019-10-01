@@ -33,7 +33,7 @@ class TrackIndexSidebar extends React.Component {
                                     </div>
                                     Feed
                                 </Link>
-                                <Link to="/tracks/new-uploads" className={`track-index-sidebar-nav-${this.props.path === "/tracks/new-uploads" ? "active" : "inactive"}`} >
+                                <Link to="/new-uploads" className={`track-index-sidebar-nav-${this.props.path === "/new-uploads" ? "active" : "inactive"}`} >
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faArrowAltCircleUp} />
@@ -44,7 +44,7 @@ class TrackIndexSidebar extends React.Component {
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
-                                <Link to="/tracks/favorites" className={`track-index-sidebar-nav-${this.props.path === "/tracks/favorites" ? "active" : "inactive"}`} >
+                                <Link to="/favorites" className={`track-index-sidebar-nav-${this.props.path === "/favorites" ? "active" : "inactive"}`} >
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faHeart} />
@@ -55,7 +55,7 @@ class TrackIndexSidebar extends React.Component {
                             </div>
                             <div className="track-index-sidebar-nav-bar"/>
                             <div className="track-index-sidebar-nav-group">
-                                <Link to="/tracks/trending" className={`track-index-sidebar-nav-${this.props.path === "/tracks/trending" ? "active" : "inactive"}`}>
+                                <Link to="/trending" className={`track-index-sidebar-nav-${this.props.path === "/trending" ? "active" : "inactive"}`}>
                                     <div className="track-index-sidebar-nav-icon">
                                         <div>
                                             <FontAwesomeIcon icon={faFire} />

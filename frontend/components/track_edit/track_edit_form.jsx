@@ -36,11 +36,11 @@ class TrackEditForm extends React.Component {
     componentDidMount() {
         window.scrollTo(0, 0);
         if (!this.props.track) {
-            this.props.fetchTrack(this.props.match.params.trackId);
-        } else if (this.props.currentUser !== this.props.track.user_id) {
-            this.props.history.push(`/track/${this.props.track.id}`);
+            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+        } else if (this.props.currentUser.id !== this.props.track.user_id) {
+            this.props.history.push(`/${this.props.currentUser.username}/${this.props.track.title}`);
         } else if (this.props.track.description === undefined) {
-            this.props.fetchTrack(this.props.match.params.trackId);
+            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
         }
     }
 
@@ -50,11 +50,11 @@ class TrackEditForm extends React.Component {
             this.props.history.push("/");
         }
         if (!this.props.track) {
-            this.props.fetchTrack(this.props.match.params.trackId);
-        } else if (this.props.currentUser !== this.props.track.user_id) {
-            this.props.history.push(`/track/${this.props.track.id}`);
+            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+        } else if (this.props.currentUser.id !== this.props.track.user_id) {
+            this.props.history.push(`/${this.props.currentUser.username}/${this.props.track.title}`);
         } else if (this.props.track.description === undefined) {
-            this.props.fetchTrack(this.props.track.id);
+            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
         } else if (!this.state.descriptionIsSet) {
             this.setState({
                 description: this.props.track.description,
@@ -132,8 +132,8 @@ class TrackEditForm extends React.Component {
             formData.append('track[track_artwork]', this.state.imageFile);
         }
 
-        this.props.updateTrack({id: this.props.track.id, formData: formData}).then(({ track }) => {
-            this.props.history.push(`/track/${track.id}`);
+        this.props.updateTrack(this.props.currentUser.username, {id: this.props.track.id, formData: formData}).then(({ track }) => {
+            this.props.history.push(`/${this.props.currentUser.username}/${track.title}`);
         });
     }
 
@@ -142,7 +142,7 @@ class TrackEditForm extends React.Component {
             this.state.descriptionIsSet && this.props.track ?
                 <section className="track-upload-container">
                     <h1>{`Editing ${this.props.track.title}`}
-                        <Link className="track-edit-header-back" to={`/track/${this.props.track.id}`}>Back</Link>
+                        <Link className="track-edit-header-back" to={`/${this.props.currentUser.username}/${this.props.track.title}`}>Back</Link>
                     </h1>
                     <div className="track-upload-inner-container">
 

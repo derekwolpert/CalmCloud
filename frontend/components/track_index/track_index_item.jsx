@@ -142,7 +142,7 @@ class TrackIndexItem extends React.Component {
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
-                {this.props.path === "/tracks/trending" ?
+                {this.props.path === "/trending" ?
                     <div className="track-trending-postion-container">
                         <div className={`track-trending-position-background${this.props.position === 1 ? "-first" : ""}`} />
                         <div className={`track-trending-position${this.props.position === 1 ? "-first" : ""}`}>
@@ -155,7 +155,7 @@ class TrackIndexItem extends React.Component {
                         {this.playPause()}
                     </div>
                     <h1 className="track-index-item-title">
-                        <Link to={`/track/${this.props.track.id}`}>{this.props.track.title}</Link>
+                        <Link to={`/${this.props.user.username}/${this.props.track.title}`}>{this.props.track.title}</Link>
                     </h1>
 
                     <h2 className="track-index-item-sub-user">
@@ -208,7 +208,7 @@ class TrackIndexItem extends React.Component {
                         </div>
                     </div>
                 </section>
-                { this.props.path === "/tracks/favorites" ?  
+                { this.props.path === "/favorites" ?  
                     <span className="track-index-item-remove-favorite" onClick={() => this.handleFavorites()}>
                         <FontAwesomeIcon icon={faTimes} />
                     </span> : null

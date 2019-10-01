@@ -5,10 +5,10 @@ export const fetchAllTracks = () => (
     })
 );
 
-export const fetchTrack = id => (
+export const fetchTrack = (username, title) => (
     $.ajax({
         method: "GET",
-        url: `/api/tracks/${id}`
+        url: `/api/users/${username}/tracks/${title}`
     })
 );
 
@@ -22,9 +22,9 @@ export const createTrack = formData => (
     })
 );
 
-export const updateTrack = track => (
+export const updateTrack = (username, track) => (
     $.ajax({
-        url: `/api/tracks/${track.id}`,
+        url: `/api/users/${username}/tracks/${track.title}`,
         method: 'PATCH',
         data: track.formData,
         contentType: false,
@@ -32,9 +32,9 @@ export const updateTrack = track => (
     })
 );
 
-export const updatePlaycount = track => (
+export const updatePlaycount = (username, track) => (
     $.ajax({
-        url: `/api/tracks/${track.id}`,
+        url: `/api/users/${username}/tracks/${track.title}`,
         method: 'PATCH',
         data: { track }
     })

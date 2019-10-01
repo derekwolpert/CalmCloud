@@ -28,8 +28,8 @@ export const fetchAllTracks = () => dispatch => (
         .then(tracks => dispatch(receiveAllTracks(tracks)))
 );
 
-export const fetchTrack = id => dispatch => (
-    TrackApiUtil.fetchTrack(id)
+export const fetchTrack = (username, title) => dispatch => (
+    TrackApiUtil.fetchTrack(username, title)
         .then(track => dispatch(receiveTrack(track)))
 );
 
@@ -38,15 +38,15 @@ export const createTrack = track => dispatch => (
         .then(track => dispatch(receiveTrack(track)))
 );
 
-export const updateTrack = track => dispatch => (
-    TrackApiUtil.updateTrack(track)
+export const updateTrack = (username, track) => dispatch => (
+    TrackApiUtil.updateTrack(username, track)
         .then(track => dispatch(receiveTrack(track)))
 );
 
-export const updatePlaycount = track => dispatch => (
-    TrackApiUtil.updatePlaycount(track)
-        .then(track => dispatch(receiveTrack(track)))
-);
+export const updatePlaycount = (username, track) => dispatch => {
+    return TrackApiUtil.updatePlaycount(username, track)
+        .then(track => dispatch(receiveTrack(track)));
+};
 
 export const deleteTrack = trackId => dispatch => (
     TrackApiUtil.deleteTrack(trackId)

@@ -52,11 +52,11 @@ class TrackIndex extends React.Component {
     indexTitle() {
         if (this.props.match.path === "/") {
             return "Feed";
-        } else if (this.props.match.path === "/tracks/trending") {
+        } else if (this.props.match.path === "/trending") {
             return "Trending";
-        } else if (this.props.match.path === "/tracks/new-uploads") {
+        } else if (this.props.match.path === "/new-uploads") {
             return "New Uploads";
-        } else if (this.props.match.path === "/tracks/favorites") {
+        } else if (this.props.match.path === "/favorites") {
             return "Favorites";
         }
     }
@@ -70,7 +70,7 @@ class TrackIndex extends React.Component {
                             <Link to="/" className={`track-index-sidebar-small-nav-${this.props.match.path === "/" ? "active" : "inactive"}`} >
                                 Feed
                             </Link>
-                            <Link to="/tracks/new-uploads" className={`track-index-sidebar-small-nav-${this.props.match.path === "/tracks/new-uploads" ? "active" : "inactive"}`} >
+                            <Link to="/new-uploads" className={`track-index-sidebar-small-nav-${this.props.match.path === "/new-uploads" ? "active" : "inactive"}`} >
                                 New Uploads
                             </Link>
                         </div>
@@ -78,7 +78,7 @@ class TrackIndex extends React.Component {
                         <div className="track-index-sidebar-small-nav-bar" />
 
                         <div className="track-index-sidebar-small-nav-group">
-                            <Link to="/tracks/favorites" className={`track-index-sidebar-small-nav-${this.props.match.path === "/tracks/favorites" ? "active" : "inactive"}`} >
+                            <Link to="/favorites" className={`track-index-sidebar-small-nav-${this.props.match.path === "/favorites" ? "active" : "inactive"}`} >
                                 Favorites
                             </Link>
                         </div>
@@ -86,7 +86,7 @@ class TrackIndex extends React.Component {
                         <div className="track-index-sidebar-small-nav-bar" />
 
                         <div className="track-index-sidebar-small-nav-group">
-                            <Link to="/tracks/trending" className={`track-index-sidebar-small-nav-${this.props.match.path === "/tracks/trending" ? "active" : "inactive"}`}>
+                            <Link to="/trending" className={`track-index-sidebar-small-nav-${this.props.match.path === "/trending" ? "active" : "inactive"}`}>
                                 Trending
                             </Link>
                         </div>
@@ -135,7 +135,7 @@ class TrackIndex extends React.Component {
                             path={this.props.match.path}
                         /> : null }
                         <section className="track-index-track-container">
-                            {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/tracks/favorites")) ?
+                            {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) ?
                                 <>
                                     <h1>{this.indexTitle()}</h1> 
                                     <div className="track-index-no-favorites-message">
