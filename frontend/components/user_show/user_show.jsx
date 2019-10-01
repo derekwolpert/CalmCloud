@@ -22,7 +22,7 @@ class UserShow extends React.Component {
     }
 
     render() {
-        return null;
+        return <span>{this.props.user ? this.props.user.display_name : null}</span>
     }
 }
 

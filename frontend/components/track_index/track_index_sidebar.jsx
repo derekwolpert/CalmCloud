@@ -20,7 +20,7 @@ class TrackIndexSidebar extends React.Component {
                             </div>
                             <span className="track-index-sidebar-profile-link">
                                 <div>{this.props.currentUser.display_name}</div>
-                                <span>View profile</span>
+                                <Link to={`/user/${this.props.currentUser.id}`}>View profile</Link>
                             </span>
                         </div>
                         <nav>

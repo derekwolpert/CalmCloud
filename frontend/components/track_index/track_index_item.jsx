@@ -126,7 +126,7 @@ class TrackIndexItem extends React.Component {
                         <img src={this.props.user.userPictureUrl ? this.props.user.userPictureUrl : window.defaultAvatar} />
                     </div>
                     <div className="track-index-item-display-name">
-                        <a>{this.props.user.display_name}</a> <span>uploaded</span>
+                        <Link to={`/user/${this.props.user.id}`}>{this.props.user.display_name}</Link> <span>uploaded</span>
                     </div>
                     
                     <div className="track-index-item-cloud-icon">
@@ -159,7 +159,7 @@ class TrackIndexItem extends React.Component {
                     </h1>
 
                     <h2 className="track-index-item-sub-user">
-                        uploaded by <span>{this.props.user.display_name}</span>
+                        uploaded by <Link to={`/user/${this.props.user.id}`}>{this.props.user.display_name}</Link>
                     </h2>
                 </section>
 

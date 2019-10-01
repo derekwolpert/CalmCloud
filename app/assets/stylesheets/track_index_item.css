@@ -228,13 +228,13 @@
     display: block;
 }
 
-.track-index-item-sub-user > span {
+.track-index-item-sub-user > a {
     color: rgb(120,187,221);
     cursor: pointer;
     transition: .2s
 }
 
-.track-index-item-sub-user > span:hover {
+.track-index-item-sub-user > a:hover {
     color: rgb(79, 166, 211);
 
 }

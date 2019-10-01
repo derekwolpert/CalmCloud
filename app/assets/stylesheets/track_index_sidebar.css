@@ -51,6 +51,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: rgb(149, 149, 149);
+    transition: 0.2s
+
 }
 
 .track-index-sidebar-profile-link > div {
@@ -59,8 +62,13 @@
     color: rgb(212, 212, 212)
 }
 
-.track-index-sidebar-profile-link > span  {
+.track-index-sidebar-profile-link > a  {
+    transition: 0.2s;
     color: rgb(149, 149, 149);
+}
+
+.track-index-sidebar-profile-link > a:hover  {
+    color: rgb(212, 212, 212);
 }
 
 .track-index-sidebar-container > nav {
