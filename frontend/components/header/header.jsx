@@ -22,6 +22,12 @@ class Header extends React.Component {
 		window.addEventListener('resize', this.handleHeaderSize);
 	}
 
+	componentDidUpdate(prevProps) {
+		if (this.props.currentUser === undefined && prevProps.currentUser) {
+			this.props.history.push("/");
+		}
+	}
+
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.handleHeaderSize);
 	}
@@ -78,6 +84,7 @@ class Header extends React.Component {
 					<HeaderDropdown
 					username={this.props.currentUser.display_name}
 					profilePic={this.props.currentUser.userPictureUrl}
+					userId={this.props.currentUser.id}
 					currentTrack={this.props.currentTrack}
 					logout={this.props.logout}
 					openModal={this.props.openModal}

@@ -226,7 +226,7 @@
     to {opacity: 1}
 }
 
-.header-dropdown-content > li {
+.header-dropdown-content > li, .header-dropdown-content > a {
     cursor: pointer;
     display: block;
     padding: 8px 14px;
@@ -239,7 +239,7 @@
     transition: .2s;
 }
 
-.header-dropdown-content > li:hover {
+.header-dropdown-content > li:hover, .header-dropdown-content > a:hover{
     color: #4fa6d3;
     background: rgba(202,238,255,.2);
 }

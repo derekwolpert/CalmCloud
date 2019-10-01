@@ -39,7 +39,7 @@ class HeaderDropdown extends React.Component {
                         <FontAwesomeIcon icon={faChevronUp} />
                     </button>
                     <ul className="header-dropdown-content">
-                        <li>Your profile</li>
+                        <Link to={`user/${this.props.userId}`}><li>Your profile</li></Link>
                         <li>Settings</li>
                         <li onClick={() => this.props.openModal("login")}>Switch account</li>
                         <li onClick={() => this.handleLogout()}>Log out</li>
