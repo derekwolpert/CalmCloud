@@ -16,7 +16,8 @@
 #
 
 class User < ApplicationRecord
-    validates :email, :username, :session_token, uniqueness: true, presence: true
+    validates :email, :username, uniqueness: true, presence: true, case_sensitive: false
+    validates :session_token, uniqueness: true, presence: true
     validates :password, length: {minimum: 6}, allow_nil: true
     validates :biography, length: {maximum: 1000}, allow_nil: true
     validates :display_name, :password_digest, presence: true
@@ -50,7 +51,6 @@ class User < ApplicationRecord
         return nil unless user && user.is_password?(password)
         user
     end
-
 
     def self.find_by_email(email, password)
         user = User.find_by(email: email)

@@ -63,7 +63,6 @@ class TrackEditForm extends React.Component {
         }
     }
 
-
     handleImageFile(e) {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
@@ -152,6 +151,11 @@ class TrackEditForm extends React.Component {
                             }
                             (e.key === 'Enter') && e.preventDefault();
                         }}>
+
+                            {this.props.currentUserTracks.includes(this.state.title.toLowerCase()) ?
+                                <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
+                            }
+
                             <div className="track-upload-cf">
 
                                 <section className="track-upload-image-container">
@@ -206,7 +210,7 @@ class TrackEditForm extends React.Component {
                                     <div className="track-upload-save-container">
                                         <Link to="/" className="track-upload-cancel">Cancel</Link>
                                         <button className="track-upload-button"
-                                            disabled={this.handleEditButton()}
+                                            disabled={this.handleEditButton() || this.props.currentUserTracks.includes(this.state.title.toLowerCase())}
                                             onClick={() => this._loading.style.display = ""}>Save</button>
                                     </div>
                                 </section>

@@ -20,22 +20,26 @@ class TrackUploadForm extends React.Component {
             imageFile: null,
             imageUrl: null,
             nextStage: false,
+            loaded: false,
         };
         this.stageOne = this.stageOne.bind(this);
         this.handleNextStage = this.handleNextStage.bind(this);
         this.stageTwo = this.stageTwo.bind(this);
         this.handlePrevStage = this.handlePrevStage.bind(this);
-
+        this.handleSubmit = this.handleSubmit.bind(this);
         this._audio = React.createRef();
         this._loading = React.createRef();
     }
 
     componentDidMount() {
         window.scrollTo(0, 0);
+        this.props.fetchCurrentUser(this.props.currentUsername)
+            .then(() => this.setState({
+                loaded: true,
+            }));
     }
 
     componentDidUpdate(prevProps) {
-
         if (this.props.currentUser === undefined && prevProps.currentUser) {
             this.props.history.push("/");
         }
@@ -112,8 +116,8 @@ class TrackUploadForm extends React.Component {
         if (this.state.imageFile) {
             formData.append('track[track_artwork]', this.state.imageFile);
         }
-        this.props.createTrack(formData).then(({user, track}) => (
-            this.props.history.push(`/${user.username}/${track.title}`)
+        this.props.createTrack(formData).then(() => (
+            this.props.history.push(`/${this.props.currentUser.username}/${this.state.title}`)
         ));
     }
 
@@ -121,6 +125,9 @@ class TrackUploadForm extends React.Component {
 
         return (
             <>
+                {this.props.currentUserTracks.includes(this.state.title.toLowerCase()) ?
+                    <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
+                }
                 <div className="audio-file-input-container">
                     <input className="audio-file-input" type="file" accept=".mp3, .aac, .m4a, .mp4, .ogg" onChange={this.handleAudioFile.bind(this)} />
                 </div>
@@ -144,8 +151,8 @@ class TrackUploadForm extends React.Component {
                     </span>
                 </div>
 
-                <div className={this.state.audioFile && this.state.title ? "track-upload-next-stage" : "track-upload-next-stage-disabled"}
-                    onClick={this.state.audioFile && this.state.title ? () => this.handleNextStage() : null}>
+                <div className={(this.state.audioFile && this.state.title) && !(this.props.currentUserTracks.includes(this.state.title.toLowerCase())) ? "track-upload-next-stage" : "track-upload-next-stage-disabled"}
+                    onClick={(this.state.audioFile && this.state.title) && !(this.props.currentUserTracks.includes(this.state.title.toLowerCase())) ? () => this.handleNextStage() : null}>
                     Continue to Edit Information
                 </div>
             </>
@@ -154,7 +161,6 @@ class TrackUploadForm extends React.Component {
 
 
     stageTwo() {
-
         return (
             <>
                 <div className="track-upload-name-stage-two">
@@ -169,6 +175,10 @@ class TrackUploadForm extends React.Component {
                     </div>
 
                 </div>
+
+                {this.props.currentUserTracks.includes(this.state.title.toLowerCase()) ?
+                    <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
+                }
 
                 <div className="track-upload-cf">
 
@@ -226,7 +236,7 @@ class TrackUploadForm extends React.Component {
                         <div className="track-upload-save-container">
                             <Link to="/" className="track-upload-cancel">Cancel</Link>
                             <button className="track-upload-button"
-                                disabled={!this.state.audioUrl || !(this.state.title.length > 0)}
+                                disabled={(!this.state.audioUrl || !(this.state.title.length > 0)) || (this.props.currentUserTracks.includes(this.state.title.toLowerCase()))}
                                 onClick={() => this._loading.style.display = ""}>Upload and Publish</button>
                         </div>
                     </section>
@@ -239,57 +249,57 @@ class TrackUploadForm extends React.Component {
     render() {
         return (
             this.props.currentUser ? (
-                <section className="track-upload-container">
-                    <h1> {this.state.nextStage ? `Upload ${this.state.title}` : "Upload"}</h1>
+                this.state.loaded ?
+                    <section className="track-upload-container">
+                        <h1> {this.state.nextStage ? `Upload ${this.state.title}` : "Upload"}</h1>
 
-                    <div className="track-upload-inner-container">
-                        {this.state.nextStage ? null : (
+                        <div className="track-upload-inner-container">
+                            {this.state.nextStage ? null : (
 
-                            <section className="track-upload-reasons">
-                                <div className="upload-reason-1">
-                                    <div className="upload-reason-icon-1">
-                                        <FontAwesomeIcon icon={faInfinity} />
+                                <section className="track-upload-reasons">
+                                    <div className="upload-reason-1">
+                                        <div className="upload-reason-icon-1">
+                                            <FontAwesomeIcon icon={faInfinity} />
+                                        </div>
+                                        <h3 className="upload-reason-title">
+                                            Unlimited Uploads
+                                        </h3>
                                     </div>
-                                    <h3 className="upload-reason-title">
-                                        Unlimited Uploads
-                                    </h3>
-                                </div>
 
-                                <div className="upload-reason-2">
-                                    <div className="upload-reason-icon-2">
-                                        <FontAwesomeIcon icon={faEdit} />
+                                    <div className="upload-reason-2">
+                                        <div className="upload-reason-icon-2">
+                                            <FontAwesomeIcon icon={faEdit} />
+                                        </div>
+                                        <h3 className="upload-reason-title">
+                                            Customize Track Information
+                                        </h3>
                                     </div>
-                                    <h3 className="upload-reason-title">
-                                        Customize Track Information
-                                    </h3>
-                                </div>
 
-                                <div className="upload-reason-3">
-                                    <div className="upload-reason-icon-3">
-                                        <FontAwesomeIcon icon={faMusic} />
+                                    <div className="upload-reason-3">
+                                        <div className="upload-reason-icon-3">
+                                            <FontAwesomeIcon icon={faMusic} />
+                                        </div>
+                                        <h3 className="upload-reason-title">
+                                            Share with CalmCloud Community
+                                        </h3>
                                     </div>
-                                    <h3 className="upload-reason-title">
-                                        Share with CalmCloud Community
-                                    </h3>
-                                </div>
 
-                            </section>
-                        )}
+                                </section>
+                            )}
 
-                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
-                            if (e.target.className === "track-description-input") {
-                                
-                                return;
-                            }
-                            (e.key === 'Enter') && e.preventDefault(); 
-                            }}>
-                            {this.state.nextStage === true ? this.stageTwo() : this.stageOne()}
-                        </form>
+                            <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                                if (e.target.className === "track-description-input") {
+                                    return;
+                                }
+                                (e.key === 'Enter') && e.preventDefault(); 
+                                }}>
+                                {this.state.nextStage === true ? this.stageTwo() : this.stageOne()}
+                            </form>
 
-                    </div>
-                    <audio ref={(a) => this._audio = a} src="" />
-                    <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
-            </section>
+                        </div>
+                        <audio ref={(a) => this._audio = a} src="" />
+                        <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+            </section> : <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
             ) : <TrackUploadGuestContainer />
             
         );

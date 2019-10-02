@@ -160,13 +160,13 @@
     font-weight: 300;
 }
 
-.track-show-inner-title > div > span {
+.track-show-inner-title > div > a {
     color: rgb(120,187,221);
     transition: .2s;
     cursor: pointer;
 }
 
-.track-show-inner-title > div > span:hover {
+.track-show-inner-title > div > a:hover {
     color: rgb(79, 166, 211);
 }
 

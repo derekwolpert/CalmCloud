@@ -199,7 +199,7 @@ class TrackShow extends React.Component {
                                             <Link to={`/${this.props.user.username}/${this.props.track.title}`}>{this.props.track.title}</Link>
                                     </h1>
 
-                                    <div>uploaded by <span>{this.props.user.display_name}</span></div>
+                                    <div>uploaded by <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link></div>
 
                                 </div>
 
@@ -257,7 +257,7 @@ class TrackShow extends React.Component {
                                                 </button>
                                                 {this.state.deleteConfirmation ?
                                                     <div className="track-show-delete-confirmation">
-                                                        <div className="track-show-confirm-delete" onClick={() => this.handleDelete()}>Confirm deletion</div>
+                                                        <div className="track-show-confirm-delete" onClick={() => this.handleDelete()}>Confirm Deletion</div>
                                                         <div className="track-show-cancel-delete" onClick={() => this.setState({ deleteConfirmation: false })}>Cancel</div>
                                                     </div> : null
                                                 }

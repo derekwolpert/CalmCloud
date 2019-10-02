@@ -162,7 +162,7 @@ class FooterAudioPlayer extends React.Component {
                         <div className="footer-player-details">
 
                             <h6 className="footer-player-title"><Link to={`/${this.props.user.username}/${this.props.currentTrack.title}`}>{this.props.currentTrack.title}</Link></h6>
-                            <h6 className="footer-player-user">uploaded by <span>{this.props.user.display_name}</span></h6>
+                            <h6 className="footer-player-user">uploaded by <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link></h6>
 
 
                             <div className="footer-player-icons">
@@ -175,9 +175,9 @@ class FooterAudioPlayer extends React.Component {
                                     <FontAwesomeIcon icon={faShareSquare} />
                                 </div>
 
-                                <div className="footer-player-user-icon">
+                                <Link to={`/${this.props.user.username}`} className={`footer-player-user-icon${this.props.location.pathname === `/${this.props.user.username}` ? "-active" : ""}`}>
                                     <FontAwesomeIcon icon={faUser} />
-                                </div>
+                                </Link>
                             </div>
 
                         </div>

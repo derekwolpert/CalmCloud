@@ -24,7 +24,9 @@ class Header extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.currentUser === undefined && prevProps.currentUser) {
-			this.props.history.push("/");
+			if (this.props.location.pathname !== "/") {
+				this.props.history.push("/");
+			}
 		}
 	}
 

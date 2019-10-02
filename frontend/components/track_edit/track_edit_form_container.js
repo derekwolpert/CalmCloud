@@ -16,12 +16,14 @@ const mapStateToProps = (state, ownProps) => {
         return null;
     };
     
-    const currentUserId = state.session.currentUser.username;
+    const currentUsername = state.session.currentUser.username;
+    const currentUser = currentUsername ? state.entities.users[currentUsername] : null;
 
     return {
         track: track(),
-        currentUser: currentUserId ? state.entities.users[currentUserId] : null,
+        currentUser: currentUser,
         currentTrack: state.ui.currentTrack,
+        currentUserTracks: currentUser ? Object.values(state.entities.tracks).filter((otherTrack) => ((otherTrack.user_id === currentUser.id) && otherTrack.id !== track().id)).map(track => track.title.toLowerCase()) : [],
     };
 };
 

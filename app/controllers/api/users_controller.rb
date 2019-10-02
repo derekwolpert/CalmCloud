@@ -14,11 +14,17 @@ class Api::UsersController < ApplicationController
         end
         
         if User.find_by(username: params[:user][:username])
-            errs.push("This username is already taken")
+            errs.push("This username is already taken.")
         end
 
         if (params[:user][:password]).length < 6
             errs.push("Enter a valid password, at least 6 characters.")
+        end
+
+        forbidden_usernames = ["upload", "new-uploads", "favorites", "trending"]
+
+        if forbidden_usernames.include?(params[:user][:username].downcase)
+            errs.push("This username is reserved.")
         end
 
         if errs.length > 0

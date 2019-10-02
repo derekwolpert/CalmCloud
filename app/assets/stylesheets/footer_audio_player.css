@@ -166,13 +166,13 @@
     max-width: 320px;
 }
 
-.footer-player-user > span {
+.footer-player-user > a {
     color: rgb(120,187,221);
     cursor: pointer;
     transition: .2s;
 }
 
-.footer-player-user > span:hover {
+.footer-player-user > a:hover {
     color: rgb(79, 166, 211);
     cursor: pointer;
     transition: .2s;
@@ -232,7 +232,7 @@
     opacity: .8;
 }
 
-.footer-player-user-icon {
+.footer-player-user-icon-active, .footer-player-user-icon {
     box-sizing: content-box;
     position: relative;
     z-index: 10;
@@ -247,6 +247,10 @@
 
 .footer-player-user-icon:hover {
     opacity: .8;
+}
+
+.footer-player-user-icon-active {
+    color: rgb(120,187,221);
 }
 
 .footer-player-mid-container {
