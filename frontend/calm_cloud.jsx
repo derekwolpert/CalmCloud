@@ -4,7 +4,6 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
-
     let store;
     if (window.currentUser) {
         const preloadedState = {
@@ -20,9 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
-
-    window.getState = store.getState;
-
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
 });
