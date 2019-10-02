@@ -21,6 +21,7 @@ body {
     color: white;
     font-family: "Open Sans",sans-serif;
     width: 100%;
+    min-width: 1100px;
     position: absolute;
     box-sizing: border-box;
     font-style: normal;
@@ -38,6 +39,7 @@ body {
     box-sizing: border-box;
     display: block;
     clear: both;
+    min-width: 1100px;
 }
 
 .cf-body:after, .cf-body:before {
