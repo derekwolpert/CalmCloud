@@ -621,7 +621,7 @@
 }
 
 .track-upload-title-warning {
-    background: rgba(253, 245, 245, 0.8);
+    background-color: rgba(46,38,38,0.6);
     color: #e2584e;
     box-shadow: inset 0 0 0 2px rgba(226,88,78,0.6);
     display: block;
