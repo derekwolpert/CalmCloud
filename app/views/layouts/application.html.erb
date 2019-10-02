@@ -32,6 +32,15 @@
     <script type="text/javascript">
       window.defaultArtwork = "<%= image_url('default_artwork.png') %>"
     </script>
+
+    <script type="text/javascript">
+      if (("calmcloud.herokuapp.com" === window.location.host) && (window.location.protocol !== "https:")) {
+        window.location.host = "www.calmcloud.app"
+        window.location.protocol = "https:";
+      } else if ((("www.calmcloud.app" || "calmcloud.app") === window.location.host) && (window.location.protocol !== "https:")) {
+        window.location.protocol = "https:";
+      }
+    </script>
     
     <%= javascript_include_tag 'application' %>
   </head>
