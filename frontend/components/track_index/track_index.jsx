@@ -31,6 +31,15 @@ class TrackIndex extends React.Component {
             large: window.innerWidth >= 1320,
         });
         window.addEventListener('resize', this.handleIndexSize);
+        if (this.props.match.path === "/") {
+            document.title = "Your Feed | CalmCloud";
+        } else if (this.props.match.path === "/trending") {
+            document.title = "Trending | CalmCloud";
+        } else if (this.props.match.path === "/new-uploads") {
+            document.title = "New Uploads | CalmCloud";
+        } else if (this.props.match.path === "/favorites") {
+            document.title = "Favorites | CalmCloud";
+        }
     }
 
     componentWillUnmount() {

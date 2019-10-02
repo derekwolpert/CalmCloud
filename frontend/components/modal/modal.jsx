@@ -8,29 +8,27 @@ import SignupFormContainer from '../session_form/signup_form_container';
 class Modal extends React.Component {
 	constructor(props) {
 		super(props);
+		this.component = this.component.bind(this);
+	}
+
+	component() {
+		if (this.props.modal === "login") {
+			return <LoginFormContainer />;
+		} else if (this.props.modal === "signup") {
+			return <SignupFormContainer />;
+		} else {
+			return null;
+		}
 	}
 	
 	render() {
-		if (!this.props.modal) {
-			return null;
-		}
-		let component;
-		switch (this.props.modal) {
-			case 'login':
-			component = <LoginFormContainer />;
-			break;
-			case 'signup':
-			component = <SignupFormContainer />;
-			break;
-			default:
-			return null;
-		}
 		return (
-			<div className="modal-background" onClick={this.props.closeModal}>
-				<div className="modal-child" onClick={e => e.stopPropagation()}>
-					{ component }
-				</div>
-			</div>
+			this.props.modal ?
+				<div className="modal-background" onClick={this.props.closeModal}>
+					<div className="modal-child" onClick={e => e.stopPropagation()}>
+						 {this.component()}
+					</div>
+				</div> : null
 		);
 	}
 }

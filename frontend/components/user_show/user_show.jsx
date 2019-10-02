@@ -19,6 +19,11 @@ class UserShow extends React.Component {
                 loaded: true
             });
         });
+        if (this.props.user) document.title = `${this.props.user.display_name} | CalmCloud`;
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.user !== prevProps.user) document.title = `${this.props.user.display_name} | CalmCloud`;
     }
 
     render() {

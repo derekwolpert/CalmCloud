@@ -111,7 +111,7 @@
 
 .track-show-progress-background {
     stroke: rgba(255, 255, 255, 0.8);
-    fill: rgba(0,0,0,.25);
+    fill: rgba(18,18,18,0.3);
 }
 
 .track-show-progress-circle {

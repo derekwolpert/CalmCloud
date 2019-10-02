@@ -11,6 +11,7 @@ class Splash extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
+        document.title = "CalmCloud";
     }
     
     render() {

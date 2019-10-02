@@ -42,6 +42,7 @@ class TrackEditForm extends React.Component {
         } else if (this.props.track.description === undefined) {
             this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
         }
+        document.title = `Editing ${this.props.match.params.title} | CalmCloud`;
     }
 
     componentDidUpdate(prevProps) {

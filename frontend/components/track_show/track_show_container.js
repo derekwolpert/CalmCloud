@@ -16,8 +16,7 @@ const mapStateToProps = (state, ownProps) => {
             }
         }
         return null;
-
-    }
+    };
 
     const tracks = track() ? Object.values(state.entities.tracks).slice().reverse().filter(subTrack => {
         return (subTrack.user_id === track().user_id) && (subTrack.id !== track().id);

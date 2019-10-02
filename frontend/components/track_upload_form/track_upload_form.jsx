@@ -37,6 +37,7 @@ class TrackUploadForm extends React.Component {
             .then(() => this.setState({
                 loaded: true,
             }));
+        document.title = "Upload | CalmCloud";
     }
 
     componentDidUpdate(prevProps) {

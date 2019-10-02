@@ -29,6 +29,7 @@ class TrackShow extends React.Component {
                 loaded: true
             });
         });
+        document.title = `${this.props.match.params.title} | CalmCloud`;
     }
 
     componentDidUpdate(prevProps) {
