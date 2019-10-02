@@ -34,9 +34,8 @@
     </script>
 
     <script type="text/javascript">
-      if (("calmcloud.herokuapp.com" === window.location.host) && (window.location.protocol !== "https:")) {
+      if ("calmcloud.herokuapp.com" === window.location.host) {
         window.location.host = "www.calmcloud.app"
-        window.location.protocol = "https:";
       } else if ((("www.calmcloud.app" || "calmcloud.app") === window.location.host) && (window.location.protocol !== "https:")) {
         window.location.protocol = "https:";
       }
