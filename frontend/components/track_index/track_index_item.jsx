@@ -192,19 +192,14 @@ class TrackIndexItem extends React.Component {
                             <div className="track-index-item-new-stats">
                                 {this.props.track.play_count}
                             </div>
-                            { this.confirmNew() ? (
-                                <>
-                                    <div className="track-index-item-new-icon">
-                                        <FontAwesomeIcon icon={faCalendarAlt} />
-                                    </div>
-                                    <div className="track-index-item-new-stats">
-                                        {`${this.formateDate().split(" ")[0]}${this.formateDate().split(" ")[1][0]} ${this.formateDate().split(" ")[2]}`   }
-                                        <div className="track-index-item-new-badge">New</div>
-                                    </div>
-                                </>
-                                ) : (
-                                null
-                            )}
+
+                            <div className="track-index-item-new-icon">
+                                <FontAwesomeIcon icon={faCalendarAlt} />
+                            </div>
+                            <div className="track-index-item-new-stats">
+                                {`${this.formateDate().split(" ")[0]}${this.formateDate().split(" ")[1][0]} ${this.formateDate().split(" ")[2]}`}
+                                { this.confirmNew() ? <div className="track-index-item-new-badge">New</div> : null }
+                            </div>
                         </div>
                     </div>
                 </section>
