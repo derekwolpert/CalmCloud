@@ -3,3 +3,4 @@ if user.profile_pic.attached?
     json.userPictureUrl url_for(user.profile_pic)
 end
 json.favorites user.favorites.map{ |track| track.favorited_id if track.favorited_type == "Track"}.compact
+json.subscribers user.favorites.map{ |track| track.favorited_id if track.favorited_type == "User"}.compact

@@ -40,6 +40,22 @@ class User < ApplicationRecord
         source: :favorited,
         source_type: 'Track'
 
+    has_many :subscribed_users, 
+        through: :favorites,
+        source: :favorited,
+        source_type: 'User'
+
+    has_many :subscribers,
+        primary_key: :id,
+        foreign_key: :favorited_id,
+        class_name: :Favorite,
+        source_type: 'User',
+        dependent: :destroy
+
+    has_many :user_subscribers, 
+        through: :subscribers,
+        source: :user
+
     has_many :comments
 
     def to_param

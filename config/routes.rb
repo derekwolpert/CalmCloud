@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 		resource :session, only: [:create, :destroy]
 		resources :tracks, only: [:create, :index, :destroy]
 		resources :favorite_tracks, only: [:create, :destroy]
+		resources :subscribe_users, only: [:create, :destroy]
 	end
 	
 end
