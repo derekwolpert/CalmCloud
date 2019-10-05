@@ -1,9 +1,10 @@
 import * as UserApiUtil from '../util/user_api_util';
 export const RECEIVE_USER = 'RECEIVE_USER';
 
-export const receiveUser = ({ user, tracks }) => {
+export const receiveUser = ({ user, users, tracks }) => {
     return ({
         type: RECEIVE_USER,
+        users,
         user,
         tracks
     });

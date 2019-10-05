@@ -9,10 +9,13 @@ import UserShow from './user_show';
 const mapStateToProps = (state, ownProps) => {
     const currentUser = state.entities.users[state.session.currentUser.username];
     const user = state.entities.users[ownProps.match.params.username];
+    const favoriteTracks = user ? (user.favorites !== undefined ? user.favorites.slice().reverse().map(num => state.entities.tracks[num]) : []) : null;
 
     return {
         tracks: Object.values(state.entities.tracks).slice().reverse().filter(track => track.user_id === user.id),
+        favoriteTracks: favoriteTracks,
         user: user,
+        users: state.entities.users,
         currentTrack: state.ui.currentTrack,
         percent: state.ui.percent,
         playing: state.ui.playing,

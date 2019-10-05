@@ -153,7 +153,7 @@ class TrackIndex extends React.Component {
                             :
                             <>
                                 <h1>{this.indexTitle()}
-                                    { this.props.tracks.length > 0 ?
+                                    { this.state.loaded ?
                                         <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
                                             <FontAwesomeIcon icon={faPlay} />
                                             Play

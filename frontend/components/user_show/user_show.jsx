@@ -15,6 +15,10 @@ class UserShow extends React.Component {
             activeTab: "uploads"
         };
         this.handleProfileTab = this.handleProfileTab.bind(this);
+
+        this.findUser = this.findUser.bind(this);
+        this.profileItems = this.profileItems.bind(this);
+        this.handleContent = this.handleContent.bind(this);
     }
 
     componentDidMount() {
@@ -44,14 +48,21 @@ class UserShow extends React.Component {
         }
     }
 
-    render() {
+    findUser(userId) {
+        for (let user in this.props.users) {
+            if (this.props.users[user].id === userId) {
+                return this.props.users[user];
+            }
+        }
+    }
 
-        const profileItems = this.props.tracks.map((track, idx) => (
+    profileItems(tracks) {
+        return tracks.map((track, idx) => (
             <TrackIndexItem
                 key={track.id}
                 track={track}
                 position={idx + 1}
-                user={this.props.user}
+                user={this.findUser(track.user_id)}
                 changeTrack={this.props.changeTrack}
                 currentTrack={this.props.currentTrack}
                 currentUser={this.props.currentUser}
@@ -63,6 +74,32 @@ class UserShow extends React.Component {
                 deleteFavoriteTrack={this.props.deleteFavoriteTrack}
                 fetchCurrentUser={this.props.fetchCurrentUser}
             />));
+    }
+
+    handleContent() {
+
+        if (this.state.activeTab === "uploads") {
+            return (
+                <section className="user-show-uploads">
+                    <h1>Uploads</h1>
+                    {this.profileItems(this.props.tracks)}
+                    {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                </section>
+            )
+        }
+
+        if (this.state.activeTab === "favorites") {
+            return (
+                <section className="user-show-favorites">
+                    <h1>Favorites</h1>
+                    {this.profileItems(this.props.favoriteTracks)}
+                    {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                </section>
+            )
+        }
+    }
+
+    render() {
 
         return (
             this.state.loaded ?
@@ -72,7 +109,7 @@ class UserShow extends React.Component {
                             <div className="user-show-profile-header-inner-container">
                                 <Link to={`/${this.props.user.username}`}>
                                     <div className="user-show-profile-pic-container">
-                                        <img src="user-show-profile-pic" src={this.props.user.userPictureUrl} />
+                                        <img src="user-show-profile-pic" src={this.props.user.userPictureUrl ? this.props.user.userPictureUrl : window.defaultAvatar} />
                                     </div>
                                 </Link>
                                 <div className="user-show-username">
@@ -101,13 +138,8 @@ class UserShow extends React.Component {
                         </section>
                     </div>
                     <div className="user-show-content">
-                        
                         <div className="user-show-inner-container">
-                            <section className="user-show-tracks">
-                                <h1>Uploads</h1>
-                                {profileItems}
-                                {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
-                            </section>
+                            {this.handleContent()}
                         </div>
                     </div>
                 </>
