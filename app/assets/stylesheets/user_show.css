@@ -18,7 +18,7 @@
 .user-show-profile-header:after {
     background-color: rgb(255, 255, 255);
     box-shadow: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(96, 96, 96, 0.4);
     border-top: 70px solid rgb(36, 36, 36);
     height: 58px;
     background: rgba(36, 36, 36, 1);
@@ -29,7 +29,7 @@
     bottom: 0px;
     z-index: 2;
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px -2px 0px inset;
+    box-shadow: rgba(96, 96, 96, 0.4) 0px -2px 0px inset;
 }
 
 .user-show-profile-header-inner-container {
@@ -158,6 +158,7 @@
     width: 1080px;
     margin: 0 auto;
     display: block;
+    min-height: calc(100vh - 385px);
 }
 
 .user-show-inner-container:before, .user-show-inner-container:after {

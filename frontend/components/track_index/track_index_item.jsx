@@ -174,10 +174,17 @@ class TrackIndexItem extends React.Component {
                     <div>
                         <div className="track-index-item-actions">
 
-                            <div className={`track-index-item-action${this.props.currentUser.favorites.includes(this.props.track.id) ? "-active" : ""}`}
-                                onClick={() => this.handleFavorites()} >
-                                <FontAwesomeIcon icon={faHeart} />
-                            </div>
+                            { this.props.currentUser ? 
+                                <div className={`track-index-item-action${this.props.currentUser.favorites.includes(this.props.track.id) ? "-active" : ""}`}
+                                    onClick={() => this.handleFavorites()} >
+                                    <FontAwesomeIcon icon={faHeart} />
+                                </div>
+                                :
+                                <div className="track-index-item-action"
+                                    onClick={() => this.props.openModal("login")} >
+                                    <FontAwesomeIcon icon={faHeart} />
+                                </div>
+                            }
 
                             <div className="track-index-item-action">
                                 <FontAwesomeIcon icon={faShareSquare} />

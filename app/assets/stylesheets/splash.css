@@ -11,6 +11,7 @@
     object-fit: cover;
     opacity: 0.6;
     z-index: -10;
+    box-shadow: 0px 0px 16px rgba(56,56,56, 0.3);
 }
 
 .splash-text {

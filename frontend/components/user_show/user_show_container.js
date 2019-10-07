@@ -3,17 +3,17 @@ import { withRouter } from 'react-router-dom';
 import { fetchUser } from "../../actions/user_actions";
 import { changeTrack, pauseTrack } from '../../actions/footer_player_actions';
 import { createFavoriteTrack, deleteFavoriteTrack } from "../../actions/favorite_track_actions";
+import { openModal } from '../../actions/modal_actions';
 import { fetchCurrentUser } from "../../actions/session_actions";
 import UserShow from './user_show';
 
 const mapStateToProps = (state, ownProps) => {
-    const currentUser = state.entities.users[state.session.currentUser.username];
-    const user = state.entities.users[ownProps.match.params.username];
-    const favoriteTracks = user ? (user.favorites !== undefined ? user.favorites.slice().reverse().map(num => state.entities.tracks[num]) : []) : null;
+    const currentUser = state.entities.users[state.session.currentUser.username] || null;
+    const user = state.entities.users[ownProps.match.params.username] || null;
 
     return {
-        tracks: Object.values(state.entities.tracks).slice().reverse().filter(track => track.user_id === user.id),
-        favoriteTracks: favoriteTracks,
+        tracks: user ? Object.values(state.entities.tracks).slice().reverse().filter(track => track.user_id === user.id) : null,
+        favoriteTracks: user ? ((user.favorites !== undefined) ? user.favorites.slice().reverse().map(num => state.entities.tracks[num]) : null) : null,
         user: user,
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,
@@ -30,6 +30,7 @@ const mapDispatchToProps = dispatch => ({
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
+    openModal: modal => dispatch(openModal(modal)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserShow));

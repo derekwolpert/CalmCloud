@@ -12,13 +12,9 @@ class UserShow extends React.Component {
 
         this.state = {
             loaded: false,
-            activeTab: "uploads"
         };
-        this.handleProfileTab = this.handleProfileTab.bind(this);
-
-        this.findUser = this.findUser.bind(this);
-        this.profileItems = this.profileItems.bind(this);
         this.handleContent = this.handleContent.bind(this);
+        this.findUser = this.findUser.bind(this);
     }
 
     componentDidMount() {
@@ -32,19 +28,35 @@ class UserShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.user !== prevProps.user) document.title = `${this.props.user.display_name} | CalmCloud`;
+        if (this.props.user !== prevProps.user) {
+            document.title = `${this.props.user.display_name} | CalmCloud`;
+            window.scrollTo(0, 0);
+        }
+
+        if (this.props.currentUser && !prevProps.currentUser) {
+            this.props.fetchUser(this.props.match.params.username);
+        }
     }
 
-    handleProfileTab(tab) {
-        if (tab === "uploads") {
-            this.setState({
-                activeTab: "uploads"
-            });
+    handleContent(items) {
+
+        if ((this.props.match.path === "/:username") || (this.props.match.path === "/:username/uploads")) {
+            return (
+                <section className="user-show-uploads">
+                    <h1>Uploads</h1>
+                    {items}
+                    {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                </section>
+            )
         }
-        if (tab === "favorites") {
-            this.setState({
-                activeTab: "favorites"
-            });
+        if (this.props.match.path === "/:username/favorites") {
+            return (
+                <section className="user-show-favorites">
+                    <h1>Favorites</h1>
+                    {items}
+                    {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                </section>
+            )
         }
     }
 
@@ -56,8 +68,36 @@ class UserShow extends React.Component {
         }
     }
 
-    profileItems(tracks) {
-        return tracks.map((track, idx) => (
+    render() {
+        if (this.props.user === null) {
+            return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+        }
+
+        if (this.props.user.favorites === undefined) {
+            return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+        }
+
+        if ((this.props.match.path === "/:username") || (this.props.match.path === "/:username/uploads")) {
+            if (this.props.tracks === null) {
+                return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+            }
+            if (this.props.tracks.includes(undefined)) {
+                return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+            }
+        }
+
+        if (this.props.match.path === "/:username/favorites") {
+            if (this.props.favoriteTracks === null) {
+                return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+            }
+            if (this.props.favoriteTracks.includes(undefined)) {
+                return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+            }
+        }
+
+        const tracks = (this.props.match.path === "/:username/favorites") ? this.props.favoriteTracks : this.props.tracks;
+
+        const indexItems = tracks.map((track, idx) => (
             <TrackIndexItem
                 key={track.id}
                 track={track}
@@ -73,33 +113,8 @@ class UserShow extends React.Component {
                 createFavoriteTrack={this.props.createFavoriteTrack}
                 deleteFavoriteTrack={this.props.deleteFavoriteTrack}
                 fetchCurrentUser={this.props.fetchCurrentUser}
+                openModal={this.props.openModal}
             />));
-    }
-
-    handleContent() {
-
-        if (this.state.activeTab === "uploads") {
-            return (
-                <section className="user-show-uploads">
-                    <h1>Uploads</h1>
-                    {this.profileItems(this.props.tracks)}
-                    {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
-                </section>
-            )
-        }
-
-        if (this.state.activeTab === "favorites") {
-            return (
-                <section className="user-show-favorites">
-                    <h1>Favorites</h1>
-                    {this.profileItems(this.props.favoriteTracks)}
-                    {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
-                </section>
-            )
-        }
-    }
-
-    render() {
 
         return (
             this.state.loaded ?
@@ -119,18 +134,18 @@ class UserShow extends React.Component {
                                 <div className="user-show-profile-navigation">
                                     <ul className="user-show-nav-tabs">
                                         <li>
-                                            <div className={`user-show-nav-tab${this.state.activeTab === "uploads" ? "-active" : ""}`}
-                                                onClick={() => this.handleProfileTab("uploads")}>
+                                            <Link className={`user-show-nav-tab${((this.props.match.path === "/:username") || (this.props.match.path === "/:username/uploads")) ? "-active" : ""}`}
+                                                to={`/${this.props.user.username}/uploads`}>
                                                 <b>{this.props.tracks.length}</b>
                                                 <span>Uploads</span>
-                                            </div>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <div className={`user-show-nav-tab${this.state.activeTab === "favorites" ? "-active" : ""}`}
-                                                onClick={() => this.handleProfileTab("favorites")}>
+                                            <Link className={`user-show-nav-tab${(this.props.match.path === "/:username/favorites") ? "-active" : ""}`}
+                                                to={`/${this.props.user.username}/favorites`}>
                                                 <b>{this.props.user.favorites.length}</b>
                                                 <span>Favorites</span>
-                                            </div>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -139,7 +154,7 @@ class UserShow extends React.Component {
                     </div>
                     <div className="user-show-content">
                         <div className="user-show-inner-container">
-                            {this.handleContent()}
+                            {this.handleContent(indexItems)}
                         </div>
                     </div>
                 </>
