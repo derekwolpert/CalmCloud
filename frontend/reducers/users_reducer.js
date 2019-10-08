@@ -8,9 +8,9 @@ export default (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, { [action.user.username]: action.user }, action.users);
+            return Object.assign({}, state, action.users, { [action.user.username]: action.user });
         case RECEIVE_USER:
-            return Object.assign({}, state, { [action.user.username]: action.user }, action.users);
+            return Object.assign({}, state, action.users, { [action.user.username]: action.user });
         case RECEIVE_ALL_TRACKS:
             return merge({}, state, action.users );
         case RECEIVE_TRACK:

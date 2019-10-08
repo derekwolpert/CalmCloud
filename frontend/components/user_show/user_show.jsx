@@ -28,7 +28,7 @@ class UserShow extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.user !== prevProps.user) {
+        if (this.props.match.params.username !== prevProps.match.params.username) {
             document.title = `${this.props.user.display_name} | CalmCloud`;
             window.scrollTo(0, 0);
         }

@@ -5,10 +5,7 @@ end
 @favoriteTracks.each do |track|
     json.users do
         json.set! track.user.username do
-            json.extract! track.user, :id, :display_name, :username
-            if track.user.profile_pic.attached?
-                json.userPictureUrl url_for(track.user.profile_pic)
-            end
+            json.partial! "api/users/user", user: track.user
         end
     end
 end
