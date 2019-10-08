@@ -49,8 +49,8 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).includes(:favorites).includes(favorite_tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).find_by(username: params[:username])
-        @favoriteTracks = @user.favorite_tracks.includes(user: {profile_pic_attachment: :blob})
+        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).includes(:favorites).find_by(username: params[:username])
+        @favoriteTracks = @user.favorite_tracks.with_attached_audio_track.with_attached_track_artwork.includes(user: {profile_pic_attachment: :blob})
     end
 
     def destroy

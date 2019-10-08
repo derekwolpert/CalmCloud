@@ -31,7 +31,6 @@ class Track < ApplicationRecord
         primary_key: :id,
         foreign_key: :favorited_id,
         class_name: :Favorite,
-        source_type: 'Track',
         dependent: :destroy
 
     has_many :user_favorites, 

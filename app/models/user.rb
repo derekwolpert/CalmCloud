@@ -28,35 +28,45 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    # Tracks uploaded by user
     has_many :tracks,
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :Track
 
-    has_many :favorites
+    # all favorites, both favorited track and user subscriptions
+    has_many :favorites,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Favorite
     
+
+    # all favorited tracks by user, through favorite model association
     has_many :favorite_tracks, 
         through: :favorites,
         source: :favorited,
         source_type: 'Track'
 
-    has_many :subscribed_users, 
+    # all user subscriptions by user, through favorites model association
+    has_many :user_subscriptions, 
         through: :favorites,
         source: :favorited,
         source_type: 'User'
 
+
+    #not working!
     has_many :subscribers,
         primary_key: :id,
         foreign_key: :favorited_id,
         class_name: :Favorite,
-        source_type: 'User',
         dependent: :destroy
+
 
     has_many :user_subscribers, 
         through: :subscribers,
         source: :user
 
-    has_many :comments
+    # has_many :comments
 
     def to_param
         username

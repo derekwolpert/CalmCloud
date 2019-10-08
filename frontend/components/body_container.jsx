@@ -16,6 +16,7 @@ const BodyContainer = () => (
         <ProtectedRoute exact path="/" component={TrackIndexContainer} />
 
         <Switch>
+            <Route exact path="/:username" component={UserShowContainer} />
             <Route exact path="/:username/uploads" component={UserShowContainer} />
             <Route exact path="/:username/favorites" component={UserShowContainer} />
             <Route exact path="/:username/:title" component={TrackShowContainer} />
@@ -28,7 +29,6 @@ const BodyContainer = () => (
             <ProtectedRoute exact path="/new-uploads" component={TrackNewUploadsContainer} />
             <ProtectedRoute exact path="/favorites" component={TrackFavoritesContainer} />
             <ProtectedRoute exact path="/trending" component={TrackTrendingContainer} />
-            <Route exact path="/:username" component={UserShowContainer} />
         </Switch>
     </div>
 );
