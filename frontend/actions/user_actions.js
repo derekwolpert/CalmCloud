@@ -4,7 +4,7 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const receiveUser = ({ user, users, tracks }) => {
     return ({
         type: RECEIVE_USER,
-        users,
+        users: users ? users : {},
         user,
         tracks
     });

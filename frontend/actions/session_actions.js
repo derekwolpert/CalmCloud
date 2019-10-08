@@ -7,7 +7,7 @@ export const REMOVE_SESSION_ERRORS = 'REMOVE_SESSION_ERRORS';
 export const receiveCurrentUser = ({ user, users, tracks }) => {
     return ({
         type: RECEIVE_CURRENT_USER,
-        users,
+        users: users ? users : {},
         user,
         tracks
     });
