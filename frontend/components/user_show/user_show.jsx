@@ -129,7 +129,7 @@ class UserShow extends React.Component {
                                 </Link>
                                 <div className="user-show-username">
                                     <h1>{this.props.user.display_name}</h1>
-                                    <h2>{this.props.user.subscribers.length} Followers</h2>
+                                    <h2>{this.props.user.followers.length} Followers</h2>
                                 </div>
                                 <div className="user-show-profile-navigation">
                                     <ul className="user-show-nav-tabs">

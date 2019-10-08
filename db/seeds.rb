@@ -489,7 +489,6 @@ favorite_45 = Favorite.create!({
     user: demo_user_5
 })
 
-
 subscribe_1 = Favorite.create!({
     favorited_type: "User",
     favorited: demo_user_1,

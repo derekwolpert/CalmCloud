@@ -53,8 +53,6 @@ class User < ApplicationRecord
         source: :favorited,
         source_type: 'User'
 
-
-    #not working!
     has_many :subscribers,
         primary_key: :id,
         foreign_key: :favorited_id,
