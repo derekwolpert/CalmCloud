@@ -14,6 +14,14 @@ class HeaderDropdown extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.path !== prevProps.path) {
+            this.setState({
+                showDropdown: false
+            });
+        }
+    }
+
     showDropdown(e) {
         e.preventDefault();
         this.setState({ showDropdown: !this.state.showDropdown });

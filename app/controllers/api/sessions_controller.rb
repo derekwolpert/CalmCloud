@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
     def create
-        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).find_by_username(params[:user][:login], params[:user][:password])
-        @user ||= User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).find_by_email(params[:user][:login], params[:user][:password])
+        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).includes(:favorites).includes(:subscriptions).includes(:subscribers).find_by_username(params[:user][:login], params[:user][:password])
+        @user ||= User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).includes(:favorites).includes(:subscriptions).includes(:subscribers).find_by_email(params[:user][:login], params[:user][:password])
 
         if @user.nil?
             if User.find_by(username: params[:user][:login]) || User.find_by(email: params[:user][:login])

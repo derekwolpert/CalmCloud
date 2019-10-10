@@ -11,9 +11,11 @@ class UserShow extends React.Component {
 
         this.state = {
             loaded: false,
+            showDropdown: false,
         };
         this.handleContent = this.handleContent.bind(this);
         this.findUser = this.findUser.bind(this);
+        this.handleSusbcribeButton = this.handleSusbcribeButton.bind(this);
     }
 
     componentDidMount() {
@@ -28,12 +30,27 @@ class UserShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.username !== prevProps.match.params.username) {
+            this.setState({
+                loaded: false
+            });
             document.title = `${this.props.user.display_name} | CalmCloud`;
             window.scrollTo(0, 0);
+            this.props.fetchUser(this.props.match.params.username).then(() => {
+                this.setState({
+                    loaded: true
+                });
+            });
         }
 
         if (this.props.currentUser && !prevProps.currentUser) {
-            this.props.fetchUser(this.props.match.params.username);
+            this.setState({
+                loaded: false
+            });
+            this.props.fetchUser(this.props.match.params.username).then(() => {
+                this.setState({
+                    loaded: true
+                });
+            });
         }
     }
 
@@ -65,6 +82,44 @@ class UserShow extends React.Component {
                 return this.props.users[user];
             }
         }
+    }
+
+    handleSusbcribeButton() {
+        if (this.props.currentUser === null) {
+            return (
+                <div className="user-show-follow-button" onClick={() => this.props.openModal("login")}>
+                    <span>Follow</span>
+                </div>
+            )
+        };
+
+        if (this.props.currentUser.following.includes(this.props.user.id)) {
+            return (
+                <>
+                    <div className="user-show-following-button" onClick={() => this.setState({showDropdown: !this.state.showDropdown})}>
+                        <span>Following</span>
+                        <FontAwesomeIcon icon={this.state.showDropdown ? faChevronUp : faChevronDown} />
+                        {this.state.showDropdown ?
+                            <div>
+                                <ul className="user-show-dropdown-content">
+                                    <li>Unsubscribe</li>
+                                </ul>
+                            </div> : null
+                        }
+                    </div>
+                </>
+            )
+        };
+
+        if (this.props.currentUser.id === this.props.user.id) {
+            return null;
+        }
+
+        return (
+            <div className="user-show-follow-button">
+                <span>Follow</span>
+            </div>
+        )
     }
 
     render() {
@@ -129,18 +184,8 @@ class UserShow extends React.Component {
                                 <div className="user-show-username">
                                     <h1>{this.props.user.display_name}</h1>
                                     <h2>{this.props.user.followers.length} Followers</h2>
-
                                     <div className="user-show-actions">
-                                        { this.props.currentUser.following.includes(this.props.user.id) ?
-                                            <div className="user-show-following-button">
-                                                <span>Following</span>
-                                                <FontAwesomeIcon icon={faChevronDown} />
-                                            </div>
-                                            :
-                                            <div className="user-show-follow-button">
-                                                <span>Follow</span>
-                                            </div>
-                                        }
+                                        {this.handleSusbcribeButton()}
                                         <div className="user-show-button">
                                             <FontAwesomeIcon icon={faPlay} />
                                             <span>Play</span>

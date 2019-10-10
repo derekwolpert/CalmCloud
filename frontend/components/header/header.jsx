@@ -91,6 +91,7 @@ class Header extends React.Component {
 					logout={this.props.logout}
 					openModal={this.props.openModal}
 					removeCurrentTrack={this.props.removeCurrentTrack}
+					path={this.props.location.pathname}
 					/>
 				</div>
 			</div>
