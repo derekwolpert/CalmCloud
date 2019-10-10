@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackIndexItem from "../track_index/track_index_item";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faCloud } from '@fortawesome/free-solid-svg-icons';
-
+import { faPlay, faCloud, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 class UserShow extends React.Component {
 
@@ -132,9 +131,16 @@ class UserShow extends React.Component {
                                     <h2>{this.props.user.followers.length} Followers</h2>
 
                                     <div className="user-show-actions">
-                                        <div className="user-show-follow-button">
-                                            <span>Follow</span>
-                                        </div>
+                                        { this.props.currentUser.following.includes(this.props.user.id) ?
+                                            <div className="user-show-following-button">
+                                                <span>Following</span>
+                                                <FontAwesomeIcon icon={faChevronDown} />
+                                            </div>
+                                            :
+                                            <div className="user-show-follow-button">
+                                                <span>Follow</span>
+                                            </div>
+                                        }
                                         <div className="user-show-button">
                                             <FontAwesomeIcon icon={faPlay} />
                                             <span>Play</span>

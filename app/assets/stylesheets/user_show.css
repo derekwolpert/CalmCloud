@@ -96,7 +96,7 @@
     bottom: 82px;
 }
 
-.user-show-button, .user-show-follow-button { 
+.user-show-button, .user-show-follow-button, .user-show-following-button { 
     font-size: 12px;
     line-height: 16px;
     border-radius: 4px;
@@ -120,7 +120,7 @@
     background-color: #308ebf;
 }
 
-.user-show-button {
+.user-show-button, .user-show-following-button {
     padding: 8px 14px;
     margin-left: 10px;
     background-color: rgb(36, 36, 36);
@@ -131,7 +131,7 @@
     vertical-align: middle;
 }
 
-.user-show-button:hover {
+.user-show-button:hover, .user-show-following-button:hover {
     background-color: rgb(46, 46, 46);
 }
 
@@ -139,6 +139,13 @@
     display: inline-block;
     vertical-align: middle;
     margin: -1px 8px 0 -2px;
+}
+
+.user-show-following-button > svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -1px -2px 0 8px;
+    font-size: 14px;
 }
 
 .user-show-profile-navigation {
