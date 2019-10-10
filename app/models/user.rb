@@ -34,7 +34,7 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Track
 
-    # all favorites, both favorited track and user subscriptions
+    # all favorites by user
     has_many :favorites,
         primary_key: :id,
         foreign_key: :user_id,
@@ -47,16 +47,24 @@ class User < ApplicationRecord
         source: :favorited,
         source_type: 'Track'
 
-    # all user subscriptions by user, through favorites model association
-    has_many :user_subscriptions, 
-        through: :favorites,
-        source: :favorited,
+    
+    # all subscriptions by user
+    has_many :subscriptions,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Subscription
+    
+    # all subscribed users through  subscrptionns
+
+    has_many :subscribe_users,
+        through: :subscriptions,
+        source: :subscribed,
         source_type: 'User'
 
     has_many :subscribers,
         primary_key: :id,
-        foreign_key: :favorited_id,
-        class_name: :Favorite,
+        foreign_key: :subscribed_id,
+        class_name: :Subscription,
         dependent: :destroy
 
 

@@ -11,6 +11,7 @@ require 'open-uri'
 User.destroy_all
 Track.destroy_all
 Favorite.destroy_all
+Subscription.destroy_all
 
 demo_user_1 = User.create!({
     email: "demo1@email.com",
@@ -489,91 +490,91 @@ favorite_45 = Favorite.create!({
     user: demo_user_5
 })
 
-subscribe_1 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_1,
+subscribe_1 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_1,
     user: demo_user_5
 })
 
-subscribe_2 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_1,
+subscribe_2 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_1,
     user: demo_user_4
 })
 
-subscribe_3 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_1,
+subscribe_3 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_1,
     user: demo_user_3
 })
 
-subscribe_4 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_2,
+subscribe_4 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_2,
     user: demo_user_1
 })
-subscribe_5 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_2,
+subscribe_5 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_2,
     user: demo_user_5
 })
 
-subscribe_6 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_2,
+subscribe_6 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_2,
     user: demo_user_4
 })
 
-subscribe_7 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_3,
+subscribe_7 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_3,
     user: demo_user_2
 })
 
-subscribe_8 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_3,
+subscribe_8 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_3,
     user: demo_user_1
 })
 
-subscribe_9 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_3,
+subscribe_9 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_3,
     user: demo_user_5
 })
 
-subscribe_10 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_4,
+subscribe_10 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_4,
     user: demo_user_3
 })
 
-subscribe_11 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_4,
+subscribe_11 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_4,
     user: demo_user_2
 })
 
-subscribe_12 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_4,
+subscribe_12 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_4,
     user: demo_user_1
 })
 
-subscribe_13 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_5,
+subscribe_13 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_5,
     user: demo_user_4
 })
 
-subscribe_14 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_5,
+subscribe_14 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_5,
     user: demo_user_3
 })
 
-subscribe_15 = Favorite.create!({
-    favorited_type: "User",
-    favorited: demo_user_5,
+subscribe_15 = Subscription.create!({
+    subscribed_type: "User",
+    subscribed: demo_user_5,
     user: demo_user_2
 })
