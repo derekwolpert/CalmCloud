@@ -130,6 +130,20 @@ class UserShow extends React.Component {
                                 <div className="user-show-username">
                                     <h1>{this.props.user.display_name}</h1>
                                     <h2>{this.props.user.followers.length} Followers</h2>
+
+                                    <div className="user-show-actions">
+                                        <div className="user-show-follow-button">
+                                            <span>Follow</span>
+                                        </div>
+                                        <div className="user-show-button">
+                                            <FontAwesomeIcon icon={faPlay} />
+                                            <span>Play</span>
+                                        </div>
+
+                                        <div className="user-show-button">
+                                            <span>Share</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="user-show-profile-navigation">
                                     <ul className="user-show-nav-tabs">

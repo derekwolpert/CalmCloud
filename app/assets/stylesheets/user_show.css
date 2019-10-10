@@ -90,6 +90,56 @@
     font-size: 13px;
     color: rgb(172, 172, 172);
 }
+.user-show-actions {
+    position: absolute;
+    right: 0;
+    bottom: 82px;
+}
+
+.user-show-button, .user-show-follow-button { 
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.user-show-follow-button {
+    color: white;
+    background-color: #4fa6d3;
+    transition: 0.2s;
+}
+
+.user-show-follow-button > span {
+    display: inline-block;
+    padding: 8px 14px;
+}
+
+.user-show-follow-button:hover {
+    background-color: #308ebf;
+}
+
+.user-show-button {
+    padding: 8px 14px;
+    margin-left: 10px;
+    background-color: rgb(36, 36, 36);
+    color: rgb(212,212,212);
+    box-shadow: inset 0 0 0 1px rgba(156,156,156,0.5);
+    transition: 0.2s;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.user-show-button:hover {
+    background-color: rgb(46, 46, 46);
+}
+
+.user-show-button > svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -1px 8px 0 -2px;
+}
 
 .user-show-profile-navigation {
     float: none;
