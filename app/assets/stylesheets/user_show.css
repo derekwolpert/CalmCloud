@@ -274,7 +274,6 @@
 
 .user-show-nav-tab > b, .user-show-nav-tab-active > b {
     font-weight: 400;
-    display: inline;
     font-size: 13px;
     float: right;
     padding-left: 5px;

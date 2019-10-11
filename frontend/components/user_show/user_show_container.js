@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { fetchUser } from "../../actions/user_actions";
 import { changeTrack, pauseTrack } from '../../actions/footer_player_actions';
 import { createFavoriteTrack, deleteFavoriteTrack } from "../../actions/favorite_track_actions";
-import { createSubscribeUser, deleteSubscribeUser} from "../../actions/subscribe_user_actions"
+import { createSubscribeUser, deleteSubscribeUser} from "../../actions/subscribe_user_actions";
 import { openModal } from '../../actions/modal_actions';
 import { fetchCurrentUser } from "../../actions/session_actions";
 import UserShow from './user_show';
