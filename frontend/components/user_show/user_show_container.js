@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { fetchUser } from "../../actions/user_actions";
 import { changeTrack, pauseTrack } from '../../actions/footer_player_actions';
 import { createFavoriteTrack, deleteFavoriteTrack } from "../../actions/favorite_track_actions";
+import { createSubscribeUser, deleteSubscribeUser} from "../../actions/subscribe_user_actions"
 import { openModal } from '../../actions/modal_actions';
 import { fetchCurrentUser } from "../../actions/session_actions";
 import UserShow from './user_show';
@@ -29,6 +30,8 @@ const mapDispatchToProps = dispatch => ({
     pauseTrack: () => dispatch(pauseTrack()),
     createFavoriteTrack: (trackId) => dispatch(createFavoriteTrack(trackId)),
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
+    createSubscribeUser: (userId) => dispatch(createSubscribeUser(userId)),
+    deleteSubscribeUser: (userId) => dispatch(deleteSubscribeUser(userId)),
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
     openModal: modal => dispatch(openModal(modal)),
 });

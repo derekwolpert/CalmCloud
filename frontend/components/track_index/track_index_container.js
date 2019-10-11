@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
     };
 
     return {
-        tracks: Object.values(state.entities.tracks).slice().reverse(),
+        tracks: Object.values(state.entities.tracks).slice().reverse().filter( track => currentUser.following.includes(track.user_id)),
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,
         percent: state.ui.percent,

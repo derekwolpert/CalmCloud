@@ -102,7 +102,10 @@ class UserShow extends React.Component {
                         {this.state.showDropdown ?
                             <div>
                                 <ul className="user-show-dropdown-content">
-                                    <li>Unsubscribe</li>
+                                    <li onClick={() => this.props.deleteSubscribeUser(this.props.user.id).then(() => (
+                                        this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                                            Unfollow
+                                    </li>
                                 </ul>
                             </div> : null
                         }
@@ -116,7 +119,9 @@ class UserShow extends React.Component {
         }
 
         return (
-            <div className="user-show-follow-button">
+            <div className="user-show-follow-button"
+                onClick={() => this.props.createSubscribeUser(this.props.user.id).then(() => (
+                this.props.fetchCurrentUser(this.props.currentUser.username)))}>
                 <span>Follow</span>
             </div>
         )

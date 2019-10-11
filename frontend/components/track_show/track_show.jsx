@@ -38,7 +38,14 @@ class TrackShow extends React.Component {
                 window.scrollTo(0, 0);
             }
             if (this.props.track.description === undefined) {
-                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                this.setState({
+                    loaded: false
+                });
+                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
+                    this.setState({
+                        loaded: true
+                    });
+                });
             }
             if (this.props.currentUser === undefined && prevProps.currentUser) {
                 this.props.history.push("/");

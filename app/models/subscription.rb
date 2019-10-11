@@ -11,6 +11,6 @@
 #
 
 class Subscription < ApplicationRecord
-  belongs_to :user
-  belongs_to :subscribed, polymorphic: true
+	belongs_to :user
+	belongs_to :subscribed, polymorphic: true
 end
