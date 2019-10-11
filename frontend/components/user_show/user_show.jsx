@@ -271,7 +271,7 @@ class UserShow extends React.Component {
                                     <div className="user-show-actions">
                                         {this.handleSusbcribeButton()}
                                         {this.props.match.path === "/:username/followers" ? null :
-                                            <div className="user-show-button" onClick={() => this.handlePlayButton()}>
+                                            <div className="user-show-play-button" onClick={() => this.handlePlayButton()}>
                                                 <FontAwesomeIcon icon={faPlay} />
                                                 <span>Play</span>
                                             </div>

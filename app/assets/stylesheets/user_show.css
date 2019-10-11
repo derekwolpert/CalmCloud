@@ -101,7 +101,7 @@
     bottom: 82px;
 }
 
-.user-show-button, .user-show-follow-button, .user-show-following-button { 
+.user-show-button, .user-show-play-button, .user-show-follow-button, .user-show-following-button { 
     font-size: 12px;
     line-height: 16px;
     border-radius: 4px;
@@ -125,14 +125,26 @@
     background-color: #308ebf;
 }
 
-.user-show-button, .user-show-following-button {
+.user-show-button, .user-show-play-button, .user-show-following-button {
     padding: 8px 14px;
     margin-left: 10px;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.user-show-button, .user-show-following-button {
     background-color: rgb(36, 36, 36);
     color: rgb(212,212,212);
     box-shadow: inset 0 0 0 1px rgba(156,156,156,0.5);
-    transition: 0.2s;
-    display: inline-block;
+}
+
+.user-show-play-button {
+    background-color: #50b348;
+    color: white;
+}
+
+.user-show-play-button:hover {
+    background-color: #408f39;
 }
 
 .user-show-following-button {
@@ -143,7 +155,7 @@
     background-color: rgb(46, 46, 46);
 }
 
-.user-show-button > svg {
+.user-show-play-button > svg {
     display: inline-block;
     vertical-align: middle;
     margin: -1px 8px 0 -2px;
