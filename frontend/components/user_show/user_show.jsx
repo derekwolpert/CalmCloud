@@ -16,6 +16,8 @@ class UserShow extends React.Component {
         this.handleContent = this.handleContent.bind(this);
         this.findUser = this.findUser.bind(this);
         this.handleSusbcribeButton = this.handleSusbcribeButton.bind(this);
+        this.handleFollowFollowerButton = this.handleFollowFollowerButton.bind(this);
+        this.handlePlayButton = this.handlePlayButton.bind(this);
     }
 
     componentDidMount() {
@@ -67,10 +69,43 @@ class UserShow extends React.Component {
         }
         if (this.props.match.path === "/:username/favorites") {
             return (
-                <section className="user-show-favorites">
+                <section className="user-show-uploads">
                     <h1>Favorites</h1>
                     {items}
                     {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                </section>
+            )
+        }
+
+        if (this.props.match.path === "/:username/followers") {
+            const followers = this.props.user.followers.slice().reverse().map((userId, idx) => {
+                const user = this.findUser(userId);
+                return (
+                    <li className="user-show-follower-item" key={idx}>
+                        <span className="user-show-follower-container">
+                            <span className="user-show-follower-profile-pic">
+                                <Link to={`/${user.username}`}>
+                                    <div className="user-show-follower-profile-pic-container">
+                                        <img src={user.userPictureUrl || window.defaultAvatar}></img>
+                                    </div>
+                                </Link>
+                            </span>
+                            <b><Link to={`/${user.username}`}>{user.display_name}</Link></b>
+                            <div>{user.followers.length} followers</div>
+                            <small>{user.city ? `${user.city}${user.country ? ", " : null}` : null}{user.country ? user.country : null}</small>
+                        </span>
+                        {this.handleFollowFollowerButton(user)}
+                        
+
+                    </li>
+                )
+            });
+
+            return (
+                <section className="user-show-uploads">
+                    <h1>{this.props.user.followers.length} Followers</h1>
+                    <ul>{followers}</ul>
+                    {this.props.user.followers.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
                 </section>
             )
         }
@@ -125,6 +160,50 @@ class UserShow extends React.Component {
                 <span>Follow</span>
             </div>
         )
+    }
+
+    handleFollowFollowerButton(user) {
+        if (this.props.currentUser === null) {
+            return (
+                <div className="user-show-follower-follow-button" onClick={() => this.props.openModal("login")}>
+                    Follow
+                </div>
+            )
+        }
+        if (this.props.currentUser.id === user.id) {
+            return null;
+        }
+
+        if (this.props.currentUser.following.includes(user.id)) {
+            return (
+                <div className="user-show-follower-following-button"
+                    onClick={() => this.props.deleteSubscribeUser(this.props.user.id).then(() => (
+                        this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                    Following
+                </div>
+            )
+        }
+        return (
+            <div className="user-show-follower-follow-button"
+                onClick={() => this.props.createSubscribeUser(user.id).then(() => (
+                    this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                Follow
+            </div>
+        )
+    }
+
+    handlePlayButton() {
+        const trackId = (this.props.match.path === "/:username/favorites") ? this.props.favoriteTracks[0].id : this.props.tracks[0].id;
+
+        if (this.props.currentTrack !== trackId) {
+            this.props.changeTrack(trackId)
+        } else {
+            if (this.props.playing) {
+                this.props.pauseTrack()
+            } else {
+                this.props.changeTrack(trackId)
+            }
+        }
     }
 
     render() {
@@ -188,14 +267,15 @@ class UserShow extends React.Component {
                                 </Link>
                                 <div className="user-show-username">
                                     <h1>{this.props.user.display_name}</h1>
-                                    <h2>{this.props.user.followers.length} Followers</h2>
+                                    <h2 style={{ color: (this.props.match.path === "/:username/followers") ? "#4fa6d3" : ""}}><Link to={`/${this.props.user.username}/followers`}>{this.props.user.followers.length} Followers</Link></h2>
                                     <div className="user-show-actions">
                                         {this.handleSusbcribeButton()}
-                                        <div className="user-show-button">
-                                            <FontAwesomeIcon icon={faPlay} />
-                                            <span>Play</span>
-                                        </div>
-
+                                        {this.props.match.path === "/:username/followers" ? null :
+                                            <div className="user-show-button" onClick={() => this.handlePlayButton()}>
+                                                <FontAwesomeIcon icon={faPlay} />
+                                                <span>Play</span>
+                                            </div>
+                                        }
                                         <div className="user-show-button">
                                             <span>Share</span>
                                         </div>

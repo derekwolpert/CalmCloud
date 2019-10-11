@@ -17,7 +17,9 @@ demo_user_1 = User.create!({
     email: "demo1@email.com",
     username: "demo_user1",
     password: "password1",
-    display_name: "Demo User"
+    display_name: "Demo User",
+    city: "New York City",
+    country: "United States"
 })
 avatar1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/7.png")
 demo_user_1.profile_pic.attach(io: avatar1, filename: 'avatar-1.png')
@@ -26,7 +28,9 @@ demo_user_2 = User.create!({
     email: "demo2@email.com",
     username: "esterusco",
     password: "password2",
-    display_name: "Stefan Foster"
+    display_name: "Stefan Foster",
+    city: "Chicago",
+    country: "United States"
 })
 avatar2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/6.png")
 demo_user_2.profile_pic.attach(io: avatar2, filename: 'avatar-2.png')
@@ -35,7 +39,9 @@ demo_user_3 = User.create!({
     email: "demo3@email.com",
     username: "mealecred",
     password: "password3",
-    display_name: "Serena Keller"
+    display_name: "Serena Keller",
+    city: "Tokyo",
+    country: "Japan"
 })
 avatar3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/2.png")
 demo_user_3.profile_pic.attach(io: avatar3, filename: 'avatar-3.png')
@@ -45,7 +51,9 @@ demo_user_4 = User.create!({
     email: "demo4@email.com",
     username: "loidarcom",
     password: "password4",
-    display_name: "Damon Sheridan"
+    display_name: "Damon Sheridan",
+    city: "Paris",
+    country: "France"
 })
 avatar4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/3.png")
 demo_user_4.profile_pic.attach(io: avatar4, filename: 'avatar-4.png')
@@ -54,7 +62,9 @@ demo_user_5 = User.create!({
     email: "demo5@email.com",
     username: "ptormande",
     password: "password5",
-    display_name: "Meghan Frame"
+    display_name: "Meghan Frame",
+    city: "Auckland",
+    country: "New Zealand"
 })
 avatar5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/4.png")
 demo_user_5.profile_pic.attach(io: avatar5, filename: 'avatar-5.png')

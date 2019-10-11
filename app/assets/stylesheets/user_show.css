@@ -88,7 +88,13 @@
     font-weight: 400;
     font-size: 13px;
     color: rgb(172, 172, 172);
+    transition: 0.2s;
 }
+
+.user-show-username > h2:hover {
+    color: rgb(212, 212, 212);
+}
+
 .user-show-actions {
     position: absolute;
     right: 0;
@@ -301,7 +307,7 @@
     clear: both;
 }
 
-.user-show-uploads, .user-show-favorites {
+.user-show-uploads {
     float: left;
     position: relative;
     width: 740px;
@@ -315,7 +321,7 @@
     to {opacity: 1}
 }
 
-.user-show-uploads > h1, .user-show-favorites > h1 {
+.user-show-uploads > h1 {
     color: rgb(149,149,149);
     padding-bottom: 10px;
     font-size: 16px;
@@ -324,3 +330,107 @@
     font-weight: 400;
 }
 
+.user-show-follower-item {
+    position: relative;
+    padding: 12px 0;
+    border-bottom: 1px solid rgb(96, 96, 96);
+    transition: 0.2s;
+}
+
+.user-show-follower-container {
+    display: block;
+    min-height: 60px;
+    max-width: calc(100% - 80px);
+    padding: 1px 0 8px 75px;
+    color: rgb(212, 212, 212);
+    line-height: 20px;
+}
+
+.user-show-follower-profile-pic {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -30px;
+}
+
+.user-show-follower-profile-pic-container {
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    clear: both;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -30px;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.user-show-follower-profile-pic-container > img {
+    vertical-align: top;    
+}
+
+.user-show-follower-container > b {
+    font-weight: 600;
+    transition: 0.2s;
+    font-size: 12px;
+}
+
+.user-show-follower-container > b:hover {
+    color: rgb(172, 172, 172);
+}
+
+.user-show-follower-container > div {
+    clear: both;
+    color: #4fa6d3;
+}
+
+.user-show-follower-container > small {
+    color: rgb(172, 172, 172);
+    display: block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+
+.user-show-follower-follow-button, .user-show-follower-following-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -18px;
+    padding: 10px 14px;
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.user-show-follower-follow-button {
+    color: white;
+    background-color: #4fa6d3;
+}
+
+
+.user-show-follower-follow-button:hover {
+    background-color: #308ebf;
+}
+
+.user-show-follower-following-button {
+    background-color: rgb(36, 36, 36);
+    color: rgb(212,212,212);
+    box-shadow: inset 0 0 0 1px rgba(156,156,156,0.5);
+}
+.user-show-follower-following-button:hover {
+    background-color: rgb(46, 46, 46);
+}

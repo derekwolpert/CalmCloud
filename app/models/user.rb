@@ -54,7 +54,7 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Subscription
     
-    # all subscribed users through  subscrptionns
+    # all subscribed users through subscrptionns
 
     has_many :subscribe_users,
         through: :subscriptions,

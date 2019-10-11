@@ -13,7 +13,7 @@ class Api::SubscribeUsersController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find(params[:id])
+        @user = User.find(params[:id])
 		Subscription.where(subscribed_id: @user.id, subscribed_type: "User", user_id: current_user.id).first.destroy
 		render 'api/users/show'
 	end

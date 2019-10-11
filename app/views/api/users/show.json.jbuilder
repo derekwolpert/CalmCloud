@@ -2,19 +2,20 @@ json.user do
     json.partial! "api/users/user", user: @user
 end
 
-if @favoriteTracks
-    @favoriteTracks.each do |track|
+if @favorite_tracks
+    users = ((@favorite_tracks.map { |track| track.user }.select { |user| user.id != @user.id }) + @user.user_subscribers).uniq
+    users.each do |user|
         json.users do
-            json.set! track.user.username do
-                json.partial! "api/users/user", user: track.user
+            json.set! user.username do
+                json.partial! "api/users/user", user: user
             end
         end
     end
 end
 
-if @favoriteTracks
+if @favorite_tracks
     json.tracks do
-        (@user.tracks + @user.favorite_tracks).uniq.each do |track|
+        (@user.tracks + @favorite_tracks).uniq.each do |track|
             json.set! track.id do
                 json.extract! track, :id, :user_id, :title, :track_length, :play_count, :created_at
                 json.trackAudioUrl url_for(track.audio_track)
