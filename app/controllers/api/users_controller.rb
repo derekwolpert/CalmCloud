@@ -49,7 +49,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).includes(:favorites).includes(:subscriptions).includes(:subscribers).includes(favorite_tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob}).includes(user_subscribers: {profile_pic_attachment: :blob} ).find_by(username: params[:username])
+        @user = User.with_attached_profile_pic.includes(tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob} ).includes(:favorites).includes(:subscriptions).includes(:subscribers).includes(favorite_tracks: { audio_track_attachment: :blob, track_artwork_attachment: :blob}).includes(user_subscribers: {profile_pic_attachment: :blob} ).includes(subscribe_users: {profile_pic_attachment: :blob} ).find_by(username: params[:username])
         @favorite_tracks = @user.favorite_tracks.with_attached_audio_track.with_attached_track_artwork.includes(user: {profile_pic_attachment: :blob})
     end
 

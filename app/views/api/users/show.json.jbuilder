@@ -3,7 +3,7 @@ json.user do
 end
 
 if @favorite_tracks
-    users = ((@favorite_tracks.map { |track| track.user }.select { |user| user.id != @user.id }) + @user.user_subscribers).uniq
+    users = ((@favorite_tracks.map { |track| track.user }.select { |user| user.id != @user.id }) + @user.user_subscribers + @user.subscribe_users).uniq
     users.each do |user|
         json.users do
             json.set! user.username do

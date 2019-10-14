@@ -27,6 +27,7 @@ const BodyContainer = () => (
             <Route exact path="/:username/uploads" component={UserShowContainer} />
             <Route exact path="/:username/favorites" component={UserShowContainer} />
             <Route exact path="/:username/followers" component={UserShowContainer} />
+            <Route exact path="/:username/following" component={UserShowContainer} />
             <Route exact path="/:username/:title" component={TrackShowContainer} />
         </Switch>
 

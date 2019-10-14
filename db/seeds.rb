@@ -19,7 +19,10 @@ demo_user_1 = User.create!({
     password: "password1",
     display_name: "Demo User",
     city: "New York City",
-    country: "United States"
+    country: "United States",
+    biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
+
+Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/7.png")
 demo_user_1.profile_pic.attach(io: avatar1, filename: 'avatar-1.png')
@@ -30,7 +33,10 @@ demo_user_2 = User.create!({
     password: "password2",
     display_name: "Stefan Foster",
     city: "Chicago",
-    country: "United States"
+    country: "United States",
+    biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
+
+Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/6.png")
 demo_user_2.profile_pic.attach(io: avatar2, filename: 'avatar-2.png')
@@ -41,7 +47,10 @@ demo_user_3 = User.create!({
     password: "password3",
     display_name: "Serena Keller",
     city: "Tokyo",
-    country: "Japan"
+    country: "Japan",
+    biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
+
+Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/2.png")
 demo_user_3.profile_pic.attach(io: avatar3, filename: 'avatar-3.png')
@@ -53,7 +62,10 @@ demo_user_4 = User.create!({
     password: "password4",
     display_name: "Damon Sheridan",
     city: "Paris",
-    country: "France"
+    country: "France",
+    biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
+
+Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/3.png")
 demo_user_4.profile_pic.attach(io: avatar4, filename: 'avatar-4.png')
@@ -64,7 +76,10 @@ demo_user_5 = User.create!({
     password: "password5",
     display_name: "Meghan Frame",
     city: "Auckland",
-    country: "New Zealand"
+    country: "New Zealand",
+    biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
+
+Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/4.png")
 demo_user_5.profile_pic.attach(io: avatar5, filename: 'avatar-5.png')

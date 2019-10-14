@@ -1,0 +1,107 @@
+.user-show-sidebar {
+    float: right;
+    width: 300px;
+    padding-bottom: 60px;
+}
+
+.user-show-location {
+    color: rgb(212, 212, 212);
+    position: relative;
+    padding-left: 24px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.user-show-location > svg {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    margin-top: -9px;
+    font-size: 18px;
+}
+
+.user-show-biography {
+    color: rgb(192, 192, 192);
+    padding: 14px 0 20px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.user-show-biography > p {
+    padding-bottom: 12px;
+    word-wrap: break-word;
+}
+
+.user-show-biography-fade {
+    position: relative;
+    cursor: pointer;
+    max-height: 120px;
+    overflow: hidden;
+}
+
+.user-show-biography-fade:before {
+    width: 100%;
+    height: 60px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(rgba(36, 36, 36, 0), rgba(36, 36, 36, 1));
+    right: 0;
+    content: "";
+    transition: height .2s ease-in-out;
+}
+
+.user-show-biography-fade:after {
+    color: #4fa6d3;
+    line-height: 100px;
+    content: "Read more…";
+    opacity: 0;
+    transition: opacity .2s;
+    width: 100%;
+    height: 60px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(rgba(36, 36, 36, 0), rgba(36, 36, 36, 1));
+}
+
+.user-show-biography-fade:hover:after {
+    opacity: 1;
+}
+
+.user-show-sidebar-following {
+    clear: both;
+    padding-bottom: 40px;
+}
+
+.user-show-sidebar-following > h1 {
+    color: rgb(212, 212, 212);
+    padding-bottom: 12px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    border-bottom: 2px solid rgb(96, 96, 96);
+}
+
+.user-show-sidebar-following > h1 > a {
+    float: right;
+    color: rgb(172, 172, 172);
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.user-show-sidebar-following > h1 > a:hover {
+    color: rgb(212, 212, 212);
+}
+
+.user-show-sidebar-following > h1 > a > svg {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: 10px;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackIndexItem from "../track_index/track_index_item";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faCloud, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faCloud, faChevronDown, faChevronUp, faMapMarkerAlt, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 class UserShow extends React.Component {
 
@@ -12,12 +12,14 @@ class UserShow extends React.Component {
         this.state = {
             loaded: false,
             showDropdown: false,
+            showFullDescription: false,
         };
         this.handleContent = this.handleContent.bind(this);
         this.findUser = this.findUser.bind(this);
         this.handleSusbcribeButton = this.handleSusbcribeButton.bind(this);
         this.handleFollowFollowerButton = this.handleFollowFollowerButton.bind(this);
         this.handlePlayButton = this.handlePlayButton.bind(this);
+        this.handleFollowingSidebar = this.handleFollowingSidebar.bind(this);
     }
 
     componentDidMount() {
@@ -42,6 +44,8 @@ class UserShow extends React.Component {
                     loaded: true
                 });
             });
+        } else if (this.props.match.path !== prevProps.match.path) {
+            window.scrollTo(0, 0);
         }
 
         if (this.props.currentUser && !prevProps.currentUser) {
@@ -60,25 +64,26 @@ class UserShow extends React.Component {
 
         if ((this.props.match.path === "/:username") || (this.props.match.path === "/:username/uploads")) {
             return (
-                <section className="user-show-uploads">
+                <>
                     <h1>Uploads</h1>
                     {items}
                     {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
-                </section>
+                </>
             )
         }
         if (this.props.match.path === "/:username/favorites") {
             return (
-                <section className="user-show-uploads">
+                <>
                     <h1>Favorites</h1>
                     {items}
                     {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
-                </section>
+                </>
             )
         }
 
-        if (this.props.match.path === "/:username/followers") {
-            const followers = this.props.user.followers.slice().reverse().map((userId, idx) => {
+        if ((this.props.match.path === "/:username/followers") || (this.props.match.path === "/:username/following")) {
+            const users = (this.props.match.path === "/:username/followers") ? this.props.user.followers : this.props.user.following;
+            const followers = users.slice().reverse().map((userId, idx) => {
                 const user = this.findUser(userId);
                 return (
                     <li className="user-show-follower-item" key={idx}>
@@ -95,18 +100,16 @@ class UserShow extends React.Component {
                             <small>{user.city ? `${user.city}${user.country ? ", " : null}` : null}{user.country ? user.country : null}</small>
                         </span>
                         {this.handleFollowFollowerButton(user)}
-                        
-
                     </li>
                 )
             });
 
             return (
-                <section className="user-show-uploads">
-                    <h1>{this.props.user.followers.length} Followers</h1>
+                <>
+                    <h1>{(this.props.match.path === "/:username/followers") ? `${this.props.user.followers.length} Followers` : `Following ${this.props.user.following.length}`}</h1>
                     <ul>{followers}</ul>
                     {this.props.user.followers.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
-                </section>
+                </>
             )
         }
     }
@@ -206,7 +209,62 @@ class UserShow extends React.Component {
         }
     }
 
+    isUrl(word) {
+
+        const urlChecker = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+        return word.match(urlChecker);
+    }
+
+    formatHref(word) {
+        if ((word.includes("https://") || word.includes("http://"))) return word;
+        return `https://${word}`;
+    }
+
+    formatUrlsInDescription(para) {
+        return (
+            <>
+                {para.split(" ").map((word, key) => (
+                    this.isUrl(word) ?
+                        <a href={this.formatHref(word)} key={key} target="_blank">{key !== 0 ? ` ${word}` : word} </a>
+                        :
+                        key !== 0 ? ` ${word}` : word)
+                )
+                }
+            </>
+        )
+    }
+
+
+    handleFollowingSidebar() {
+        return this.props.user.following.slice().reverse().slice(0, 3).map((userId, idx) => {
+            const user = this.findUser(userId);
+            return (
+                <li className="user-show-follower-item" key={idx}>
+                    <span className="user-show-follower-container">
+                        <span className="user-show-follower-profile-pic">
+                            <Link to={`/${user.username}`}>
+                                <div className="user-show-follower-profile-pic-container">
+                                    <img src={user.userPictureUrl || window.defaultAvatar}></img>
+                                </div>
+                            </Link>
+                        </span>
+                        <b><Link to={`/${user.username}`}>{user.display_name}</Link></b>
+                        <div>{user.followers.length} followers</div>
+                        <small>{user.city ? `${user.city}${user.country ? ", " : null}` : null}{user.country ? user.country : null}</small>
+                    </span>
+                    {this.handleFollowFollowerButton(user)}
+                </li>
+            )
+        })
+    }
+    
+    
+
+
+
+
     render() {
+
         if (this.props.user === null) {
             return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
         }
@@ -270,7 +328,7 @@ class UserShow extends React.Component {
                                     <h2 style={{ color: (this.props.match.path === "/:username/followers") ? "#4fa6d3" : ""}}><Link to={`/${this.props.user.username}/followers`}>{this.props.user.followers.length} Followers</Link></h2>
                                     <div className="user-show-actions">
                                         {this.handleSusbcribeButton()}
-                                        {this.props.match.path === "/:username/followers" ? null :
+                                        {((this.props.match.path === "/:username/followers") || (this.props.match.path === "/:username/following")) ? null :
                                             <div className="user-show-play-button" onClick={() => this.handlePlayButton()}>
                                                 <FontAwesomeIcon icon={faPlay} />
                                                 <span>Play</span>
@@ -304,7 +362,61 @@ class UserShow extends React.Component {
                     </div>
                     <div className="user-show-content">
                         <div className="user-show-inner-container">
-                            {this.handleContent(indexItems)}
+                            <section className="user-show-uploads">
+                                {this.handleContent(indexItems)}
+                            </section>
+                            <section className="user-show-sidebar">
+                                { (this.props.user.city || this.props.user.country) ?
+                                    <span className="user-show-location">
+                                        <FontAwesomeIcon icon={faMapMarkerAlt} />
+                                        {this.props.user.city ? `${this.props.user.city}${this.props.user.country ? ", " : null}` : null}{this.props.user.country ? this.props.user.country : null}
+                                    </span> : null
+                                }
+
+                                <div className="user-show-biography">
+                                    { this.state.showFullDescription ?
+                                        (
+                                            this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                <p key={key}>{this.formatUrlsInDescription(el)}</p>)
+                                            ) : null
+                                         ) :
+                                        <div className="user-show-biography-fade" onClick={() => this.setState({showFullDescription: true})}>
+                                            {this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                <p key={key}>{this.formatUrlsInDescription(el)}</p>)
+                                            ) : null
+                                            }
+                                        </div> 
+                                    }
+                                </div>
+                                { this.props.currentUser.id === this.props.user.id ?
+                                    <section className="track-index-stats">
+                                        <h1>Your Stats</h1>
+                                        <dl>
+                                            <dt>Total Plays</dt>
+                                            <dd>{this.props.tracks.map(track => track.play_count).reduce((acc, num) => acc + num)}</dd>
+                                            <dt>Total Uploads</dt>
+                                            <dd>{this.props.tracks.length}</dd>
+                                            <dt>Favorites</dt>
+                                            <dd>{this.props.currentUser.favorites.length}</dd>
+                                            <dt>Comments</dt>
+                                            <dd></dd>
+                                        </dl>
+                                    </ section> : null
+                                }
+                                { this.props.user.following.length > 0 ?
+                                    <section className="user-show-sidebar-following">
+                                        <h1>Following
+                                            <Link to={`/${this.props.user.username}/following`} style={{ color: (this.props.match.path === "/:username/following") ? "rgb(79, 166, 211)" : "" }}>
+                                                {this.props.user.following.length}
+                                                <FontAwesomeIcon icon={faChevronRight} />
+                                            </Link>
+                                        </h1>
+                                        <ul>{this.handleFollowingSidebar()}</ul>
+                                    </section>
+
+                                    : null
+                                }
+                            </section>
                         </div>
                     </div>
                 </>
