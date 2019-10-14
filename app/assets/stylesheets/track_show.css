@@ -541,13 +541,17 @@
     box-sizing: border-box;
 }
 
+.track-show-sidebar > ul {
+    padding-bottom: 40px;
+}
+
 .track-show-sidebar > ul > li {
     padding: 10px 0;
     border-bottom: 1px solid rgb(96, 96, 96);
     list-style: none;
 }
 
-.track-show-sidebar a {
+.track-show-sidebar > ul > li > a {
     display: block;
     min-height: 60px;
     padding: 0 0 0 70px;

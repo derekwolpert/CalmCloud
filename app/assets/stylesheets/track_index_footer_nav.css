@@ -60,11 +60,12 @@
     font-weight: 600;
 }
 
-.track-index-footer-nav > div > span > a {
+.track-index-footer-nav a {
     color: rgb(120,187,221);
     transition: .2s;
+    font-size: 12px;
 }
 
-.track-index-footer-nav > div > span > a:hover {
+.track-index-footer-nav a:hover {
     color: rgb(79, 166, 211);
 }

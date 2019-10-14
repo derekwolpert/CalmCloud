@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackShowSidebar from "./track_show_sidebar";
+import TrackIndexInfo from "../track_index/track_index_info";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHeadphonesAlt, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
@@ -340,9 +341,8 @@ class TrackShow extends React.Component {
 
                                 </ul> 
                             </> : null
-
                         }
-                        
+                        <TrackIndexInfo />
                     </section>
             
                 </section>

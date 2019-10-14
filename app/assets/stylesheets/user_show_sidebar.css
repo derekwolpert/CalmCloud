@@ -105,3 +105,12 @@
     margin-top: -2px;
     margin-left: 10px;
 }
+
+.user-show-sidebar > h1 {
+    padding-bottom: 12px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+    color: rgb(212, 212, 212);
+    border-bottom: 2px solid rgb(96, 96, 96);
+}

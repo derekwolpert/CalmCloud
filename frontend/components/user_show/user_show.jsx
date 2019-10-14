@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackIndexItem from "../track_index/track_index_item";
+import TrackIndexStats from "../track_index/track_index_stats";
+import TrackIndexInfo from "../track_index/track_index_info"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faCloud, faChevronDown, faChevronUp, faMapMarkerAlt, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -385,19 +387,10 @@ class UserShow extends React.Component {
                                     }
                                 </div>
                                 { this.props.currentUser.id === this.props.user.id ?
-                                    <section className="track-index-stats">
-                                        <h1>Your Stats</h1>
-                                        <dl>
-                                            <dt>Total Plays</dt>
-                                            <dd>{this.props.tracks.map(track => track.play_count).reduce((acc, num) => acc + num)}</dd>
-                                            <dt>Total Uploads</dt>
-                                            <dd>{this.props.tracks.length}</dd>
-                                            <dt>Favorites</dt>
-                                            <dd>{this.props.currentUser.favorites.length}</dd>
-                                            <dt>Comments</dt>
-                                            <dd></dd>
-                                        </dl>
-                                    </ section> : null
+                                    <TrackIndexStats
+                                        currentUser={this.props.currentUser}
+                                        totalPlaycounts={this.props.tracks.map(track => track.play_count).reduce((acc, num) => acc + num)}
+                                        totalUploads={this.props.currentUser.favorites.length} /> : null
                                 }
                                 { this.props.user.following.length > 0 ?
                                     <section className="user-show-sidebar-following">
@@ -412,6 +405,7 @@ class UserShow extends React.Component {
 
                                     : null
                                 }
+                                <TrackIndexInfo />
                             </section>
                         </div>
                     </div>

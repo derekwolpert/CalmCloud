@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackIndexItem from './track_index_item';
 import TrackIndexSidebar from './track_index_sidebar';
-import TrackIndexNav from './track_index_footer_nav';
+import TrackIndexStats from './track_index_stats';
+import TrackIndexInfo from './track_index_info';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faCloud } from '@fortawesome/free-solid-svg-icons';
 
@@ -168,10 +169,17 @@ class TrackIndex extends React.Component {
                             </>}
                     </section>
 
-                    <TrackIndexNav
-                        currentUser={this.props.currentUser}
-                        totalPlaycounts={this.props.totalPlaycounts}
-                        totalUploads={this.props.totalUploads} />
+                    <section className="track-index-right-sidebar">
+                        <TrackIndexStats
+                            currentUser={this.props.currentUser}
+                            totalPlaycounts={this.props.totalPlaycounts}
+                            totalUploads={this.props.totalUploads} />
+
+                        <TrackIndexInfo />
+
+                    </section>
+
+
                 </section>
             </>
         );
