@@ -242,7 +242,8 @@ class TrackShow extends React.Component {
                                         {this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.track.id) ? "Favorited" : "Favorite") : "Favorite"}
                                     </button>
 
-                                    <button className="track-show-action-button" >
+                                    <button className="track-show-action-button"
+                                            onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}/${this.props.track.title}`).split(" ").join("%20"))}>
                                         <FontAwesomeIcon icon={faShareSquare} />
                                         Share
                                     </button>
