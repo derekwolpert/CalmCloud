@@ -1,0 +1,79 @@
+.share-modal-container {
+    width: 750px;
+    height: 361px;
+}
+
+.share-modal-container > header {
+    box-sizing: border-box;
+    padding: 0px 30px 0px 30px;
+    border-bottom: 2px solid rgba(164, 164, 164, .5);
+    background: white;
+    box-shadow: inset 0 -2px 0 #ebf0f2;
+    border-radius: 4px 4px 0 0;
+    font-size: 13px;
+    line-height: 19px;
+    color: #8196a7;
+    padding: 0 30px;
+    height: 41px;
+}
+
+.share-modal-container > header > .session-form-tabs {
+    text-align: center;
+    line-height: 41px;
+    display: block;
+}
+
+.share-modal-container > header > .session-form-tabs > li {
+    display: inline-block;
+    padding-left: 16.5px;
+    padding-right: 16.5px;
+}
+
+.share-modal-content {
+    padding: 100px 50px 20px;
+}
+
+.share-modal-content > div {
+    position: relative;
+}
+
+.share-modal-url {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-family: Inconsolata,Menlo,courier New,courier,Mono,monospace;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid rgba(10,30,44,0.15);
+    box-shadow: inset 0 1px 1px rgba(10,30,44,0.05);
+    background-color: white;
+    color: #586573;
+}
+
+.share-modal-copied {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(79, 166, 211, 0.9);
+    border-radius: 4px;
+    animation-name: animateCopiedMessage;
+    animation-duration: 0.2s;
+}
+
+@keyframes animateCopiedMessage {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.share-modal-copied-text {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 40px;
+}

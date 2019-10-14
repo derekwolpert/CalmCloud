@@ -171,7 +171,8 @@ class FooterAudioPlayer extends React.Component {
                                     <FontAwesomeIcon icon={faHeart} />
                                 </div>
 
-                                <div className="footer-player-share-icon">
+                                <div className="footer-player-share-icon"
+                                    onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}/${this.props.currentTrack.title}`).split(" ").join("%20"))}>
                                     <FontAwesomeIcon icon={faShareSquare} />
                                 </div>
 

@@ -3,6 +3,7 @@ import { fetchAllTracks } from '../../actions/track_actions';
 import { changeTrack, pauseTrack } from '../../actions/footer_player_actions';
 import { createFavoriteTrack, deleteFavoriteTrack } from "../../actions/favorite_track_actions";
 import { openModal } from '../../actions/modal_actions';
+import { openShareModal } from '../../actions/share_modal_actions';
 import { fetchCurrentUser } from "../../actions/session_actions";
 import { withRouter } from 'react-router-dom';
 import TrackIndex from './track_index';
@@ -47,6 +48,7 @@ const mapDispatchToProps = dispatch => ({
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
     openModal: modal => dispatch(openModal(modal)),
+    openShareModal: url => dispatch(openShareModal(url)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackIndex));

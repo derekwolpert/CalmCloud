@@ -32,24 +32,30 @@ class TrackShow extends React.Component {
         document.title = `${this.props.match.params.title} | CalmCloud`;
     }
 
+    componentWillUnmount() {
+        this.setState({loaded: false});
+    }
+
     componentDidUpdate(prevProps) {
-        if (this.props.tracks) {
-            if (this.props.match.params.title !== prevProps.match.params.title) {
-                window.scrollTo(0, 0);
-            }
-            if (this.props.track.description === undefined) {
+        if (this.props.match.params.title !== prevProps.match.params.title) {
+            window.scrollTo(0, 0);
+            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
                 this.setState({
-                    loaded: false
+                    loaded: true
                 });
-                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
-                    this.setState({
-                        loaded: true
-                    });
+            });
+            document.title = `${this.props.match.params.title} | CalmCloud`;
+        } else if (this.props.track.description === undefined) {
+            window.scrollTo(0, 0);
+            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
+                this.setState({
+                    loaded: true
                 });
-            }
-            if (this.props.currentUser === undefined && prevProps.currentUser) {
-                this.props.history.push("/");
-            }
+            });
+            document.title = `${this.props.match.params.title} | CalmCloud`;
+        }
+        if (this.props.currentUser === undefined && prevProps.currentUser) {
+            this.props.history.push("/");
         }
     }
 
@@ -175,6 +181,10 @@ class TrackShow extends React.Component {
     }
 
     render() {
+
+        if (this.props.track === null) {
+            return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+        }
 
         return (
             this.state.loaded && this.props.track ?

@@ -132,6 +132,7 @@ class TrackIndex extends React.Component {
                 deleteFavoriteTrack={this.props.deleteFavoriteTrack}
                 fetchCurrentUser={this.props.fetchCurrentUser}
                 openModal={this.props.openModal}
+                openShareModal={this.props.openShareModal}
                 />) );
         
         return (

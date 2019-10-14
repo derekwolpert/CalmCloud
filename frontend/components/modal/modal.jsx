@@ -1,6 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
@@ -18,6 +19,12 @@ class Modal extends React.Component {
 			return <SignupFormContainer />;
 		} else {
 			return null;
+		}
+	}
+
+	componentDidUpdate(prevProps) {
+		if ((this.props.location.pathname !== prevProps.location.pathname) && (this.props.modal)) {
+			this.props.closeModal();
 		}
 	}
 	
@@ -45,4 +52,4 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Modal));

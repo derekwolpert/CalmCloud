@@ -118,6 +118,7 @@ class TrackIndexItem extends React.Component {
     }
 
     render() {
+
         return (
             <section className="track-index-item">
                 {this.props.path === "/" ?
@@ -186,10 +187,10 @@ class TrackIndexItem extends React.Component {
                                 </div>
                             }
 
-                            <div className="track-index-item-action">
+                            <div className="track-index-item-action"
+                                onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}/${this.props.track.title}`).split(" ").join("%20"))}>
                                 <FontAwesomeIcon icon={faShareSquare} />
                             </div>
-
                         </div>
 
                         <div className="track-index-item-stats">

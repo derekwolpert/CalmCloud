@@ -257,11 +257,6 @@ class UserShow extends React.Component {
             )
         })
     }
-    
-    
-
-
-
 
     render() {
 
@@ -334,7 +329,8 @@ class UserShow extends React.Component {
                                                 <span>Play</span>
                                             </div>
                                         }
-                                        <div className="user-show-button">
+                                        <div className="user-show-button"
+                                            onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}`).split(" ").join("%20"))}>
                                             <span>Share</span>
                                         </div>
                                     </div>
