@@ -168,6 +168,13 @@ class TrackIndexItem extends React.Component {
                     <div className="track-index-item-length">
                         {this.formatTime(this.props.track.track_length)}
                     </div>
+
+                    { (this.props.track.id === this.props.currentTrack) ?
+                        <div className="track-index-waveform-progress" style={{ width: `${(this.props.percent / 100) * 560}px`}}>
+                            <img src={window.defaultWaveformIndex} />
+                            <div />
+                        </div> : null
+                    }
                     <img src={window.defaultWaveformIndex} />
                 </div>
             

@@ -254,7 +254,7 @@
     right: 0;
     bottom: -10px;
     height: 10px;
-    background-color: rgba(190,204,213,.3);
+    background-color: rgba(190,204,213,0.3);
 }
 
 .track-index-item-length {
@@ -311,7 +311,37 @@
     border-top: 5px solid rgba(28,28,28,.85);
 }
 
-.track-index-item-waveform > img {
+.track-index-waveform-progress {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 0;
+    height: 43px;
+    overflow: hidden;
+    vertical-align: top;
+    transition: 0.2s;
+}
+
+.track-index-waveform-progress > img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 560px;
+    height: 33px;
+    vertical-align: top;
+}
+
+.track-index-waveform-progress > div {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    background-color: rgba(190,204,213,0.3);
+}
+
+.track-index-item-waveform > img  {
     position: absolute;
     left: 0px;
     top: 0px;

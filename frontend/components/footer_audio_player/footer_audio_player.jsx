@@ -110,6 +110,7 @@ class FooterAudioPlayer extends React.Component {
         const bounds = e.currentTarget.getBoundingClientRect();
         const percent = ((e.clientX - (bounds.left)) / bounds.width);
         this._audio.currentTime = (percent * this._audio.duration);
+        this.props.currentPercent(percent * 100);
     }
 
     handleVolume(e) {

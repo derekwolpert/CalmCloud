@@ -378,7 +378,7 @@ class UserShow extends React.Component {
                                     </span> : null
                                 }
 
-                                <div className="user-show-biography">
+                                <div className="user-show-biography" onClick={() => this.state.showFullDescription ? this.setState({ showFullDescription: false }) : null} style={{ cursor: this.state.showFullDescription ? "pointer" : "" }}>
                                     { this.state.showFullDescription ?
                                         (
                                             this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
