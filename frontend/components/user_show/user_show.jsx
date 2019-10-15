@@ -397,7 +397,7 @@ class UserShow extends React.Component {
                                     (this.props.currentUser.id === this.props.user.id ?
                                     <TrackIndexStats
                                         currentUser={this.props.currentUser}
-                                        totalPlaycounts={this.props.tracks.map(track => track.play_count).reduce((acc, num) => acc + num)}
+                                        totalPlaycounts={this.props.tracks.length > 0 ? this.props.tracks.map(track => track.play_count).reduce((acc, num) => acc + num) : 0}
                                         totalUploads={this.props.currentUser.favorites.length} /> : null)
                                     : null
                                 }
