@@ -134,6 +134,7 @@ class TrackIndex extends React.Component {
                 fetchCurrentUser={this.props.fetchCurrentUser}
                 openModal={this.props.openModal}
                 openShareModal={this.props.openShareModal}
+                currentPercent={this.props.currentPercent}
                 />) );
         
         return (
@@ -146,11 +147,11 @@ class TrackIndex extends React.Component {
                         path={this.props.match.path}
                     /> : null }
                     <section className="track-index-track-container">
-                        {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) ?
+                        {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) || ((this.props.tracks.length === 0) && (this.props.match.path === "/"))?
                             <>
                                 <h1>{this.indexTitle()}</h1> 
-                                <div className="track-index-no-favorites-message">
-                                    When you favorite uploads you can come back and find them here.
+                                <div className="track-index-no-content-message">
+                                    {(this.props.match.path === "/favorites") ? "When you favorite uploads you can come back to find them here." : "When you follow other users you can came back to find their uploads here." }
                                 </div>
                             </>
                             :

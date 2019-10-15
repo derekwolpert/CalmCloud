@@ -313,6 +313,7 @@ class UserShow extends React.Component {
                 deleteFavoriteTrack={this.props.deleteFavoriteTrack}
                 fetchCurrentUser={this.props.fetchCurrentUser}
                 openModal={this.props.openModal}
+                currentPercent={this.props.currentPercent}
             />));
 
         return (

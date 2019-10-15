@@ -12,6 +12,7 @@ class TrackIndexItem extends React.Component {
         this.formateDate = this.formatDate.bind(this);
         this.confirmNew = this.confirmNew.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
+        this.handleProgress = this.handleProgress.bind(this);
     }
 
     formatTime(time) {
@@ -117,6 +118,14 @@ class TrackIndexItem extends React.Component {
         }
     }
 
+    handleProgress(e) {
+        const bounds = e.currentTarget.getBoundingClientRect();
+        const percent = ((e.clientX - (bounds.left)) / bounds.width);
+        if (this.props.currentTrack === this.props.track.id) {
+            this.props.currentPercent((percent * 100));
+        }
+    }
+
     render() {
 
         return (
@@ -175,7 +184,7 @@ class TrackIndexItem extends React.Component {
                             <div />
                         </div> : null
                     }
-                    <img src={window.defaultWaveformIndex} />
+                    <img src={window.defaultWaveformIndex} onClick={(e) => this.handleProgress(e)} style={{ cursor: (this.props.track.id === this.props.currentTrack) ? "pointer" : "" }}/>
                 </div>
             
                 <section className="track-index-item-actions-container">

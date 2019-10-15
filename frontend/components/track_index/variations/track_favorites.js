@@ -5,6 +5,7 @@ import { createFavoriteTrack, deleteFavoriteTrack } from "../../../actions/favor
 import { openModal } from '../../../actions/modal_actions';
 import { openShareModal } from '../../../actions/share_modal_actions';
 import { fetchCurrentUser } from "../../../actions/session_actions";
+import { currentPercent } from "../../../actions/footer_player_actions";
 import { withRouter } from 'react-router-dom';
 import TrackIndex from '../track_index';
 
@@ -50,6 +51,7 @@ const mapDispatchToProps = dispatch => ({
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
     openModal: modal => dispatch(openModal(modal)),
     openShareModal: url => dispatch(openShareModal(url)),
+    currentPercent: percent => dispatch(currentPercent(percent)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackIndex));
