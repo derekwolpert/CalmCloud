@@ -5,6 +5,7 @@ import TrackIndexStats from "../track_index/track_index_stats";
 import TrackIndexInfo from "../track_index/track_index_info"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faCloud, faChevronDown, faChevronUp, faMapMarkerAlt, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faFrown } from '@fortawesome/free-regular-svg-icons';
 
 class UserShow extends React.Component {
 
@@ -75,7 +76,28 @@ class UserShow extends React.Component {
                 <>
                     <h1>Uploads</h1>
                     {items}
-                    {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                    {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : 
+                        <div className="user-show-no-content">
+                            <FontAwesomeIcon icon={faFrown} />
+                            { this.props.currentUser ? (
+                                this.props.currentUser.id === this.props.user.id ?
+                                <>
+                                    <b>Looks like you haven't uploaded any content yet.</b>
+                                    Whenever you're ready to share with the world we'll be here ready to support you!
+                                </>
+                                : 
+                                <>
+                                    <b>Looks like {this.props.user.display_name} hasn't uploaded anything yet!</b>
+                                    Hopefully they will in the future, but until then there is no content here.
+                                </>
+                                ) :
+                                <>
+                                    <b>Looks like {this.props.user.display_name} hasn't uploaded anything yet!</b>
+                                    Hopefully they will in the future, but until then there is no content here.
+                                </>
+                            }
+                        </div>
+                    }
                 </>
             )
         }
@@ -84,13 +106,60 @@ class UserShow extends React.Component {
                 <>
                     <h1>Favorites</h1>
                     {items}
-                    {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                    {this.props.favoriteTracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : 
+                        <div className="user-show-no-content">
+                            <FontAwesomeIcon icon={faFrown} />
+                            { this.props.currentUser ? (
+                                this.props.currentUser.id === this.props.user.id ?
+                                <>
+                                    <b>Looks like you haven't favorited any uploads yet!</b>
+                                    Why not spend some time exploring uploads by other users? Find some content you will love!
+                                </>
+                                : 
+                                <>
+                                    <b>Looks like {this.props.user.display_name} hasn't favorited any uploads yet!</b>
+                                    Hopefully they will in the future, but until then there is no content here.
+                                </>
+                                ) :
+                                <>
+                                    <b>Looks like {this.props.user.display_name} hasn't favorited any uploads yet!</b>
+                                    Hopefully they will in the future, but until then there is no content here.
+                                </>
+                            }
+                        </div>
+                    }
                 </>
             )
         }
 
         if ((this.props.match.path === "/:username/followers") || (this.props.match.path === "/:username/following")) {
             const users = (this.props.match.path === "/:username/followers") ? this.props.user.followers : this.props.user.following;
+
+            if (users.length === 0) {
+                return (
+                    <div className="user-show-no-content">
+                        <FontAwesomeIcon icon={faFrown} />
+                        {this.props.currentUser ? (
+                            this.props.currentUser.id === this.props.user.id ?
+                                <>
+                                    { (this.props.match.path === "/:username/followers") ? <b>Oh no, looks like you do not have any followers yet!</b> : <b>Oh no, looks like you are not following anyone yet!</b> }
+                                    { (this.props.match.path === "/:username/followers") ? "Unfortunately until you have followers there isn't any content to show here." : "Why not start by exploring our community? Find other users who share content you can love." }
+                                </>
+                                :
+                                <>
+                                    {(this.props.match.path === "/:username/followers") ? <b>Looks like {this.props.user.display_name} doesn't have any followers yet!</b> : <b>Looks like {this.props.user.display_name} is not following anyone yet!</b> }
+                                    Hopefully they will in the future, but until then there is no content here.
+                                </>
+                        ) :
+                            <>
+                                {(this.props.match.path === "/:username/followers") ? <b>Looks like {this.props.user.display_name} doesn't have any followers yet!</b> : <b>Looks like {this.props.user.display_name} is not following anyone yet!</b>}
+                                Hopefully they will in the future, but until then there is no content here.
+                            </>
+                        }
+                    </div>
+                )
+            }
+
             const followers = users.slice().reverse().map((userId, idx) => {
                 const user = this.findUser(userId);
                 return (

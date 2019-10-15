@@ -465,3 +465,27 @@
 .user-show-follower-following-button:hover {
     background-color: rgb(46, 46, 46);
 }
+
+.user-show-no-content {
+    padding: 100px 0 80px;
+    display: block;
+    padding: 40px 0;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+    color: rgb(128, 128, 128);
+}
+
+.user-show-no-content > svg {
+    font-size: 74px;
+    margin-bottom: 25px;
+    color: rgb(149, 149, 149);
+
+}
+
+.user-show-no-content > b {
+    display: block;
+    padding: 0 0 2px;
+    font-weight: 600;
+    color: rgb(172, 172, 172);
+}
