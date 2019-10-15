@@ -50,6 +50,10 @@ class UserShow extends React.Component {
             });
         } else if (this.props.match.path !== prevProps.match.path) {
             window.scrollTo(0, 0);
+            this.setState({
+                showDropdown: false,
+                showFullDescription: false,
+            });
         }
 
         if (this.props.currentUser && !prevProps.currentUser) {

@@ -1,8 +1,5 @@
 json.user do
     json.partial! "api/users/user", user: @user
-    if @user.profile_cover.attached?
-        json.userCoverUrl url_for(@user.profile_cover)
-    end
 end
 
 if @favorite_tracks
