@@ -414,6 +414,16 @@ class UserShow extends React.Component {
                                     <h2 style={{ color: (this.props.match.path === "/:username/followers") ? "#4fa6d3" : ""}}><Link to={`/${this.props.user.username}/followers`}>{this.props.user.followers.length} Followers</Link></h2>
                                     <div className="user-show-actions">
                                         {this.handleSusbcribeButton()}
+                                        { this.props.currentUser ?
+                                            ((this.props.currentUser.id === this.props.user.id) ?
+                                                <Link to="/settings">
+                                                    <div className="user-show-button">
+                                                        <span>Update Profile</span>
+                                                    </div>
+                                                </Link>
+                                                : null)
+                                            : null
+                                        }
                                         {((this.props.match.path === "/:username/followers") || (this.props.match.path === "/:username/following")) ? null :
                                             <div className="user-show-play-button" onClick={() => this.handlePlayButton()}>
                                                 <FontAwesomeIcon icon={faPlay} />

@@ -14,3 +14,8 @@ export const fetchUser = username => dispatch => (
     UserApiUtil.fetchUser(username)
         .then(user => dispatch(receiveUser(user)))
 );
+
+export const updateUser = (user) => dispatch => (
+    TrackApiUtil.updateTrack(user, track)
+        .then(user => dispatch(receiveUser(user)))
+);

@@ -8,6 +8,7 @@ import TrackShowContainer from './track_show/track_show_container';
 import TrackUploadFormContainer from './track_upload_form/track_upload_form_container';
 import TrackEditFormContainer from './track_edit/track_edit_form_container';
 import UserShowContainer from './user_show/user_show_container';
+import UserEditContainer from './user_edit/user_edit_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const BodyContainer = () => (
@@ -18,6 +19,7 @@ const BodyContainer = () => (
             <ProtectedRoute exact path="/new-uploads" component={TrackNewUploadsContainer} />
             <ProtectedRoute exact path="/favorites" component={TrackFavoritesContainer} />
             <ProtectedRoute exact path="/trending" component={TrackTrendingContainer} />
+            <ProtectedRoute exact path="/settings" component={UserEditContainer} />
             <Route exact path="/:username" component={UserShowContainer} />
             <Route exact path="/:username/uploads" component={UserShowContainer} />
             <Route exact path="/:username/favorites" component={UserShowContainer} />
@@ -26,7 +28,6 @@ const BodyContainer = () => (
             <Route exact path="/:username/:title" component={TrackShowContainer} />
             <Route exact path="/:username/:title/edit" component={TrackEditFormContainer} />
         </Switch>
-
     </div>
 );
 

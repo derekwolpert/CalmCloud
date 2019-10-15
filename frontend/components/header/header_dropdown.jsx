@@ -48,7 +48,7 @@ class HeaderDropdown extends React.Component {
                     </button>
                     <ul className="header-dropdown-content">
                         <Link to={`/${this.props.username}`}><li>Your profile</li></Link>
-                        <li>Settings</li>
+                        <Link to="settings"><li>Settings</li></Link>
                         <li onClick={() => this.props.openModal("login")}>Switch account</li>
                         <li onClick={() => this.handleLogout()}>Log out</li>
                     </ul>

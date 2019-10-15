@@ -159,11 +159,11 @@ class TrackIndex extends React.Component {
                                 <>
                                     <h1>{this.indexTitle()}
                                     
-                                            <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
-                                                <FontAwesomeIcon icon={faPlay} />
-                                                Play
-                                            </button>
-                                            
+                                        <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
+                                            <FontAwesomeIcon icon={faPlay} />
+                                            Play
+                                        </button>
+                                        
                                         
                                     </h1>
                                     {indexItems}
@@ -177,12 +177,8 @@ class TrackIndex extends React.Component {
                             currentUser={this.props.currentUser}
                             totalPlaycounts={this.props.totalPlaycounts}
                             totalUploads={this.props.totalUploads} />
-
                         <TrackIndexInfo />
-
                     </section>
-
-
                 </section>
             </>
         );
