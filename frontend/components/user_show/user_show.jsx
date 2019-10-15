@@ -265,7 +265,7 @@ class UserShow extends React.Component {
         if (this.props.currentUser.following.includes(user.id)) {
             return (
                 <div className="user-show-follower-following-button"
-                    onClick={() => this.props.deleteSubscribeUser(this.props.user.id).then(() => (
+                    onClick={() => this.props.deleteSubscribeUser(user.id).then(() => (
                         this.props.fetchCurrentUser(this.props.currentUser.username)))}>
                     Following
                 </div>
@@ -321,7 +321,7 @@ class UserShow extends React.Component {
 
 
     handleFollowingSidebar() {
-        
+
         const users = this.props.user.following.slice().reverse().slice(0, 3).map(userId => this.findUser(userId));
 
         if (users.includes(undefined)) return null;
