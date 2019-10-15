@@ -39,6 +39,10 @@ class TrackShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.title !== prevProps.match.params.title) {
+            this.setState({
+                deleteConfirmation: false,
+                loaded: false,
+             });
             window.scrollTo(0, 0);
             this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
                 this.setState({
@@ -329,16 +333,13 @@ class TrackShow extends React.Component {
 
                                 <ul>
                                     {this.props.tracks.map(subTrack => (
-
                                         <TrackShowSidebar
                                             key={subTrack.id}
                                             track={subTrack}
                                             user={this.props.user}
                                             date={this.formatDate(subTrack.created_at)}
                                         />
-
                                     ))}
-
                                 </ul> 
                             </> : null
                         }

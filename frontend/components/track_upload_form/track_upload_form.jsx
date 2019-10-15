@@ -33,16 +33,25 @@ class TrackUploadForm extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.fetchCurrentUser(this.props.currentUsername)
-            .then(() => this.setState({
-                loaded: true,
-            }));
         document.title = "Upload | CalmCloud";
+        if (this.props.currentUsername) {
+            this.props.fetchCurrentUser(this.props.currentUsername)
+                .then(() => this.setState({
+                    loaded: true,
+            }));
+        }
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.currentUser === undefined && prevProps.currentUser) {
-            this.props.history.push("/");
+
+        if (prevProps.currentUsername === undefined && this.props.currentUsername) {
+            this.setState({
+                loaded: false,
+            });
+            this.props.fetchCurrentUser(this.props.currentUsername)
+                .then(() => this.setState({
+                    loaded: true,
+            }));
         }
     }
 
@@ -249,7 +258,7 @@ class TrackUploadForm extends React.Component {
 
     render() {
         return (
-            this.props.currentUser ? (
+            this.props.currentUsername ? (
                 this.state.loaded ?
                     <section className="track-upload-container">
                         <h1> {this.state.nextStage ? `Upload ${this.state.title}` : "Upload"}</h1>

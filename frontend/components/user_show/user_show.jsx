@@ -37,7 +37,9 @@ class UserShow extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.match.params.username !== prevProps.match.params.username) {
             this.setState({
-                loaded: false
+                loaded: false,
+                showDropdown: false,
+                showFullDescription: false,
             });
             document.title = `${this.props.user.display_name} | CalmCloud`;
             window.scrollTo(0, 0);
@@ -314,6 +316,7 @@ class UserShow extends React.Component {
                 <> 
                     <div className="user-show-profile-header-container">
                         <section className="user-show-profile-header">
+                            {this.props.user.userCoverUrl ? <div className="user-show-cover-image"><div style={{backgroundImage: `url(${this.props.user.userCoverUrl})`}} /></div> : null }
                             <div className="user-show-profile-header-inner-container">
                                 <Link to={`/${this.props.user.username}`}>
                                     <div className="user-show-profile-pic-container">
@@ -386,11 +389,13 @@ class UserShow extends React.Component {
                                         </div> 
                                     }
                                 </div>
-                                { this.props.currentUser.id === this.props.user.id ?
+                                { this.props.currentUser ? 
+                                    (this.props.currentUser.id === this.props.user.id ?
                                     <TrackIndexStats
                                         currentUser={this.props.currentUser}
                                         totalPlaycounts={this.props.tracks.map(track => track.play_count).reduce((acc, num) => acc + num)}
-                                        totalUploads={this.props.currentUser.favorites.length} /> : null
+                                        totalUploads={this.props.currentUser.favorites.length} /> : null)
+                                    : null
                                 }
                                 { this.props.user.following.length > 0 ?
                                     <section className="user-show-sidebar-following">

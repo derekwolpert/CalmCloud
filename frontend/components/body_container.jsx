@@ -12,26 +12,20 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const BodyContainer = () => (
     <div className="body-container" >
-
-        <ProtectedRoute exact path="/" component={TrackIndexContainer} />
-
         <Switch>
+            <ProtectedRoute exact path="/" component={TrackIndexContainer} />
             <Route exact path="/upload" component={TrackUploadFormContainer} />
             <ProtectedRoute exact path="/new-uploads" component={TrackNewUploadsContainer} />
             <ProtectedRoute exact path="/favorites" component={TrackFavoritesContainer} />
             <ProtectedRoute exact path="/trending" component={TrackTrendingContainer} />
             <Route exact path="/:username" component={UserShowContainer} />
-        </Switch>
-
-        <Switch>
             <Route exact path="/:username/uploads" component={UserShowContainer} />
             <Route exact path="/:username/favorites" component={UserShowContainer} />
             <Route exact path="/:username/followers" component={UserShowContainer} />
             <Route exact path="/:username/following" component={UserShowContainer} />
             <Route exact path="/:username/:title" component={TrackShowContainer} />
+            <Route exact path="/:username/:title/edit" component={TrackEditFormContainer} />
         </Switch>
-
-        <Route exact path="/:username/:title/edit" component={TrackEditFormContainer} />
 
     </div>
 );

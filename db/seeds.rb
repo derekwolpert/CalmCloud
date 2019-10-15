@@ -25,7 +25,9 @@ demo_user_1 = User.create!({
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/7.png")
+cover1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/cover_photos/cover_photo1.jpg")
 demo_user_1.profile_pic.attach(io: avatar1, filename: 'avatar-1.png')
+demo_user_1.profile_cover.attach(io: cover1, filename: 'cover-1.jpg')
 
 demo_user_2 = User.create!({
     email: "demo2@email.com",
@@ -39,7 +41,9 @@ demo_user_2 = User.create!({
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/6.png")
+cover2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/cover_photos/cover_photo2.jpg")
 demo_user_2.profile_pic.attach(io: avatar2, filename: 'avatar-2.png')
+demo_user_2.profile_cover.attach(io: cover2, filename: 'cover-2.jpg')
 
 demo_user_3 = User.create!({
     email: "demo3@email.com",
@@ -53,8 +57,9 @@ demo_user_3 = User.create!({
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/2.png")
+cover3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/cover_photos/cover_photo3.jpg")
 demo_user_3.profile_pic.attach(io: avatar3, filename: 'avatar-3.png')
-
+demo_user_3.profile_cover.attach(io: cover3, filename: 'cover-3.jpg')
 
 demo_user_4 = User.create!({
     email: "demo4@email.com",
@@ -68,7 +73,9 @@ demo_user_4 = User.create!({
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/3.png")
+cover4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/cover_photos/cover_photo4.jpg")
 demo_user_4.profile_pic.attach(io: avatar4, filename: 'avatar-4.png')
+demo_user_4.profile_cover.attach(io: cover4, filename: 'cover-4.jpg')
 
 demo_user_5 = User.create!({
     email: "demo5@email.com",
@@ -82,7 +89,9 @@ demo_user_5 = User.create!({
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
 })
 avatar5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/4.png")
+cover5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/cover_photos/cover_photo5.jpg")
 demo_user_5.profile_pic.attach(io: avatar5, filename: 'avatar-5.png')
+demo_user_5.profile_cover.attach(io: cover5, filename: 'cover-5.jpg')
 
 demo_track_1 = Track.create!({
     user: demo_user_1,

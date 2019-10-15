@@ -17,7 +17,7 @@ class Splash extends React.Component {
     render() {
         return (
             <>
-                <img className="splash-background-image" src={window.background1URL} />
+                <div className="splash-background-image"> <div style={{ backgroundImage: `url(${window.background1URL})` }}/></div>
                 <div className="splash-text">
                     <h1 className="splash-title">The online destination for sharing audio</h1>
                     <h2 className="splash-subtitle">Explore a wide collection of sounds ranging from music, podcasts, guided meditations and more.</h2>

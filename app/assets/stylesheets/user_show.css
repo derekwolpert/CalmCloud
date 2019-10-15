@@ -4,15 +4,34 @@
 
 .user-show-profile-header {
     padding: 120px 0 0;
-    overflow: visible;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
     position: relative;
     top: 0px;
     z-index: 5;
     width: 100%;
     background: rgb(46, 46, 46);
+}
+
+.user-show-cover-image {
+    position: absolute;
+    overflow: hidden;
+    height: 204px;
+    width: 100vw;
+    max-width: 1460px;
+    min-width: 1100px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-show-cover-image > div  {
+    position: absolute;
+    width: 1460px;
+    height: 204px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-position: 50% 50%;
+    background-size: cover;
 }
 
 .user-show-profile-header:after {
