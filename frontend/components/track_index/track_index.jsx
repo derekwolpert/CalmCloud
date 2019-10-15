@@ -146,29 +146,31 @@ class TrackIndex extends React.Component {
                         currentUser={this.props.currentUser}
                         path={this.props.match.path}
                     /> : null }
-                    <section className="track-index-track-container">
-                        {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) || ((this.props.tracks.length === 0) && (this.props.match.path === "/"))?
-                            <>
-                                <h1>{this.indexTitle()}</h1> 
-                                <div className="track-index-no-content-message">
-                                    {(this.props.match.path === "/favorites") ? "When you favorite uploads you can come back to find them here." : "When you follow other users you can came back to find their uploads here." }
-                                </div>
-                            </>
-                            :
-                            <>
-                                <h1>{this.indexTitle()}
-                                    { this.state.loaded ?
-                                        <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
-                                            <FontAwesomeIcon icon={faPlay} />
-                                            Play
-                                        </button>
-                                        : <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
-                                    }
-                                </h1>
-                                {indexItems}
-                                { this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null }
-                            </>}
-                    </section>
+                    {this.state.loaded ?
+                        <section className="track-index-track-container">
+                            {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) || ((this.props.tracks.length === 0) && (this.props.match.path === "/"))?
+                                <>
+                                    <h1>{this.indexTitle()}</h1> 
+                                    <div className="track-index-no-content-message">
+                                        {(this.props.match.path === "/favorites") ? "When you favorite uploads you can come back to find them here." : "When you follow other users you can came back to find their uploads here." }
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <h1>{this.indexTitle()}
+                                    
+                                            <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
+                                                <FontAwesomeIcon icon={faPlay} />
+                                                Play
+                                            </button>
+                                            
+                                        
+                                    </h1>
+                                    {indexItems}
+                                    { this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null }
+                                </>}
+                        </section>
+                    : <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div> }
 
                     <section className="track-index-right-sidebar">
                         <TrackIndexStats
