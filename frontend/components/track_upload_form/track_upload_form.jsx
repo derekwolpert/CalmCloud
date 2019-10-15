@@ -138,6 +138,11 @@ class TrackUploadForm extends React.Component {
                 {this.props.currentUserTracks.includes(this.state.title.toLowerCase()) ?
                     <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
                 }
+
+                {["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase()) ?
+                    <div className="track-upload-title-warning">This title is reserved - please select a different title for this upload before moving forward.</div> : null
+                }
+
                 <div className="audio-file-input-container">
                     <input className="audio-file-input" type="file" accept=".mp3, .aac, .m4a, .mp4, .ogg" onChange={this.handleAudioFile.bind(this)} />
                 </div>
@@ -188,6 +193,10 @@ class TrackUploadForm extends React.Component {
 
                 {this.props.currentUserTracks.includes(this.state.title.toLowerCase()) ?
                     <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
+                }
+
+                {["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase()) ?
+                    <div className="track-upload-title-warning">This title is reserved - please select a different title for this upload before moving forward.</div> : null
                 }
 
                 <div className="track-upload-cf">
@@ -246,7 +255,7 @@ class TrackUploadForm extends React.Component {
                         <div className="track-upload-save-container">
                             <Link to="/" className="track-upload-cancel">Cancel</Link>
                             <button className="track-upload-button"
-                                disabled={(!this.state.audioUrl || !(this.state.title.length > 0)) || (this.props.currentUserTracks.includes(this.state.title.toLowerCase()))}
+                                disabled={(!this.state.audioUrl || !(this.state.title.length > 0)) || (this.props.currentUserTracks.includes(this.state.title.toLowerCase()) || (["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase())))}
                                 onClick={() => this._loading.style.display = ""}>Upload and Publish</button>
                         </div>
                     </section>
