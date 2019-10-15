@@ -35,6 +35,14 @@ class UserShow extends React.Component {
         if (this.props.user) document.title = `${this.props.user.display_name} | CalmCloud`;
     }
 
+    componentWillUnmount() {
+        this.setState({
+            loaded: false,
+            showDropdown: false,
+            showFullDescription: false,
+        });
+    }
+
     componentDidUpdate(prevProps) {
         if (this.props.match.params.username !== prevProps.match.params.username) {
             this.setState({
@@ -313,8 +321,12 @@ class UserShow extends React.Component {
 
 
     handleFollowingSidebar() {
-        return this.props.user.following.slice().reverse().slice(0, 3).map((userId, idx) => {
-            const user = this.findUser(userId);
+        
+        const users = this.props.user.following.slice().reverse().slice(0, 3).map(userId => this.findUser(userId));
+
+        if (users.includes(undefined)) return null;
+
+        return users.map((user, idx) => {
             return (
                 <li className="user-show-follower-item" key={idx}>
                     <span className="user-show-follower-container">

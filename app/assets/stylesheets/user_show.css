@@ -72,11 +72,11 @@
     box-sizing: content-box;
 }
 
-.user-show-profile-pic {
+.user-show-profile-pic-container > img {
     display: block;
-    opacity: 1;
     height: 160px;
     width: 160px;
+    object-fit: cover;
 }
 
 .user-show-username {
@@ -402,7 +402,10 @@
 }
 
 .user-show-follower-profile-pic-container > img {
-    vertical-align: top;    
+    vertical-align: top;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
 }
 
 .user-show-follower-container > b {
