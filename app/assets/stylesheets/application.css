@@ -18,7 +18,7 @@ address, aside, b, footer, html, body, header,
 nav, h1, h2, h3, h4, h5, h6, a,
 ul, li, strong, main, button, i, svg,
 section, img, div, p, form,
-fieldset, label, input, textarea,
+fieldset, label, input, textarea, section,
 span, article, footer, time, small {
   margin: 0;
   padding: 0;
