@@ -211,7 +211,7 @@
 }
 
 .track-title-input:focus {
-    outline-offset: -2px;
+    outline: none;
     color: rgb(192, 192, 192);
     background-color: rgb(72, 72, 72);
 }
@@ -478,7 +478,7 @@
 
 
 .track-description-input:focus {
-    outline-offset: -2px;
+    outline: none;
     color: rgb(192, 192, 192);
     background-color: rgb(72, 72, 72);
 }
