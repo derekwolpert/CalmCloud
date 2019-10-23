@@ -62,7 +62,7 @@ class UserEdit extends React.Component {
 
     sidebar() {
         return (
-            <div className="track-index-sidebar-container" style={{ width: "300px" }}>
+            <div className="track-index-sidebar-container">
                 <section>
                     <div className="track-index-sidebar-inner-container">
                         <div className="track-index-sidebar-profile-border"/>

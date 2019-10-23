@@ -7,6 +7,21 @@
     padding: 30px 0;
 }
 
+
+.user-edit-container:after, .user-edit-container:before {
+    content: " ";
+    display: table;
+}
+
+.user-edit-container:after {
+    clear: both;
+}
+
+.user-edit-container > .track-index-sidebar-container {
+    width: 300px;
+    position: static;
+}
+
 .user-edit-content-container {
     position: relative;
     float: right;
