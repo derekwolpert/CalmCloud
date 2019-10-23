@@ -13,6 +13,8 @@ class UserEdit extends React.Component {
                 displayName: props.currentUser.display_name,
                 biography: props.currentUser.biography !== undefined ? props.currentUser.biography : "",
                 country: props.currentUser.country !== undefined ? props.currentUser.country : "",
+                city: props.currentUser.city !== undefined ? props.currentUser.city : "",
+                userPictureUrl: props.currentUser.userPictureUrl !== undefined ? props.currentUser.userPictureUrl : window.defaultAvatar,
                 stateIsSet: true,
             };
         }
@@ -26,6 +28,10 @@ class UserEdit extends React.Component {
             displayName: "",
             biography: "",
             country: "",
+            city: "",
+            userPictureUrl: "",
+            profilePicFile: null,
+            profilePicUrl: null,
             stateIsSet: false,
         };
 
@@ -83,8 +89,9 @@ class UserEdit extends React.Component {
         <>
             <select className="user-edit-country-selection-input"
                 onChange={(e) => this.handleCountry(e)}
+                value={`${this.state.country}`}
             >
-                    <option value="">Select a Country</option>
+                    <option value="">Select your Country</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -349,10 +356,31 @@ class UserEdit extends React.Component {
     }
 
     handleCountry(e) {
-        debugger
         this.setState({
             country: e.currentTarget.value
         });
+    }
+
+    handleCity(e) {
+        this.setState({
+            city: e.currentTarget.value
+        });
+    }
+
+    handleProfilePic(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({
+                profilePicFile: file,
+                profilePicUrl: fileReader.result,
+            });
+        };
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     render() {
@@ -409,22 +437,57 @@ class UserEdit extends React.Component {
                                     <b>Country and City</b>
                                     <span>Where are you from?</span>
                                 </label>
-                                <div className="user-edit-country-city-container">
+                                <div className="user-edit-split-container">
                                     {this.countrySelection()}
+
+                                    <input type="text"
+                                        className="user-edit-city-input"
+                                        value={`${this.state.city}`}
+                                        onChange={(e) => this.handleCity(e)}
+                                        placeholder="Enter your City"
+                                        maxLength="30">
+                                    </input>
                                 </div>
-                                
-                            </div>
-
-                            <div className="user-edit-form-section">
 
                             </div>
 
                             <div className="user-edit-form-section">
+                                <label className="user-edit-form-label">
+                                    <b>Profile Picture</b>
+                                    <span>JPEG, GIF or PNG, 10MB max, best if 300px by 300px or larger.</span>
+                                </label>
+                                <div className="user-edit-split-container">
+                                    <div className="user-edit-image-input-container">
+                                        <input type="file" accept=".jpeg, .jpg, .gif, .png"
+                                            className="user-edit-image-input"
+                                            onChange={(e) => this.handleProfilePic(e)} />
+                                    </div>
+
+                                    <div className="user-edit-profile-pic-preview">
+                                        <img src={this.state.profilePicUrl ? this.state.profilePicUrl : this.state.userPictureUrl} />
+                                    </div>
+
+                                </div>
+
 
                             </div>
 
                             <div className="user-edit-form-section">
 
+                                <label className="user-edit-form-label">
+                                    <b>Cover Photo</b>
+                                    <span>Displays best if at least 1460px wide and 370px tall.</span>
+                                </label>
+
+
+                                <div className="user-edit-split-container">
+                                    <div className="user-edit-image-input-container">
+                                        <input type="file" accept=".jpeg, .jpg, .gif, .png"
+                                            className="user-edit-image-input" />
+                                    </div>
+
+
+                                </div>
                             </div>
 
 

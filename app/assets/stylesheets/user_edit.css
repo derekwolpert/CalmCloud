@@ -80,13 +80,28 @@
     text-align: start;
 }
 
-.user-edit-display-name-input:focus, .user-edit-biography-input:focus {
+.user-edit-city-input {
+    float: left;
+    width: calc(50% - 10px);
+    margin-left: 20px;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(192, 192, 192);
+    background-color: rgb(56, 56, 56);
+    box-shadow: inset 0 2px 2px rgba(128,128,128,.6), inset 255 255 255 1px rgba(24,24,24,.5);
+    box-sizing: border-box;
+    transition: 0.2s;
+    text-align: start;
+}
+
+.user-edit-display-name-input:focus, .user-edit-biography-input:focus, .user-edit-city-input:focus {
     outline: none;
     color: rgb(192, 192, 192);
     background-color: rgb(72, 72, 72);
 }
 
-.user-edit-country-city-container {
+.user-edit-split-container {
     float: right;
     width: calc(100% - 275px);
 }
@@ -115,4 +130,72 @@
 
 .user-edit-country-selection-input:focus {
     outline: none;
+}
+
+.user-edit-image-input-container {
+    width: calc(50% - 10px);
+    float: left;
+    height: 38px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    line-height: 38px;
+    text-align: center;
+    background: #4fa6d3;
+    border-radius: 4px;
+}
+
+.user-edit-image-input {
+    width: 100%;
+    height: 38px;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    color: #586573;
+    background-color: #fff;
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+}
+
+.user-edit-image-input-container:after {
+    display: block;
+    content: "Choose File";
+    width: 222.5px;
+    height: 38px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    color: #fff;
+    font-size: 13px;
+    line-height: 38px;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.user-edit-profile-pic-input-container:hover {
+    background-color: #308ebf;
+}
+
+.user-edit-profile-pic-preview {
+    width: calc(50% - 10px);
+    height: 222.5px;
+    margin-left: 20px;
+    position: relative;
+    float: left;
+}
+
+.user-edit-profile-pic-preview > img {
+    height: 222.5px;
+    width: 222.5px;
+    object-fit: cover;
+    position: absolute;
+    background-color: white;
 }

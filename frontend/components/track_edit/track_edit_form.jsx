@@ -78,7 +78,6 @@ class TrackEditForm extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
         }
-
     }
 
     handleTitle(e) {
