@@ -214,3 +214,34 @@
     position: absolute;
     background-color: white;
 }
+
+.user-edit-cover-pic-preview {
+    width: calc(50% - 10px);
+    height: 63.563px;
+    margin-left: 20px;
+    position: relative;
+    float: left;
+    background-color: rgb(72, 72, 72);
+}
+
+.user-edit-cover-pic-preview > img {
+    height: 63.563px;
+    width: 222.5px;
+    object-fit: cover;
+    position: absolute;
+    background-color: white;
+}
+
+.user-edit-cover-pic-preview > svg {
+    color: rgb(212, 212, 212);
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.user-edit-form-section > .track-upload-button {
+    float: right;
+    font-size: 13px;
+}

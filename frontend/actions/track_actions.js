@@ -38,8 +38,8 @@ export const createTrack = track => dispatch => (
         .then(track => dispatch(receiveTrack(track)))
 );
 
-export const updateTrack = (username, track) => dispatch => (
-    TrackApiUtil.updateTrack(username, track)
+export const updateTrack = (username, title, track) => dispatch => (
+    TrackApiUtil.updateTrack(username, title, track)
         .then(track => dispatch(receiveTrack(track)))
 );
 

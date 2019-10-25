@@ -28,6 +28,7 @@ class TrackEditForm extends React.Component {
             stateIsSet: false,
             descriptionIsSet: false,
             deleteConfirmation: false,
+            submitting: false
         };
         this._loading = React.createRef();
         this.handleEditButton = this.handleEditButton.bind(this);
@@ -50,12 +51,14 @@ class TrackEditForm extends React.Component {
         if (this.props.currentUser === undefined && prevProps.currentUser) {
             this.props.history.push("/");
         }
-        if (!this.props.track) {
+        if (!this.props.track && !this.state.submitting) {
             this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
-        } else if (this.props.currentUser.id !== this.props.track.user_id) {
-            this.props.history.push(`/${this.props.currentUser.username}/${this.props.track.title}`);
-        } else if (this.props.track.description === undefined) {
-            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+        } else if (this.props.currentUser.username !== this.props.match.params.username) {
+            this.props.history.push(`/${this.props.match.params.username}/${this.props.track.title}`);
+        } else if (this.props.track) {
+            if (this.props.track.description === undefined) {
+                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+            }
         } else if (!this.state.descriptionIsSet) {
             this.setState({
                 description: this.props.track.description,
@@ -93,6 +96,9 @@ class TrackEditForm extends React.Component {
     }
 
     handleDelete() {
+        this.setState({
+            submitting: true,
+        });
         if (this.props.track.id === this.props.currentTrack) {
             this.props.removeCurrentTrack();
         }
@@ -131,8 +137,12 @@ class TrackEditForm extends React.Component {
             formData.append('track[track_artwork]', this.state.imageFile);
         }
 
-        this.props.updateTrack(this.props.currentUser.username, {id: this.props.track.id, formData: formData}).then(({ track }) => {
-            this.props.history.push(`/${this.props.currentUser.username}/${track.title}`);
+        this.setState({
+            submitting: true,
+        });
+
+        this.props.updateTrack(this.props.currentUser.username, this.props.track.title, formData).then(() => {
+            this.props.history.push(`/${this.props.currentUser.username}/${this.state.title}`);
         });
     }
 

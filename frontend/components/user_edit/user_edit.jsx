@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-
+import { faUser, faImages } from '@fortawesome/free-regular-svg-icons';
 
 class UserEdit extends React.Component {
 
@@ -11,10 +9,11 @@ class UserEdit extends React.Component {
         if (props.currentUser && !state.stateIsSet) {
             return {
                 displayName: props.currentUser.display_name,
-                biography: props.currentUser.biography !== undefined ? props.currentUser.biography : "",
-                country: props.currentUser.country !== undefined ? props.currentUser.country : "",
-                city: props.currentUser.city !== undefined ? props.currentUser.city : "",
+                biography: props.currentUser.biography !== (undefined || null) ? props.currentUser.biography : "",
+                country: props.currentUser.country !== (undefined || null) ? props.currentUser.country : "",
+                city: props.currentUser.city !== (undefined || null) ? props.currentUser.city : "",
                 userPictureUrl: props.currentUser.userPictureUrl !== undefined ? props.currentUser.userPictureUrl : window.defaultAvatar,
+                userCoverUrl: props.currentUser.userCoverUrl !== undefined ? props.currentUser.userCoverUrl: null,
                 stateIsSet: true,
             };
         }
@@ -32,10 +31,14 @@ class UserEdit extends React.Component {
             userPictureUrl: "",
             profilePicFile: null,
             profilePicUrl: null,
+            userCoverUrl: null,
+            coverPicFile: null,
+            coverPicUrl: null,
             stateIsSet: false,
         };
-
+        this._loading = React.createRef();
         this.sidebar = this.sidebar.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -91,7 +94,7 @@ class UserEdit extends React.Component {
                 onChange={(e) => this.handleCountry(e)}
                 value={`${this.state.country}`}
             >
-                    <option value="">Select your Country</option>
+                    <option value="">--- Select your Country ---</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -383,6 +386,56 @@ class UserEdit extends React.Component {
         }
     }
 
+    handleCoverPic(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({
+                coverPicFile: file,
+                coverPicUrl: fileReader.result,
+            });
+        };
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+    }
+
+    handleSubmit(e) {
+
+        e.preventDefault();
+        const formData = new FormData();
+
+        if (this.props.currentUser.display_name !== this.state.displayName) {
+            formData.append('user[display_name]', this.state.displayName);
+        }
+
+        if (this.props.currentUser.biography !== this.state.biography) {
+            formData.append('user[biography]', this.state.biography);
+        }
+
+        if (this.props.currentUser.country !== this.state.country) {
+            formData.append('user[country]', this.state.country);
+        }
+
+        if (this.props.currentUser.city !== this.state.city) {
+            formData.append('user[city]', this.state.city);
+        }
+
+        if (this.state.profilePicFile) {
+            formData.append('user[profile_pic]', this.state.profilePicFile);
+        }
+
+        if (this.state.coverPicFile) {
+            formData.append('user[profile_cover]', this.state.coverPicFile);
+        }
+
+        this.props.updateUser(this.props.currentUser.username, formData).then(() => {
+            this.props.history.push(`/${this.props.currentUser.username}`);
+        });
+    }
+
     render() {
         return (
             this.state.stateIsSet && this.props.currentUser ?
@@ -395,8 +448,8 @@ class UserEdit extends React.Component {
                             <Link to={`/${this.props.currentUsername}`}>Visit your profile</Link>
                         </h1>
 
-                        <form className="user-edit-form" onKeyPress={(e) => {
-                            if (e.target.className === "track-description-input") {
+                        <form className="user-edit-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                            if (e.target.className === "user-edit-biography-input") {
                                 return;
                             }
                             (e.key === 'Enter') && e.preventDefault();
@@ -414,6 +467,11 @@ class UserEdit extends React.Component {
                                     placeholder="Enter your name"
                                     maxLength="30">
                                 </input>
+                                { ((this.state.displayName.length === 0) || (!this.state.displayName)) ?
+                                    <div className="track-upload-title-warning">This field is required.</div>
+                                    :
+                                    null
+                                }
                             </div>
 
                             <div className="user-edit-form-section">
@@ -466,10 +524,7 @@ class UserEdit extends React.Component {
                                     <div className="user-edit-profile-pic-preview">
                                         <img src={this.state.profilePicUrl ? this.state.profilePicUrl : this.state.userPictureUrl} />
                                     </div>
-
                                 </div>
-
-
                             </div>
 
                             <div className="user-edit-form-section">
@@ -483,18 +538,32 @@ class UserEdit extends React.Component {
                                 <div className="user-edit-split-container">
                                     <div className="user-edit-image-input-container">
                                         <input type="file" accept=".jpeg, .jpg, .gif, .png"
-                                            className="user-edit-image-input" />
+                                            className="user-edit-image-input" 
+                                            onChange={(e) => this.handleCoverPic(e)} />
                                     </div>
 
+                                    <div className="user-edit-cover-pic-preview">
+                                        { (this.state.coverPicUrl || this.state.userCoverUrl) ? 
+                                            <img src={(this.state.coverPicUrl || this.state.userCoverUrl)} />
+                                            :
+                                            <FontAwesomeIcon icon={faImages} />
+                                        }
+                                        
+                                    </div>
 
                                 </div>
                             </div>
 
+                            <div className="user-edit-form-section">
+                                <button className="track-upload-button"
+                                    disabled={((this.state.displayName.length === 0) || (!this.state.displayName))}
+                                    onClick={() => this._loading.style.display = ""}>Save Profile Settings</button>
+                            </div>
 
                         </form>
 
                     </section>
-                    
+                    <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
                 </section>
 
             :

@@ -23,14 +23,14 @@ const mapStateToProps = (state, ownProps) => {
         track: track(),
         currentUser: currentUser,
         currentTrack: state.ui.currentTrack,
-        currentUserTracks: currentUser ? Object.values(state.entities.tracks).filter((otherTrack) => ((otherTrack.user_id === currentUser.id) && otherTrack.id !== track().id)).map(track => track.title.toLowerCase()) : [],
+        currentUserTracks: (currentUser && track()) ? Object.values(state.entities.tracks).filter((otherTrack) => ((otherTrack.user_id === currentUser.id) && otherTrack.id !== track().id)).map(track => track.title.toLowerCase()) : [],
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     fetchTrack: (username, title) => dispatch(fetchTrack(username, title)),
     deleteTrack: trackId => dispatch(deleteTrack(trackId)),
-    updateTrack: (username, track) => dispatch(updateTrack(username, track)),
+    updateTrack: (username, title, track) => dispatch(updateTrack(username, title, track)),
     removeCurrentTrack: () => dispatch(removeCurrentTrack()),
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username))
 });

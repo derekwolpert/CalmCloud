@@ -50,14 +50,16 @@ class TrackShow extends React.Component {
                 });
             });
             document.title = `${this.props.match.params.title} | CalmCloud`;
-        } else if (this.props.track.description === undefined) {
-            window.scrollTo(0, 0);
-            this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
-                this.setState({
-                    loaded: true
+        } else if (this.props.track) {
+            if (this.props.track.description === undefined) {
+                window.scrollTo(0, 0);
+                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title).then(() => {
+                    this.setState({
+                        loaded: true
+                    });
                 });
-            });
-            document.title = `${this.props.match.params.title} | CalmCloud`;
+                document.title = `${this.props.match.params.title} | CalmCloud`;
+            }
         }
         if (this.props.currentUser === undefined && prevProps.currentUser) {
             this.props.history.push("/");
