@@ -19,7 +19,7 @@ demo_user_1 = User.create!({
     password: "password1",
     display_name: "Demo User",
     city: "New York",
-    country: "United States",
+    country: "United States of America",
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
 
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
@@ -35,7 +35,7 @@ demo_user_2 = User.create!({
     password: "password2",
     display_name: "Jeanette	Holloway",
     city: "Chicago",
-    country: "United States",
+    country: "United States of America",
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
 
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
@@ -81,7 +81,7 @@ demo_user_5 = User.create!({
     email: "demo5@email.com",
     username: "dgelsant",
     password: "password5",
-    display_name: "Anna	Gilbert",
+    display_name: "Kirstin Preece",
     city: "Auckland",
     country: "New Zealand",
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
@@ -159,7 +159,7 @@ demo_user_10 = User.create!({
     password: "password10",
     display_name: "Tommy Craig",
     city: "Houston",
-    country: "United States",
+    country: "United States of America",
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
 
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
@@ -267,7 +267,7 @@ demo_user_17 = User.create!({
     password: "password17",
     display_name: "Elsie Wilson",
     city: "San Diego",
-    country: "United States",
+    country: "United States of America",
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
 
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
@@ -295,7 +295,7 @@ demo_user_19 = User.create!({
     password: "password19",
     display_name: "Shannon Page",
     city: "New York",
-    country: "United States",
+    country: "United States of America",
     biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel sapien blandit, ornare eros accumsan, consequat felis. Ut interdum metus nec sem luctus sagittis. Aenean sollicitudin feugiat iaculis. Nullam cursus dapibus mauris eget gravida. Aliquam feugiat a dui eu accumsan. Proin luctus lobortis lorem quis luctus. Donec aliquet sodales venenatis. Donec eget imperdiet augue, ut egestas nunc.
 
 Maecenas convallis sodales lectus, a faucibus nisi malesuada sed. Sed pharetra convallis ligula, a pharetra urna. Nulla eget mattis eros. Maecenas quis ultricies metus. Duis at metus urna. Ut varius at risus quis euismod. Aenean tristique eu urna a porttitor. Quisque risus massa, commodo at molestie eu, dictum sit amet tortor. Mauris aliquet consectetur placerat. Mauris convallis, neque sit amet pretium malesuada, mi metus mollis magna, eget commodo augue sem sed orci. Phasellus vestibulum eros mi, nec pellentesque odio accumsan tempor."
