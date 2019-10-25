@@ -94,7 +94,7 @@ class UserEdit extends React.Component {
                 onChange={(e) => this.handleCountry(e)}
                 value={`${this.state.country}`}
             >
-                    <option value="">--- Select your Country ---</option>
+                    <option value="">-- Select your Country --</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
