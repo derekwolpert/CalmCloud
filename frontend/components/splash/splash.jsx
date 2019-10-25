@@ -1,20 +1,65 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeadphonesAlt, faMicrophoneAlt, faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { faHeadphonesAlt, faMicrophoneAlt, faUserFriends, faCloud } from '@fortawesome/free-solid-svg-icons';
+import TrackIndexInfo from "../track_index/track_index_info";
+import TrackIndexItem from '../track_index/track_index_item';
 import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            loaded: false,
+        };
+
+        this.findUser = this.findUser.bind(this);
     }
 
     componentDidMount() {
         window.scrollTo(0, 0);
+        this.props.fetchAllTracks()
+            .then(() => {
+                this.setState({
+                    loaded: true
+                });
+            });
+
         document.title = "CalmCloud";
+    }
+
+    findUser(userId) {
+        for (let user in this.props.users) {
+            if (this.props.users[user].id === userId) {
+                return this.props.users[user];
+            }
+        }
     }
     
     render() {
+        const indexItems = this.props.tracks.map( (track, idx) => (
+            <TrackIndexItem
+                key={track.id}
+                track={track}
+                position={idx + 1}
+                user={this.findUser(track.user_id)}
+                changeTrack={this.props.changeTrack}
+                currentTrack={this.props.currentTrack}
+                currentUser={null}
+                pauseTrack={this.props.pauseTrack}
+                playing={this.props.playing}
+                percent={this.props.percent}
+                path={null}
+                createFavoriteTrack={null}
+                deleteFavoriteTrack={null}
+                fetchCurrentUser={null}
+                openModal={this.props.openModal}
+                openShareModal={this.props.openShareModal}
+                currentPercent={this.props.currentPercent}
+            />));
+
+
         return (
             <>
                 <div className="splash-background-image"> <div style={{ backgroundImage: `url(${window.background1URL})` }}/></div>
@@ -24,7 +69,7 @@ class Splash extends React.Component {
                 </div>
                 <div className="splash-buttons">
                     <button className="splash-login" onClick={() => this.props.openModal('login')}>Demo User Sign in</button>
-                    <a className="splash-music-direct">Start Listening</a>
+                    <span className="splash-music-direct" onClick={() => window.scrollTo(0, 1024)}>Start Listening</span>
                 </div>
                 <div className="splash-signup">
                     <button className="splash-signup-link" onClick={() => this.props.openModal('signup')}><b>Sign up</b> with email</button>
@@ -57,8 +102,25 @@ class Splash extends React.Component {
                         </div>
                     
                     </div>
-
                 </div>
+                { this.state.loaded ?
+                    <div className="splash-content-container">
+                        <div className="splash-content">
+                            <section className="splash-sidebar-container">
+                                <TrackIndexInfo />
+                            </section>
+
+                            <section className="track-index-track-container">
+                                <h1>Trending Uploads</h1>
+                                {indexItems}
+                                {this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                            </section>
+
+                        </div>
+                    </div>
+                    :
+                    <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
+                }
             </>
         );
     }

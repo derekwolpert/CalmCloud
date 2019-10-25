@@ -152,7 +152,7 @@ class TrackIndexItem extends React.Component {
                 <div className="track-index-item-artwork">
                     <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
                 </div>
-                {this.props.path === "/trending" ?
+                { (this.props.path === "/trending" || this.props.path === null) ?
                     <div className="track-trending-postion-container">
                         <div className={`track-trending-position-background${this.props.position === 1 ? "-first" : ""}`} />
                         <div className={`track-trending-position${this.props.position === 1 ? "-first" : ""}`}>
@@ -202,7 +202,6 @@ class TrackIndexItem extends React.Component {
                                     <FontAwesomeIcon icon={faHeart} />
                                 </div>
                             }
-
                             <div className="track-index-item-action"
                                 onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}/${this.props.track.title}`).split(" ").join("%20"))}>
                                 <FontAwesomeIcon icon={faShareSquare} />

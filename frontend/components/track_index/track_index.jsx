@@ -162,9 +162,7 @@ class TrackIndex extends React.Component {
                                         <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
                                             <FontAwesomeIcon icon={faPlay} />
                                             Play
-                                        </button>
-                                        
-                                        
+                                        </button>  
                                     </h1>
                                     {indexItems}
                                     { this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null }

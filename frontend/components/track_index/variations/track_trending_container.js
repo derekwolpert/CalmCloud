@@ -14,7 +14,6 @@ const sortTracksByPlaycount = (tracks) => {
     return tracks.sort((a, b) => (a.play_count >= b.play_count) ? -1 : 1);
 };
 
-
 const mapStateToProps = (state) => {
 
     const currentUser = state.entities.users[state.session.currentUser.username];
