@@ -95,6 +95,10 @@
     text-align: start;
 }
 
+.user-edit-biography-input {
+    resize: vertical;
+}
+
 .user-edit-city-input {
     float: left;
     width: calc(50% - 10px);

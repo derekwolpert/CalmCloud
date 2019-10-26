@@ -463,7 +463,6 @@ class UserEdit extends React.Component {
     }
 
     render() {
-        debugger
         return (
             this.state.stateIsSet && this.props.currentUser ?
 
