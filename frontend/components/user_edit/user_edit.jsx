@@ -39,6 +39,7 @@ class UserEdit extends React.Component {
         this._loading = React.createRef();
         this.sidebar = this.sidebar.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleButtonState = this.handleButtonState.bind(this);
     }
 
     componentDidMount() {
@@ -402,6 +403,31 @@ class UserEdit extends React.Component {
         }
     }
 
+    handleButtonState() {
+        if ((this.state.displayName.length === 0) || (!this.state.displayName)) {
+            return false;
+        }
+        if (this.props.currentUser.display_name !== this.state.displayName) {
+            return false;
+        }
+        if (this.props.currentUser.biography !== this.state.biography) {
+            return false;
+        }
+        if (this.props.currentUser.country !== this.state.country) {
+            return false;
+        }
+        if (this.props.currentUser.city !== this.state.city) {
+            return false;
+        }
+        if (this.state.profilePicFile) {
+            return false;
+        }
+        if (this.state.coverPicFile) {
+            return false;
+        }
+        return true;
+    }
+
     handleSubmit(e) {
 
         e.preventDefault();
@@ -437,6 +463,7 @@ class UserEdit extends React.Component {
     }
 
     render() {
+        debugger
         return (
             this.state.stateIsSet && this.props.currentUser ?
 
@@ -556,7 +583,7 @@ class UserEdit extends React.Component {
 
                             <div className="user-edit-form-section">
                                 <button className="track-upload-button"
-                                    disabled={((this.state.displayName.length === 0) || (!this.state.displayName))}
+                                    disabled={this.handleButtonState()}
                                     onClick={() => this._loading.style.display = ""}>Save Profile Settings</button>
                             </div>
 
