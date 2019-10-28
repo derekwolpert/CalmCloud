@@ -335,168 +335,228 @@ demo_user_21.profile_pic.attach(io: avatar21, filename: 'avatar-21.jpg')
 
 demo_track_1 = Track.create!({
     user: demo_user_2,
-    title: "Oneohtrix Point Never - Topline Demo 1 (Usher)",
-    track_length: 196,
-    description: "Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Point Never - Topline Demo 1 (Usher) Oneohtrix Poi"
+    title: "Black Star - You Already Knew",
+    track_length: 250,
+    description: "This is the description area for the upload Black Star - You Already Knew.
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack1/Topline+Demo+1+(Usher).mp3")
-artwork1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack1/Topline+Demo+1+(Usher).jpg")
-demo_track_1.audio_track.attach(io: track1, filename: 'demo_track_1.mp3')
+track1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/You+Already+Knew.m4a")
+artwork1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Black+Star+Aretha.jpg")
+demo_track_1.audio_track.attach(io: track1, filename: 'demo_track_1.m4a')
 demo_track_1.track_artwork.attach(io: artwork1, filename: 'demo_track_1.jpg')
 
 demo_track_2 = Track.create!({
     user: demo_user_1,
-    title: "Janet Jackson - If (KAYTRANADA Remix)",
-    track_length: 237,
-    description: "Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackson - If (KAYTRANADA Remix) Janet Jackso"
+    title: "XXYYXX - Overdone (feat. Anneka)",
+    track_length: 238,
+    description: "This is the description area for the upload XXYYXX - Overdone (feat. Anneka).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).mp3")
-artwork2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack5/If+(KAYTRANADA+Remix).jpg")
-demo_track_2.audio_track.attach(io: track2, filename: 'demo_track_2.mp3')
+track2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/14+Overdone+(feat.+Anneka).m4a")
+artwork2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/XXYYXX.jpg")
+demo_track_2.audio_track.attach(io: track2, filename: 'demo_track_2.m4a')
 demo_track_2.track_artwork.attach(io: artwork2, filename: 'demo_track_2.jpg')
 
 demo_track_3 = Track.create!({
     user: demo_user_5,
-    title: "Jamie Woon - Blue Truth",
-    track_length: 243,
-    description: "Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blue Truth Jamie Woon - Blu"
+    title: "Cassie - All My Love (Kingdom Edit)",
+    track_length: 218,
+    description: "This is the description area for the upload Cassie - All My Love (Kingdom Edit).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack7/Blue+Truth.mp3")
-artwork3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack7/Blue+Truth.png")
-demo_track_3.audio_track.attach(io: track3, filename: 'demo_track_3.mp3')
-demo_track_3.track_artwork.attach(io: artwork3, filename: 'demo_track_3.png')
+track3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/All+My+Love+(Kingdom+Edit).m4a")
+artwork3 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/All+My+Love+(Kingdom+Edit).jpg")
+demo_track_3.audio_track.attach(io: track3, filename: 'demo_track_3.m4a')
+demo_track_3.track_artwork.attach(io: artwork3, filename: 'demo_track_3.jpg')
 
 demo_track_4 = Track.create!({
     user: demo_user_1,
-    title: "Asmara - Anything (feat. Alexandria)",
-    track_length: 202,
-    description: "Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) Asmara - Anything (feat. Alexandria) A"
+    title: "Phoenix - Trying to Be Cool (A-Trak Remix)",
+    track_length: 439,
+    description: "This is the description area for the upload Phoenix - Trying to Be Cool (A-Trak Remix).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack4/04+Anything+(feat.+Alexandria).mp3")
-artwork4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack4/Let+Ting+Go.jpg")
-demo_track_4.audio_track.attach(io: track4, filename: 'demo_track_4.mp3')
+track4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Trying+to+Be+Cool+(A-Trak+Remix).m4a")
+artwork4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Trying+to+Be+Cool+(A-Trak+Remix).jpg")
+demo_track_4.audio_track.attach(io: track4, filename: 'demo_track_4.m4a')
 demo_track_4.track_artwork.attach(io: artwork4, filename: 'demo_track_4.jpg')
 
 demo_track_5 = Track.create!({
     user: demo_user_3,
-    title: "DJ Spinn - Them Changes",
-    track_length: 204,
-    description: "DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them Changes DJ Spinn - Them "
+    title: "Banks - Warm Water (Snakehips Remix)",
+    track_length: 253,
+    description: "This is the description area for the upload Banks - Warm Water (Snakehips Remix).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/30+Them+Changes.mp3")
-artwork5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack2/Teklife+VIP+2019.jpg")
-demo_track_5.audio_track.attach(io: track5, filename: 'demo_track_5.mp3')
+track5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Warm+Water+(Snakehips+Remix).m4a")
+artwork5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Warm+Water+(Snakehips+Remix).jpg")
+demo_track_5.audio_track.attach(io: track5, filename: 'demo_track_5.m4a')
 demo_track_5.track_artwork.attach(io: artwork5, filename: 'demo_track_5.jpg')
 
 demo_track_6 = Track.create!({
     user: demo_user_5,
-    title: "Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink]",
-    track_length: 202,
-    description: "Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lastic Remix) [feat. Goldlink] Kelela - Rewind (Louie Lasti"
+    title: "Chromatics - Cherry (Instrumental)",
+    track_length: 271,
+    description: "This is the description area for the upload Chromatics - Cherry (Instrumental).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack3/Rewind+(Louie+Lastic+Remix)+%5Bfeat.+Goldlink%5D.mp3")
-artwork6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack3/Rewind+(Louie+Lastic+Remix)+%5Bfeat.+Goldlink%5D.jpg")
-demo_track_6.audio_track.attach(io: track6, filename: 'demo_track_6.mp3')
+track6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/09+Cherry+(After+Dark+2)+%5BInstrumental%5D.m4a")
+artwork6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/After+Dark+2+-+Instrumentals.jpg")
+demo_track_6.audio_track.attach(io: track6, filename: 'demo_track_6.m4a')
 demo_track_6.track_artwork.attach(io: artwork6, filename: 'demo_track_6.jpg')
 
 demo_track_7 = Track.create!({
     user: demo_user_3,
-    title: "DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones",
-    track_length: 260,
-    description: "DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan & DJ Big Hank - Love Jones DJ Paypal, DJ Taye, Boylan &"
+    title: "Kilo Kish - Give It to You (Jordan Knight Cover)",
+    track_length: 165,
+    description: "This is the description area for the upload Kilo Kish - Give It to You (Jordan Knight Cover).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/05+Love+Jones.mp3")
-artwork7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/LuckyMe_+Advent+Calendar+14+_+15.jpg")
-demo_track_7.audio_track.attach(io: track7, filename: 'demo_track_7.mp3')
+track7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Give+It+to+You+(Cover).m4a")
+artwork7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Give+It+to+You+(Cover).jpg")
+demo_track_7.audio_track.attach(io: track7, filename: 'demo_track_7.m4a')
 demo_track_7.track_artwork.attach(io: artwork7, filename: 'demo_track_7.jpg')
 
 demo_track_8 = Track.create!({
     user: demo_user_4,
-    title: "Kilo Kish - Navy",
-    track_length: 193,
-    description: "Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Navy Kilo Kish - Na"
+    title: "Tinashe - Just the Way I Like You",
+    track_length: 271,
+    description: "This is the description area for the upload Tinashe - Just the Way I Like You.
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack6/02+Navy.mp3")
-artwork8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/Seeding+Music/demotrack6/HomeSchool.jpg")
-demo_track_8.audio_track.attach(io: track8, filename: 'demo_track_8.mp3')
+track8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/06+Just+the+Way+I+Like+You.m4a")
+artwork8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Amethyst.jpg")
+demo_track_8.audio_track.attach(io: track8, filename: 'demo_track_8.m4a')
 demo_track_8.track_artwork.attach(io: artwork8, filename: 'demo_track_8.jpg')
 
 demo_track_9 = Track.create!({
     user: demo_user_2,
-    title: "DJ Paypal - Dose (feat. DJ Earl & DJ Taye)",
-    track_length: 273,
-    description: "DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal - Dose (feat. DJ Earl & DJ Taye) DJ Paypal -"
+    title: "Microglobe & Machinedrum - High on Hope",
+    track_length: 261,
+    description: "This is the description area for the upload Microglobe & Machinedrum - High on Hope.
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/01+Dose+(feat.+DJ+Earl+%26+DJ+Taye).mp3")
-artwork9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Adult+Swim_+Singles+2016.jpg")
-demo_track_9.audio_track.attach(io: track9, filename: 'demo_track_9.mp3')
+track9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/04+High+on+Hope.m4a")
+artwork9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Afterlife.jpg")
+demo_track_9.audio_track.attach(io: track9, filename: 'demo_track_9.m4a')
 demo_track_9.track_artwork.attach(io: artwork9, filename: 'demo_track_9.jpg')
 
 demo_track_10 = Track.create!({
     user: demo_user_1,
-    title: "Machinedrum - Want Me",
-    track_length: 208,
-    description: "Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedrum - Want Me Machinedru"
+    title: "DJ Paypal - Ladies Night",
+    track_length: 277,
+    description: "This is the description area for the upload DJ Paypal - Ladies Night.
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track10 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/02+Want+Me.mp3")
-artwork10 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Adult+Swim_+Singles+2014.jpg")
-demo_track_10.audio_track.attach(io: track10, filename: 'demo_track_10.mp3')
+track10 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/09+Ladies+Night.m4a")
+artwork10 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Sold+Out.jpg")
+demo_track_10.audio_track.attach(io: track10, filename: 'demo_track_10.m4a')
 demo_track_10.track_artwork.attach(io: artwork10, filename: 'demo_track_10.jpg')
 
 demo_track_11 = Track.create!({
     user: demo_user_4,
-    title: "DJ Chap - Float",
-    track_length: 192,
-    description: "DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap - Float DJ Chap "
+    title: "BADBADNOTGOOD - Kaleidoscope (KAYTRANADA Flip)",
+    track_length: 373,
+    description: "This is the description area for the upload BADBADNOTGOOD - Kaleidoscope (KAYTRANADA Flip).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track11 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/04+Float.mp3")
-artwork11 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Teklife+VIP.jpg")
-demo_track_11.audio_track.attach(io: track11, filename: 'demo_track_11.mp3')
+track11 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Kaleidoscope+(KAYTRANADA+Flip).m4a")
+artwork11 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Kaleidoscope+(KAYTRANADA+Flip).jpg")
+demo_track_11.audio_track.attach(io: track11, filename: 'demo_track_11.m4a')
 demo_track_11.track_artwork.attach(io: artwork11, filename: 'demo_track_11.jpg')
 
 demo_track_12 = Track.create!({
     user: demo_user_5,
-    title: "Cassie - All My Love (Kingdom Edit)",
-    track_length: 218,
-    description: "Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdom Edit) Cassie - All My Love (Kingdo"
+    title: "Iglooghost - Ell (feat. Rocks FOE)",
+    track_length: 131,
+    description: "This is the description area for the upload Iglooghost - Ell (feat. Rocks FOE).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/All+My+Love+(Kingdom+Edit).mp3")
-artwork12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/All+My+Love+(Kingdom+Edit).png")
-demo_track_12.audio_track.attach(io: track12, filename: 'demo_track_12.mp3')
-demo_track_12.track_artwork.attach(io: artwork12, filename: 'demo_track_12.png')
+track12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Ell+(feat.+Rocks+FOE).m4a")
+artwork12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Ell+(feat.+Rocks+FOE).jpg")
+demo_track_12.audio_track.attach(io: track12, filename: 'demo_track_12.m4a')
+demo_track_12.track_artwork.attach(io: artwork12, filename: 'demo_track_12.jpg')
 
 demo_track_13 = Track.create!({
     user: demo_user_3,
-    title: "Spinee - Hell Hound",
-    track_length: 138,
-    description: "Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound Spinee - Hell Hound "
+    title: "Kelela & Steve Gurley - Truth or Dare (Hot Boyz Dub) [Bok Bok Edit]",
+    track_length: 290,
+    description: "This is the description area for the upload Kelela & Steve Gurley - Truth or Dare (Hot Boyz Dub) [Bok Bok Edit].
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Hell+Hound.mp3")
-artwork13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Hell+Hound.jpg")
-demo_track_13.audio_track.attach(io: track13, filename: 'demo_track_13.mp3')
+track13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Truth+Or+Dare+(Hot+Boyz+Dub)+%5BBok+Bok+Edit%5D.m4a")
+artwork13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Dub+Me+Apart.jpg")
+demo_track_13.audio_track.attach(io: track13, filename: 'demo_track_13.m4a')
 demo_track_13.track_artwork.attach(io: artwork13, filename: 'demo_track_13.jpg')
 
 
 demo_track_14 = Track.create!({
     user: demo_user_5,
-    title: "Moses Sumney - Plastic (Live)",
-    track_length: 172,
-    description: "Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumney - Plastic (Live) Moses Sumn"
+    title: "DJ Chap - Uh",
+    track_length: 144,
+    description: "This is the description area for the upload DJ Chap - Uh.
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Plastic+(Live).mp3")
-artwork14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Plastic+(Live).jpg")
-demo_track_14.audio_track.attach(io: track14, filename: 'demo_track_14.mp3')
+track14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/03+Uh.m4a")
+artwork14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Teklife+VIP+2019.jpg")
+demo_track_14.audio_track.attach(io: track14, filename: 'demo_track_14.m4a')
 demo_track_14.track_artwork.attach(io: artwork14, filename: 'demo_track_14.jpg')
 
 demo_track_15 = Track.create!({
     user: demo_user_1,
-    title: "Syd - Treading Water",
-    track_length: 180,
-    description: "Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treading Water Syd - Treadin"
+    title: "Kindness - Cry Everything (Bok Bok & Kindness Remix)",
+    track_length: 200,
+    description: "This is the description area for the upload Kindness - Cry Everything (Bok Bok & Kindness Remix).
+
+When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details.
+
+The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud"
 })
-track15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Treading+Water.mp3")
-artwork15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/untitled+folder+2/Treading+Water.jpg")
-demo_track_15.audio_track.attach(io: track15, filename: 'demo_track_15.mp3')
+track15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Cry+Everything+(Bok+Bok+%26+Kindness+Remix).m4a")
+artwork15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Cry+Everything+(Bok+Bok+%26+Kindness+Remix).jpg")
+demo_track_15.audio_track.attach(io: track15, filename: 'demo_track_15.m4a')
 demo_track_15.track_artwork.attach(io: artwork15, filename: 'demo_track_15.jpg')
 
 favorite_1 = Favorite.create!({
