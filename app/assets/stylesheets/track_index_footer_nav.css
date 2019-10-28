@@ -51,7 +51,7 @@
     color: rgb(149, 149, 149);
     font-size: 12px;
     line-height: 20px;
-    text-align:justify;
+    text-align: justify;
     overflow-wrap: break-word;
 }
 
@@ -68,4 +68,36 @@
 
 .track-index-footer-nav a:hover {
     color: rgb(79, 166, 211);
+}
+
+.track-index-footer-nav > br {
+    line-height: 6px;
+    font-size: 6px;
+}
+
+
+.track-index-footer-nav > a {
+    height: 34px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 46px;
+}
+
+.track-index-footer-nav > a:first-of-type {
+    margin-top: 6px;
+}
+
+.track-index-footer-nav > a > svg {
+    position: absolute;
+    left: 12px;
+    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.track-index-footer-nav > a > span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }

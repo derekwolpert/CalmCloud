@@ -116,6 +116,7 @@ class TrackIndex extends React.Component {
     }
 
     render() {
+
         const indexItems = this.props.tracks.map( (track, idx) => (
             <TrackIndexItem
                 key={track.id}
@@ -135,7 +136,7 @@ class TrackIndex extends React.Component {
                 openModal={this.props.openModal}
                 openShareModal={this.props.openShareModal}
                 currentPercent={this.props.currentPercent}
-                />) );
+            />) );
         
         return (
             <>
