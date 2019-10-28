@@ -75,13 +75,12 @@
     font-size: 6px;
 }
 
-
 .track-index-footer-nav > a {
     height: 34px;
     display: block;
     position: relative;
     cursor: pointer;
-    padding-left: 46px;
+    padding-left: 48px;
 }
 
 .track-index-footer-nav > a:first-of-type {

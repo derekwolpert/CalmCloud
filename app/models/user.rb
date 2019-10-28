@@ -72,7 +72,7 @@ class User < ApplicationRecord
         through: :subscribers,
         source: :user
 
-    # has_many :comments
+    has_many :comments
 
     def to_param
         username

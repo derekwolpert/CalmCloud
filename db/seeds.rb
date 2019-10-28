@@ -12,6 +12,7 @@ User.destroy_all
 Track.destroy_all
 Favorite.destroy_all
 Subscription.destroy_all
+Comment.destroy_all
 
 demo_user_1 = User.create!({
     email: "demo1@email.com",
@@ -558,6 +559,26 @@ track15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music
 artwork15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Cry+Everything+(Bok+Bok+%26+Kindness+Remix).jpg")
 demo_track_15.audio_track.attach(io: track15, filename: 'demo_track_15.m4a')
 demo_track_15.track_artwork.attach(io: artwork15, filename: 'demo_track_15.jpg')
+
+comment_1 = Comment.create!({
+    track: demo_track_15,
+    user: demo_user_2,
+    body: "This is test comment 1"
+})
+
+comment_2 = Comment.create!({
+    track: demo_track_15,
+    user: demo_user_3,
+    parent_comment: comment_1,
+    body: "This is test nested comment 1"
+})
+
+comment_3 = Comment.create!({
+    track: demo_track_15,
+    user: demo_user_4,
+    parent_comment: comment_1,
+    body: "This is test nested comment 2"
+})
 
 favorite_1 = Favorite.create!({
     favorited_type: "Track",

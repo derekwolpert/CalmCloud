@@ -4,12 +4,23 @@ json.track do
     if @track.track_artwork.attached?
         json.trackArtworkUrl url_for(@track.track_artwork)
     end
+    json.comments do
+        @track.comments.each do |comment|
+            json.set! comment.id do
+                json.extract! comment, :id, :track_id, :user_id, :parent_comment_id, :body, :created_at
+            end
+        end
+    end
 end
 
-json.user do
-    json.extract! @track.user, :id, :display_name, :username
-    if @track.user.profile_pic.attached?
-        json.userPictureUrl url_for(@track.user.profile_pic)
+json.users do
+    ([@track.user] + @track.comments.map { |comment| comment.user }).uniq.each do |user|
+        json.set! user.username do
+            json.extract! user, :id, :display_name, :username
+            if user.profile_pic.attached?
+                json.userPictureUrl url_for(user.profile_pic)
+            end
+        end
     end
 end
 

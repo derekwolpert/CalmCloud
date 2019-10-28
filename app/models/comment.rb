@@ -13,21 +13,21 @@
 
 class Comment < ApplicationRecord
 
-    # validates :track_id, :user_id, :body, presence: true
-    # validates :body, length: {maximum: 1000}
-    # validates :parent_comment_id, allow_nil: true
+    validates :track_id, :user_id, :body, presence: true
+    validates :body, length: {maximum: 1000}
 
-    # belongs_to :user
+    belongs_to :user
 
-    # belongs_to :track
+    belongs_to :track
 
-    # belongs_to :parent_comment,
-    #     primary_key: :id,
-    #     foreign_key: :parent_comment_id,
-    #     class_name: :Comment
+    belongs_to :parent_comment,
+        primary_key: :id,
+        foreign_key: :parent_comment_id,
+        class_name: :Comment,
+        optional: true
 
-    # has_many :child_comments,
-    #     primary_key: :id,
-    #     foreign_key: :parent_comment_id,
-    #     class_name: :Comment
+    has_many :child_comments,
+        primary_key: :id,
+        foreign_key: :parent_comment_id,
+        class_name: :Comment
 end

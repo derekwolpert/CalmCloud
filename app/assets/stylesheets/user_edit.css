@@ -96,6 +96,7 @@
 }
 
 .user-edit-biography-input {
+    max-height: 400px;
     resize: vertical;
 }
 

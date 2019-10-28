@@ -9,11 +9,11 @@ const receiveAllTracks = tracks => ({
     users: tracks.users,
 });
 
-const receiveTrack = ({ track, tracks, user }) => ({
+const receiveTrack = ({ track, tracks, users }) => ({
     type: RECEIVE_TRACK,
     track: track,
     tracks: tracks,
-    user: user,
+    users: users,
 });
 
 const removeTrack = trackId => {

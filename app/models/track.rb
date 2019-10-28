@@ -39,7 +39,7 @@ class Track < ApplicationRecord
         
     # belongs_to :tag
 
-    # has_many :comments
+    has_many :comments
 
     def to_param
         title
