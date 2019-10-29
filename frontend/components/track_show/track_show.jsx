@@ -4,7 +4,7 @@ import TrackShowSidebar from "./track_show_sidebar";
 import TrackIndexInfo from "../track_index/track_index_info";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { faHeadphonesAlt, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
+import { faHeadphonesAlt, faPlay, faPause, faCloud } from '@fortawesome/free-solid-svg-icons';
 
 
 class TrackShow extends React.Component {
@@ -14,13 +14,16 @@ class TrackShow extends React.Component {
 
         this.state = {
             deleteConfirmation: false,
-            loaded: false
+            loaded: false,
+            commentText: "",
         };
 
         this.playPause = this.playPause.bind(this);
         this.formatListened = this.formatListened.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCommentContent = this.handleCommentContent.bind(this);
     }
 
     componentDidMount() {
@@ -187,7 +190,58 @@ class TrackShow extends React.Component {
         }
     }
 
+    handleComment(e) {
+        this.setState({
+            commentText: e.currentTarget.value
+        });
+    }
+
+    handleSubmit() {
+        return null
+    }
+
+    handleCommentContent(comment) {
+        return (
+            <>
+                <Link to={`/${this.props.commentUsers[comment.user_id].username}`} className="comment-avatar">
+                    <img src={(this.props.commentUsers[comment.user_id].userPictureUrl || window.defaultAvatar)} />
+                </Link>
+
+                <div className="comment-show-header">
+                    <Link to={`/${this.props.commentUsers[comment.user_id].username}`} className={`comment-header-display-name${comment.user_id === this.props.track.user_id ? "-uploader" : ""}`}>
+                        {this.props.commentUsers[comment.user_id].display_name}
+                    </Link>
+                    <span>{this.formatDate(comment.created_at).split(" second").join("sec").split(" minute").join("min").split(" month").join("mo").split(" year").join("yr")}</span>
+                </div>
+
+                <div className="comment-show-actions">
+                </div>
+                <div className="comment-show-content">
+                    {comment.body}
+                </div>
+            </>
+        )
+    }
+
     render() {
+        
+        const formattedComments = this.props.track ? (this.props.track.comments !== undefined ?
+            Object.values(this.props.track.comments).filter(comment => !comment.parent_comment_id).slice().reverse().map((comment) => (
+                <div key={comment.id} className="comment-show-container">
+                    {this.handleCommentContent(comment)}
+
+                    { comment.childComments.map(childId => {
+                        const subComment = this.props.track.comments[childId];
+                            return (
+                                <div key={subComment.id} className="comment-show-container">
+                                    {this.handleCommentContent(subComment)}
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            )) : null) : null;
+
 
         if (this.props.track === null) {
             return <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
@@ -321,7 +375,39 @@ class TrackShow extends React.Component {
                             <h1>
                                 Comments
                             </h1>
+                            <div className="comment-form-container">
+                                
+                                <div>
+
+                                    <div className="comment-avatar">
+                                        <img src={this.props.currentUser ? (this.props.currentUser.userPictureUrl || window.defaultAvatar) : window.commentAvatar} />
+                                    </div>
+                                    <form className="comment-form" onSubmit={this.props.currentUser ? this.handleSubmit.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
+                                            if (e.target.className === "comment-input") {
+                                                return;
+                                            }
+                                        (e.key === 'Enter') && e.preventDefault();
+                                    }}>
+                                        <textarea className="comment-input" placeholder={`What did you think of ${this.props.track.title}?`} 
+                                            maxLength="1000"
+                                            value={this.state.comment}
+                                            onChange={e => this.handleComment(e)}
+                                        />
+                                        <div className="comment-form-button-container">
+                                            <button
+                                                disabled={this.state.commentText.length === 0}>Post Comment</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                            <div>
+                                {formattedComments}
+                            </div>
+                            {Object.values(this.props.track.comments).length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
                         </section>
+
                         
                     </section>
 

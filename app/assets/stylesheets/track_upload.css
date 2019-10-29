@@ -123,7 +123,7 @@
     border-radius: 4px;
     color: #586573;
     background-color: #fff;
-    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 1px rgba(10,30,44,.06);
 }
 
 .audio-file-input-container:after {
@@ -204,7 +204,7 @@
     border-radius: 4px;
     color: rgb(192, 192, 192);
     background-color: rgb(56, 56, 56);
-    box-shadow: inset 0 2px 2px rgba(128,128,128,.6), inset 255 255 255 1px rgba(24,24,24,.5);
+    box-shadow: inset 0 2px 2px rgba(24,24,24,.1), inset 0 0 1px rgba(128,128,128,.06);
     box-sizing: border-box;
     transition: 0.2s;
     text-align: start;
@@ -353,7 +353,7 @@
     padding: 9px 16px;
     border: none;
     border-radius: 4px;
-    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 1px rgba(10,30,44,.06);
 }
 
 .track-upload-image-input-wrapper:after {
@@ -420,7 +420,7 @@
     padding: 9px 16px;
     border: none;
     border-radius: 4px;
-    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 1px rgba(10,30,44,.06);
 }
 
 .track-upload-change-image-wrapper:after {
@@ -473,7 +473,7 @@
     border-radius: 4px;
     color: rgb(192, 192, 192);
     background-color: rgb(56, 56, 56);
-    box-shadow: inset 0 2px 2px rgba(128,128,128,.6), inset 255 255 255 1px rgba(24,24,24,.5);
+    box-shadow: inset 0 2px 2px rgba(24,24,24,.1), inset 0 0 1px rgba(128,128,128,.06);
 }
 
 .track-description-input:focus {
@@ -498,7 +498,6 @@
 }
 
 .track-upload-button {
-    font-size: 15px;
     line-height: 38px;
     padding: 0 20px;
     min-width: 60px;
@@ -554,7 +553,7 @@
     padding: 9px 16px;
     border: none;
     border-radius: 4px;
-    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 0 1px rgba(10,30,44,.06);
+    box-shadow: inset 0 2px 2px rgba(73,89,106,.1), inset 0 0 1px rgba(10,30,44,.06);
 }
 
 .track-edit-change-image-wrapper:after {

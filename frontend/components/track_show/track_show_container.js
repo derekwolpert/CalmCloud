@@ -31,10 +31,20 @@ const mapStateToProps = (state, ownProps) => {
         }
     };
 
+    const commentUsers = {};
+
+    if (track()) {
+        for (let comment in track().comments) {
+            const user = findUser(track().comments[comment].user_id);
+            commentUsers[user.id] = user;
+        }
+    }
+
     return {
         track: track(),
         tracks: tracks,
         user: track() ? findUser(track().user_id) : null,
+        commentUsers: commentUsers,
         currentUser: state.session.currentUser.username ? state.entities.users[state.session.currentUser.username] : null,
         currentUserId: state.session.currentUser.username ? state.entities.users[state.session.currentUser.username].id : null,
         currentTrack: state.ui.currentTrack,

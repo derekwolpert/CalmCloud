@@ -573,6 +573,12 @@ comment_2 = Comment.create!({
     body: "This is test nested comment 1"
 })
 
+comment_4 = Comment.create!({
+    track: demo_track_15,
+    user: demo_user_1,
+    body: "This is test comment 2"
+})
+
 comment_3 = Comment.create!({
     track: demo_track_15,
     user: demo_user_4,

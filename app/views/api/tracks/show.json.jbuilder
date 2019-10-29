@@ -4,12 +4,19 @@ json.track do
     if @track.track_artwork.attached?
         json.trackArtworkUrl url_for(@track.track_artwork)
     end
-    json.comments do
-        @track.comments.each do |comment|
-            json.set! comment.id do
-                json.extract! comment, :id, :track_id, :user_id, :parent_comment_id, :body, :created_at
+    if @track.comments.length > 0
+        json.comments do
+            @track.comments.each do |comment|
+                json.set! comment.id do
+                    json.extract! comment, :id, :track_id, :user_id, :parent_comment_id, :body, :created_at
+                    json.childComments do
+                        json.array! @track.comments.map { |otherComments| otherComments.id if otherComments.parent_comment_id == comment.id }.compact
+                    end
+                end
             end
         end
+    else
+        json.comments({})
     end
 end
 
