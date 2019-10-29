@@ -9,6 +9,7 @@
     margin: 0 auto;
     width: 100%;
     max-width: 1460px;
+    min-width: 740px;
     animation-name: animateFooter;
     animation-duration: 0.2s;
 }
@@ -32,7 +33,7 @@
 .footer-player {
     width: 100%;
     height: 52px;
-    padding: 0 60px 0 52px;
+    padding: 0 60px 0 56px;
     background-color: rgb(56, 56, 56);
     position: relative;
     color: white;
@@ -51,29 +52,28 @@
 .footer-player-artwork-container {
     display: block;
     position: absolute;
-    left: 0;
+    margin: 8px 0 8px 10px;
+    left: 56px;
     top: 0;
     background-color: black;
-    width: 52px;
-    height: 52px;
-    line-height: 52px;
+    width: 36px;
+    height: 36px;
     box-sizing: content-box;
 }
 
 .footer-player-artwork-container > img {
     display: block;
-    width: 52px;
-    height: 52px;
+    width: 36px;
+    height: 36px;
     object-fit: cover;
     background-color: white;
 }
 
 .footer-player-controls-play {
-    width: 52px;
+    width: 38px;
     height: 52px;
-    cursor: pointer;
     position: absolute;
-    left: 52px;
+    left: 19px;
     top: 0;
     z-index: 2;
     text-align: center;
@@ -89,11 +89,10 @@
 }
 
 .footer-player-controls-pause {
-    width: 52px;
+    width: 38px;
     height: 52px;
-    cursor: pointer;
     position: absolute;
-    left: 52px;
+    left: 19px;
     top: 0;
     z-index: 2;
     text-align: center;
@@ -109,21 +108,43 @@
     color: rgb(79, 166, 211);
 }
 
-.footer-player-controls-pause > svg, .footer-player-controls-play > svg {
+.footer-player-controls-pause > div, .footer-player-controls-play > div {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgb(96, 96, 96);
+    cursor: pointer;
+    background-color: rgb(28, 28, 28);
+    position: relative;
+    box-sizing: border-box;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-player-controls-pause svg, .footer-player-controls-play svg {
+    font-size: 12px;
     display: inline-block;
     box-sizing: content-box;
-    margin-left: 3px;
-    margin-top: -3px;
-    width: 21;
-    height: 24;
+    position: absolute;
+    top: 50%;
+    transform: translate(50%,-50%);
+}
+
+.footer-player-controls-pause svg {
+    right: 50%;
+}
+
+.footer-player-controls-play svg {
+    right: calc(50% - 1px);
 }
 
 .footer-player-details {
-    padding: 0 131px 0 52px;
+    padding: 0 131px 0 46px;
+    margin-left: 10px;
     display: block;
     box-sizing: content-box;
     color: rgba(255, 255, 255, 0.8);
-    max-width: 320px;
+    max-width: calc(100vw / 4);
     height: 52px;
     line-height: 52px;
     float: left;
@@ -201,7 +222,6 @@
     display: block;
     float: left;
     cursor: pointer;
-    line-height: 20px;
     position: relative;
     font-size: 18px;
     transition: .2s;
@@ -260,6 +280,57 @@
     position: relative;
     display: flex;
     line-height: 52px;
+}
+
+.footer-player-playback-icons {
+    color: rgba(255, 255, 255, 0.8);
+    flex: 0 0 82px;
+    height: 52px;
+    box-sizing: content-box;
+    padding-left: 20px;
+    box-shadow: inset 1px 0 0 hsla(0,0%,100%,.04);
+    display: block;
+}
+
+.footer-player-playback-icons > div {
+    box-sizing: content-box;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    line-height: 20px;
+    display: block;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    transition: .2s;
+}
+
+.footer-player-playback-icons > div:hover {
+    opacity: .8;
+}
+
+.footer-player-playback-restart, .footer-player-playback-rewind {
+    margin-right: 11px;
+}
+
+.footer-player-playback-restart {
+    margin-top: 16px;
+    font-size: 18px;
+}
+
+.footer-player-playback-rewind, .footer-player-playback-forward {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.footer-player-playback-rewind > span, .footer-player-playback-forward > span {
+    position: absolute;
+    line-height: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    right: 50%;
+    transform: translatex(50%);
+    bottom: -6px;
 }
 
 .footer-playbar {

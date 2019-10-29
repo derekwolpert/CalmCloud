@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faPause, faVolumeUp, faVolumeDown, faVolumeMute, faHistory, faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { faHeart, faShareSquare, faUser } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -152,12 +152,16 @@ class FooterAudioPlayer extends React.Component {
             return (
                 <div className="footer-player-container">
                     <div className="footer-player">
-                        <div className="footer-player-artwork-container">
-                            <img src={this.props.currentTrack.trackArtworkUrl ? this.props.currentTrack.trackArtworkUrl : window.defaultArtwork} />
+
+
+                        <div className={`footer-player-controls-${this.props.playing ? "pause" : "play"}`}>
+                            <div onClick={() => this.playPauseAudio()} >
+                                <FontAwesomeIcon icon={this.props.playing ? faPause : faPlay} />
+                            </div>
                         </div>
 
-                        <div onClick={() => this.playPauseAudio()} className={`footer-player-controls-${this.props.playing ? "pause" : "play"}`}>
-                            <FontAwesomeIcon icon={this.props.playing ? faPause : faPlay} />
+                        <div className="footer-player-artwork-container">
+                            <img src={this.props.currentTrack.trackArtworkUrl ? this.props.currentTrack.trackArtworkUrl : window.defaultArtwork} />
                         </div>
 
                         <div className="footer-player-details">
@@ -185,7 +189,40 @@ class FooterAudioPlayer extends React.Component {
                         </div>
 
                         <div className="footer-player-mid-container">
-
+                            <div className="footer-player-playback-icons">
+                                <div className="footer-player-playback-restart" onClick={() => {
+                                    this._audio.currentTime = 0;
+                                    this.props.currentPercent(0);
+                                    if (this.props.playing === false) {
+                                        this._audio.play();
+                                    }
+                                }}>
+                                    <FontAwesomeIcon icon={faHistory} />
+                                </div>
+                                <div className="footer-player-playback-rewind" onClick={() => {
+                                    if ((this._audio.currentTime - 10) < 0) {
+                                        this._audio.currentTime = 0
+                                    } else {
+                                        this._audio.currentTime -= 10;
+                                    }
+                                    this.props.currentPercent((this._audio.currentTime/this._audio.duration) * 100);
+                                }}>
+                                    <FontAwesomeIcon icon={faLongArrowAltLeft} />
+                                    <span>10s</span>
+                                </div>
+                                <div className="footer-player-playback-forward" onClick={() => {
+                                    if ((this._audio.currentTime + 10) > this._audio.duration) {
+                                        this._audio.currentTime = this._audio.duration
+                                    } else {
+                                        this._audio.currentTime += 10;
+                                    }
+                                    this.props.currentPercent((this._audio.currentTime / this._audio.duration) * 100);
+                                }}>
+                                    <FontAwesomeIcon icon={faLongArrowAltRight} />
+                                    <span>10s</span>
+                                </div>
+                            </div>
+                            
                             <div className="footer-playbar">
                                 <div className="footer-player-scrubber">
                                     <div className="footer-player-time">{this.state.time}</div>
