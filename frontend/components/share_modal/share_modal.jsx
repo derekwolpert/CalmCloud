@@ -35,7 +35,7 @@ class ShareModal extends React.Component {
         return (
             this.props.shareModal ?
                 <div className="modal-background" onClick={this.props.closeShareModal}>
-                    <div className="modal-child" onClick={e => e.stopPropagation()}>
+                    <div className="modal-child" style={{ minHeight: "221px", minWidth: "640px" }} onClick={e => e.stopPropagation()}>
                         <section className="share-modal-container">
                             <header>
                                 <ul className="session-form-tabs">

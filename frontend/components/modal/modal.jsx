@@ -32,7 +32,7 @@ class Modal extends React.Component {
 		return (
 			this.props.modal ?
 				<div className="modal-background" onClick={this.props.closeModal}>
-					<div className="modal-child" onClick={e => e.stopPropagation()}>
+					<div className="modal-child" style={{ minHeight: ((this.props.modal === "login") ? "384px" : "438px"), maxWidth: "300px" }} onClick={e => e.stopPropagation()}>
 						 {this.component()}
 					</div>
 				</div> : null
