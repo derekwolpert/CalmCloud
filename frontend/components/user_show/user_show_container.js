@@ -15,8 +15,8 @@ const mapStateToProps = (state, ownProps) => {
     const user = state.entities.users[ownProps.match.params.username] || null;
 
     return {
-        tracks: user ? Object.values(state.entities.tracks).slice().reverse().filter(track => track.user_id === user.id) : null,
-        favoriteTracks: user ? ((user.favorites !== undefined) ? user.favorites.slice().reverse().map(num => state.entities.tracks[num]) : null) : null,
+        tracks: user ? Object.values(state.entities.tracks).slice().reverse().filter(track => track.user_id === user.id) : [],
+        favoriteTracks: user ? ((user.favorites !== undefined) ? user.favorites.slice().reverse().map(num => state.entities.tracks[num]) : []) : [],
         user: user,
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,

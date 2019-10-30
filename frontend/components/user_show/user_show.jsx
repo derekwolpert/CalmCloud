@@ -22,6 +22,7 @@ class UserShow extends React.Component {
         this.handleSusbcribeButton = this.handleSusbcribeButton.bind(this);
         this.handleFollowFollowerButton = this.handleFollowFollowerButton.bind(this);
         this.handlePlayButton = this.handlePlayButton.bind(this);
+        this.handlePlayPresence = this.handlePlayPresence.bind(this);
         this.handleFollowingSidebar = this.handleFollowingSidebar.bind(this);
     }
 
@@ -145,26 +146,29 @@ class UserShow extends React.Component {
 
             if (users.length === 0) {
                 return (
-                    <div className="user-show-no-content">
-                        <FontAwesomeIcon icon={faFrown} />
-                        {this.props.currentUser ? (
-                            this.props.currentUser.id === this.props.user.id ?
+                    <>
+                        <h1>{(this.props.match.path === "/:username/followers") ? `${this.props.currentUser.followers.length} Followers` : `Following ${this.props.currentUser.following.length}`}</h1>
+                        <div className="user-show-no-content">
+                            <FontAwesomeIcon icon={faFrown} />
+                            {this.props.currentUser ? (
+                                this.props.currentUser.id === this.props.user.id ?
+                                    <>
+                                        { (this.props.match.path === "/:username/followers") ? <b>Oh no, looks like you do not have any followers yet!</b> : <b>Oh no, looks like you are not following anyone yet!</b> }
+                                        { (this.props.match.path === "/:username/followers") ? "Unfortunately until you have followers there isn't any content to show here." : "Why not start by exploring our community? Find other users who share content you can love." }
+                                    </>
+                                    :
+                                    <>
+                                        {(this.props.match.path === "/:username/followers") ? <b>Looks like {this.props.user.display_name} doesn't have any followers yet!</b> : <b>Looks like {this.props.user.display_name} is not following anyone yet!</b> }
+                                        Hopefully they will in the future, but until then there is no content here.
+                                    </>
+                            ) :
                                 <>
-                                    { (this.props.match.path === "/:username/followers") ? <b>Oh no, looks like you do not have any followers yet!</b> : <b>Oh no, looks like you are not following anyone yet!</b> }
-                                    { (this.props.match.path === "/:username/followers") ? "Unfortunately until you have followers there isn't any content to show here." : "Why not start by exploring our community? Find other users who share content you can love." }
-                                </>
-                                :
-                                <>
-                                    {(this.props.match.path === "/:username/followers") ? <b>Looks like {this.props.user.display_name} doesn't have any followers yet!</b> : <b>Looks like {this.props.user.display_name} is not following anyone yet!</b> }
+                                    {(this.props.match.path === "/:username/followers") ? <b>Looks like {this.props.user.display_name} doesn't have any followers yet!</b> : <b>Looks like {this.props.user.display_name} is not following anyone yet!</b>}
                                     Hopefully they will in the future, but until then there is no content here.
                                 </>
-                        ) :
-                            <>
-                                {(this.props.match.path === "/:username/followers") ? <b>Looks like {this.props.user.display_name} doesn't have any followers yet!</b> : <b>Looks like {this.props.user.display_name} is not following anyone yet!</b>}
-                                Hopefully they will in the future, but until then there is no content here.
-                            </>
-                        }
-                    </div>
+                            }
+                        </div>
+                    </>
                 )
             }
 
@@ -281,7 +285,12 @@ class UserShow extends React.Component {
     }
 
     handlePlayButton() {
-        const trackId = (this.props.match.path === "/:username/favorites") ? this.props.favoriteTracks[0].id : this.props.tracks[0].id;
+        let trackId = null
+        if ((this.props.match.path === "/:username/favorites") && (this.props.favoriteTracks.length > 0)) {
+            trackId = this.props.favoriteTracks[0].id;
+        } else if ((this.props.tracks.length > 0) && ((this.props.match.path === "/:username/uploads") || (this.props.match.path === "/:username"))) {
+            trackId = this.props.tracks[0].id
+        }
 
         if (this.props.currentTrack !== trackId) {
             this.props.changeTrack(trackId)
@@ -294,8 +303,16 @@ class UserShow extends React.Component {
         }
     }
 
-    isUrl(word) {
+    handlePlayPresence() {
+        if ((this.props.match.path === "/:username/favorites") && (this.props.favoriteTracks.length > 0)) {
+            return true;
+        } else if ((this.props.tracks.length > 0) && ((this.props.match.path === "/:username/uploads") || (this.props.match.path === "/:username"))) {
+            return true;
+        }
+        return false;
+    }
 
+    isUrl(word) {
         const urlChecker = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
         return word.match(urlChecker);
     }
@@ -313,12 +330,10 @@ class UserShow extends React.Component {
                         <a href={this.formatHref(word)} key={key} target="_blank">{key !== 0 ? ` ${word}` : word} </a>
                         :
                         key !== 0 ? ` ${word}` : word)
-                )
-                }
+                )}
             </>
         )
     }
-
 
     handleFollowingSidebar() {
 
@@ -425,11 +440,11 @@ class UserShow extends React.Component {
                                                 : null)
                                             : null
                                         }
-                                        {((this.props.match.path === "/:username/followers") || (this.props.match.path === "/:username/following")) ? null :
+                                        { this.handlePlayPresence() ?
                                             <div className="user-show-play-button" onClick={() => this.handlePlayButton()}>
                                                 <FontAwesomeIcon icon={faPlay} />
                                                 <span>Play</span>
-                                            </div>
+                                            </div> : null
                                         }
                                         <div className="user-show-button"
                                             onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}`).split(" ").join("%20"))}>

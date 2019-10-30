@@ -153,7 +153,7 @@ class TrackIndex extends React.Component {
                                 <>
                                     <h1>{this.indexTitle()}</h1> 
                                     <div className="track-index-no-content-message">
-                                        {(this.props.match.path === "/favorites") ? "When you favorite uploads you can come back to find them here." : "When you follow other users you can came back to find their uploads here." }
+                                        {(this.props.match.path === "/favorites") ? "When you favorite uploads you can come back to find them here." : "When you follow other users you can come back to find their uploads here." }
                                     </div>
                                 </>
                                 :
