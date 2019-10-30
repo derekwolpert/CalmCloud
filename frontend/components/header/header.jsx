@@ -35,11 +35,11 @@ class Header extends React.Component {
 	}
 
 	handleHeaderSize() {
-		if ((window.innerWidth < 1320) && this.state.large) {
+		if (((window.innerWidth < 1320) || (window.outerWidth < 1320)) && this.state.large) {
 			this.setState({
 				large: false,
 			});
-		} else if ((window.innerWidth >= 1320) && !this.state.large) {
+		} else if (((window.innerWidth >= 1320) || (window.outerWidth >= 1320)) && !this.state.large) {
 			this.setState({
 				large: true,
 			});
