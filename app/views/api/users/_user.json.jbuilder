@@ -8,3 +8,6 @@ end
 json.favorites user.favorites.map{ |track| track.favorited_id if track.favorited_type == "Track"}.compact
 json.following user.subscriptions.map{ |sub| sub.subscribed_id if sub.subscribed_type == "User"}.compact
 json.followers user.subscribers.map{ |sub| sub.user_id if sub.subscribed_type == "User"}.compact
+json.commentsCount user.comments.count
+json.uploadCount user.tracks.count
+json.playCounts user.tracks.map { |track| track.play_count }.sum

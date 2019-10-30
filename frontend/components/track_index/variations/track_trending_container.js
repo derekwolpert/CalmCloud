@@ -15,34 +15,13 @@ const sortTracksByPlaycount = (tracks) => {
 };
 
 const mapStateToProps = (state) => {
-
-    const currentUser = state.entities.users[state.session.currentUser.username];
-
-    const handleTotalPlaycounts = () => {
-        let total = 0;
-        Object.values(state.entities.tracks).forEach(track => {
-            if (track.user_id === currentUser.id) total += track.play_count;
-        });
-        return total;
-    };
-
-    const handleTotalUploads = () => {
-        let total = 0;
-        Object.values(state.entities.tracks).forEach(track => {
-            if (track.user_id === currentUser.id) total += 1;
-        });
-        return total;
-    };
-
     return {
         tracks: sortTracksByPlaycount(Object.values(state.entities.tracks)),
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,
         percent: state.ui.percent,
         playing: state.ui.playing,
-        currentUser: currentUser,
-        totalPlaycounts: handleTotalPlaycounts(),
-        totalUploads: handleTotalUploads()
+        currentUser: state.entities.users[state.session.currentUser.username]
     };
 };
 

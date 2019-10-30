@@ -172,10 +172,7 @@ class TrackIndex extends React.Component {
                     : <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div> }
 
                     <section className="track-index-right-sidebar">
-                        <TrackIndexStats
-                            currentUser={this.props.currentUser}
-                            totalPlaycounts={this.props.totalPlaycounts}
-                            totalUploads={this.props.totalUploads} />
+                        <TrackIndexStats currentUser={this.props.currentUser} />
                         <TrackIndexInfo />
                     </section>
                 </section>

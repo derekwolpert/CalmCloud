@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def current_user
-    @current_user ||= User.find_by(session_token: session[:session_token])
+    @current_user ||= User.with_attached_profile_pic.includes(:favorites, :comments, :subscriptions, :subscribers, tracks: [audio_track_attachment: :blob, track_artwork_attachment: :blob] ).find_by(session_token: session[:session_token])
   end
 
   def require_logged_out
