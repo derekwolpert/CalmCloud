@@ -371,7 +371,7 @@
 .user-show-follower-container {
     display: block;
     min-height: 60px;
-    max-width: calc(100% - 80px);
+    max-width: calc(100% - 94px);
     padding: 1px 0 8px 75px;
     color: rgb(212, 212, 212);
     line-height: 20px;
