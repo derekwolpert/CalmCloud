@@ -405,7 +405,7 @@ class TrackShow extends React.Component {
                             <div>
                                 {formattedComments}
                             </div>
-                            {Object.values(this.props.track.comments).length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null}
+                            {this.props.track.comments !== undefined ? (Object.values(this.props.track.comments).length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null) : null}
                         </section>
 
                         
