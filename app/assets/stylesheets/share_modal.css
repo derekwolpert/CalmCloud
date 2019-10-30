@@ -1,6 +1,6 @@
 .share-modal-container {
     width: 750px;
-    height: 361px;
+    max-height: 361px;
 }
 
 .share-modal-container > header {
@@ -30,7 +30,7 @@
 }
 
 .share-modal-content {
-    padding: 100px 50px 20px;
+    padding: 100px 50px 120px;
 }
 
 .share-modal-content > div {
