@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
     def create
-        @user = User.find_by_username(params[:user][:login], params[:user][:password])
-        @user ||= User.find_by_email(params[:user][:login], params[:user][:password])
+        @user = User.includes(:comments, :favorites, :subscriptions, :subscribers, profile_pic_attachment: :blob, profile_cover_attachment: :blob, tracks: [ audio_track_attachment: :blob, track_artwork_attachment: :blob], favorite_tracks: [ audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [:tracks, :comments, :favorites, :subscriptions, :subscribers, profile_pic_attachment: :blob]], user_subscribers: [profile_pic_attachment: :blob], subscribe_users: [profile_pic_attachment: :blob]).find_by_username(params[:user][:login], params[:user][:password])
+        @user ||= User.includes(:comments, :favorites, :subscriptions, :subscribers, profile_pic_attachment: :blob, profile_cover_attachment: :blob, tracks: [ audio_track_attachment: :blob, track_artwork_attachment: :blob], favorite_tracks: [ audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [:tracks, :comments, :favorites, :subscriptions, :subscribers, profile_pic_attachment: :blob]], user_subscribers: [profile_pic_attachment: :blob], subscribe_users: [profile_pic_attachment: :blob]).find_by_email(params[:user][:login], params[:user][:password])
 
         if @user.nil?
             if User.find_by(username: params[:user][:login]) || User.find_by(email: params[:user][:login])

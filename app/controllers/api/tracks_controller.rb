@@ -19,7 +19,7 @@ class Api::TracksController < ApplicationController
     end
 
     def update
-        @track = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: [profile_pic_attachment: :blob]).find_by(title: params[:title])
+        @track = Track.includes(audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob]).find_by(title: params[:title])
         if @track && @track.user.username == params[:user_username]
             if @track.update_attributes(track_params)
                 render :show
@@ -32,13 +32,13 @@ class Api::TracksController < ApplicationController
     end
 
     def index
-        @tracks = Track.with_attached_track_artwork.with_attached_audio_track.includes(user: [profile_pic_attachment: :blob])
+        @tracks = Track.includes(audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob])
     end
 
     def show
-        @track = Track.with_attached_audio_track.with_attached_track_artwork.includes(user: [profile_pic_attachment: :blob], comments: [ user: [ profile_pic_attachment: :blob ] ] ).find_by(title: params[:title])
+        @track = Track.includes(audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob, tracks: [track_artwork_attachment: :blob]], comments: [ user: [ profile_pic_attachment: :blob ] ] ).find_by(title: params[:title])
         if @track && @track.user.username == params[:user_username]
-            @tracks = Track.with_attached_track_artwork.order(created_at: :DESC).where(["user_id = ? and title != ?", "#{@track.user_id}", "#{params[:title]}"])
+            render :show
         elsif !@track
             render json: ['Could not locate track'], status: 400
         else
