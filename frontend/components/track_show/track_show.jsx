@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackShowSidebar from "./track_show_sidebar";
 import TrackIndexInfo from "../track_index/track_index_info";
+import CommentContainer from "./comment_container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareSquare, faCalendarAlt, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHeadphonesAlt, faPlay, faPause, faCloud } from '@fortawesome/free-solid-svg-icons';
@@ -17,13 +18,11 @@ class TrackShow extends React.Component {
             loaded: false,
             commentText: "",
         };
-
         this.playPause = this.playPause.bind(this);
         this.formatListened = this.formatListened.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleCommentContent = this.handleCommentContent.bind(this);
     }
 
     componentDidMount() {
@@ -200,46 +199,20 @@ class TrackShow extends React.Component {
         return null
     }
 
-    handleCommentContent(comment) {
-        return (
-            <>
-                <Link to={`/${this.props.commentUsers[comment.user_id].username}`} className="comment-avatar">
-                    <img src={(this.props.commentUsers[comment.user_id].userPictureUrl || window.defaultAvatar)} />
-                </Link>
-
-                <div className="comment-show-header">
-                    <Link to={`/${this.props.commentUsers[comment.user_id].username}`} className={`comment-header-display-name${comment.user_id === this.props.track.user_id ? "-uploader" : ""}`}>
-                        {this.props.commentUsers[comment.user_id].display_name}
-                    </Link>
-                    <span>{this.formatDate(comment.created_at).split(" second").join("sec").split(" minute").join("min").split(" month").join("mo").split(" year").join("yr")}</span>
-                </div>
-
-                <div className="comment-show-actions">
-                </div>
-                <div className="comment-show-content">
-                    {comment.body}
-                </div>
-            </>
-        )
-    }
-
     render() {
         
         const formattedComments = this.props.track ? (this.props.track.comments !== undefined ?
             Object.values(this.props.track.comments).filter(comment => !comment.parent_comment_id).slice().reverse().map((comment) => (
-                <div key={comment.id} className="comment-show-container">
-                    {this.handleCommentContent(comment)}
-
-                    { comment.childComments.map(childId => {
-                        const subComment = this.props.track.comments[childId];
-                            return (
-                                <div key={subComment.id} className="comment-show-container">
-                                    {this.handleCommentContent(subComment)}
-                                </div>
-                            )
-                        })
-                    }
-                </div>
+                
+                <CommentContainer
+                    key={comment.id}
+                    comment={comment}
+                    comments={this.props.comments}
+                    track={this.props.track}
+                    currentUser={this.props.currentUser}
+                    commentUsers={this.props.commentUsers}
+                />
+                
             )) : null) : null;
 
 
@@ -248,7 +221,7 @@ class TrackShow extends React.Component {
         }
 
         return (
-            this.state.loaded && this.props.track ?
+            (this.state.loaded && this.props.track) ?
             <>
                 <section className="track-show-header">
 
@@ -263,13 +236,10 @@ class TrackShow extends React.Component {
 
                                 <div className="track-show-inner-title">
                                     <h1>
-                                            <Link to={`/${this.props.user.username}/${this.props.track.title}`}>{this.props.track.title}</Link>
+                                        <Link to={`/${this.props.user.username}/${this.props.track.title}`}>{this.props.track.title}</Link>
                                     </h1>
-
                                     <div>uploaded by <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link></div>
-
                                 </div>
-
                             </section>
                             <div onClick={(e) => this.handleProgress(e)} className="track-show-waveform-container">
 
@@ -390,7 +360,7 @@ class TrackShow extends React.Component {
                                     }}>
                                         <textarea className="comment-input" placeholder={`What did you think of ${this.props.track.title}?`} 
                                             maxLength="1000"
-                                            value={this.state.comment}
+                                            value={this.state.commentText}
                                             onChange={e => this.handleComment(e)}
                                         />
                                         <div className="comment-form-button-container">

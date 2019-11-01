@@ -34,8 +34,8 @@ const mapStateToProps = (state, ownProps) => {
     const commentUsers = {};
 
     if (track()) {
-        for (let comment in track().comments) {
-            const user = findUser(track().comments[comment].user_id);
+        for (let commentId in track().comments) {
+            const user = findUser(track().comments[commentId].user_id);
             commentUsers[user.id] = user;
         }
     }

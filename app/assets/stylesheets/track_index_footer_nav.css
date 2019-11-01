@@ -76,15 +76,12 @@
 }
 
 .track-index-footer-nav > a {
-    height: 34px;
+    height: 32px;
     display: block;
     position: relative;
     cursor: pointer;
     padding-left: 48px;
-}
-
-.track-index-footer-nav > a:first-of-type {
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .track-index-footer-nav > a > svg {

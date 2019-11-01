@@ -181,7 +181,7 @@ class FooterAudioPlayer extends React.Component {
                                     <FontAwesomeIcon icon={faShareSquare} />
                                 </div>
 
-                                <Link to={`/${this.props.user.username}`} className={`footer-player-user-icon${this.props.location.pathname === `/${this.props.user.username}` ? "-active" : ""}`}>
+                                <Link to={`/${this.props.user.username}`} className="footer-player-user-icon">
                                     <FontAwesomeIcon icon={faUser} />
                                 </Link>
                             </div>
