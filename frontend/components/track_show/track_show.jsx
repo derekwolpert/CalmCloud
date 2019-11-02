@@ -16,9 +16,12 @@ class TrackShow extends React.Component {
         this.state = {
             deleteConfirmation: false,
             loaded: false,
+            showSmallPlayer: false,
             commentText: "",
         };
+        this.handleSmallPlayer = this.handleSmallPlayer.bind(this);
         this.playPause = this.playPause.bind(this);
+        this.playPauseSmall = this.playPauseSmall.bind(this);
         this.formatListened = this.formatListened.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
@@ -32,11 +35,19 @@ class TrackShow extends React.Component {
                 loaded: true
             });
         });
+        window.addEventListener('scroll', this.handleSmallPlayer);
+
         document.title = `${this.props.match.params.title} | CalmCloud`;
     }
 
     componentWillUnmount() {
-        this.setState({loaded: false});
+        window.removeEventListener('scroll', this.handleSmallPlayer);
+        this.setState({
+            deleteConfirmation: false,
+            loaded: false,
+            showSmallPlayer: false,
+            commentText: "",
+        });
     }
 
     componentDidUpdate(prevProps) {
@@ -68,6 +79,18 @@ class TrackShow extends React.Component {
         }
     }
 
+    handleSmallPlayer() {
+        if ((window.scrollY > 435) && !this.state.showSmallPlayer) {
+            this.setState({
+                showSmallPlayer: true,
+            });
+        } else if ((window.scrollY <= 435) && this.state.showSmallPlayer) {
+            this.setState({
+                showSmallPlayer: false,
+            });
+        }
+    }
+
     playPause() {
         const circumference = 43 * 2 * Math.PI;
         if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
@@ -95,6 +118,36 @@ class TrackShow extends React.Component {
                 }
             </svg>
             <FontAwesomeIcon icon={faPlay} className="track-show-play-icon"/>
+        </div >);
+    }
+
+    playPauseSmall() {
+        const circumference = 18 * 2 * Math.PI;
+        if ((this.props.playing) && (this.props.track.id === this.props.currentTrack)) {
+            return (<div className="track-show-pause-container-small" onClick={() => this.props.pauseTrack()}>
+                <svg className="track-show-progress-svg-small">
+                    <circle className="track-show-progress-background-small" />
+                    <circle className="track-show-progress-circle-small"
+                        style={{
+                            strokeDasharray: `${circumference} ${circumference}`,
+                            strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
+                        }} />
+                </svg>
+                <FontAwesomeIcon icon={faPause} className="track-show-pause-icon-small" />
+            </div >);
+        }
+        return (<div className="track-show-play-container-small" onClick={() => this.props.changeTrack(this.props.track.id)}>
+            <svg className="track-show-progress-svg-small">
+                <circle className="track-show-progress-background-small" />
+                {this.props.track.id === this.props.currentTrack ?
+                    <circle className="track-show-progress-circle-small"
+                        style={{
+                            strokeDasharray: `${circumference} ${circumference}`,
+                            strokeDashoffset: `${(circumference) - (this.props.percent / 100) * (circumference)}`
+                        }} /> : null
+                }
+            </svg>
+            <FontAwesomeIcon icon={faPlay} className="track-show-play-icon-small" />
         </div >);
     }
 
@@ -223,6 +276,49 @@ class TrackShow extends React.Component {
         return (
             (this.state.loaded && this.props.track) ?
             <>
+                { this.state.showSmallPlayer ?
+                    <section className="track-show-small-header-container">
+                        <div className="track-show-small-header">
+                            <div className="track-show-small-header-left">
+                                <div className="track-show-small-header-artwork">
+                                    <img src={this.props.track.trackArtworkUrl ? this.props.track.trackArtworkUrl : window.defaultArtwork} />
+                                </div>
+                                <div className="track-show-small-header-play-pause-container">
+                                    {this.playPauseSmall()}
+                                </div>
+                                <div className="track-show-author-small-container">
+                                    <div className="track-show-author-small">
+                                        <b>{this.props.track.title}</b>
+                                        <span>uploaded by
+                                            <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="track-show-small-header-right">
+                                <div>
+                                    {this.props.currentUser ?
+                                        <div className={`track-index-item-action${this.props.currentUser.favorites.includes(this.props.track.id) ? "-active" : ""}`}
+                                            onClick={() => this.handleFavorites()} >
+                                            <FontAwesomeIcon icon={faHeart} />
+                                        </div>
+                                        :
+                                        <div className="track-index-item-action"
+                                            onClick={() => this.props.openModal("login")} >
+                                            <FontAwesomeIcon icon={faHeart} />
+                                        </div>
+                                    }
+                                    <div className="track-index-item-action"
+                                        onClick={() => this.props.openShareModal((`${window.origin}/#/${this.props.user.username}/${this.props.track.title}`).split(" ").join("%20"))}>
+                                        <FontAwesomeIcon icon={faShareSquare} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    : null
+                }
+                
                 <section className="track-show-header">
 
                     <div className="track-show-header-inner-container">
