@@ -180,13 +180,13 @@
     white-space: pre-line;
 }
 
-.comment-show-content > div > p > a {
+.comment-show-content a {
     cursor: pointer;
     color: #4fa6d3;
     transition: 0.2s
 }
 
-.comment-show-content > div > p > a:hover {
+.comment-show-content a:hover {
     color: #2b7fab;
 }
 

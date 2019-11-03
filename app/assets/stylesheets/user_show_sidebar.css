@@ -33,6 +33,16 @@
     word-wrap: break-word;
 }
 
+.user-show-biography a {
+    cursor: pointer;
+    color: #4fa6d3;
+    transition: 0.2s
+}
+
+.user-show-biography a:hover {
+    color: #2b7fab;
+}
+
 .user-show-biography-fade {
     position: relative;
     cursor: pointer;

@@ -7,10 +7,26 @@ class CommentText extends React.Component {
         super(props);
 
         this.state = {
+            mounted: false,
             showFullText: false,
+            height: null,
         };
         this._comment = React.createRef();
+    }
 
+    componentDidMount() {
+        this.setState({
+            mounted: true,
+        });
+    }
+
+    componentDidUpdate() {
+
+        if ((this.state.mounted && (this.state.height === null))) {
+            this.setState({
+                height: this._comment.offsetHeight,
+            });
+        }
     }
 
     isUrl(word) {
@@ -37,25 +53,33 @@ class CommentText extends React.Component {
         )
     }
 
-
     render() {
+
         return (
             <div className="comment-show-content"
-                style={{ paddingBottom: ((this.props.mainComment.childComments.length > 0) && (this.props.mainComment.id === this.props.comment.id)) ? "40px" : "", cursor: this.state.showFullText ? "pointer" : "" }}
-                onClick={() => this.state.showFullText ? this.setState({ showFullText: false }) : null }
-            >
-                { this.state.showFullText ?
-                    <div ref={(d) => this._comment = d}>
+                style={{ paddingBottom: ((this.props.mainComment.childComments.length > 0) && (this.props.mainComment.id === this.props.comment.id)) ? "40px" : "" }}>
+                { !this.state.height ?
+                    <div ref={(a) => this._comment = a}>
                         {this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
                             <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
-                    </div> :
+                    </div> 
+                    :
 
-                    <div className="user-show-biography-fade" onClick={() => this.setState({ showFullText: true })}>
-                        <div ref={(d) => this._comment = d}>
-                            {this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
-                                <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
-                        </div>
-                    </div> }
+                    this.state.height > 120 ?
+                        (this.state.showFullText ?
+                            this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                                <p key={key}>{this.formatUrlsInDescription(el)}</p>))
+                            :
+                            <div className="user-show-biography-fade" onClick={() => this.setState({ showFullText: true })}>
+                                {this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                                    <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
+                            </div>)
+                        :
+                        this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                            <p key={key}>{this.formatUrlsInDescription(el)}</p>))
+
+                }
+                
             </div>
         )
     }
