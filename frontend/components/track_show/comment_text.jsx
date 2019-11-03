@@ -39,7 +39,6 @@ class CommentText extends React.Component {
 
 
     render() {
-        debugger
         return (
             <div className="comment-show-content"
                 style={{ paddingBottom: ((this.props.mainComment.childComments.length > 0) && (this.props.mainComment.id === this.props.comment.id)) ? "40px" : "", cursor: this.state.showFullText ? "pointer" : "" }}
