@@ -64,13 +64,12 @@ class CommentText extends React.Component {
                             <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
                     </div> 
                     :
-
                     this.state.height > 120 ?
                         (this.state.showFullText ?
                             this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
                                 <p key={key}>{this.formatUrlsInDescription(el)}</p>))
                             :
-                            <div className="user-show-biography-fade" onClick={() => this.setState({ showFullText: true })}>
+                            <div className="user-show-biography-fade" onClick={(e) => { this.setState({ showFullText: true })}}>
                                 {this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
                                     <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
                             </div>)

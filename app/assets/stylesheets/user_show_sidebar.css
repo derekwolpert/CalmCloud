@@ -28,7 +28,7 @@
     line-height: 24px;
 }
 
-.user-show-biography > p {
+.user-show-biography p {
     padding-bottom: 12px;
     word-wrap: break-word;
 }

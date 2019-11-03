@@ -16,6 +16,7 @@ class UserShow extends React.Component {
             loaded: false,
             showDropdown: false,
             showFullDescription: false,
+            height: null,
         };
         this.handleContent = this.handleContent.bind(this);
         this.findUser = this.findUser.bind(this);
@@ -24,6 +25,7 @@ class UserShow extends React.Component {
         this.handlePlayButton = this.handlePlayButton.bind(this);
         this.handlePlayPresence = this.handlePlayPresence.bind(this);
         this.handleFollowingSidebar = this.handleFollowingSidebar.bind(this);
+        this._biography = React.createRef();
     }
 
     componentDidMount() {
@@ -50,6 +52,7 @@ class UserShow extends React.Component {
                 loaded: false,
                 showDropdown: false,
                 showFullDescription: false,
+                height: null,
             });
             document.title = `${this.props.user.display_name} | CalmCloud`;
             window.scrollTo(0, 0);
@@ -63,6 +66,10 @@ class UserShow extends React.Component {
             this.setState({
                 showDropdown: false,
                 showFullDescription: false,
+            });
+        } else if ((this.state.loaded && (this.state.height === null))) {
+            this.setState({
+                height: this._biography.offsetHeight,
             });
         }
 
@@ -486,20 +493,34 @@ class UserShow extends React.Component {
                                     </span> : null
                                 }
 
-                                <div className="user-show-biography" onClick={() => this.state.showFullDescription ? this.setState({ showFullDescription: false }) : null} style={{ cursor: this.state.showFullDescription ? "pointer" : "" }}>
-                                    { this.state.showFullDescription ?
-                                        (
-                                            this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
-                                                <p key={key}>{this.formatUrlsInDescription(el)}</p>)
-                                            ) : null
-                                         ) :
-                                        <div className="user-show-biography-fade" onClick={() => this.setState({showFullDescription: true})}>
-                                            {this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
-                                                <p key={key}>{this.formatUrlsInDescription(el)}</p>)
-                                            ) : null
-                                            }
-                                        </div> 
+                                <div className="user-show-biography">
+                                    { !this.state.height ?
+                                        (this.props.user.biography ?
+                                            <div ref={(a) => this._biography = a}>
+                                                { this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                    <p key={key}>{this.formatUrlsInDescription(el)}</p>)
+                                                )}
+                                            </div> : <div ref={(a) => this._biography = a} />) 
+                                        :
+                                        this.state.height > 120 ?
+                                            ( this.state.showFullDescription ?
+                                                ( this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                    <p key={key}>{this.formatUrlsInDescription(el)}</p>)) : null
+                                                )
+                                                :
+                                                <div className="user-show-biography-fade" onClick={() => this.setState({ showFullDescription: true })}>
+                                                    {this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                        <p key={key}>{this.formatUrlsInDescription(el)}</p>)
+                                                    ) : null
+                                                    }
+                                                </div> 
+                                            )
+                                            :
+                                            (this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                <p key={key}>{this.formatUrlsInDescription(el)}</p>)) : null
+                                            )
                                     }
+
                                 </div>
                                 { this.props.currentUser ? 
                                     (this.props.currentUser.id === this.props.user.id ?
