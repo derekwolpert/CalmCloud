@@ -1,16 +1,17 @@
 class Api::FavoriteTracksController < ApplicationController  
 	def create
-		@track = Track.includes(audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob]).find(params[:id])
-		if Favorite.create(favorited: @track, user: current_user)
-			render 'api/tracks/show'
+		@track = Track.find(params[:id])
+		@favorite = Favorite.new(favorited: @track, user: current_user)
+		if @favorite.save
+			render json: params[:id]
 		else
-			render 'api/tracks/show'
+			render json: @favorite.errors.full_messages, status: 401
 		end
 	end
 
 	def destroy
-		@track = Track.includes(audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob]).find(params[:id])
+		@track = Track.find(params[:id])
 		Favorite.where(favorited_id: @track.id, favorited_type: "Track", user_id: current_user.id).first.destroy
-		render 'api/tracks/show'
+		render json: params[:id]
 	end
 end

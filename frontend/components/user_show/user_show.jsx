@@ -236,8 +236,9 @@ class UserShow extends React.Component {
                         {this.state.showDropdown ?
                             <div>
                                 <ul className="user-show-dropdown-content">
-                                    <li onClick={() => this.props.deleteSubscribeUser(this.props.user.id).then(() => (
-                                        this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                                    <li onClick={() => this.props.deleteSubscribeUser(this.props.user.id).then((userId) => {
+                                        if (userId === this.props.user.id) this.props.fetchCurrentUser(this.props.currentUser.username)
+                                    })}>
                                             Unfollow
                                     </li>
                                 </ul>
@@ -254,8 +255,10 @@ class UserShow extends React.Component {
 
         return (
             <div className="user-show-follow-button"
-                onClick={() => this.props.createSubscribeUser(this.props.user.id).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                onClick={() => this.props.createSubscribeUser(this.props.user.id).then((userId) => {
+                    if (userId === this.props.user.id) this.props.fetchCurrentUser(this.props.currentUser.username)
+                })
+            }>
                 <span>Follow</span>
             </div>
         )
@@ -276,16 +279,20 @@ class UserShow extends React.Component {
         if (this.props.currentUser.following.includes(user.id)) {
             return (
                 <div className="user-show-follower-following-button"
-                    onClick={() => this.props.deleteSubscribeUser(user.id).then(() => (
-                        this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                    onClick={() => this.props.deleteSubscribeUser(user.id).then((userId) => {
+                        if (userId === user.id) this.props.fetchCurrentUser(this.props.currentUser.username)
+                    })
+                }>
                     Following
                 </div>
             )
         }
         return (
             <div className="user-show-follower-follow-button"
-                onClick={() => this.props.createSubscribeUser(user.id).then(() => (
-                    this.props.fetchCurrentUser(this.props.currentUser.username)))}>
+                onClick={() => this.props.createSubscribeUser(user.id).then((userId) => {
+                    if (userId === user.id) this.props.fetchCurrentUser(this.props.currentUser.username)
+                })
+            }>
                 Follow
             </div>
         )

@@ -139,11 +139,17 @@ class FooterAudioPlayer extends React.Component {
 
     handleFavorites() {
         if (this.props.currentUser.favorites.includes(this.props.currentTrackId)) {
-            this.props.deleteFavoriteTrack(this.props.currentTrackId).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.username)));
+            this.props.deleteFavoriteTrack(this.props.currentTrackId).then((trackId) => {
+                if (trackId === this.props.currentTrackId) {
+                    this.props.fetchCurrentUser(this.props.currentUser.username);
+                }
+            });
         } else {
-            this.props.createFavoriteTrack(this.props.currentTrackId).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.username)));
+            this.props.createFavoriteTrack(this.props.currentTrackId).then(trackId => {
+                if (trackId === this.props.currentTrackId) {
+                    this.props.fetchCurrentUser(this.props.currentUser.username);
+                }
+            });
         }
     }
     

@@ -12,7 +12,6 @@ class Api::TracksController < ApplicationController
         else
             render json: @track.errors.full_messages, status: 401
         end
-
         # Please choose an audio file (MP3, AAC, M4A, MP4 audio or OGG file types are supported) and make sure it is under 500MB.
         # Please enter a title below.
         # The file you've chosen is under 12MB - this indicates it may be short and, therefore, a single track and could be removed from Mixcloud.

@@ -235,11 +235,17 @@ class TrackShow extends React.Component {
 
     handleFavorites() {
         if (this.props.currentUser.favorites.includes(this.props.track.id)) {
-            this.props.deleteFavoriteTrack(this.props.track.id).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.username)));
+            this.props.deleteFavoriteTrack(this.props.track.id).then(trackId => {
+                if (trackId === this.props.track.id) {
+                    this.props.fetchCurrentUser(this.props.currentUser.username)
+                }
+            });
         } else {
-            this.props.createFavoriteTrack(this.props.track.id).then(() => (
-                this.props.fetchCurrentUser(this.props.currentUser.username)));
+            this.props.createFavoriteTrack(this.props.track.id).then(trackId => {
+                if (trackId === this.props.track.id) {
+                    this.props.fetchCurrentUser(this.props.currentUser.username)
+                }
+            });;
         }
     }
 
