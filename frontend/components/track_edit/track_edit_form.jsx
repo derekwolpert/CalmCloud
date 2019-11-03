@@ -32,6 +32,7 @@ class TrackEditForm extends React.Component {
         };
         this._loading = React.createRef();
         this.handleEditButton = this.handleEditButton.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -121,7 +122,6 @@ class TrackEditForm extends React.Component {
     }
 
     handleSubmit(e) {
-
         e.preventDefault();
         const formData = new FormData();
 
@@ -155,7 +155,7 @@ class TrackEditForm extends React.Component {
                     </h1>
                     <div className="track-upload-inner-container">
 
-                        <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                        <form className="track-upload-form" onSubmit={this.handleSubmit} onKeyPress={(e) => {
                             if (e.target.className === "track-description-input") {
                                 return;
                             }
@@ -219,9 +219,9 @@ class TrackEditForm extends React.Component {
                                     </div>
                                     <div className="track-upload-save-container">
                                         <Link to="/" className="track-upload-cancel">Cancel</Link>
-                                        <button className="track-upload-button"
+                                        <input className="track-upload-button" type="submit" value="Save"
                                             disabled={this.handleEditButton() || this.props.currentUserTracks.includes(this.state.title.toLowerCase())}
-                                            onClick={() => this._loading.style.display = ""}>Save</button>
+                                            onClick={() => this._loading.style.display = ""} />
                                     </div>
                                 </section>
                             </div>

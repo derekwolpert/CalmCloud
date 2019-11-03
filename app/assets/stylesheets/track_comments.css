@@ -76,7 +76,7 @@
     position: relative;
 }
 
-.comment-form-button-container > button {
+.comment-form-button-container > input {
     margin: 12px 0px 0px;
     float: right;
     color: rgb(255, 255, 255);
@@ -91,11 +91,11 @@
     cursor: pointer;
 }
 
-.comment-form-button-container > button:hover {
+.comment-form-button-container > input:hover {
     background-color: rgb(48, 142, 191);
 }
 
-.comment-form-button-container > button:disabled, .comment-form-button-container > button:disabled:hover {
+.comment-form-button-container > input:disabled, .comment-form-button-container > input:disabled:hover {
     opacity: 0.6;
     cursor: not-allowed;
     background-color: rgb(79, 166, 211);

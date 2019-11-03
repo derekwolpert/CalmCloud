@@ -89,11 +89,13 @@ class Comment extends React.Component {
             this.props.deleteComment(commentId).then(id => {
                 this._loading.style.display = "none";
                 this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                this.props.fetchCurrentUser(this.props.currentUser.username);
             })
         } 
     }
 
-    handleSubmitNestedComment() {
+    handleSubmitNestedComment(e) {
+        e.preventDefault();
         if ((this.state.nestedCommentText.length > 0) && (this.props.currentUser !== null)) {
             this.props.createComment({
                 body: this.state.nestedCommentText,
@@ -107,6 +109,7 @@ class Comment extends React.Component {
                     })
                     this._loading.style.display = "none"
                     this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                    this.props.fetchCurrentUser(this.props.currentUser.username);
                 }
             })
         }
@@ -124,7 +127,7 @@ class Comment extends React.Component {
                             <div className="comment-nested-avatar">
                                 <img src={this.props.currentUser ? (this.props.currentUser.userPictureUrl || window.defaultAvatar) : window.commentAvatar} />
                             </div>
-                            <form onSubmit={this.props.currentUser ? this.handleSubmitNestedComment.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
+                            <form onSubmit={this.props.currentUser ? this.handleSubmitNestedComment : () => this.props.openModal("login")} onKeyPress={(e) => {
                                 if (e.target.className === "comment-input") {
                                     return;
                                 }
@@ -136,10 +139,10 @@ class Comment extends React.Component {
                                     onChange={e => this.handleNestedComment(e)}
                                 />
                                 <div className="comment-form-button-container">
-                                    <button
+                                    <input type="submit" value="Post Comment" 
                                         style={{ marginBottom: "20px" }}
                                         disabled={this.state.nestedCommentText.length === 0}
-                                        onClick={() => this.props.currentUser ? this._loading.style.display = "" : null}>Post Comment</button>
+                                        onClick={() => this.props.currentUser ? this._loading.style.display = "" : null} />
                                 </div>
                             </form>
                         </div>

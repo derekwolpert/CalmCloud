@@ -256,7 +256,8 @@ class TrackShow extends React.Component {
         });
     }
 
-    handleSubmitComment() {
+    handleSubmitComment(e) {
+        e.preventDefault()
         if ((this.state.commentText.length > 0) && (this.props.currentUser !== null)) {
             this.props.createComment({
                 body: this.state.commentText,
@@ -268,6 +269,7 @@ class TrackShow extends React.Component {
                     })
                     this._loading.style.display = "none"
                     this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                    this.props.fetchCurrentUser(this.props.currentUser.username);
                 }
             })
         }
@@ -470,7 +472,7 @@ class TrackShow extends React.Component {
                                         <img src={this.props.currentUser ? (this.props.currentUser.userPictureUrl || window.defaultAvatar) : window.commentAvatar} />
                                     </div>
                                     <form className="comment-form"
-                                        onSubmit={this.props.currentUser ? this.handleSubmitComment.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
+                                        onSubmit={this.props.currentUser ? this.handleSubmitComment : () => this.props.openModal("login")} onKeyPress={(e) => {
                                             if (e.target.className === "comment-input") {
                                                 return;
                                             }
@@ -483,10 +485,10 @@ class TrackShow extends React.Component {
                                             onChange={e => this.handleComment(e)}
                                         />
                                         <div className="comment-form-button-container">
-                                            <button
+                                            <input type="submit" value="Post Comment"
                                                 disabled={this.state.commentText.length === 0}
                                                 onClick={() => this.props.currentUser ? this._loading.style.display = "" : null}
-                                                >Post Comment</button>
+                                            />
                                         </div>
                                     </form>
 

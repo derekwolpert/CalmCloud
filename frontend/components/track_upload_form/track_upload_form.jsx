@@ -27,6 +27,12 @@ class TrackUploadForm extends React.Component {
         this.stageTwo = this.stageTwo.bind(this);
         this.handlePrevStage = this.handlePrevStage.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAudioFile = this.handleAudioFile.bind(this);
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleImageFile = this.handleImageFile.bind(this);
+        this.handleImageFile = this.handleImageFile.bind(this);
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleDescription = this.handleDescription.bind(this);
         this._audio = React.createRef();
         this._loading = React.createRef();
     }
@@ -145,7 +151,7 @@ class TrackUploadForm extends React.Component {
                 }
 
                 <div className="audio-file-input-container">
-                    <input className="audio-file-input" type="file" accept=".mp3, .aac, .m4a, .mp4, .ogg" onChange={this.handleAudioFile.bind(this)} />
+                    <input className="audio-file-input" type="file" accept=".mp3, .aac, .m4a, .mp4, .ogg" onChange={this.handleAudioFile} />
                 </div>
 
                 <div className="audio-file-input-name">
@@ -161,7 +167,7 @@ class TrackUploadForm extends React.Component {
                         <input type="text"
                             className="track-title-input"
                             value={this.state.title}
-                            onChange={this.handleTitle.bind(this)}
+                            onChange={this.handleTitle}
                             placeholder="Choose a title for your upload"
                             maxLength="100" />
                     </span>
@@ -211,7 +217,7 @@ class TrackUploadForm extends React.Component {
                                 <div className="track-upload-change-image-container">
 
                                     <div className="track-upload-change-image-wrapper">
-                                        <input type="file" accept=".jpeg, .jpg, .png, .gif" onChange={this.handleImageFile.bind(this)} />
+                                        <input type="file" accept=".jpeg, .jpg, .png, .gif" onChange={this.handleImageFile} />
                                     </div>
                                 </div>
                             </>
@@ -224,7 +230,7 @@ class TrackUploadForm extends React.Component {
                                 <div className="track-upload-image-input-container">
 
                                         <div className="track-upload-image-input-wrapper">
-                                            <input className="image-file-input" type="file" accept=".jpeg, .jpg, .png, .gif" onChange={this.handleImageFile.bind(this)} />
+                                            <input className="image-file-input" type="file" accept=".jpeg, .jpg, .png, .gif" onChange={this.handleImageFile} />
                                         </div>
                                 </div>
                             </>
@@ -234,7 +240,7 @@ class TrackUploadForm extends React.Component {
                                 <input type="text"
                                     className="track-title-input"
                                     value={this.state.title}
-                                    onChange={this.handleTitle.bind(this)}
+                                    onChange={this.handleTitle}
                                     placeholder="Title"
                                     maxLength="100" />
                             </div>
@@ -243,7 +249,7 @@ class TrackUploadForm extends React.Component {
                                 <textarea
                                     className="track-description-input"
                                     value={this.state.description}
-                                    onChange={this.handleDescription.bind(this)}
+                                    onChange={this.handleDescription}
                                     placeholder="Description"
                                     style={{height: `${this.state.description.length > 0 ? "79px" : ""}`}}
                                     maxLength="1000"
@@ -255,9 +261,9 @@ class TrackUploadForm extends React.Component {
                     <section className="track-upload-submission">
                         <div className="track-upload-save-container">
                             <Link to="/" className="track-upload-cancel">Cancel</Link>
-                            <button className="track-upload-button"
+                            <input className="track-upload-button" type="submit" value="Upload and Publish"
                                 disabled={(!this.state.audioUrl || !(this.state.title.length > 0)) || (this.props.currentUserTracks.includes(this.state.title.toLowerCase()) || (["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase())))}
-                                onClick={() => this._loading.style.display = ""}>Upload and Publish</button>
+                                onClick={() => this._loading.style.display = ""} />
                         </div>
                     </section>
                 </div>
@@ -307,7 +313,7 @@ class TrackUploadForm extends React.Component {
                                 </section>
                             )}
 
-                            <form className="track-upload-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                            <form className="track-upload-form" onSubmit={this.handleSubmit} onKeyPress={(e) => {
                                 if (e.target.className === "track-description-input") {
                                     return;
                                 }

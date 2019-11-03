@@ -429,7 +429,6 @@ class UserEdit extends React.Component {
     }
 
     handleSubmit(e) {
-
         e.preventDefault();
         const formData = new FormData();
 
@@ -474,7 +473,7 @@ class UserEdit extends React.Component {
                             <Link to={`/${this.props.currentUsername}`}>Visit your profile</Link>
                         </h1>
 
-                        <form className="user-edit-form" onSubmit={this.handleSubmit.bind(this)} onKeyPress={(e) => {
+                        <form className="user-edit-form" onSubmit={this.handleSubmit} onKeyPress={(e) => {
                             if (e.target.className === "user-edit-biography-input") {
                                 return;
                             }
@@ -581,9 +580,9 @@ class UserEdit extends React.Component {
                             </div>
 
                             <div className="user-edit-form-section">
-                                <button className="track-upload-button"
+                                <input className="track-upload-button" type="submit" value="Save Profile Settings"
                                     disabled={this.handleButtonState()}
-                                    onClick={() => this._loading.style.display = ""}>Save Profile Settings</button>
+                                    onClick={() => this._loading.style.display = ""}/>
                             </div>
 
                         </form>

@@ -9,7 +9,6 @@ class HeaderDropdown extends React.Component {
         this.state = {
             showDropdown: false,
         };
-
         this.showDropdown = this.showDropdown.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }

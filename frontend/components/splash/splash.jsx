@@ -13,7 +13,6 @@ class Splash extends React.Component {
         this.state = {
             loaded: false,
         };
-
         this.findUser = this.findUser.bind(this);
     }
 
