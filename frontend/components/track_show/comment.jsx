@@ -36,10 +36,12 @@ class Comment extends React.Component {
 
                 <div className="comment-show-actions">
                     { !comment.parent_comment_id ? <FontAwesomeIcon icon={faReply} onClick={() => this.setState({ showNestedInput: !this.state.showNestedInput }) }/> : null }
-                    { comment.user_id === this.props.currentUser.id ? <FontAwesomeIcon icon={faTrash} onClick={ () => { 
-                        this._loading.style.display = ""
-                        this.handleDelete(comment.id)
-                        }}/> : null }
+                    { this.props.currentUser ? 
+                        (comment.user_id === this.props.currentUser.id ?
+                            <FontAwesomeIcon icon={faTrash} onClick={ () => { 
+                            this._loading.style.display = ""
+                            this.handleDelete(comment.id, comment.user_id)
+                            }}/> : null) : null }
                 </div>
                 
                 <CommentText
@@ -82,9 +84,9 @@ class Comment extends React.Component {
         });
     }
 
-    handleDelete(commentId) {
-        if (this.props.currentUser.id === this.props.comment.user_id) {
-            this.props.deleteComment(commentId).then(commentId => {
+    handleDelete(commentId, userId) {
+        if (this.props.currentUser.id === userId) {
+            this.props.deleteComment(commentId).then(id => {
                 this._loading.style.display = "none";
                 this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
             })
@@ -120,7 +122,7 @@ class Comment extends React.Component {
                     <div className="comment-nested-input-container" style={{ paddingBottom: this.props.comment.childComments.length > 0 ? "20px" : 0 }}>
                         <div className="comment-nested-input">
                             <div className="comment-nested-avatar">
-                                <img src={(this.props.currentUser.userPictureUrl || window.defaultAvatar)} />
+                                <img src={this.props.currentUser ? (this.props.currentUser.userPictureUrl || window.defaultAvatar) : window.commentAvatar} />
                             </div>
                             <form onSubmit={this.props.currentUser ? this.handleSubmitNestedComment.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
                                 if (e.target.className === "comment-input") {
@@ -137,7 +139,7 @@ class Comment extends React.Component {
                                     <button
                                         style={{ marginBottom: "20px" }}
                                         disabled={this.state.nestedCommentText.length === 0}
-                                        onClick={() => this._loading.style.display = ""}>Post Comment</button>
+                                        onClick={() => this.props.currentUser ? this._loading.style.display = "" : null}>Post Comment</button>
                                 </div>
                             </form>
                         </div>

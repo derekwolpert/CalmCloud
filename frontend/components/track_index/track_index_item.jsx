@@ -28,6 +28,7 @@ class TrackIndexItem extends React.Component {
         const nowDate = new Date();
         const secondsSince = ((nowDate - uploadDate)/1000);
 
+        if (secondsSince < 1) return `just now`;
         if (secondsSince === 1) return `1 second ago`;
         if (secondsSince < 60) return `${Math.floor(secondsSince)} seconds ago`;
 

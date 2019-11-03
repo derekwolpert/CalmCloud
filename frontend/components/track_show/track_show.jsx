@@ -485,7 +485,7 @@ class TrackShow extends React.Component {
                                         <div className="comment-form-button-container">
                                             <button
                                                 disabled={this.state.commentText.length === 0}
-                                                onClick={() => this._loading.style.display = ""}
+                                                onClick={() => this.props.currentUser ? this._loading.style.display = "" : null}
                                                 >Post Comment</button>
                                         </div>
                                     </form>
