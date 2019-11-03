@@ -165,21 +165,29 @@
     opacity: 0.8;
 }
 
-.comment-show-actions > *:first-child {
+.comment-show-actions > .fa-reply {
     color: #8196a7;
 }
 
-.comment-show-actions > *:nth-child(2) {
+.comment-show-actions > .fa-trash {
     color: #e2584e;
 }
 
 .comment-show-content {
     padding-bottom: 20px;
     color: rgb(192, 192, 192);
+    word-break: break-word;
+    white-space: pre-line;
 }
 
-.comment-show-container .comment-show-container:last-child {
-    margin-bottom: -21px;
+.comment-show-content > div > p > a {
+    cursor: pointer;
+    color: #4fa6d3;
+    transition: 0.2s
+}
+
+.comment-show-content > div > p > a:hover {
+    color: #2b7fab;
 }
 
 .comment-show-container:last-child {

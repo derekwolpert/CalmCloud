@@ -25,7 +25,8 @@ class TrackShow extends React.Component {
         this.formatListened = this.formatListened.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitComment = this.handleSubmitComment.bind(this);
+        this._loading = React.createRef();
     }
 
     componentDidMount() {
@@ -80,11 +81,11 @@ class TrackShow extends React.Component {
     }
 
     handleSmallPlayer() {
-        if ((window.scrollY > 435) && !this.state.showSmallPlayer) {
+        if ((window.scrollY > 437) && !this.state.showSmallPlayer) {
             this.setState({
                 showSmallPlayer: true,
             });
-        } else if ((window.scrollY <= 435) && this.state.showSmallPlayer) {
+        } else if ((window.scrollY <= 437) && this.state.showSmallPlayer) {
             this.setState({
                 showSmallPlayer: false,
             });
@@ -188,6 +189,7 @@ class TrackShow extends React.Component {
         const nowDate = new Date();
         const secondsSince = ((nowDate - uploadDate) / 1000);
 
+        if (secondsSince < 1) return `just now`;
         if (secondsSince === 1) return `1 second ago`;
         if (secondsSince < 60) return `${Math.floor(secondsSince)} seconds ago`;
 
@@ -208,7 +210,6 @@ class TrackShow extends React.Component {
     }
 
     isUrl(word) {
-        
         const urlChecker = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
         return word.match(urlChecker);
     }
@@ -243,13 +244,27 @@ class TrackShow extends React.Component {
     }
 
     handleComment(e) {
+        e.preventDefault();
         this.setState({
             commentText: e.currentTarget.value
         });
     }
 
-    handleSubmit() {
-        return null
+    handleSubmitComment() {
+        if ((this.state.commentText.length > 0) && (this.props.currentUser !== null)) {
+            this.props.createComment({
+                body: this.state.commentText,
+                track_id: this.props.track.id,
+            }).then((trackId) => {
+                if (this.props.track.id === trackId) {
+                    this.setState({
+                        commentText: "",
+                    })
+                    this._loading.style.display = "none"
+                    this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                }
+            })
+        }
     }
 
     render() {
@@ -448,12 +463,14 @@ class TrackShow extends React.Component {
                                     <div className="comment-avatar">
                                         <img src={this.props.currentUser ? (this.props.currentUser.userPictureUrl || window.defaultAvatar) : window.commentAvatar} />
                                     </div>
-                                    <form className="comment-form" onSubmit={this.props.currentUser ? this.handleSubmit.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
+                                    <form className="comment-form"
+                                        onSubmit={this.props.currentUser ? this.handleSubmitComment.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
                                             if (e.target.className === "comment-input") {
                                                 return;
                                             }
-                                        (e.key === 'Enter') && e.preventDefault();
-                                    }}>
+                                            (e.key === 'Enter') && e.preventDefault();
+                                        }}
+                                    >
                                         <textarea className="comment-input" placeholder={`What did you think of ${this.props.track.title}?`} 
                                             maxLength="1000"
                                             value={this.state.commentText}
@@ -461,7 +478,9 @@ class TrackShow extends React.Component {
                                         />
                                         <div className="comment-form-button-container">
                                             <button
-                                                disabled={this.state.commentText.length === 0}>Post Comment</button>
+                                                disabled={this.state.commentText.length === 0}
+                                                onClick={() => this._loading.style.display = ""}
+                                                >Post Comment</button>
                                         </div>
                                     </form>
 
@@ -499,9 +518,8 @@ class TrackShow extends React.Component {
                         }
                         <TrackIndexInfo />
                     </section>
-            
                 </section>
-
+                <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
             </>
             :
             <div className="loading-spinner-background"><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>

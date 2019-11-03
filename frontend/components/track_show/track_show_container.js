@@ -7,6 +7,7 @@ import { openModal } from '../../actions/modal_actions';
 import { openShareModal } from '../../actions/share_modal_actions';
 import TrackShow from './track_show';
 import { changeTrack, pauseTrack, currentPercent, removeCurrentTrack } from "../../actions/footer_player_actions";
+import { createComment } from "../../actions/comment_actions";
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -64,7 +65,8 @@ const mapDispatchToProps = dispatch => ({
     deleteFavoriteTrack: (trackId) => dispatch(deleteFavoriteTrack(trackId)),
     fetchCurrentUser: (username) => dispatch(fetchCurrentUser(username)),
     openModal: modal => dispatch(openModal(modal)),
-    openShareModal: url => dispatch(openShareModal(url))
+    openShareModal: url => dispatch(openShareModal(url)),
+    createComment: comment => dispatch(createComment(comment)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TrackShow));

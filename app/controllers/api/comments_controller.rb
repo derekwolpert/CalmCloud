@@ -1,18 +1,14 @@
 class Api::CommentsController < ApplicationController
 
     def create
-
-        @comment = Comment.new(track_params)
+        @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id
-        
-        errs = ["placeholder error"];
-
+        errs = ["placeholder error"]
         if @comment.save
-            render :show
+            render json: comment_params[:track_id]
         else
             render json: @comment.errors.full_messages, status: 401
         end
-
     end
 
     def destroy
@@ -25,7 +21,7 @@ class Api::CommentsController < ApplicationController
 
     private
 
-    def track_params
+    def comment_params
         params.require(:comment).permit(:body, :track_id, :parent_comment_id)
     end
 end

@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReply, faTrash } from '@fortawesome/free-solid-svg-icons';
-
-
+import CommentText from "./comment_text";
 
 class Comment extends React.Component {
 
@@ -14,15 +13,14 @@ class Comment extends React.Component {
             showNestedInput: false,
             nestedCommentText: "",
         };
-
         this.handleCommentContent = this.handleCommentContent.bind(this);
-
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleSubmitNestedComment = this.handleSubmitNestedComment.bind(this);
+        this._loading = React.createRef();
     }
 
-
-
-
     handleCommentContent(comment) {
+
         return (
             <>
                 <Link to={`/${this.props.commentUsers[comment.user_id].username}`} className="comment-avatar">
@@ -37,14 +35,17 @@ class Comment extends React.Component {
                 </div>
 
                 <div className="comment-show-actions">
-                    {!comment.parent_comment_id ? <FontAwesomeIcon icon={faReply} onClick={() => this.setState({ showNestedInput: !this.state.showNestedInput })}/> : null }
-                    { comment.user_id === this.props.currentUser.id ? <FontAwesomeIcon icon={faTrash} /> : null }
+                    { !comment.parent_comment_id ? <FontAwesomeIcon icon={faReply} onClick={() => this.setState({ showNestedInput: !this.state.showNestedInput }) }/> : null }
+                    { comment.user_id === this.props.currentUser.id ? <FontAwesomeIcon icon={faTrash} onClick={ () => { 
+                        this._loading.style.display = ""
+                        this.handleDelete(comment.id)
+                        }}/> : null }
                 </div>
-
-                <div className="comment-show-content">
-                    { comment.body.split("\n").filter(Boolean).map((el, key) => (
-                        <p key={key}>{this.formatUrlsInDescription(el)}</p>)) }
-                </div>
+                
+                <CommentText
+                    mainComment={this.props.comment}
+                    comment={comment}
+                />
             </>
         )
     }
@@ -54,6 +55,7 @@ class Comment extends React.Component {
         const nowDate = new Date();
         const secondsSince = ((nowDate - uploadDate) / 1000);
 
+        if (secondsSince < 1) return `just now`;
         if (secondsSince === 1) return `1 second ago`;
         if (secondsSince < 60) return `${Math.floor(secondsSince)} seconds ago`;
 
@@ -73,29 +75,6 @@ class Comment extends React.Component {
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
     }
 
-    isUrl(word) {
-
-        const urlChecker = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-        return word.match(urlChecker);
-    }
-
-    formatHref(word) {
-        if ((word.includes("https://") || word.includes("http://"))) return word;
-        return `https://${word}`;
-    }
-
-    formatUrlsInDescription(para) {
-        return (
-            <>
-                {para.split(" ").map((word, key) => (
-                    this.isUrl(word) ?
-                        <a href={this.formatHref(word)} key={key} target="_blank">{key !== 0 ? ` ${word}` : word} </a>
-                        :
-                        key !== 0 ? ` ${word}` : word)
-                )}
-            </>
-        )
-    }
 
     handleNestedComment(e) {
         this.setState({
@@ -103,9 +82,38 @@ class Comment extends React.Component {
         });
     }
 
+    handleDelete(commentId) {
+        if (this.props.currentUser.id === this.props.comment.user_id) {
+            this.props.deleteComment(commentId).then(commentId => {
+                this._loading.style.display = "none";
+                this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+            })
+        } 
+    }
+
+    handleSubmitNestedComment() {
+        if ((this.state.nestedCommentText.length > 0) && (this.props.currentUser !== null)) {
+            this.props.createComment({
+                body: this.state.nestedCommentText,
+                track_id: this.props.track.id,
+                parent_comment_id: this.props.comment.id,
+            }).then((trackId) => {
+                if (this.props.track.id === trackId) {
+                    this.setState({
+                        showNestedInput: false,
+                        nestedCommentText: "",
+                    })
+                    this._loading.style.display = "none"
+                    this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                }
+            })
+        }
+
+    }
+
     render() {
         return (
-            <div className="comment-show-container">
+            <div className="comment-show-container" style={{ paddingBottom: this.props.comment.childComments.length > 0 ? 0 : "" }}>
                 { this.handleCommentContent(this.props.comment) }
 
                 { this.state.showNestedInput ? 
@@ -114,7 +122,12 @@ class Comment extends React.Component {
                             <div className="comment-nested-avatar">
                                 <img src={(this.props.currentUser.userPictureUrl || window.defaultAvatar)} />
                             </div>
-                            <form>
+                            <form onSubmit={this.props.currentUser ? this.handleSubmitNestedComment.bind(this) : () => this.props.openModal("login")} onKeyPress={(e) => {
+                                if (e.target.className === "comment-input") {
+                                    return;
+                                }
+                                (e.key === 'Enter') && e.preventDefault();
+                            }}>
                                 <textarea className="comment-input"
                                     maxLength="1000"
                                     value={this.state.commentText}
@@ -123,7 +136,8 @@ class Comment extends React.Component {
                                 <div className="comment-form-button-container">
                                     <button
                                         style={{ marginBottom: "20px" }}
-                                        disabled={this.state.nestedCommentText.length === 0}>Post Comment</button>
+                                        disabled={this.state.nestedCommentText.length === 0}
+                                        onClick={() => this._loading.style.display = ""}>Post Comment</button>
                                 </div>
                             </form>
                         </div>
@@ -140,6 +154,7 @@ class Comment extends React.Component {
                     )
                 })
                 }
+                <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
             </div>
         )
     }

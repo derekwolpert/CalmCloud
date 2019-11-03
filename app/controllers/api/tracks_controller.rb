@@ -5,7 +5,7 @@ class Api::TracksController < ApplicationController
         @track = Track.new(track_params)
         @track.user_id = current_user.id
 
-        errs = ["placeholder error"];
+        errs = ["placeholder error"]
 
         if @track.save
             render :show
