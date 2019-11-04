@@ -602,9 +602,10 @@
 .track-show-small-header {
     position: relative;
     width: 100vw;
-    max-width: 1080px;
+    max-width: 1100px;
     min-width: 740px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .track-show-small-header-left {
@@ -710,16 +711,19 @@
 .track-show-author-small-container {
     height: 52px;
     line-height: 52px;
-    padding-left: 12px;
+    padding-left: 20px;
+    position: relative;
     display: inline-block;
 }
 
 .track-show-author-small {
     height: 52px;
+    line-height: 52px;
+    float: left;
 }
 
 .track-show-author-small > b {
-    max-width: 240px;
+    max-width: 228px;
     display: inline-block;
     padding-right: 5px;
     white-space: nowrap;
@@ -729,10 +733,9 @@
     color: rgb(212, 212, 212);
 }
 
-
 .track-show-author-small > span {
-    max-width: 300px;
     display: inline-block;
+    max-width: 272px;
     padding-right: 5px;
     white-space: nowrap;
     overflow: hidden;
@@ -744,7 +747,6 @@
     color: #4fa6d3;
     transition: 0.2s;
     margin-left: 5px;
-
 }
 
 .track-show-author-small > span > a:hover {
