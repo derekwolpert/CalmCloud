@@ -14,6 +14,7 @@ class FooterAudioPlayer extends React.Component {
         };
         this._audio = React.createRef();
         this.handleFavorites = this.handleFavorites.bind(this);
+        this.handleFavicon = this.handleFavicon.bind(this);
     }
 
 
@@ -47,6 +48,7 @@ class FooterAudioPlayer extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        this.handleFavicon();
         if (this.props.currentTrackId !== prevProps.currentTrackId) {
             if (this.props.currentTrack !== undefined) {
                 if (this.props.currentTrack.id === this.props.currentTrackId) {
@@ -103,6 +105,50 @@ class FooterAudioPlayer extends React.Component {
                     this._audio.currentTime = ((this.props.percent * this._audio.duration) / 100);
                 }
             }
+        }
+    }
+
+    handleFavicon() {
+        const favicon = document.getElementById("favicon");
+        if (this.props.currentTrackId === null) {
+            favicon.href = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAktJREFUWAljYBgFIz0EGIkJgL6+Ps5Pnz4ZMzIymv///98EqOc9EJ9hYmI6raGhcS0sLOwvMeZgU0PQAQ0NDWFAjf1ALIXNAKDYZWZm5uDa2trbOOTxCuN1ANDyCUDd+XhNgEiCQsQHqP4YEWpRlOB0ANCwNKDKmSiq8XM+AqVNhISEHr97904XGF3ywOi6XF9ffxvI/o9LK1YHtLa2Sv7+/fsmUBMvLo04xK8CxSWBWAhJ/gSQHQ/00C0kMTiTCc5CYgAtLwJySbUcZII2ECNbDhKzAOJjQAfIgDjoAKsDgIoi0BVSyBcG6u/AZgZGFABdKgZU+BKbYgrFfgL1CwDN/4FsDrYQ4ENWQEU2O9AsCXTzUBzQ1NSkC1QwFV0Rlfg/JSUln6KbxQwTAAZNHjDbrAPyVWFiVKY/ff369YyDg8ODAwcOwLMlOASAlscBLZsIxCxUthTZOCGgB3cBBU4DQ9oaJsHY2dnJ+/3797tAAVGYIB3of8DCyQNYSO1mAloeT2fLQf5jAobGHGDIc4GiwBckMgBADhgKiSAHqA+A5WArgaEQBHIAx0A5AGivKsgBtCj1iPUTM8gBB4lVTQN195iArZnpQIP/0cBwYoxcz7x///43wNIJVFuZE6ODimpAxTI4FzDw8fFVADnHqWg4IaP+ABUkAMuBL6A0wFBUVPQdSLkAcS8Qk93CBeolBjwEtqZdgJbvASnGaA+0tLTI//371waYR82A8qAyAuxIkGIKwC+g3ktAfIqbm3t3aWnpVwrMGtU6zEIAAJ4QmAHwL8Z/AAAAAElFTkSuQmCC";
+        } else if (this.props.currentTrackId) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 32;
+            canvas.height = 32;
+            const ctx = canvas.getContext('2d');
+            const img = document.createElement('img');
+            img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==";
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, 32, 32);
+                ctx.clearRect(0, 0, 32, 32);
+                ctx.beginPath();
+                ctx.arc(16, 16, 14, 0, 2 * Math.PI);
+                ctx.fillStyle = "transparent";
+                ctx.fill();
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = "rgba(128, 128, 128, 0.4)";
+                ctx.stroke();    
+                ctx.beginPath();
+                ctx.arc(16, 16, 14, (-(2 * Math.PI)/4), ((2 * Math.PI)*(this.state.percentage/100)-(2 * Math.PI)/4));
+                ctx.fillStyle = "transparent";
+                ctx.fill();
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = "#4fa6d3";
+                ctx.stroke();
+                ctx.fillStyle = "rgb(128, 128, 128)";
+                if ((this.props.currentTrackId !== null) && (!this.props.playing)) {
+                    ctx.fillRect(10, 9, 4, 14);
+                    ctx.fillRect(18, 9, 4, 14);
+                } else if (this.props.playing) {
+                    ctx.beginPath();
+                    ctx.moveTo(11, 9);
+                    ctx.lineTo(23, 16);
+                    ctx.lineTo(11, 23);
+                    ctx.fill();
+                }
+                favicon.href = canvas.toDataURL('image/png');
+            };
         }
     }
 
