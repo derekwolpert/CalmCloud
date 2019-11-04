@@ -170,6 +170,11 @@ class TrackUploadForm extends React.Component {
                             onChange={this.handleTitle}
                             placeholder="Choose a title for your upload"
                             maxLength="100" />
+                        {this.state.title.length > 80 ?
+                            <span className="title-length-warning">
+                                <span style={{ color: this.state.title.length > 90 ? "#e2584e" : null }}>{`${100 - this.state.title.length} characters left`}</span>
+                            </span> : null
+                        }  
                     </span>
                 </div>
 
@@ -243,6 +248,11 @@ class TrackUploadForm extends React.Component {
                                     onChange={this.handleTitle}
                                     placeholder="Title"
                                     maxLength="100" />
+                                {this.state.title.length > 80 ?
+                                    <span className="title-length-warning">
+                                        <span style={{ color: this.state.title.length > 90 ? "#e2584e" : null }}>{`${100 - this.state.title.length} characters left`}</span>
+                                    </span> : null
+                                }
                             </div>
 
                             <div className="track-upload-stage-two-form-description-container">
@@ -251,9 +261,14 @@ class TrackUploadForm extends React.Component {
                                     value={this.state.description}
                                     onChange={this.handleDescription}
                                     placeholder="Description"
-                                    style={{height: `${this.state.description.length > 0 ? "79px" : ""}`}}
+                                    style={{ height: `${this.state.description.length > 160 ? "148px" : (this.state.description.length > 0 ? "79px" : "")}` }}
                                     maxLength="1000"
-                                    />
+                                />
+                                {this.state.description.length > 900 ?
+                                    <span className="description-length-warning">
+                                        <span style={{ color: this.state.description.length > 970 ? "#e2584e" : null }}>{`${1000 - this.state.description.length} characters remaining`}</span>
+                                    </span> : null
+                                }
                             </div>
                             
                         </section>

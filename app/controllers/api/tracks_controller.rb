@@ -35,7 +35,7 @@ class Api::TracksController < ApplicationController
     end
 
     def show
-        @track = Track.includes(audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob, tracks: [track_artwork_attachment: :blob]], comments: [ user: [ profile_pic_attachment: :blob ] ] ).find_by(title: params[:title])
+        @track = Track.includes(:favorites, audio_track_attachment: :blob, track_artwork_attachment: :blob, user: [profile_pic_attachment: :blob, tracks: [track_artwork_attachment: :blob]], comments: [ user: [ profile_pic_attachment: :blob ] ],  ).find_by(title: params[:title])
         if @track && @track.user.username == params[:user_username]
             render :show
         elsif !@track

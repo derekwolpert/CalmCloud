@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackShowSidebar from "./track_show_sidebar";
+import TrackShowStats from "./track_show_stats";
 import TrackIndexInfo from "../track_index/track_index_info";
 import CommentContainer from "./comment_container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -81,11 +82,11 @@ class TrackShow extends React.Component {
     }
 
     handleSmallPlayer() {
-        if ((window.scrollY > 437) && !this.state.showSmallPlayer) {
+        if ((window.scrollY > 446) && !this.state.showSmallPlayer) {
             this.setState({
                 showSmallPlayer: true,
             });
-        } else if ((window.scrollY <= 437) && this.state.showSmallPlayer) {
+        } else if ((window.scrollY <= 446) && this.state.showSmallPlayer) {
             this.setState({
                 showSmallPlayer: false,
             });
@@ -454,7 +455,7 @@ class TrackShow extends React.Component {
                     
                     <section className="track-show-inner-container">
                         <div className="track-show-description">
-                            {this.props.track.description ? this.props.track.description.split("\n").filter(Boolean).map((el, key) => (
+                            {this.props.track.description ? this.props.track.description.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                 <p key={key}>{this.formatUrlsInDescription(el)}</p>)
                                 ) : null
                             }
@@ -506,23 +507,26 @@ class TrackShow extends React.Component {
 
                     <section className="track-show-sidebar">
                         
-                        { this.props.tracks.length > 0 ?
-                            <>
-                                <h1>
-                                    More from {this.props.user.display_name}
-                                </h1>
+                        { this.props.track.user_id === this.props.currentUserId ? 
+                            <TrackShowStats track={this.props.track} />
+                            :
+                            (this.props.tracks.length > 0 ?
+                                <>
+                                    <h1>
+                                        More from {this.props.user.display_name}
+                                    </h1>
 
-                                <ul>
-                                    {this.props.tracks.map(subTrack => (
-                                        <TrackShowSidebar
-                                            key={subTrack.id}
-                                            track={subTrack}
-                                            user={this.props.user}
-                                            date={this.formatDate(subTrack.created_at)}
-                                        />
-                                    ))}
-                                </ul> 
-                            </> : null
+                                    <ul>
+                                        {this.props.tracks.map(subTrack => (
+                                            <TrackShowSidebar
+                                                key={subTrack.id}
+                                                track={subTrack}
+                                                user={this.props.user}
+                                                date={this.formatDate(subTrack.created_at)}
+                                            />
+                                        ))}
+                                    </ul> 
+                                </> : null)
                         }
                         <TrackIndexInfo />
                     </section>

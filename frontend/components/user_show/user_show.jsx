@@ -504,26 +504,26 @@ class UserShow extends React.Component {
                                     { !this.state.height ?
                                         (this.props.user.biography ?
                                             <div ref={(a) => this._biography = a}>
-                                                { this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                { this.props.user.biography.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                                     <p key={key}>{this.formatUrlsInDescription(el)}</p>)
                                                 )}
                                             </div> : <div ref={(a) => this._biography = a} />) 
                                         :
                                         this.state.height > 120 ?
                                             ( this.state.showFullDescription ?
-                                                ( this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                ( this.props.user.biography ? this.props.user.biography.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                                     <p key={key}>{this.formatUrlsInDescription(el)}</p>)) : null
                                                 )
                                                 :
                                                 <div className="user-show-biography-fade" onClick={() => this.setState({ showFullDescription: true })}>
-                                                    {this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                                    { this.props.user.biography ? this.props.user.biography.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                                         <p key={key}>{this.formatUrlsInDescription(el)}</p>)
                                                     ) : null
                                                     }
                                                 </div> 
                                             )
                                             :
-                                            (this.props.user.biography ? this.props.user.biography.split("\n").filter(Boolean).map((el, key) => (
+                                            ( this.props.user.biography ? this.props.user.biography.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                                 <p key={key}>{this.formatUrlsInDescription(el)}</p>)) : null
                                             )
                                     }

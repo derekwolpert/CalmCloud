@@ -93,8 +93,7 @@ class UserEdit extends React.Component {
         <>
             <select className="user-edit-country-selection-input"
                 onChange={(e) => this.handleCountry(e)}
-                value={`${this.state.country}`}
-            >
+                value={`${this.state.country}`}>
                     <option value="">-- Select your Country --</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
@@ -431,31 +430,24 @@ class UserEdit extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-
         if (this.props.currentUser.display_name !== this.state.displayName) {
             formData.append('user[display_name]', this.state.displayName);
         }
-
         if (this.props.currentUser.biography !== this.state.biography) {
             formData.append('user[biography]', this.state.biography);
         }
-
         if (this.props.currentUser.country !== this.state.country) {
             formData.append('user[country]', this.state.country);
         }
-
         if (this.props.currentUser.city !== this.state.city) {
             formData.append('user[city]', this.state.city);
         }
-
         if (this.state.profilePicFile) {
             formData.append('user[profile_pic]', this.state.profilePicFile);
         }
-
         if (this.state.coverPicFile) {
             formData.append('user[profile_cover]', this.state.coverPicFile);
         }
-
         this.props.updateUser(this.props.currentUser.username, formData).then(() => {
             this.props.history.push(`/${this.props.currentUser.username}`);
         });

@@ -60,21 +60,21 @@ class CommentText extends React.Component {
                 style={{ paddingBottom: ((this.props.mainComment.childComments.length > 0) && (this.props.mainComment.id === this.props.comment.id)) ? "40px" : "" }}>
                 { !this.state.height ?
                     <div ref={(a) => this._comment = a}>
-                        {this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                        {this.props.comment.body.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                             <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
                     </div> 
                     :
                     this.state.height > 120 ?
                         (this.state.showFullText ?
-                            this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                            this.props.comment.body.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                 <p key={key}>{this.formatUrlsInDescription(el)}</p>))
                             :
                             <div className="user-show-biography-fade" onClick={(e) => { this.setState({ showFullText: true })}}>
-                                {this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                                {this.props.comment.body.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                                     <p key={key}>{this.formatUrlsInDescription(el)}</p>))}
                             </div>)
                         :
-                        this.props.comment.body.split("\n").filter(Boolean).map((el, key) => (
+                        this.props.comment.body.split(/[\r?\n|\r]/).filter(Boolean).map((el, key) => (
                             <p key={key}>{this.formatUrlsInDescription(el)}</p>))
 
                 }

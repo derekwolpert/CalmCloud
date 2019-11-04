@@ -4,6 +4,8 @@ json.track do
     if @track.track_artwork.attached?
         json.trackArtworkUrl url_for(@track.track_artwork)
     end
+    json.commentCount @track.comments.length
+    json.favoriteCount @track.favorites.length
     if @track.comments.length > 0
         json.comments do
             @track.comments.each do |comment|
