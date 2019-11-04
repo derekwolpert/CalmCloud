@@ -312,9 +312,11 @@ demo_track_1 = Track.create!({
     user: demo_user_2,
     title: "Black Star - You Already Knew",
     track_length: 250,
-    description: "This is the description area for the upload Black Star - You Already Knew. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
-    
-    Suspendisse tincidunt est id sodales tempus. Sed eu accumsan lorem, nec ultricies purus. Quisque eu pulvinar lectus, id dictum lectus. Suspendisse potenti. Nunc lacinia mauris ut massa iaculis laoreet. Cras pharetra nisi eget orci varius, ac ultricies nisl dapibus. Morbi id nibh pulvinar, facilisis est eget, laoreet eros. In bibendum maximus semper. Ut vel enim efficitur, blandit felis a, efficitur felis."
+    description: "This is the description area for the upload Black Star - You Already Knew. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
+
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Suspendisse tincidunt est id sodales tempus. Sed eu accumsan lorem, nec ultricies purus. Quisque eu pulvinar lectus, id dictum lectus. Suspendisse potenti. Nunc lacinia mauris ut massa iaculis laoreet. Cras pharetra nisi eget orci varius, ac ultricies nisl dapibus. Morbi id nibh pulvinar, facilisis est eget, laoreet eros. In bibendum maximus semper. Ut vel enim efficitur, blandit felis a, efficitur felis."
 })
 track1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/You+Already+Knew.m4a")
 artwork1 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Black+Star+Aretha.jpg")
@@ -325,9 +327,11 @@ demo_track_2 = Track.create!({
     user: demo_user_1,
     title: "XXYYXX - Overdone (feat. Anneka)",
     track_length: 238,
-    description: "This is the description area for the upload XXYYXX - Overdone (feat. Anneka). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload XXYYXX - Overdone (feat. Anneka). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Pellentesque vitae feugiat tortor. Sed eleifend mauris eu justo vehicula, eget faucibus nulla aliquam. Nunc congue tortor nulla, et posuere justo semper nec. Aliquam erat volutpat. Sed dignissim libero a nisi posuere, non condimentum libero suscipit. Integer id condimentum lacus. Maecenas mattis accumsan ornare. Aliquam sed quam dapibus, ultricies mi quis, hendrerit enim. Nullam vitae velit nunc. Suspendisse nec sodales ex, at maximus massa. Sed et bibendum leo. Duis mollis feugiat urna, eget tincidunt augue laoreet quis. Pellentesque sapien ipsum, elementum vel quam non, tincidunt vestibulum velit."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Pellentesque vitae feugiat tortor. Sed eleifend mauris eu justo vehicula, eget faucibus nulla aliquam. Nunc congue tortor nulla, et posuere justo semper nec. Aliquam erat volutpat. Sed dignissim libero a nisi posuere, non condimentum libero suscipit. Integer id condimentum lacus. Maecenas mattis accumsan ornare. Aliquam sed quam dapibus, ultricies mi quis, hendrerit enim. Nullam vitae velit nunc."
 })
 track2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/14+Overdone+(feat.+Anneka).m4a")
 artwork2 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/XXYYXX.jpg")
@@ -338,7 +342,9 @@ demo_track_3 = Track.create!({
     user: demo_user_5,
     title: "Cassie - All My Love (Kingdom Edit)",
     track_length: 218,
-    description: "This is the description area for the upload Cassie - All My Love (Kingdom Edit). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Cassie - All My Love (Kingdom Edit). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
+
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
 
 Donec lacinia scelerisque libero. Curabitur semper finibus diam id ullamcorper. Aliquam luctus tempor urna, a hendrerit elit. Donec gravida velit felis, interdum dignissim ligula congue lobortis. Cras quis risus orci. Phasellus sed ante quam. Etiam malesuada mauris nisl, tempus venenatis ligula ultrices ut."
 })
@@ -351,9 +357,11 @@ demo_track_4 = Track.create!({
     user: demo_user_1,
     title: "Phoenix - Trying to Be Cool (A-Trak Remix)",
     track_length: 439,
-    description: "This is the description area for the upload Phoenix - Trying to Be Cool (A-Trak Remix). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Phoenix - Trying to Be Cool (A-Trak Remix). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Nam nec tempus mi, luctus auctor ante. Duis auctor neque ac commodo venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper metus et neque semper interdum. Duis interdum a lacus vel tincidunt. Integer aliquet velit vitae vulputate pretium. Phasellus ac magna lacinia, pellentesque arcu et, lacinia nunc. Ut condimentum mollis mauris. Aliquam id lorem id sapien rutrum vestibulum vel et felis."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Nam nec tempus mi, luctus auctor ante. Duis auctor neque ac commodo venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper metus et neque semper interdum. Duis interdum a lacus vel tincidunt. Integer aliquet velit vitae vulputate pretium. Phasellus ac magna lacinia, pellentesque arcu et, lacinia nunc. Ut condimentum mollis mauris."
 })
 track4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Trying+to+Be+Cool+(A-Trak+Remix).m4a")
 artwork4 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Trying+to+Be+Cool+(A-Trak+Remix).jpg")
@@ -364,9 +372,11 @@ demo_track_5 = Track.create!({
     user: demo_user_3,
     title: "Banks - Warm Water (Snakehips Remix)",
     track_length: 253,
-    description: "This is the description area for the upload Banks - Warm Water (Snakehips Remix). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Banks - Warm Water (Snakehips Remix). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Nulla ultricies rhoncus lobortis. Nam lacinia eu tellus a ultricies. Nullam varius vestibulum leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi et massa nec quam lacinia congue. Sed rutrum lacus et mi egestas suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam nulla, rhoncus in pharetra a, tincidunt in justo. Vivamus auctor, elit sed dapibus lobortis, ex enim malesuada erat, nec sodales justo diam at enim. Curabitur euismod consequat metus, ac iaculis ex porttitor id. Suspendisse accumsan, mauris at sollicitudin condimentum, ligula massa egestas dolor, vel efficitur risus felis nec enim. Aenean pellentesque vestibulum nisi, vel volutpat augue auctor at. Etiam tristique imperdiet dignissim. Maecenas sollicitudin at nisi sed lobortis."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Nulla ultricies rhoncus lobortis. Nam lacinia eu tellus a ultricies. Nullam varius vestibulum leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi et massa nec quam lacinia congue. Sed rutrum lacus et mi egestas suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam nulla, rhoncus in pharetra a, tincidunt in justo."
 })
 track5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Warm+Water+(Snakehips+Remix).m4a")
 artwork5 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Warm+Water+(Snakehips+Remix).jpg")
@@ -377,9 +387,11 @@ demo_track_6 = Track.create!({
     user: demo_user_5,
     title: "Chromatics - Cherry (Instrumental)",
     track_length: 271,
-    description: "This is the description area for the upload Chromatics - Cherry (Instrumental). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Chromatics - Cherry (Instrumental). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Pellentesque sed convallis ante. Pellentesque dui est, tempus a lacinia sit amet, volutpat at tortor. Phasellus tincidunt sem a dignissim mollis. Nam lacus nibh, sollicitudin in rhoncus vel, consectetur tristique nunc. Maecenas justo odio, consectetur non orci vitae, interdum tempor elit. Aenean sed vehicula lorem. Morbi nunc lorem, efficitur vel justo vitae, euismod suscipit velit. Ut luctus odio in magna interdum venenatis. Duis vulputate ornare metus vel sollicitudin. Nulla ut hendrerit arcu. Vestibulum diam purus, gravida a elit et, vulputate volutpat felis. Nunc ut lacus dapibus, maximus justo sed, finibus nunc."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Pellentesque sed convallis ante. Pellentesque dui est, tempus a lacinia sit amet, volutpat at tortor. Phasellus tincidunt sem a dignissim mollis. Nam lacus nibh, sollicitudin in rhoncus vel, consectetur tristique nunc. Maecenas justo odio, consectetur non orci vitae, interdum tempor elit. Aenean sed vehicula lorem. Morbi nunc lorem, efficitur vel justo vitae, euismod suscipit velit."
 })
 track6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/09+Cherry+(After+Dark+2)+%5BInstrumental%5D.m4a")
 artwork6 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/After+Dark+2+-+Instrumentals.jpg")
@@ -390,9 +402,11 @@ demo_track_7 = Track.create!({
     user: demo_user_3,
     title: "Kilo Kish - Give It to You (Jordan Knight Cover)",
     track_length: 165,
-    description: "This is the description area for the upload Kilo Kish - Give It to You (Jordan Knight Cover). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Kilo Kish - Give It to You (Jordan Knight Cover). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Proin viverra interdum purus ut tempus. Aenean convallis dui a ipsum rutrum, eget venenatis elit rutrum. Aliquam non porta nunc. Maecenas a rhoncus metus. Cras accumsan dui et turpis imperdiet placerat. Quisque aliquam ex ut metus aliquam venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo felis laoreet elit pharetra malesuada. Praesent posuere, erat quis ornare aliquam, felis diam ultricies lacus, at porta sem elit id orci. Morbi commodo libero risus, id varius augue luctus eu. Nam ac libero in neque imperdiet fringilla ut sit amet ante."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Proin viverra interdum purus ut tempus. Aenean convallis dui a ipsum rutrum, eget venenatis elit rutrum. Aliquam non porta nunc. Maecenas a rhoncus metus. Cras accumsan dui et turpis imperdiet placerat. Quisque aliquam ex ut metus aliquam venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo felis laoreet elit pharetra malesuada."
 })
 track7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Give+It+to+You+(Cover).m4a")
 artwork7 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Give+It+to+You+(Cover).jpg")
@@ -403,9 +417,11 @@ demo_track_8 = Track.create!({
     user: demo_user_4,
     title: "Tinashe - Just the Way I Like You",
     track_length: 271,
-    description: "This is the description area for the upload Tinashe - Just the Way I Like You. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Tinashe - Just the Way I Like You. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Nulla pharetra auctor tortor, at scelerisque quam suscipit at. Nam euismod erat metus, in scelerisque odio sagittis at. Curabitur nec aliquet nunc. Maecenas at sem faucibus, vulputate risus in, dictum elit. Integer ac ornare mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet tristique ipsum, id gravida neque fermentum non. Aenean venenatis interdum lobortis. Nunc egestas bibendum scelerisque. Cras volutpat rhoncus venenatis. Morbi ut dui vehicula, vestibulum arcu eget, ullamcorper quam. Pellentesque convallis justo vel mi maximus faucibus. Fusce ultricies mi vel tortor placerat, ac bibendum quam porta. Morbi nec quam id libero porttitor posuere et a lacus. Pellentesque maximus turpis nisi, in maximus tortor feugiat nec."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Nulla pharetra auctor tortor, at scelerisque quam suscipit at. Nam euismod erat metus, in scelerisque odio sagittis at. Curabitur nec aliquet nunc. Maecenas at sem faucibus, vulputate risus in, dictum elit. Integer ac ornare mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquet tristique ipsum, id gravida neque fermentum non. Aenean venenatis interdum lobortis. Nunc egestas bibendum scelerisque."
 })
 track8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/06+Just+the+Way+I+Like+You.m4a")
 artwork8 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Amethyst.jpg")
@@ -416,9 +432,11 @@ demo_track_9 = Track.create!({
     user: demo_user_2,
     title: "Microglobe & Machinedrum - High on Hope",
     track_length: 261,
-    description: "This is the description area for the upload Microglobe & Machinedrum - High on Hope. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Microglobe & Machinedrum - High on Hope. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Sed sed placerat mi. Ut nec dapibus est. Phasellus ornare tortor a libero sollicitudin, nec placerat eros tempus. Etiam turpis dui, dignissim sed metus sit amet, aliquam maximus massa. Mauris leo lorem, venenatis sed volutpat eu, condimentum non arcu. Proin consequat ac erat fermentum dignissim. In fermentum velit ut libero tincidunt efficitur. Vivamus posuere arcu at tellus facilisis, ut faucibus tellus blandit. Donec vulputate vehicula ligula vel commodo. Ut lacinia nisl dolor, et iaculis nisi egestas ut. Curabitur convallis feugiat enim, vitae gravida sem euismod in."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Sed sed placerat mi. Ut nec dapibus est. Phasellus ornare tortor a libero sollicitudin, nec placerat eros tempus. Etiam turpis dui, dignissim sed metus sit amet, aliquam maximus massa. Mauris leo lorem, venenatis sed volutpat eu, condimentum non arcu. Proin consequat ac erat fermentum dignissim. In fermentum velit ut libero tincidunt efficitur."
 })
 track9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/04+High+on+Hope.m4a")
 artwork9 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Afterlife.jpg")
@@ -429,9 +447,11 @@ demo_track_10 = Track.create!({
     user: demo_user_1,
     title: "DJ Paypal - Ladies Night",
     track_length: 277,
-    description: "This is the description area for the upload DJ Paypal - Ladies Night. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload DJ Paypal - Ladies Night. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Morbi vitae odio eget tortor gravida condimentum. Nulla facilisi. Suspendisse mi sapien, posuere sit amet ante vitae, euismod faucibus libero. Nunc vitae neque in libero dictum feugiat. Aliquam dignissim orci nisl, eget mollis ex semper dapibus. Praesent condimentum metus at justo luctus, a ultrices urna finibus. Donec eu neque velit. Ut eu varius nisl. Phasellus neque quam, facilisis at euismod id, blandit sed neque. Sed feugiat rhoncus arcu. Praesent convallis malesuada eleifend."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Morbi vitae odio eget tortor gravida condimentum. Nulla facilisi. Suspendisse mi sapien, posuere sit amet ante vitae, euismod faucibus libero. Nunc vitae neque in libero dictum feugiat. Aliquam dignissim orci nisl, eget mollis ex semper dapibus. Praesent condimentum metus at justo luctus, a ultrices urna finibus. Donec eu neque velit. Ut eu varius nisl. Phasellus neque quam, facilisis at euismod id, blandit sed neque."
 })
 track10 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/09+Ladies+Night.m4a")
 artwork10 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Sold+Out.jpg")
@@ -442,7 +462,9 @@ demo_track_11 = Track.create!({
     user: demo_user_4,
     title: "BADBADNOTGOOD - Kaleidoscope (KAYTRANADA Flip)",
     track_length: 373,
-    description: "This is the description area for the upload BADBADNOTGOOD - Kaleidoscope (KAYTRANADA Flip). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload BADBADNOTGOOD - Kaleidoscope (KAYTRANADA Flip). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
+
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
 
 Sed vestibulum finibus ligula, molestie pulvinar orci aliquet nec. Fusce dapibus cursus sagittis. Etiam eu enim turpis. Aenean volutpat sem non libero vestibulum, sed tempus neque maximus. Praesent pharetra enim et metus mattis, a mattis mi aliquet. Nulla elementum tellus ut feugiat ultrices. Nullam interdum tellus a eros convallis cursus. Sed sodales felis nisl, a iaculis tellus imperdiet sed."
 })
@@ -455,9 +477,11 @@ demo_track_12 = Track.create!({
     user: demo_user_5,
     title: "Iglooghost - Ell (feat. Rocks FOE)",
     track_length: 131,
-    description: "This is the description area for the upload Iglooghost - Ell (feat. Rocks FOE). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Iglooghost - Ell (feat. Rocks FOE). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Nam quis ipsum bibendum, tempus quam a, fermentum nunc. Nullam magna massa, iaculis sit amet felis quis, dictum facilisis felis. Suspendisse at dignissim odio. Quisque placerat lobortis porttitor. Ut eget orci tortor. Quisque nec diam ullamcorper, eleifend velit mollis, dictum diam. Sed faucibus purus nec vehicula condimentum. Aenean id tellus maximus, aliquam velit ac, ultricies dolor. Phasellus est urna, tristique et tempor et, pellentesque nec velit. Donec ut ante tristique, molestie enim nec, pellentesque mauris. Nam nibh erat, accumsan mollis nibh eu, viverra maximus magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin suscipit commodo arcu, eget laoreet dui. Maecenas ac maximus magna. Integer elementum aliquam mi, id tempor tellus dignissim non."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Nam quis ipsum bibendum, tempus quam a, fermentum nunc. Nullam magna massa, iaculis sit amet felis quis, dictum facilisis felis. Suspendisse at dignissim odio. Quisque placerat lobortis porttitor. Ut eget orci tortor. Quisque nec diam ullamcorper, eleifend velit mollis, dictum diam. Sed faucibus purus nec vehicula condimentum. Aenean id tellus maximus, aliquam velit ac, ultricies dolor."
 })
 track12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Ell+(feat.+Rocks+FOE).m4a")
 artwork12 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Ell+(feat.+Rocks+FOE).jpg")
@@ -468,9 +492,11 @@ demo_track_13 = Track.create!({
     user: demo_user_3,
     title: "Kelela & Steve Gurley - Truth or Dare (Hot Boyz Dub) [Bok Bok Edit]",
     track_length: 290,
-    description: "This is the description area for the upload Kelela & Steve Gurley - Truth or Dare (Hot Boyz Dub) [Bok Bok Edit]. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Kelela & Steve Gurley - Truth or Dare (Hot Boyz Dub) [Bok Bok Edit]. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Sed pellentesque velit sed sapien semper consequat. Curabitur tempus erat vulputate tellus rhoncus pellentesque vitae varius augue. Nam vel pretium ipsum. Quisque tristique ligula id tellus fringilla, ac viverra ligula facilisis. Ut eget urna fermentum, pulvinar nisi eget, hendrerit leo. Etiam leo lacus, porttitor nec efficitur id, mollis a dui. Cras quis pharetra quam. Proin malesuada fermentum lorem quis imperdiet. Duis vulputate vulputate odio, dapibus sagittis ex faucibus vitae. Integer sollicitudin augue est, sit amet suscipit urna ornare at."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Sed pellentesque velit sed sapien semper consequat. Curabitur tempus erat vulputate tellus rhoncus pellentesque vitae varius augue. Nam vel pretium ipsum. Quisque tristique ligula id tellus fringilla, ac viverra ligula facilisis. Ut eget urna fermentum, pulvinar nisi eget, hendrerit leo. Etiam leo lacus, porttitor nec efficitur id, mollis a dui."
 })
 track13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Truth+Or+Dare+(Hot+Boyz+Dub)+%5BBok+Bok+Edit%5D.m4a")
 artwork13 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Dub+Me+Apart.jpg")
@@ -482,9 +508,11 @@ demo_track_14 = Track.create!({
     user: demo_user_5,
     title: "DJ Chap - Uh",
     track_length: 144,
-    description: "This is the description area for the upload DJ Chap - Uh. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload DJ Chap - Uh. When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Mauris faucibus pretium nunc dapibus venenatis. Mauris blandit elit risus, sed eleifend nisl vestibulum at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam non magna cursus, consectetur quam at, rhoncus nulla. Etiam in dui at enim condimentum maximus a vel leo. Pellentesque ullamcorper tempus libero, a venenatis dolor rhoncus non. In mattis nibh eget est vestibulum, sed pellentesque eros molestie. Mauris eleifend bibendum aliquam. Morbi accumsan nulla sit amet augue tincidunt, ac aliquet lacus sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Mauris faucibus pretium nunc dapibus venenatis. Mauris blandit elit risus, sed eleifend nisl vestibulum at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam non magna cursus, consectetur quam at, rhoncus nulla. Etiam in dui at enim condimentum maximus a vel leo. Pellentesque ullamcorper tempus libero, a venenatis dolor rhoncus non."
 })
 track14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/03+Uh.m4a")
 artwork14 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Teklife+VIP+2019.jpg")
@@ -495,9 +523,11 @@ demo_track_15 = Track.create!({
     user: demo_user_1,
     title: "Kindness - Cry Everything (Bok Bok & Kindness Remix)",
     track_length: 200,
-    description: "This is the description area for the upload Kindness - Cry Everything (Bok Bok & Kindness Remix). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks. For more information regarding CalmCloud check out the project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+    description: "This is the description area for the upload Kindness - Cry Everything (Bok Bok & Kindness Remix). When a user uploads an audio file, they have various details they can customize - the title, artwork, and description - of an upload. A user can also return to their uploads at a later point and edit any of these details. The description is parsed before being presented to ensure line breaks are preserved, and URLs are converted to clickable hyperlinks.
 
-Ut sit amet velit sapien. Phasellus at tortor at libero fringilla porttitor in et dolor. Sed sed nulla tempus risus sagittis finibus. In consectetur, dui ac vulputate mattis, turpis mauris condimentum ante, a interdum purus tortor sit amet urna. Nunc tincidunt facilisis elementum. Aliquam ullamcorper tempor nisi vitae laoreet. Quisque sed orci nulla. Integer vestibulum, lorem id placerat porta, sem lacus condimentum libero, ut accumsan turpis enim vitae enim. In ut ante sollicitudin, mattis magna vitae, eleifend metus. Mauris ut nisi quam. Sed vestibulum metus a turpis rutrum, porttitor mattis ligula commodo."
+For more information regarding CalmCloud check out this project’s GitHub page: https://github.com/derekwolpert/CalmCloud
+
+Ut sit amet velit sapien. Phasellus at tortor at libero fringilla porttitor in et dolor. Sed sed nulla tempus risus sagittis finibus. In consectetur, dui ac vulputate mattis, turpis mauris condimentum ante, a interdum purus tortor sit amet urna. Nunc tincidunt facilisis elementum. Aliquam ullamcorper tempor nisi vitae laoreet. Quisque sed orci nulla."
 })
 track15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/seed_music/Cry+Everything+(Bok+Bok+%26+Kindness+Remix).m4a")
 artwork15 = open("https://calm-cloud-aa-seed.s3.us-east-2.amazonaws.com/resized_artwork/Cry+Everything+(Bok+Bok+%26+Kindness+Remix).jpg")
