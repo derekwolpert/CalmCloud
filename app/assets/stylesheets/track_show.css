@@ -579,13 +579,17 @@
 
 .track-show-small-header-container {
     position: fixed;
+    display: block;
+    box-sizing: border-box;
+    top: 0;
     left: 0;
     right: 0;
-    top: 0;
-    opacity: 1;
-    display: table;
     z-index: 10;
-    width: 100vw;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1460px;
+    min-width: 740px;
+
     height: 52px;
     margin: 0 auto;
     background: rgba(18,18,18,0.95);
