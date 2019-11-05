@@ -513,3 +513,23 @@
 .track-index-item-remove-favorite:hover {
     color: #e2584e;
 }
+
+.track-index-item-remove-favorite:hover:after {
+    position: absolute;
+    background: rgba(212,212,212,0.85);
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(212,212,212,.1);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(18,18,18);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 16px;
+    content: "Remove Favorite";
+    white-space: nowrap;
+    right: 32px;
+    padding: 3px 7px;
+    z-index: 100;
+    transition: 0.2s;
+    text-align: center;
+}

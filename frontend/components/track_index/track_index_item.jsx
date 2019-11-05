@@ -233,7 +233,7 @@ class TrackIndexItem extends React.Component {
                         </div>
                     </div>
                 </section>
-                { this.props.path === "/favorites" ?  
+                { ((this.props.path === "/favorites") || (this.props.showRemoveFavorite)) ?  
                     <span className="track-index-item-remove-favorite" onClick={() => this.handleFavorites()}>
                         <FontAwesomeIcon icon={faTimes} />
                     </span> : null

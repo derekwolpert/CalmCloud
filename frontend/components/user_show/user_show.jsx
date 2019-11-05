@@ -425,6 +425,7 @@ class UserShow extends React.Component {
                 openModal={this.props.openModal}
                 openShareModal={this.props.openShareModal}
                 currentPercent={this.props.currentPercent}
+                showRemoveFavorite={((this.props.match.path === "/:username/favorites") && (this.props.currentUser.id === this.props.user.id))}
             />));
 
         return (
