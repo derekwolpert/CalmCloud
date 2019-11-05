@@ -9,14 +9,9 @@ import { currentPercent } from "../../../actions/footer_player_actions";
 import { withRouter } from 'react-router-dom';
 import TrackIndex from '../track_index';
 
-
-const sortTracksByPlaycount = (tracks) => {
-    return tracks.sort((a, b) => (a.play_count >= b.play_count) ? -1 : 1);
-};
-
 const mapStateToProps = (state) => {
     return {
-        tracks: sortTracksByPlaycount(Object.values(state.entities.tracks)),
+        tracks: state.entities.tracks,
         users: state.entities.users,
         currentTrack: state.ui.currentTrack,
         percent: state.ui.percent,

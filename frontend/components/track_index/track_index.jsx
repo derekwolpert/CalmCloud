@@ -11,6 +11,7 @@ class TrackIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            trackItemsOrder: null,
             large: null,
             loaded: false,
         };
@@ -25,6 +26,7 @@ class TrackIndex extends React.Component {
         this.props.fetchAllTracks()
             .then(() => {
                 this.setState({
+                    trackItemsOrder: this.props.match.path === "/trending" ? Object.values(this.props.tracks).sort((a, b) => (a.play_count >= b.play_count) ? -1 : 1).map(track => track.id) : null,
                     loaded: true
                 });
             });
@@ -117,27 +119,52 @@ class TrackIndex extends React.Component {
 
     render() {
 
-        const indexItems = this.props.tracks.map( (track, idx) => (
-            <TrackIndexItem
-                key={track.id}
-                track={track}
-                position={idx + 1}
-                user={this.findUser(track.user_id)}
-                changeTrack={this.props.changeTrack}
-                currentTrack={this.props.currentTrack}
-                currentUser={this.props.currentUser}
-                pauseTrack={this.props.pauseTrack}
-                playing={this.props.playing}
-                percent={this.props.percent}
-                path={this.props.match.path}
-                createFavoriteTrack={this.props.createFavoriteTrack}
-                deleteFavoriteTrack={this.props.deleteFavoriteTrack}
-                fetchCurrentUser={this.props.fetchCurrentUser}
-                openModal={this.props.openModal}
-                openShareModal={this.props.openShareModal}
-                currentPercent={this.props.currentPercent}
-            />) );
-        
+        let indexItems;
+
+        if (this.state.trackItemsOrder !== null) {
+            indexItems = this.state.trackItemsOrder.map((trackId, idx) => (
+                <TrackIndexItem
+                    key={trackId}
+                    track={this.props.tracks[trackId]}
+                    position={idx + 1}
+                    user={this.findUser(this.props.tracks[trackId].user_id)}
+                    changeTrack={this.props.changeTrack}
+                    currentTrack={this.props.currentTrack}
+                    currentUser={this.props.currentUser}
+                    pauseTrack={this.props.pauseTrack}
+                    playing={this.props.playing}
+                    percent={this.props.percent}
+                    path={this.props.match.path}
+                    createFavoriteTrack={this.props.createFavoriteTrack}
+                    deleteFavoriteTrack={this.props.deleteFavoriteTrack}
+                    fetchCurrentUser={this.props.fetchCurrentUser}
+                    openModal={this.props.openModal}
+                    openShareModal={this.props.openShareModal}
+                    currentPercent={this.props.currentPercent}
+                />));
+        } else if (this.props.match.path !== "/trending") {
+            indexItems = this.props.tracks.map((track, idx) => (
+                <TrackIndexItem
+                    key={track.id}
+                    track={track}
+                    position={idx + 1}
+                    user={this.findUser(track.user_id)}
+                    changeTrack={this.props.changeTrack}
+                    currentTrack={this.props.currentTrack}
+                    currentUser={this.props.currentUser}
+                    pauseTrack={this.props.pauseTrack}
+                    playing={this.props.playing}
+                    percent={this.props.percent}
+                    path={this.props.match.path}
+                    createFavoriteTrack={this.props.createFavoriteTrack}
+                    deleteFavoriteTrack={this.props.deleteFavoriteTrack}
+                    fetchCurrentUser={this.props.fetchCurrentUser}
+                    openModal={this.props.openModal}
+                    openShareModal={this.props.openShareModal}
+                    currentPercent={this.props.currentPercent}
+                />));
+        }
+
         return (
             <>
                 {this.state.large ? null : this.smallSidebar()}
@@ -149,7 +176,7 @@ class TrackIndex extends React.Component {
                     /> : null }
                     {this.state.loaded ?
                         <section className="track-index-track-container">
-                            {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) || ((this.props.tracks.length === 0) && (this.props.match.path === "/"))?
+                            {((this.props.currentUser.favorites.length === 0) && (this.props.match.path === "/favorites")) || ((this.props.tracks.length === 0) && (this.props.match.path === "/")) ?
                                 <>
                                     <h1>{this.indexTitle()}</h1> 
                                     <div className="track-index-no-content-message">
@@ -159,11 +186,18 @@ class TrackIndex extends React.Component {
                                 :
                                 <>
                                     <h1>{this.indexTitle()}
-                                    
-                                        <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id)})} className="track-index-play-all">
-                                            <FontAwesomeIcon icon={faPlay} />
-                                            Play
-                                        </button>  
+                                        { this.props.match.path !== "/trending" ?
+                                            <button onClick={(() => { this.props.playing && (this.props.tracks[0].id === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.props.tracks[0].id) })} className="track-index-play-all">
+                                                <FontAwesomeIcon icon={faPlay} />
+                                                Play
+                                            </button> 
+                                            :
+                                            <button onClick={(() => { this.props.playing && (this.state.trackItemsOrder[0] === this.props.currentTrack) ? this.props.pauseTrack() : this.props.changeTrack(this.state.trackItemsOrder[0]) })} className="track-index-play-all">
+                                                <FontAwesomeIcon icon={faPlay} />
+                                                Play
+                                            </button> 
+                                        }
+
                                     </h1>
                                     {indexItems}
                                     { this.props.tracks.length > 0 ? <span className="track-index-bottom-cloud"><FontAwesomeIcon icon={faCloud} /></span> : null }

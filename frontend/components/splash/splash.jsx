@@ -11,6 +11,7 @@ class Splash extends React.Component {
         super(props);
 
         this.state = {
+            trackItemsOrder: null,
             loaded: false,
         };
         this.findUser = this.findUser.bind(this);
@@ -21,6 +22,7 @@ class Splash extends React.Component {
         this.props.fetchAllTracks()
             .then(() => {
                 this.setState({
+                    trackItemsOrder: Object.values(this.props.tracks).sort((a, b) => (a.play_count >= b.play_count) ? -1 : 1).map(track => track.id),
                     loaded: true
                 });
             });
@@ -37,27 +39,33 @@ class Splash extends React.Component {
     }
     
     render() {
-        const indexItems = this.props.tracks.map( (track, idx) => (
-            <TrackIndexItem
-                key={track.id}
-                track={track}
-                position={idx + 1}
-                user={this.findUser(track.user_id)}
-                changeTrack={this.props.changeTrack}
-                currentTrack={this.props.currentTrack}
-                currentUser={null}
-                pauseTrack={this.props.pauseTrack}
-                playing={this.props.playing}
-                percent={this.props.percent}
-                path={null}
-                createFavoriteTrack={null}
-                deleteFavoriteTrack={null}
-                fetchCurrentUser={null}
-                openModal={this.props.openModal}
-                openShareModal={this.props.openShareModal}
-                currentPercent={this.props.currentPercent}
-            />));
+        let indexItems;
 
+        if (this.state.trackItemsOrder !== null) {
+
+            indexItems = this.state.trackItemsOrder.map((trackId, idx) => (
+                <TrackIndexItem
+                    key={trackId}
+                    track={this.props.tracks[trackId]}
+                    position={idx + 1}
+                    user={this.findUser(this.props.tracks[trackId].user_id)}
+                    changeTrack={this.props.changeTrack}
+                    currentTrack={this.props.currentTrack}
+                    currentUser={null}
+                    pauseTrack={this.props.pauseTrack}
+                    playing={this.props.playing}
+                    percent={this.props.percent}
+                    path={null}
+                    createFavoriteTrack={null}
+                    deleteFavoriteTrack={null}
+                    fetchCurrentUser={null}
+                    openModal={this.props.openModal}
+                    openShareModal={this.props.openShareModal}
+                    currentPercent={this.props.currentPercent}
+                />));
+        }
+
+        
 
         return (
             <>
