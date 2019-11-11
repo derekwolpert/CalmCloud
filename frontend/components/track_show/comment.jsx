@@ -127,7 +127,10 @@ class Comment extends React.Component {
                             <div className="comment-nested-avatar">
                                 <img src={this.props.currentUser ? (this.props.currentUser.userPictureUrl || window.defaultAvatar) : window.commentAvatar} />
                             </div>
-                            <form onSubmit={this.props.currentUser ? this.handleSubmitNestedComment : () => this.props.openModal("login")} onKeyPress={(e) => {
+                            <form onSubmit={this.props.currentUser ? this.handleSubmitNestedComment : (e) => {
+                                e.preventDefault();
+                                this.props.openModal("login");
+                            }} onKeyPress={(e) => {
                                 if (e.target.className === "comment-input") {
                                     return;
                                 }
