@@ -38,7 +38,6 @@ class TrackShow extends React.Component {
             });
         });
         window.addEventListener('scroll', this.handleSmallPlayer);
-
         document.title = `${this.props.match.params.title} | CalmCloud`;
     }
 
@@ -235,18 +234,25 @@ class TrackShow extends React.Component {
     }
 
     handleFavorites() {
+        this._loading.style.display = "";
         if (this.props.currentUser.favorites.includes(this.props.track.id)) {
             this.props.deleteFavoriteTrack(this.props.track.id).then(trackId => {
                 if (trackId === this.props.track.id) {
-                    this.props.fetchCurrentUser(this.props.currentUser.username)
+                    this.props.fetchCurrentUser(this.props.currentUser.username).then(() => {
+                        this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                        this._loading.style.display = "none";
+                    })
                 }
             });
         } else {
             this.props.createFavoriteTrack(this.props.track.id).then(trackId => {
                 if (trackId === this.props.track.id) {
-                    this.props.fetchCurrentUser(this.props.currentUser.username)
+                    this.props.fetchCurrentUser(this.props.currentUser.username).then(() => {
+                        this.props.fetchTrack(this.props.match.params.username, this.props.match.params.title);
+                        this._loading.style.display = "none";
+                    })
                 }
-            });;
+            });
         }
     }
 

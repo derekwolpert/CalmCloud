@@ -224,7 +224,7 @@ class TrackEditForm extends React.Component {
                                         }
                                     </div>
                                     <div className="track-upload-save-container">
-                                        <Link to="/" className="track-upload-cancel">Cancel</Link>
+                                        <Link to={`/${this.props.currentUser.username}/${this.props.track.title}`} className="track-upload-cancel">Cancel</Link>
                                         <input className="track-upload-button" type="submit" value="Save"
                                             disabled={this.handleEditButton() || this.props.currentUserTracks.includes(this.state.title.toLowerCase())}
                                             onClick={() => this._loading.style.display = ""} />

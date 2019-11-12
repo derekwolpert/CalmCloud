@@ -15,6 +15,7 @@ class FooterAudioPlayer extends React.Component {
         this._audio = React.createRef();
         this.handleFavorites = this.handleFavorites.bind(this);
         this.handleFavicon = this.handleFavicon.bind(this);
+        this._loading = React.createRef();
     }
 
 
@@ -184,16 +185,17 @@ class FooterAudioPlayer extends React.Component {
     }
 
     handleFavorites() {
+        this._loading.style.display = "";
         if (this.props.currentUser.favorites.includes(this.props.currentTrackId)) {
             this.props.deleteFavoriteTrack(this.props.currentTrackId).then((trackId) => {
                 if (trackId === this.props.currentTrackId) {
-                    this.props.fetchCurrentUser(this.props.currentUser.username);
+                    this.props.fetchCurrentUser(this.props.currentUser.username).then(() => this._loading.style.display = "none");
                 }
             });
         } else {
             this.props.createFavoriteTrack(this.props.currentTrackId).then(trackId => {
                 if (trackId === this.props.currentTrackId) {
-                    this.props.fetchCurrentUser(this.props.currentUser.username);
+                    this.props.fetchCurrentUser(this.props.currentUser.username).then(() => this._loading.style.display = "none");
                 }
             });
         }
@@ -204,23 +206,17 @@ class FooterAudioPlayer extends React.Component {
             return (
                 <div className="footer-player-container">
                     <div className="footer-player">
-
-
                         <div className={`footer-player-controls-${this.props.playing ? "pause" : "play"}`}>
                             <div onClick={() => this.playPauseAudio()} >
                                 <FontAwesomeIcon icon={this.props.playing ? faPause : faPlay} />
                             </div>
                         </div>
-
                         <div className="footer-player-artwork-container">
                             <img src={this.props.currentTrack.trackArtworkUrl ? this.props.currentTrack.trackArtworkUrl : window.defaultArtwork} />
                         </div>
-
                         <div className="footer-player-details">
-
                             <h6 className="footer-player-title"><Link to={`/${this.props.user.username}/${this.props.currentTrack.title}`}>{this.props.currentTrack.title}</Link></h6>
                             <h6 className="footer-player-user">uploaded by <Link to={`/${this.props.user.username}`}>{this.props.user.display_name}</Link></h6>
-
 
                             <div className="footer-player-icons">
                                 <div className={`footer-player-favorite-icon${this.props.currentUser ? (this.props.currentUser.favorites.includes(this.props.currentTrackId) ? "-active" : "") : "" }`}
@@ -312,6 +308,7 @@ class FooterAudioPlayer extends React.Component {
                         ref={(a) => this._audio = a}
                         src={this.props.currentTrack.trackAudioUrl}
                     />
+                    <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
                 </div>
             )
         }

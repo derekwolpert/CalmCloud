@@ -13,6 +13,7 @@ class TrackIndexItem extends React.Component {
         this.confirmNew = this.confirmNew.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
         this.handleProgress = this.handleProgress.bind(this);
+        this._loading = React.createRef();
     }
 
     formatTime(time) {
@@ -110,16 +111,17 @@ class TrackIndexItem extends React.Component {
     }
 
     handleFavorites() {
+        this._loading.style.display = "";
         if (this.props.currentUser.favorites.includes(this.props.track.id)) {
             this.props.deleteFavoriteTrack(this.props.track.id).then((trackId) => {
                 if (trackId === this.props.track.id) {
-                    this.props.fetchCurrentUser(this.props.currentUser.username)
+                    this.props.fetchCurrentUser(this.props.currentUser.username).then(() => this._loading.style.display = "none")
                 }
             });
         } else {
             this.props.createFavoriteTrack(this.props.track.id).then((trackId) => {
                 if (trackId === this.props.track.id) {
-                    this.props.fetchCurrentUser(this.props.currentUser.username)
+                    this.props.fetchCurrentUser(this.props.currentUser.username).then(() => this._loading.style.display = "none")
                 }
             });
         }
@@ -238,6 +240,7 @@ class TrackIndexItem extends React.Component {
                         <FontAwesomeIcon icon={faTimes} />
                     </span> : null
                 }
+                <div ref={(l) => this._loading = l} className="loading-spinner-background" style={{ display: "none" }}><div className="loading-spinner"><div></div><div></div><div></div><div></div></div></div>
             </section>
         )
     }
