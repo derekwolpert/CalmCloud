@@ -2,9 +2,8 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-
         errs = []
-
+        
         if User.find_by(email: params[:user][:email])
             errs.push("This email address is already in use, please login.")
         end

@@ -32,13 +32,44 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * Integration with **AWS S3** for efficent storage and retrieval of **user uploaded audio and image files**
 * **Error handling** for character count warnings, restrictions on forbidden usernames/track titles and qualifications for valid password/email inputs
 * **Continuous audio playback** across multiple webpages
-* Custom presentation of website content depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile pages and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
+* Customized presentation depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
 * A **polished and intutive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
 
 ## Highlighted Features
 
+### User Authentication and Session Errors 
+
+<p align="middle">
+    <img src="./readme_images/calmcloud_session.png" width="438" />
+    <img src="./readme_images/calmcloud_error.png" width="438" />
+</p>
+
+```
+def create
+
+    @user = User.find_by_username(params[:user][:login], params[:user][:password])
+    @user ||= User.find_by_email(params[:user][:login], params[:user][:password])
+
+    if @user.nil?
+        if User.find_by(username: params[:user][:login]) || User.find_by(email: params[:user][:login])
+            render json: ["Incorrect password"], status: 401
+        else
+            if (params[:user][:login]).count("@") > 0 && (params[:user][:login]).split("@").last.count(".") > 0
+                render json: ["There is no account registered with this email address. Please register."], status: 401
+            else
+                render json: ["Username does not exist"], status: 401
+            end
+        end
+    else
+        login!(@user)
+    end
+end
+
+```
+
 ## Potential Future Features
 
+* Impliment *DRY*-er code, improve resource allication and general optimization
 
 
 
