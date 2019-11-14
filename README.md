@@ -22,8 +22,8 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * `CSS3` and `HTML5`, used to manage the presentation and styling of the project
 
 <p align="middle">
-    <img src="./calmcloud_index.png" width="441" />
-    <img src="./calmcloud_track.png" width="441" />
+    <img src="./calmcloud_index.png" width="438" />
+    <img src="./calmcloud_track.png" width="438" />
 </p>
 
 ### Addtional Features
