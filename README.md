@@ -6,7 +6,7 @@
 
 CalmCloud, a clone of Mixcloud, is an online music streaming service for music lovers - a platform where users can upload, share and interact with audio content provided by the website's wider community. Built with React, Redux, JavaScript, and Ruby on Rails, supported by a PostgreSQL database and ASW S3 storage.
 
-### [This project is currently hosted at CalmCloud.app - CLICK HERE to visit the live version of this project](https://www.calmcloud.app/)
+#### [This project is currently hosted at CalmCloud.app - CLICK HERE to visit the live version of this project](https://www.calmcloud.app/)
 
 ![CalmCloud Demo Gif](calmcloud_gif.gif)
 
@@ -26,12 +26,16 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
     <img src="./calmcloud_track.png" width="438" />
 </p>
 
-### Addtional Features
+## Features:
 
-
+* Comprehensive **CRUD (create, read, update, delete) behavior** for **account creation**, **session managment**, **audio content distribution**, **text comments**, **content favoriting** and **user subcriptions**
+* Integration with **AWS S3** for efficent storage and retrieval of **user uploaded audio and image files**
+* **Error handling** for character count warnings, restrictions on forbidden usernames/track titles and qualifications for valid password/email inputs
+* **Continuous audio playback** across multiple webpages
+* Customized presentation of website content depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile pages and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
+* **Polished and intutive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
 
 ## Highlighted Features
-
 
 ## Potential Future Features
 
