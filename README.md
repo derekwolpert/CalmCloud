@@ -22,8 +22,8 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * `CSS3` and `HTML5`, used to manage the presentation and styling of the project
 
 <p align="middle">
-    <img src="./readme_images/calmcloud_index.png" width="438" />
-    <img src="./readme_images/calmcloud_user.png" width="438" />
+    <img src="./readme_images/calmcloud_index.png" width="430" />
+    <img src="./readme_images/calmcloud_user.png" width="430" />
 </p>
 
 ## Features:
@@ -42,8 +42,8 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 CalmCloud features user authentication through the usage of hashed passwords.  When a user attempts to login their inputted password is validated with the assistance of the Ruby gem ``BCrypt``. 
 
 <p align="middle">
-    <img src="./readme_images/calmcloud_session.png" width="438" />
-    <img src="./readme_images/calmcloud_error.png" width="438" />
+    <img src="./readme_images/calmcloud_session.png" width="430" />
+    <img src="./readme_images/calmcloud_error.png" width="430" />
 </p>
 
 The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When a user is logging in, they can enter either a registered username or email address as a form of identification. A database query is made to find an existing account matching the user-given information. If an account is found the user will be logged-in. Otherwise an appropriate error message will be rendered. 
@@ -78,8 +78,8 @@ end
 Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to format/style their visuals, the general basis from how the playback position is accessed and maintained is the same - the ``Redux`` *store*.
 
 <p align="middle">
-    <img src="./readme_images/calmcloud_track.png" width="438" />
-    <img src="./readme_images/calmcloud_progress.png" width="438" />
+    <img src="./readme_images/calmcloud_track.png" width="430" />
+    <img src="./readme_images/calmcloud_progress.png" width="430" />
 </p>
 
 Below is a code snippet from the individual audio track page to show how the waveform progress bars are achieved. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamically rendered to a percentage of its container's width depending on whether or not the page's content corresponds to audio actively playing.
@@ -124,11 +124,11 @@ Additionally, the waveform container can be clicked on to adjust the audio's pla
 ## Additional Images
 
 <p align="middle">
-    <img src="./readme_images/calmcloud_share.png" width="438" />
-    <img src="./readme_images/calmcloud_comments.png" width="438" />
+    <img src="./readme_images/calmcloud_share.png" width="430" />
+    <img src="./readme_images/calmcloud_comments.png" width="430" />
 </p>
 <p align="middle">
-    <img src="./readme_images/calmcloud_user_edit.png" width="438" />
-    <img src="./readme_images/calmcloud_broswer.png" width="438" />
+    <img src="./readme_images/calmcloud_user_edit.png" width="430" />
+    <img src="./readme_images/calmcloud_broswer.png" width="430" />
 </p>
 
