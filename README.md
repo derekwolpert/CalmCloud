@@ -39,12 +39,17 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 
 ### User Authentication and Session Errors 
 
+CalmCloud features user authentication through the usage of hashed passwords.  When a user attempts to login their inputted password is validated with the assistence of the Ruby gem ``BCrypt``. 
+
 <p align="middle">
     <img src="./readme_images/calmcloud_session.png" width="438" />
     <img src="./readme_images/calmcloud_error.png" width="438" />
 </p>
 
+The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When logging in a user can enter either a registered username or email address as a form of idenification. Then a database query is made to find an existing account matching the user-given details. If an account is found the user will be logged-in. Otherwise an appropiate error messages is rendered. 
+
 ```
+//...
 def create
 
     @user = User.find_by_username(params[:user][:login], params[:user][:password])
@@ -63,13 +68,16 @@ def create
     else
         login!(@user)
     end
+    
 end
-
+...//
 ```
 
 ## Potential Future Features
 
-* Impliment *DRY*-er code, improve resource allication and general optimization
-
-
-
+* Tag audio tracks with keywords (e.g. genre) to assist with discovery/soring of content
+* Search functionality
+* Generate custom waveforms for each audio track 
+* User-made playlists
+* Queuing of upcoming tracks
+* Impliment *DRY*-er, more efficent code
