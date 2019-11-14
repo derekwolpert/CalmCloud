@@ -12,10 +12,10 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 
 ## Architecture & Technologies
 
-* `React`, a JavaScript library used to assist with efficent managment of rapidly changing data and maintaining a single-page web application structure
+* `React`, a JavaScript library used to assist with efficient management of rapidly changing data and maintaining a single-page web application structure
 * `Redux`, a JavaScript library used in coordination with `React` to create a centralized *store* for organizing and accessing data from 
 * `JavaScript`, the project's frontend programing language
-* `Ruby on Rails`, a web application framework used to provide server-side strucutre for querying and retrieval of data from database
+* `Ruby on Rails`, a web application framework used to provide server-side structure for querying and retrieval of data from database
 * `Ruby`, the project's backend programing language
 * `PostgreSQL`, a database system used storage and management of data
 * `Webpack`, a JavaScript bundler to assist with development and production builds
@@ -28,25 +28,25 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 
 ## Features:
 
-* Comprehensive **CRUD (create, read, update, delete) behavior** for **account creation**, **session managment**, **audio content distribution**, **text comments**, **content favoriting** and **user subcriptions**
-* Integration with **AWS S3** for efficent storage and retrieval of **user uploaded audio and image files**
+* Comprehensive **CRUD (create, read, update, delete) behavior** for **account creation**, **session management**, **audio content distribution**, **text comments**, **content favoriting** and **user subscriptions**
+* Integration with **AWS S3** for efficient storage and retrieval of **user uploaded audio and image files**
 * **Error handling** for character count warnings, restrictions on forbidden usernames/track titles and qualifications for valid password/email inputs
 * **Continuous audio playback** across multiple webpages
 * Customized presentation depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
-* A **polished and intutive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
+* A **polished and intuitive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
 
 ## Highlighted Features
 
 ### User Authentication and Session Errors 
 
-CalmCloud features user authentication through the usage of hashed passwords.  When a user attempts to login their inputted password is validated with the assistence of the Ruby gem ``BCrypt``. 
+CalmCloud features user authentication through the usage of hashed passwords.  When a user attempts to login their inputted password is validated with the assistance of the Ruby gem ``BCrypt``. 
 
 <p align="middle">
     <img src="./readme_images/calmcloud_session.png" width="438" />
     <img src="./readme_images/calmcloud_error.png" width="438" />
 </p>
 
-The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When a user is logging in they can enter either a registered username or email address as a form of idenification. A database query is made to find an existing account matching the user-given information. If an account is found the user will be logged-in. Otherwise an appropiate error message will be rendered. 
+The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When a user is logging in they can enter either a registered username or email address as a form of identification. A database query is made to find an existing account matching the user-given information. If an account is found the user will be logged-in. Otherwise an appropriate error message will be rendered. 
 
 ```
 //...
@@ -75,14 +75,14 @@ end
 
 ### Using Waveforms as Interactive Progress Bars for Audio Playback
 
-Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to fomrmat/style their visuals, the general general basis from how the playback position is accessed and maintained is the same - from the ``Redux`` *store*!
+Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to format/style their visuals, the general basis from how the playback position is accessed and maintained is the same - from the ``Redux`` *store*!
 
 <p align="middle">
     <img src="./readme_images/calmcloud_track.png" width="438" />
     <img src="./readme_images/calmcloud_progress.png" width="438" />
 </p>
 
-Below is a code snippet from the indiviual audio track page to show how the waveform progress bars are achieved. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamicly rendered to a percentage of the container's width depending on whether or not the page's content corresponds to audio actively playing.
+Below is a code snippet from the individual audio track page to show how the waveform progress bars are achieved. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamically rendered to a percentage of its container's width depending on whether or not the page's content corresponds to audio actively playing.
 
 ```
 //...
@@ -114,14 +114,14 @@ Addtionally, the waveform container can be clicked on to adjust the audio's play
 
 ## Potential Future Features
 
-* Allow keyswords (e.g. genre) to be associated with audio tracks to assist with discovery/soring of content
+* Allow keywords (e.g. genre) to be associated with audio tracks to assist with discovery/soring of content
 * Search functionality
 * Generate custom waveforms for each audio track
 * User-made playlists
 * Queuing of upcoming tracks
-* implement *DRY*-er, more efficent code
+* implement *DRY*-er, more efficient code
 
-## Addtional Images
+## Additional Images
 
 <p align="middle">
     <img src="./readme_images/calmcloud_share.png" width="438" />
