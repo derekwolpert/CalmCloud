@@ -23,7 +23,7 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 
 <p align="middle">
     <img src="./readme_images/calmcloud_index.png" width="438" />
-    <img src="./readme_images/calmcloud_track.png" width="438" />
+    <img src="./readme_images/calmcloud_user.png" width="438" />
 </p>
 
 ## Features:
@@ -46,7 +46,7 @@ CalmCloud features user authentication through the usage of hashed passwords.  W
     <img src="./readme_images/calmcloud_error.png" width="438" />
 </p>
 
-The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When logging in a user can enter either a registered username or email address as a form of idenification. Then a database query is made to find an existing account matching the user-given details. If an account is found the user will be logged-in. Otherwise an appropiate error messages is rendered. 
+The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When a user is logging in they can enter either a registered username or email address as a form of idenification. A database query is made to find an existing account matching the user-given information. If an account is found the user will be logged-in. Otherwise an appropiate error message will be rendered. 
 
 ```
 //...
@@ -68,16 +68,55 @@ def create
     else
         login!(@user)
     end
-    
+
 end
+...//
+```
+
+### Using Waveforms as Interactive Progress Bars for Audio Playback
+
+Throughout CalmCloud 
+
+<p align="middle">
+    <img src="./readme_images/calmcloud_track.png" width="438" />
+    <img src="./readme_images/calmcloud_progress.png" width="438" />
+</p>
+
+```
+//...
+<div onClick={(e) => this.handleProgress(e)} className="track-show-waveform-container">
+
+    <div className="track-show-listened-waveform" style={{ width: `${this.formatListened()}%`}} >
+        <div className="track-show-listened-wrap">
+            <img src={window.defaultWaveformShowLight} />
+        </div>
+    </div>
+
+    <img src={window.defaultWaveformShowDark} />
+
+    <span className="track-show-length">{this.formatTime(this.props.track.track_length)}</span>
+
+</div>
 ...//
 ```
 
 ## Potential Future Features
 
-* Tag audio tracks with keywords (e.g. genre) to assist with discovery/soring of content
+* Allow keyswords (e.g. genre) to be associated with audio tracks to assist with discovery/soring of content
 * Search functionality
-* Generate custom waveforms for each audio track 
+* Generate custom waveforms for each audio track
 * User-made playlists
 * Queuing of upcoming tracks
-* Impliment *DRY*-er, more efficent code
+* implement *DRY*-er, more efficent code
+
+## Addtional Images
+
+<p align="middle">
+    <img src="./readme_images/calmcloud_share.png" width="438" />
+    <img src="./readme_images/calmcloud_comments.png" width="438" />
+</p>
+<p align="middle">
+    <img src="./readme_images/calmcloud_user_edit.png" width="438" />
+    <img src="./readme_images/calmcloud_broswer.png" width="438" />
+</p>
+
