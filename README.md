@@ -82,7 +82,7 @@ Throughout CalmCloud there are many indicators to show the current playback stat
     <img src="./readme_images/calmcloud_progress.png" width="430" />
 </p>
 
-Below is a code snippet for the waveform progress bars from the individual audio track page ``React`` component. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamically rendered to a percentage of its container's width depending on whether or not the page's content corresponds to audio actively playing.
+Below is a code snippet for the waveform progress bars from the audio track page ``React`` component. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamically rendered to a percentage of its container's width depending on whether or not the page's content corresponds to audio actively playing.
 
 ```
 //...
