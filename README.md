@@ -75,12 +75,14 @@ end
 
 ### Using Waveforms as Interactive Progress Bars for Audio Playback
 
-Throughout CalmCloud 
+Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to fomrmat/style their visuals, the general general basis from how the playback position is accessed and maintained is the same - from the ``Redux`` *store*!
 
 <p align="middle">
     <img src="./readme_images/calmcloud_track.png" width="438" />
     <img src="./readme_images/calmcloud_progress.png" width="438" />
 </p>
+
+Below is a code snippet from the indiviual audio track page to show how the waveform progress bars are achieved. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamicly rendered to a percentage of the container's width depending on whether or not the page's content corresponds to audio actively playing.
 
 ```
 //...
@@ -97,6 +99,16 @@ Throughout CalmCloud
     <span className="track-show-length">{this.formatTime(this.props.track.track_length)}</span>
 
 </div>
+...//
+```
+Addtionally, the waveform container can be clicked on to adjust the audio's playback position. As seen in the code snippet below, this is done by converting the relative location of a *click* to a precentage, which is then sent to the ``Redux`` *store* to be accessed by other ``React`` compontents.
+```
+//...
+    handleProgress(e) {
+        const bounds = e.currentTarget.getBoundingClientRect();
+        const percent = ((e.clientX - (bounds.left)) / bounds.width);
+        this.props.currentPercent((percent * 100));
+    }
 ...//
 ```
 
