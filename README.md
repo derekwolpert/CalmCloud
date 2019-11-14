@@ -32,8 +32,8 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * Integration with **AWS S3** for efficent storage and retrieval of **user uploaded audio and image files**
 * **Error handling** for character count warnings, restrictions on forbidden usernames/track titles and qualifications for valid password/email inputs
 * **Continuous audio playback** across multiple webpages
-* Customized presentation of website content depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile pages and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
-* **Polished and intutive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
+* Custom presentation of website content depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile pages and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
+* A **polished and intutive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
 
 ## Highlighted Features
 
