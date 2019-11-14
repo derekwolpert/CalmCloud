@@ -46,7 +46,7 @@ CalmCloud features user authentication through the usage of hashed passwords.  W
     <img src="./readme_images/calmcloud_error.png" width="438" />
 </p>
 
-The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When a user is logging in they can enter either a registered username or email address as a form of identification. A database query is made to find an existing account matching the user-given information. If an account is found the user will be logged-in. Otherwise an appropriate error message will be rendered. 
+The code snippet below is taken from CalmCloud's ``Session Controller`` to show a portion of the login process. When a user is logging in, they can enter either a registered username or email address as a form of identification. A database query is made to find an existing account matching the user-given information. If an account is found the user will be logged-in. Otherwise an appropriate error message will be rendered. 
 
 ```
 //...
@@ -75,7 +75,7 @@ end
 
 ### Using Waveforms as Interactive Progress Bars for Audio Playback
 
-Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to format/style their visuals, the general basis from how the playback position is accessed and maintained is the same - from the ``Redux`` *store*!
+Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to format/style their visuals, the general basis from how the playback position is accessed and maintained is the same - the ``Redux`` *store*.
 
 <p align="middle">
     <img src="./readme_images/calmcloud_track.png" width="438" />
@@ -101,7 +101,7 @@ Below is a code snippet from the individual audio track page to show how the wav
 </div>
 ...//
 ```
-Addtionally, the waveform container can be clicked on to adjust the audio's playback position. As seen in the code snippet below, this is done by converting the relative location of a *click* to a precentage, which is then sent to the ``Redux`` *store* to be accessed by other ``React`` compontents.
+Additionally, the waveform container can be clicked on to adjust the audio's playback position. As seen in the code snippet below, this is done by converting the relative location of a *click* to a percentage, which is then sent to the ``Redux`` *store* to be accessed by other ``React`` components.
 ```
 //...
     handleProgress(e) {
