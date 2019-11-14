@@ -1,5 +1,5 @@
 <a href="https://www.calmcloud.app/">
-    <img src="./calmcloud_logo.png" alt="CalmCloud logo" title="CalmCloud" align="right" height="60" />
+    <img src="./readme_images/calmcloud_logo.png" alt="CalmCloud logo" title="CalmCloud" align="right" height="60" />
 </a>
 
 # CalmCloud
@@ -8,7 +8,7 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 
 #### [This project is currently hosted at CalmCloud.app - CLICK HERE to visit the live version of this project](https://www.calmcloud.app/)
 
-![CalmCloud Demo Gif](calmcloud_gif.gif)
+![CalmCloud Demo Gif](readme_images/calmcloud_gif.gif)
 
 ## Architecture & Technologies
 
@@ -22,8 +22,8 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * `CSS3` and `HTML5`, used to manage the presentation and styling of the project
 
 <p align="middle">
-    <img src="./calmcloud_index.png" width="438" />
-    <img src="./calmcloud_track.png" width="438" />
+    <img src="./readme_images/calmcloud_index.png" width="438" />
+    <img src="./readme_images/calmcloud_track.png" width="438" />
 </p>
 
 ## Features:
