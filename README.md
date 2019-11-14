@@ -17,7 +17,7 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * `JavaScript`, the project's frontend programing language
 * `Ruby on Rails`, a web application framework used to provide server-side structure for querying and retrieval of data from database
 * `Ruby`, the project's backend programing language
-* `PostgreSQL`, a database system used storage and management of data
+* `PostgreSQL`, a database system used for storage and management of information
 * `Webpack`, a JavaScript bundler to assist with development and production builds
 * `CSS3` and `HTML5`, used to manage the presentation and styling of the project
 
@@ -33,7 +33,7 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 * **Error handling** for character count warnings, restrictions on forbidden usernames/track titles and qualifications for valid password/email inputs
 * **Continuous audio playback** across multiple webpages
 * Customized presentation depending on whether or not a user is logged-in, and what content that user has interacted with (e.g. user profile and audio track pages appear slightly different if the current logged-in user is the *owner* of the content on the page)
-* A **polished and intuitive user interface/experience** - including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
+* A **polished and intuitive user interface/experience** including progress bars, user/track statistics, loading indicators, and dynamically updating favicon indicators
 
 ## Highlighted Features
 
@@ -82,7 +82,7 @@ Throughout CalmCloud there are many indicators to show the current playback stat
     <img src="./readme_images/calmcloud_progress.png" width="430" />
 </p>
 
-Below is a code snippet from the individual audio track page to show how the waveform progress bars are achieved. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamically rendered to a percentage of its container's width depending on whether or not the page's content corresponds to audio actively playing.
+Below is a code snippet for the waveform progress bars from the individual audio track page ``React`` component. Two translucent waveform images are overlaid on top of one another within a single HTML container. One of these images always occupies the entire width of the container. The other image is dynamically rendered to a percentage of its container's width depending on whether or not the page's content corresponds to audio actively playing.
 
 ```
 //...
