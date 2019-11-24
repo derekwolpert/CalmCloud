@@ -13,7 +13,7 @@ CalmCloud, a clone of Mixcloud, is an online music streaming service for music l
 ## Architecture & Technologies
 
 * `React`, a JavaScript library used to assist with efficient management of rapidly changing data and maintaining a single-page web application structure
-* `Redux`, a JavaScript library used in coordination with `React` to create a centralized *store* for organizing and accessing data from 
+* `Redux`, a JavaScript library used in coordination with `React` to create a centralized *store* for organizing and accessing data 
 * `JavaScript`, the project's frontend programing language
 * `Ruby on Rails`, a web application framework used to provide server-side structure for querying and retrieval of data from database
 * `Ruby`, the project's backend programing language
