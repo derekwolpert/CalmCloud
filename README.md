@@ -75,7 +75,7 @@ end
 
 ### Using Waveforms as Interactive Progress Bars for Audio Playback
 
-Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include the waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to format/style their visuals, the general basis from how the playback position is accessed and maintained is the same - the ``Redux`` *store*.
+Throughout CalmCloud there are many indicators to show the current playback status of audio content. These include waveforms, process circles, progress bars, and even the website's own favicon. While all of these examples use different techniques to format/style their visuals, the general basis from how the playback position is accessed and maintained is the same - utilizing the ``Redux`` *store*.
 
 <p align="middle">
     <img src="./readme_images/calmcloud_track.png" width="430" />
