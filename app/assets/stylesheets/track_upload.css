@@ -151,7 +151,7 @@
     margin: 20px auto;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    cursor: not-allowed;
     line-height: 57px;
     text-align: center;
     background-color: #4fa6d3;
