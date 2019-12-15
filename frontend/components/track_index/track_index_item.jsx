@@ -58,8 +58,8 @@ class TrackIndexItem extends React.Component {
         if (el === "hours") return "hrs";
         if (el === "day") return "day";
         if (el === "days") return "days";
-        if (el === "month") return "mon";
-        if (el === "months") return "mons";
+        if (el === "month") return "mo";
+        if (el === "months") return "mos";
         if (el === "year") return "yr";
         if (el === "years") return "yrs";
     }

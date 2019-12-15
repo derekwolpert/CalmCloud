@@ -70,8 +70,8 @@ class Comment extends React.Component {
         if (secondsSince === 86400) return `1 day ago`;
         if (secondsSince < 2592000) return `${Math.floor(secondsSince / 86400)} days ago`;
 
-        if (secondsSince === 2592000) return `1 mon ago`;
-        if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} mons ago`;
+        if (secondsSince === 2592000) return `1 mo ago`;
+        if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} mos ago`;
 
         if (secondsSince === 31104000) return `1 yr ago`;
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} yrs ago`;
