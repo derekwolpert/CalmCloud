@@ -65,7 +65,7 @@ class TrackUploadGuest extends React.Component {
 
                         <div className="track-upload-next-stage"
                             onClick={() => this.props.openModal('signup')}>
-                            Join free to upload
+                            Join for free to upload
                         </div>
                     </section>
 
