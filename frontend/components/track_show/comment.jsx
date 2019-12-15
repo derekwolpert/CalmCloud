@@ -31,7 +31,7 @@ class Comment extends React.Component {
                     <Link to={`/${this.props.commentUsers[comment.user_id].username}`} className={`comment-header-display-name${comment.user_id === this.props.track.user_id ? "-uploader" : ""}`}>
                         {this.props.commentUsers[comment.user_id].display_name}
                     </Link>
-                    <span>{ this.formatDate(comment.created_at).split("second").join("sec").split("minute").join("min").split("month").join("mo").split("year").join("yr") }</span>
+                    <span>{ this.formatDate(comment.created_at) }</span>
                 </div>
 
                 <div className="comment-show-actions">
@@ -58,23 +58,23 @@ class Comment extends React.Component {
         const secondsSince = ((nowDate - uploadDate) / 1000);
 
         if (secondsSince < 1) return `just now`;
-        if (secondsSince === 1) return `1 second ago`;
-        if (secondsSince < 60) return `${Math.floor(secondsSince)} seconds ago`;
+        if (secondsSince === 1) return `1 sec ago`;
+        if (secondsSince < 60) return `${Math.floor(secondsSince)} secs ago`;
 
-        if (secondsSince === 60) return `1 minute ago`;
-        if (secondsSince < 3600) return `${Math.floor(secondsSince / 60)} minutes ago`;
+        if (secondsSince === 60) return `1 min ago`;
+        if (secondsSince < 3600) return `${Math.floor(secondsSince / 60)} mins ago`;
 
-        if (secondsSince === 3600) return `1 hour ago`;
-        if (secondsSince < 86400) return `${Math.floor(secondsSince / 3600)} hours ago`;
+        if (secondsSince === 3600) return `1 hr ago`;
+        if (secondsSince < 86400) return `${Math.floor(secondsSince / 3600)} hrs ago`;
 
         if (secondsSince === 86400) return `1 day ago`;
         if (secondsSince < 2592000) return `${Math.floor(secondsSince / 86400)} days ago`;
 
-        if (secondsSince === 2592000) return `1 month ago`;
-        if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} months ago`;
+        if (secondsSince === 2592000) return `1 mon ago`;
+        if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} mons ago`;
 
-        if (secondsSince === 31104000) return `1 year ago`;
-        if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
+        if (secondsSince === 31104000) return `1 yr ago`;
+        if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} yrs ago`;
     }
 
 

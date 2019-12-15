@@ -24,7 +24,7 @@ class TrackIndexItem extends React.Component {
         return ((time >= 3600 ? (hours + ":") : "") + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds));
     }
 
-    formatDate()  {
+    formatDate() {
         const uploadDate = new Date(this.props.track.created_at);
         const nowDate = new Date();
         const secondsSince = ((nowDate - uploadDate)/1000);
@@ -47,6 +47,21 @@ class TrackIndexItem extends React.Component {
 
         if (secondsSince === 31104000) return `1 year ago`;
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
+    }
+
+    formatAbr(el) {
+        if (el === "second") return "sec";
+        if (el === "seconds") return "secs";
+        if (el === "minute") return "min";
+        if (el === "minutes") return "mins";
+        if (el === "hour") return "hr";
+        if (el === "hours") return "hrs";
+        if (el === "day") return "day";
+        if (el === "days") return "days";
+        if (el === "month") return "mon";
+        if (el === "months") return "mons";
+        if (el === "year") return "yr";
+        if (el === "years") return "yrs";
     }
 
     confirmNew() {
@@ -229,7 +244,7 @@ class TrackIndexItem extends React.Component {
                                 <FontAwesomeIcon icon={faCalendarAlt} />
                             </div>
                             <div className="track-index-item-new-stats">
-                                {`${this.formateDate().split(" ")[0]}${this.formateDate().split(" ")[1][0]} ${this.formateDate().split(" ")[2]}`}
+                                {`${this.formateDate().split(" ")[0]} ${this.formatAbr(this.formateDate().split(" ")[1])} ${this.formateDate().split(" ")[2]}`}
                                 { this.confirmNew() ? <div className="track-index-item-new-badge">New</div> : null }
                             </div>
                         </div>

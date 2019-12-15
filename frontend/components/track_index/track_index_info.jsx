@@ -16,8 +16,7 @@ class TrackIndexInfo extends React.Component {
             <>
                 <h1>CalmCloud Info</h1>
                 <div className="track-index-footer-nav">
-                    <div><span>CalmCloud</span> is a clone of the online music streaming</div>
-                    <div>service <span><a href="https://www.mixcloud.com" target="_blank">Mixcloud</a></span> created by <span><a href="https://www.derekwolpert.com/" target="_blank">Derek Wolpert</a>.</span></div>
+                    <div><span>CalmCloud</span> was created by <span><a href="https://www.derekwolpert.com/" target="_blank">Derek Wolpert</a></span>, and is inspired by the music streaming service <span><a href="https://www.mixcloud.com" target="_blank">Mixcloud</a></span>.</div>
                     <section style={{ margin: "10px 0" }} className="track-index-sidebar-nav-bar" />
                     <div>For more information about this project and the</div>
                     <div>developer please visit the links below:</div>
