@@ -30,22 +30,22 @@ class TrackIndexItem extends React.Component {
         const secondsSince = ((nowDate - uploadDate)/1000);
 
         if (secondsSince < 1) return `just now`;
-        if (secondsSince === 1) return `1 second ago`;
+        if ((secondsSince >= 1) && (secondsSince < 2)) return `1 second ago`;
         if (secondsSince < 60) return `${Math.floor(secondsSince)} seconds ago`;
 
-        if (secondsSince === 60) return `1 minute ago`;
+        if ((secondsSince >= 60) && (secondsSince < 120)) return `1 minute ago`;
         if (secondsSince < 3600) return `${Math.floor(secondsSince / 60)} minutes ago`;
 
-        if (secondsSince === 3600) return `1 hour ago`;
+        if ((secondsSince >= 3600) && (secondsSince < 7200)) return `1 hour ago`;
         if (secondsSince < 86400) return `${Math.floor(secondsSince / 3600)} hours ago`;
 
-        if (secondsSince === 86400) return `1 day ago`;
+        if ((secondsSince >= 86400) && (secondsSince < 172800)) return `1 day ago`;
         if (secondsSince < 2592000) return `${Math.floor(secondsSince / 86400)} days ago`;
 
-        if (secondsSince === 2592000) return `1 month ago`;
+        if ((secondsSince >= 2592000) && (secondsSince < 5184000)) return `1 month ago`;
         if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} months ago`;
 
-        if (secondsSince === 31104000) return `1 year ago`;
+        if ((secondsSince >= 31104000) && (secondsSince < 62208000)) return `1 year ago`;
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} years ago`;
     }
 

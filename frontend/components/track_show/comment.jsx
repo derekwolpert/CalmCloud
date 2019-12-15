@@ -58,22 +58,22 @@ class Comment extends React.Component {
         const secondsSince = ((nowDate - uploadDate) / 1000);
 
         if (secondsSince < 1) return `just now`;
-        if (secondsSince === 1) return `1 sec ago`;
+        if ((secondsSince >= 1) && (secondsSince < 2)) return `1 sec ago`;
         if (secondsSince < 60) return `${Math.floor(secondsSince)} secs ago`;
 
-        if (secondsSince === 60) return `1 min ago`;
+        if ((secondsSince >= 60) && (secondsSince < 120)) return `1 min ago`;
         if (secondsSince < 3600) return `${Math.floor(secondsSince / 60)} mins ago`;
 
-        if (secondsSince === 3600) return `1 hr ago`;
+        if ((secondsSince >= 3600) && (secondsSince < 7200)) return `1 hr ago`;
         if (secondsSince < 86400) return `${Math.floor(secondsSince / 3600)} hrs ago`;
 
-        if (secondsSince === 86400) return `1 day ago`;
+        if ((secondsSince >= 86400) && (secondsSince < 172800)) return `1 day ago`;
         if (secondsSince < 2592000) return `${Math.floor(secondsSince / 86400)} days ago`;
 
-        if (secondsSince === 2592000) return `1 mo ago`;
+        if ((secondsSince >= 2592000) && (secondsSince < 5184000)) return `1 mo ago`;
         if (secondsSince < 31104000) return `${Math.floor(secondsSince / 2592000)} mos ago`;
 
-        if (secondsSince === 31104000) return `1 yr ago`;
+        if ((secondsSince >= 31104000) && (secondsSince < 62208000)) return `1 yr ago`;
         if (secondsSince > 31104000) return `${Math.floor(secondsSince / 31104000)} yrs ago`;
     }
 
