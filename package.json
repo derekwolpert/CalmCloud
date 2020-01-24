@@ -28,15 +28,16 @@
     "redux": "^4.0.5",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
     "redux-logger": "^3.0.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development",
-    "postinstall": "webpack --optimize-minimize"
+    "start": "webpack --watch --config webpack.dev.js",
+    "postinstall": "webpack --config webpack.prod.js  --optimize-minimize"
   },
   "engines": {
     "node": "10.13.0",
