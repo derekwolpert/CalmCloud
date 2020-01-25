@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import TrackIndexItem from "../track_index/track_index_item";
 import TrackIndexStats from "../track_index/track_index_stats";
-import TrackIndexInfo from "../track_index/track_index_info"
+import TrackIndexInfo from "../track_index/track_index_info";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faCloud, faChevronDown, faChevronUp, faMapMarkerAlt, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faFrown } from '@fortawesome/free-regular-svg-icons';

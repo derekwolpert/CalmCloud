@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class TrackEditForm extends React.Component {
 
-
     static getDerivedStateFromProps(props, state) {
         if (props.track && !state.stateIsSet) {
             return {

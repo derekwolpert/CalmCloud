@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { Link, Redirect, withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import Splash from './splash';
 import { fetchAllTracks } from '../../actions/track_actions';

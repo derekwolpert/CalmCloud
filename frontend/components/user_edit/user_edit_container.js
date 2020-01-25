@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { updateUser } from '../../actions/user_actions';
 import { fetchCurrentUser } from '../../actions/session_actions';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import UserEdit from './user_edit';
 
 const mapStateToProps = state => {

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesAlt, faMicrophoneAlt, faUserFriends, faCloud } from '@fortawesome/free-solid-svg-icons';
 import TrackIndexInfo from "../track_index/track_index_info";
 import TrackIndexItem from '../track_index/track_index_item';
-import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
 

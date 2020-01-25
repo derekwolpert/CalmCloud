@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import TrackUploadGuest from './track_upload_guest';
 

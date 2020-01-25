@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import TrackIndexContainer from './track_index/track_index_container';
 import TrackNewUploadsContainer from './track_index/variations/track_new_uploads_container';
 import TrackFavoritesContainer from './track_index/variations/track_favorites';
