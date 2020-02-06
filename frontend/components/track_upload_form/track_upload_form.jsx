@@ -146,8 +146,12 @@ class TrackUploadForm extends React.Component {
                     <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
                 }
 
-                {["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase()) ?
+                {["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase()) ?
                     <div className="track-upload-title-warning">This title is reserved - please select a different title for this upload before moving forward.</div> : null
+                }
+
+                {this.state.title.includes("?") ?
+                    <div className="track-upload-title-warning">Upload titles cannot include a question mark - please remove the question mark from the title before moving forward.</div> : null
                 }
 
                 <div className="audio-file-input-container">
@@ -178,8 +182,8 @@ class TrackUploadForm extends React.Component {
                     </span>
                 </div>
 
-                <div className={(this.state.audioFile && this.state.title) && !(this.props.currentUserTracks.includes(this.state.title.toLowerCase())) ? "track-upload-next-stage" : "track-upload-next-stage-disabled"}
-                    onClick={(this.state.audioFile && this.state.title) && !(this.props.currentUserTracks.includes(this.state.title.toLowerCase())) ? () => this.handleNextStage() : null}>
+                <div className={((this.state.audioFile && this.state.title) && !(this.props.currentUserTracks.includes(this.state.title.toLowerCase())) && !(["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase()) || this.state.title.includes("?"))) ? "track-upload-next-stage" : "track-upload-next-stage-disabled"}
+                    onClick={((this.state.audioFile && this.state.title) && !(this.props.currentUserTracks.includes(this.state.title.toLowerCase())) && !(["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase()) || this.state.title.includes("?"))) ? () => this.handleNextStage() : null}>
                     Continue to Edit Information
                 </div>
             </>
@@ -207,8 +211,12 @@ class TrackUploadForm extends React.Component {
                     <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
                 }
 
-                {["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase()) ?
+                {["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase()) ?
                     <div className="track-upload-title-warning">This title is reserved - please select a different title for this upload before moving forward.</div> : null
+                }
+
+                {this.state.title.includes("?") ?
+                    <div className="track-upload-title-warning">Upload titles cannot include a question mark - please remove the question mark from the title before moving forward.</div> : null
                 }
 
                 <div className="track-upload-cf">
@@ -277,7 +285,7 @@ class TrackUploadForm extends React.Component {
                         <div className="track-upload-save-container">
                             <Link to="/" className="track-upload-cancel">Cancel</Link>
                             <input className="track-upload-button" type="submit" value="Upload and Publish"
-                                disabled={(!this.state.audioUrl || !(this.state.title.length > 0)) || (this.props.currentUserTracks.includes(this.state.title.toLowerCase()) || (["uploads", "favorites", "followers", "following"].includes(this.state.title.toLowerCase())))}
+                                disabled={(((!this.state.audioUrl || !(this.state.title.length > 0)) || this.props.currentUserTracks.includes(this.state.title.toLowerCase())) || (["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase()) || this.state.title.includes("?")))}
                                 onClick={() => this._loading.style.display = ""} />
                         </div>
                     </section>

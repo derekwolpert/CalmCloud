@@ -108,6 +108,9 @@ class TrackEditForm extends React.Component {
     }
 
     handleEditButton() {
+        if (this.state.title.length === 0) {
+            return true;
+        }
         if (this.props.track.title !== this.state.title) {
             return false;
         }
@@ -158,6 +161,14 @@ class TrackEditForm extends React.Component {
 
                             {this.props.currentUserTracks.includes(this.state.title.toLowerCase()) ?
                                 <div className="track-upload-title-warning">You already have an upload with this title - please select a unique title for this upload before moving forward.</div> : null
+                            }
+
+                            {["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase()) ?
+                                <div className="track-upload-title-warning">This title is reserved - please select a different title for this upload before moving forward.</div> : null
+                            }
+
+                            {this.state.title.includes("?") ?
+                                <div className="track-upload-title-warning">Upload titles cannot include a question mark - please remove the question mark from the title before moving forward.</div> : null
                             }
 
                             <div className="track-upload-cf">
@@ -225,7 +236,7 @@ class TrackEditForm extends React.Component {
                                     <div className="track-upload-save-container">
                                         <Link to={`/${this.props.currentUser.username}/${this.props.track.title}`} className="track-upload-cancel">Cancel</Link>
                                         <input className="track-upload-button" type="submit" value="Save"
-                                            disabled={this.handleEditButton() || this.props.currentUserTracks.includes(this.state.title.toLowerCase())}
+                                            disabled={(this.handleEditButton() || this.props.currentUserTracks.includes(this.state.title.toLowerCase()) || (["uploads", "favorites", "followers", "following", "settings"].includes(this.state.title.toLowerCase())) || this.state.title.includes("?"))}
                                             onClick={() => this._loading.style.display = ""} />
                                     </div>
                                 </section>
