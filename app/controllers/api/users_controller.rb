@@ -11,6 +11,10 @@ class Api::UsersController < ApplicationController
         if (params[:user][:email]).count("@") <= 0 && (params[:user][:email]).split("@").last.count(".") <= 0
             errs.push("Enter a valid email address.")
         end
+
+        if (params[:user][:username].count("?") > 0)
+            errs.push("Username cannot include a question mark.")
+        end
         
         if User.find_by(username: params[:user][:username])
             errs.push("This username is already taken.")
