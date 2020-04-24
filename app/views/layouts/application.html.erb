@@ -13,9 +13,8 @@
     <%= javascript_include_tag "application" %>
 
     <script type="text/javascript">
-      if (("calmcloud.herokuapp.com" !== window.location.host) || (window.location.protocol !== "https:")) {
+      if (window.location.protocol !== "https:")) {
         window.location.protocol = "https:";
-        window.location.host = "calmcloud.herokuapp.com";
       }
     </script>
 
