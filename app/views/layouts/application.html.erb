@@ -12,13 +12,13 @@
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
 
-    <script type="text/javascript">
-      if ("calmcloud.herokuapp.com" === window.location.host) {
-        window.location.host = "www.calmcloud.app";
-      } else if ((("www.calmcloud.app" || "calmcloud.app") === window.location.host) && (window.location.protocol !== "https:")) {
-        window.location.protocol = "https:";
-      }
-    </script>
+    # <script type="text/javascript">
+    #   if ("calmcloud.herokuapp.com" === window.location.host) {
+    #     window.location.host = "www.calmcloud.app";
+    #   } else if ((("www.calmcloud.app" || "calmcloud.app") === window.location.host) && (window.location.protocol !== "https:")) {
+    #     window.location.protocol = "https:";
+    #   }
+    # </script>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
     <%= favicon_link_tag 'apple-touch-icon.png' %>
