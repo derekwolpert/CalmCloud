@@ -40,8 +40,8 @@
     "postinstall": "webpack --config webpack.prod.js --optimize-minimize"
   },
   "engines": {
-    "node": "10.13.0",
-    "npm": "6.4.1"
+    "node": "12.16.1",
+    "npm": "6.13.1"
   },
   "repository": {
     "type": "git",
