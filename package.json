@@ -1,21 +1,21 @@
 {
   "name": "calm_cloud",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "Calm Cloud",
   "main": "./frontend/calm_cloud.jsx",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "dependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
-    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@fortawesome/react-fontawesome": "^0.1.10",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.4.0",
