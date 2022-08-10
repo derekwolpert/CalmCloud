@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_TRACKS, RECEIVE_TRACK, REMOVE_TRACK } from "../actions/track_actions";
-import merge from "lodash/merge";
+import { merge } from 'lodash';
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import { RECEIVE_USER } from '../actions/user_actions';
 
